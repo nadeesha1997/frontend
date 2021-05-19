@@ -166,7 +166,7 @@ function Header(props){
 // export default FirstNav;
 const mapStateToProps=(userState)=>{
     return {
-        auth:userState
+        auth:userState.auth
     }
 };
 

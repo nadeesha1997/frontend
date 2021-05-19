@@ -1,7 +1,8 @@
 import axios from "axios";
 import { AuthActionType } from "../actions/AuthAction";
 const authState={
-    isLoggedin:false
+    isLoggedin:false,
+    user:null
 };
 const getAuthState=()=>{
     const auth=localStorage.getItem("auth");

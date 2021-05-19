@@ -1,5 +1,5 @@
 import axios from "axios";
-// import moment from "moment"
+import moment from "moment"
 const DailyModuleActionType={
     GET_MODULES_SUCCESS:"GET_MODULES_SUCCESS",
     GET_MODULES_FAILED:"GET_MODULES_FAILED",
@@ -19,15 +19,15 @@ const SetDateAction=(date)=>{
     };
 };
 
-const GetDailyModulesAction=(moduleState)=>{
+const GetDailyModulesAction=(date)=>{
     return async (dispatch)=>{
         try{
-            const res= await axios.get('/sessions/dateonly/'+moduleState.date.format('YYYY-MM-DD'));
+            const res= await axios.get('/sessions/dateonly/'+moment(date).format('YYYY-MM-DD'));
             const {data}=res;
             dispatch({type:DailyModuleActionType.GET_MODULES_SUCCESS,payload:data});
         }catch(error){
             console.error(error);
-            dispatch({type:DailyModuleActionType.GET_MODULES_FAILED,payload:{}})
+            dispatch({type:DailyModuleActionType.GET_MODULES_FAILED,payload:{error}})
         }
     };
 };
