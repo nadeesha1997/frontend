@@ -1,7 +1,13 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {BrowserRouter as Router,Switch,Link} from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
-const Registration=()=>{
+import ModalBody from "react-bootstrap/ModalBody";
+import ModalHeader from "react-bootstrap/ModalHeader";
+import ModalFooter from "react-bootstrap/ModalFooter";
+import ModalTitle from "react-bootstrap/ModalTitle";
+import { Button } from "react-bootstrap/Button";
+import RegistrationComponent from './RegistrationComponent';
+const Registration=(props)=>{
     return(
         <>
             <div
@@ -16,28 +22,7 @@ const Registration=()=>{
                     <ModalTitle>Signup</ModalTitle>
                 </ModalHeader>
                 <ModalBody>
-                    <nav className="navbar navbar-expand-sm  navbar-fixed-top " style={{padding:0, marginBottom:20,backgroundColor:'#31023e'}}>
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <a className="nav-link">
-                                    You are not logged in.<Button style={{
-                                        width: 150,
-                                        backgroundColor: '#440151',
-                                    /*  marginTop: 5,*/
-                                        marginLeft: 20,
-                                        marginRight: 10
-                                    }} type='submit'>
-
-                                        <Link to="/Login"><b>Log In</b> </Link>
-                                    </Button>
-                                    {/*<span className="fa fa-sign-in"/> <Link to="./Login">Login</Link>*/}
-                                </a>
-                            {/* <a className="navbar-brand   mb-.2">
-                                    <h6>You are not log in.</h6>
-                                </a>*/}
-                            </li>
-                        </ul>
-                    </nav>
+                   <RegistrationComponent/>
                 </ModalBody>
                 <ModalFooter>
                     <Button variant="primary" onClick={props.handleSubmit}>

@@ -1,12 +1,16 @@
 import {Button, Image} from "react-bootstrap";
 import '../css/Nav.css';
 import logo2 from './../images/logo2.png';
-import {BrowserRouter as Router,Link} from "react-router-dom";
+import {BrowserRouter as Router,Link, useHistory} from "react-router-dom";
 import React,{useState} from "react";
-import Login from './LoginComponent'
-const FirstNav= () => {
+import Login from './Auth/LoginComponent'
+import {LogoutAuthAction} from "../store/actions/AuthAction"
+import {connect} from "react-redux";
+function FirstNav(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
+    const history=useHistory();
+    const {auth,logout}=props;
 
     const handleLoginButton=()=>{
         // openLogin=true;
@@ -63,22 +67,30 @@ const FirstNav= () => {
                     </div>
                     <table>
                         <td>
-                            <div className="align">
-                                <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:45,marginRight:20}} 
-                                // type='submit' 
-                                onClick={handleLoginButton}>
-                                    {/* <Link to="./Login"> */}
-                                        <b>LOG IN</b>  
+                            {!auth.isLoggedin?
+                            <React.Fragment>
+                                <div className="align">
+                                    <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:45,marginRight:20}} 
+                                    // type='submit' 
+                                    onClick={handleLoginButton}>
+                                        {/* <Link to="./Login"> */}
+                                            <b>LOG IN</b>  
+                                            {/* </Link> */}
+                                    </Button>
+                                    <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:40,marginRight:20}} 
+                                    // type='submit' 
+                                    onClick={handleSignupButton}>
+                                        {/* <Link to="./Register/student">  */}
+                                        <b> REGISTER</b>  
                                         {/* </Link> */}
-                                </Button>
-                                <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:40,marginRight:20}} 
-                                // type='submit' 
-                                onClick={handleSignupButton}>
-                                    {/* <Link to="./Register/student">  */}
-                                    <b> REGISTER</b>  
-                                    {/* </Link> */}
-                                </Button>
-                            </div>
+                                    </Button>
+                                </div>
+                            </React.Fragment>:
+                            <React.Fragment>
+                                <h5>{auth.user.userDetails.fullName}</h5>
+                                <button onClick={()=>logout(history)}>Logout</button>
+                            </React.Fragment>
+                        }
                         </td>
                     </table>
                 </nav>
@@ -92,4 +104,19 @@ const FirstNav= () => {
     );
 };
 
-export default FirstNav;
+// export default FirstNav;
+const mapStateToProps=(userState)=>{
+    return {
+        auth:userState
+    }
+};
+
+const mapDispatchToProps=(dispatch)=>{
+    return {
+        logout:(history)=>{
+            dispatch(LogoutAuthAction(history));
+        }
+    }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(FirstNav);
