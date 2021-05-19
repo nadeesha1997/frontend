@@ -1,62 +1,3 @@
-// // import React,{Component} from 'react';
-// // class Header extends Component{
-// //     constructor() {
-// //         super();
-// //     }
-// //     render() {
-// //         return(
-// //             <div className="header">
-
-// //             </div>
-// //         )
-// //     }
-// // }
-// // export default Header;
-// import React from 'react'
-// import { connect } from 'react-redux'
-// import { Link, useHistory } from 'react-router-dom';
-// import { LogoutAuthAction } from "../store/actions/AuthAction";
-
-// function Header(props) {
-//     const {auth,logout}=props;
-//     const history=useHistory();
-//     return (
-//         <div className="header d-flex justify-content-center py-2 shadow-sm">
-//             <Link to="/">
-//                 <h5 className="font-weight-bold text-danger mx-3">LSMS</h5>
-//             </Link>
-//             <div className="m1-auto">
-//                 {!auth.isLoggedin?<React.Fragment>
-//                     <Link to="login">
-//                     <button className="btn btn-danger btn-sm mx-2">Login</button>
-//                 </Link>
-//                 <Link to="signup">
-//                     <button className="btn btn-danger btn-sm mr-5">Sign up</button>
-//                 </Link>
-//                 </React.Fragment>:
-//                 <React.Fragment>
-//                     <h5>{auth.name}</h5>
-//                     <button className="btn btn-danger btn-sm mx-2" onClick={()=>logout(history)}>Log out</button>
-//                 </React.Fragment>}
-//             </div>
-//         </div>
-//     )
-// }
-// const mapStateToProps=(userState)=>{
-//     return {
-//         auth:userState
-//     }
-// };
-
-// const mapDispatchToProps=(dispatch)=>{
-//     return {
-//         logout:(history)=>{
-//             dispatch(LogoutAuthAction(history));
-//         }
-//     }
-// };
-
-// export default connect(mapStateToProps,mapDispatchToProps)(Header);
 import {Button, Image} from "react-bootstrap";
 import '../css/Nav.css';
 import logo2 from './../images/logo2.png';
@@ -65,7 +6,7 @@ import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
 import {LogoutAuthAction} from "../store/actions/AuthAction"
 import {connect} from "react-redux";
-function Header(props){
+function FirstNav(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
     const history=useHistory();
@@ -166,7 +107,7 @@ function Header(props){
 // export default FirstNav;
 const mapStateToProps=(userState)=>{
     return {
-        auth:userState.auth
+        auth:userState
     }
 };
 
@@ -178,4 +119,4 @@ const mapDispatchToProps=(dispatch)=>{
     }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps,mapDispatchToProps)(FirstNav);

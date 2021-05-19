@@ -3,7 +3,8 @@ import './App.css';
 import Header from "./components/HeaderComponent";
 import Body from "./components/BodyComponent";
 import Footer from "./components/FooterComponent";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <div className="App">
@@ -21,15 +22,23 @@ function App() {
       {/*    Learn React*/}
       {/*  </a>*/}
       {/*</header>*/}
-      <div className="row">
-        <Header/>
-      </div>
-      <div className="row">
-        <Body/>
-      </div>
-      <div className="row">
-        <Footer/>
-      </div>
+      <BrowserRouter>
+        <div className="row">
+          <div style={{"width":"100%"}}>
+            <Header/>
+          </div>
+        </div>
+        <div className="row">
+          <div style={{"width":"100%"}}>
+            <Body/>
+          </div>
+        </div>
+        <div className="row">
+          <div style={{"width":"100%"}}>
+            <Footer/>
+          </div>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
