@@ -14,6 +14,7 @@ import { connect } from 'react-redux'
 import Calendar from "../components/Calendar";
 import {GetHallsAction} from "../store/actions/TimeTableAction"
 import {TimeTable} from "../components/admin/TimeTable";
+import SubjectList from "../components/admin/SubjectList";
 
 export const Dashboard = (props) => {
     const {getHalls}=props;
@@ -21,8 +22,22 @@ export const Dashboard = (props) => {
     useEffect(()=>getHalls(),)
     return (
         <>
-        <Calendar/>
-        <TimeTable/>
+            <div className="page">
+                {/*<Navigation/>*/}
+                {/*<HomepageNavbar updateDate={this.updateDate}/>*/}
+                {/*<Nav/>*/}
+                <Calendar/>
+                <div className="row">
+                    <div className="list">
+                        <SubjectList/>
+                    </div>
+                </div>
+                <div className="col col-lg-12 col-md-12 col-sm-12">
+                    <TimeTable/>
+
+                </div>
+
+            </div>
         </>
     )
 }

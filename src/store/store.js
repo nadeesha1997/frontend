@@ -3,12 +3,14 @@ import thunk from "redux-thunk";
 import authReducer from "./reducers/AuthReducer";
 import dailyModuleReducer from "./reducers/DailyModuleReducer";
 import timetableReducer from "./reducers/TimeTableReducer"
+import subjectListReducer from "./reducers/SubjectListReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer=combineReducers({
     auth:authReducer,
     module:dailyModuleReducer,
-    timetable:timetableReducer
+    timetable:timetableReducer,
+    subjectList:subjectListReducer
 })
 
 const store=createStore(
