@@ -1,55 +1,74 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { connect } from 'react-redux'
 import ModuleDrop from "./ModuleDrop";
+import {GetHallsAction} from "../../store/actions/TimeTableAction";
+import axios from "axios";
+import HallList from "./HallList";
+import LecTimes from "./LecTimes";
+import "../../css/Table.css"
 
 export const TimeTable = (props) => {
-    const {halls,date}=props;
-    // const 
-    const lecTimes=halls&&times.map((time)=>{
-        const mappedHalls=halls.map(hall=>{
-            return(<>
-                <div className="grid-item">
-                    <ModuleDrop
-                        hallid={hall.id}
-                        startTime={time.startTime}
-                        EndTime={time.endTime}
-                        date={date}
-                        // sessions={this.state.sessions}
-                        // rerender={this.rerender}
-                    />
-                </div>
-            </>);
-        })
-        return(
-        <>
-            <div className="grid-item">{time.startTime}</div>
-            {mappedHalls}
-        </>
-            );
+    const {halls,date,getHalls,loading}=props;
+
+    useEffect(()=>{
+
     })
-    const hallList=halls&&halls.map(hall=>{
-        return(
-            <div className="grid-item" hallid={hall.id}>{hall.name}</div>
-        )
-    })
+    // const lecTimes=halls&&times.map((time)=>{
+    //     const mappedHalls=halls.map(hall=>{
+    //         return(<>
+    //             <div className="grid-item">
+    //                 <ModuleDrop
+    //                     hallid={hall.id}
+    //                     startTime={time.startTime}
+    //                     EndTime={time.endTime}
+    //                     date={date}
+    //                     // sessions={this.state.sessions}
+    //                     // rerender={this.rerender}
+    //                 />
+    //             </div>
+    //         </>);
+    //     })
+    //     return(
+    //     <>
+    //         <div className="grid-item">{time.startTime}</div>
+    //         {mappedHalls}
+    //     </>
+    //         );
+    // })
+    // const hallList=halls&&halls.map(hall=>{
+    //     return(
+    //         <div className="grid-item" hallid={hall.id}>{hall.name}</div>
+    //     )
+    // })
     return (
         <div>
             <div className="grid-container">
                 <div className="grid-item">Time</div>
-                {halls&&hallList}
-                {halls&&lecTimes}
+                <HallList/>
+                <LecTimes/>
                 </div>
         </div>
+        // <div>
+        //     {loading&&<div>loading...</div>}
+        //     {!loading&&<div>{halls.map((hall)=>{return(<div>{hall.name}</div>)})}</div>}
+        // </div>
     )
-}
+};
+
+
 
 const mapStateToProps = (state) => ({
     halls:state.timetable.halls,
+    loading:state.timetable.loading,
     date:state.module.date
 })
 
-const mapDispatchToProps = {
-    
+const mapDispatchToProps =(dispatch)=> {
+    return {
+        getHalls:()=>{
+            dispatch(GetHallsAction());
+        }
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimeTable)

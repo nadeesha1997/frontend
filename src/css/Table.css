@@ -1,0 +1,30 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(17, 2fr);
+    background-color: #cc8bf3;
+    /*padding: 10px;*/
+    grid-column-gap: 0.1em;
+    grid-row-gap: 0.1em;
+    margin-top: 0px;
+
+}
+
+.cale
+{
+    padding-bottom: 20px;
+    margin-top: -90px;
+    margin-right: 500px;
+
+}
+.grid-item {
+    background-color: #cc8bf3;
+    border: 1px solid #3f285a;
+    padding: 4px;
+    font-size:14px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Arial";
+
+}
+/*grid*/
+
