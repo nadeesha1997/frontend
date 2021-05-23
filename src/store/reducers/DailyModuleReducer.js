@@ -7,6 +7,8 @@ const dailyModuleState={
 
 const dailyModuleReducer=(state=dailyModuleState,action)=>{
     switch (action.type) {
+        case DailyModuleActionType.GET_MODULES_START:
+            return state;
         case DailyModuleActionType.SET_DATE:
             return {...state,date:action.payload};
         case DailyModuleActionType.GET_MODULES_SUCCESS:

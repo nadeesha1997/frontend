@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import "../../css/Table.css"
 
 const LecTimes=(props)=>{
-    let {halls,date}=props;
+    let {halls,sessions}=props;
     const mappedTimes=halls&&times.map((time)=>{
         const mappedHalls=halls.map(hall=>{
             return(<>
@@ -13,9 +13,8 @@ const LecTimes=(props)=>{
                         hallid={hall.id}
                         startTime={time.startTime}
                         EndTime={time.endTime}
-                        date={date}
-                        // sessions={this.state.sessions}
-                        // rerender={this.rerender}
+                        // date={date}
+                        sessions={sessions}
                     />
                 </div>
             </>);
@@ -47,7 +46,8 @@ const times=[
 const mapStateToProps = (state) => ({
     halls:state.timetable.halls,
     // loading:state.timetable.loading,
-    date:state.module.date
+    date:state.module.date,
+    sessions:state.module.sessions
 })
 
 const mapDispatchToProps =(dispatch)=> {

@@ -1,8 +1,10 @@
 import axios from "axios";
 import moment from "moment"
 const DailyModuleActionType={
+
     GET_MODULES_SUCCESS:"GET_MODULES_SUCCESS",
     GET_MODULES_FAILED:"GET_MODULES_FAILED",
+    GET_MODULES_START:"GET_MODULES_START",
     SELECT_MODULES:"SELECT_MODULES",
     SET_DATE:"SET_DATE",
     SET_DATE_FAILED:"SET_DATE_FAILED"
@@ -21,7 +23,7 @@ const SetDateAction=(date)=>{
 
 const GetDailyModulesAction=(date)=>{
     return async (dispatch)=>{
-        try{
+        try{dispatch({type:DailyModuleActionType.GET_MODULES_START,payload:{}})
             const res= await axios.get('/sessions/dateonly/'+moment(date).format('YYYY-MM-DD'));
             const {data}=res;
             dispatch({type:DailyModuleActionType.GET_MODULES_SUCCESS,payload:data});

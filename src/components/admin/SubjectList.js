@@ -9,16 +9,6 @@ function SubjectList(props) {
     const OnSubmit=()=> {
         getModules(subjectList);
     }
-
-    // const handleSemChange=(event)=> {
-    //     let value = event.target.value;
-    //     setSemester(value);
-    // }
-
-    // const handleDeptChange=(event)=> {
-    //     let value = event.target.value;
-    //     setDepartment(value)
-    // }
     const onDragStart=(ev,id)=>{
         console.log('dragstart:',id);
         ev.dataTransfer.setData("id",id);
