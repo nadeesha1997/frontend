@@ -29,7 +29,7 @@ function ModuleDrop(props) {
         checkBooked()
         // console.log("check booked");
 
-    },[moduleDropState.module.sessions,startDateTime,endDateTime]);
+    },[moduleDropState.module.sessions]);
 
     const startTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + startTime
@@ -42,17 +42,17 @@ function ModuleDrop(props) {
 
     const checkBooked=()=>{
         let ss=moduleDropState.module.sessions;
-        console.log("called"+ss.length);
+        console.log("called "+ss.length);
         if(ss.length!=0){
             ss.forEach(mod=>{
-                console.log(moment(mod.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
-                console.log(startDateTime);
-                console.log(moment(mod.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
-                console.log(endDateTime);
-                console.log(mod.hallId.toString());
+                console.log(mod.startDateTime);
+                console.log(moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
+                console.log(mod.endDateTime);
+                console.log(moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
+                console.log(mod.hallId);
                 console.log(hallid);
                 // if((moment(mod.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=startDateTime)&&((moment(mod.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=endDateTime))&&mod.hallId.toString()==hallid){
-                    if((mod.startDateTime<=startDateTime)&&((mod.endDateTime>=endDateTime))&&mod.hallId==hallid){
+                    if((mod.startDateTime<=moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"))&&((mod.endDateTime>=moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")))&&mod.hallId==hallid){
                         console.log("found");
                     setmodule(mod.subject);
                     setreserved(true);
@@ -99,8 +99,8 @@ function ModuleDrop(props) {
             onDrop={(e)=>onDrop(e, "complete")}
         >
             {/*{this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}*/}
-            {reserved&&permitted&&module&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>}
-            {reserved&&!permitted&&module&&<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>}
+            {reserved&&permitted&&module.subject.code?<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}
+            {reserved&&!permitted&&module.subject.code?<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}
         </div>
     </>);
 }
