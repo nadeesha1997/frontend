@@ -14,7 +14,7 @@ function ModuleDrop(props) {
     // cont [subject,]
     const dispatch=useDispatch();
 
-    const [module, setmodule] = useState({});
+    const [module, setmodule] = useState(null);
     const [reserved,setreserved]=useState(false);
     const [permitted,setpermitted]=useState(false);
     const [startDateTime,setstartDatetime]=useState(new Date());
@@ -27,9 +27,15 @@ function ModuleDrop(props) {
     useEffect(()=>{
         // dispatch(SelectModuleAction(moduleDropState))
         checkBooked()
+        if(moduleDropState.module.sessions.length==0){
+            setmodule(null);
+        }
         // console.log("check booked");
 
     },[moduleDropState.module.sessions]);
+    useEffect(()=>{
+        renderDiv()
+    },[module,moduleDropState.module.date]);
 
     const startTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + startTime
@@ -53,14 +59,17 @@ function ModuleDrop(props) {
                 console.log(hallid);
                 // if((moment(mod.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=startDateTime)&&((moment(mod.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=endDateTime))&&mod.hallId.toString()==hallid){
                     if((mod.startDateTime<=moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"))&&((mod.endDateTime>=moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")))&&mod.hallId==hallid){
-                        console.log("found");
-                    setmodule(mod.subject);
+                        // console.log("found");
+                    setmodule(mod);
                     setreserved(true);
                     setpermitted(mod.permitted);
                 }
-                else{
-                    console.log("not found")
-                }
+                // else{
+                //     // console.log("not found")
+                //     //     setmodule(null);
+                //     //     setreserved(false);
+                //     //     setpermitted(false);
+                // }
             });
         }
     }
@@ -90,6 +99,22 @@ function ModuleDrop(props) {
         dispatch(SetModuleAction(module));
 
     }
+    const renderDiv=()=>{
+        if(module!=null&&module.subject!=null){
+            if(module.permitted){
+                return(<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>)
+            }
+            else{
+                return (<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>)
+            }
+        }
+        else{
+            return (<div></div>)
+        }
+        if(moduleDropState.module.sessions.length==0){
+            return (<div></div>)
+        }
+    }
 
     return(<>
         <div
@@ -99,8 +124,9 @@ function ModuleDrop(props) {
             onDrop={(e)=>onDrop(e, "complete")}
         >
             {/*{this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}*/}
-            {reserved&&permitted&&module.subject.code?<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}
-            {reserved&&!permitted&&module.subject.code?<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}
+            {/*{reserved&&permitted&&module.subject.code?<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
+            {/*{reserved&&!permitted&&module.subject.code?<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
+            {renderDiv()}
         </div>
     </>);
 }
