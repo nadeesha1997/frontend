@@ -4,13 +4,15 @@ import authReducer from "./reducers/AuthReducer";
 import dailyModuleReducer from "./reducers/DailyModuleReducer";
 import timetableReducer from "./reducers/TimeTableReducer"
 import subjectListReducer from "./reducers/SubjectListReducer";
+import moduleDropReducer from "./reducers/ModuleDropReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer=combineReducers({
     auth:authReducer,
     module:dailyModuleReducer,
     timetable:timetableReducer,
-    subjectList:subjectListReducer
+    subjectList:subjectListReducer,
+    moduleDrop:moduleDropReducer
 })
 
 const store=createStore(
