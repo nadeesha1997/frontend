@@ -2,7 +2,7 @@ import {ModuleDropActionType} from "../actions/ModuleDropAction";
 
 const ModuleDropState={
     hall:{},
-    SubjectId:0,
+    Subject:{},
     StartDateTime:"",
     EndDateTime:"",
     Permitted:false,
@@ -17,19 +17,19 @@ const ModuleDropState={
 }
 const moduleDropReducer=(state=ModuleDropState,action)=>{
     switch (action.type) {
-        case ModuleDropActionType.SELECT_MODULE:
-            return {
-                ...state,
-                module: action.payload.module,
-                reserved: action.payload.reserved
-                // state
-            };
-        case ModuleDropActionType.SELECT_MODULE_FAILED:
-            return {
-                ...state,
-                module: null,
-                reserved: false
-            }
+        // case ModuleDropActionType.SELECT_MODULE:
+        //     return {
+        //         ...state,
+        //         module: action.payload.module,
+        //         reserved: action.payload.reserved
+        //         // state
+        //     };
+        // case ModuleDropActionType.SELECT_MODULE_FAILED:
+        //     return {
+        //         ...state,
+        //         module: null,
+        //         reserved: false
+        //     }
         case ModuleDropActionType.SET_HALL:
             return {...state,hall: action.payload};
         case ModuleDropActionType.SET_START_TIME:
@@ -57,7 +57,9 @@ const moduleDropReducer=(state=ModuleDropState,action)=>{
         case ModuleDropActionType.OPEN_CLOSE_DELETE:
             return {...state,openDeleteModal: action.payload}
         case ModuleDropActionType.OPEN_CLOSE_SUBMIT:
-            return {...state,openSubmitModal: action.payload}
+            return {...state,openSubmitModal: action.payload};
+        case ModuleDropActionType.SET_SUBJECT:
+            return {...state,Subject:action.payload}
         default:
             return state;
     }

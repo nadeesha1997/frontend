@@ -10,6 +10,7 @@ import {
     SetStartTimeAction
 } from "../../store/actions/ModuleDropAction";
 import {GetDailyModulesAction} from "../../store/actions/DailyModuleAction";
+import SubmitReservation from "./SubmitReservation";
 function ModuleDrop(props) {
     let {hallid,startTime,EndTime,sessions}=props;
     let moduleDropState=useSelector(state=> state)
@@ -45,15 +46,15 @@ function ModuleDrop(props) {
     const startTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + startTime
         setstartDatetime(new Date(date));
-    }
+    };
     const endTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + EndTime
         setEndDatetime(new Date(date));
-    }
+    };
 
     const checkBooked=()=>{
         let ss=moduleDropState.module.sessions;
-        console.log("called "+ss.length);
+        // console.log("called "+ss.length);
         if(ss.length!=0){
             ss.forEach(mod=>{
                 // console.log(mod.startDateTime);
@@ -71,24 +72,35 @@ function ModuleDrop(props) {
                 }
             });
         }
-    }
+    };
 
     const onDragOver=(ev)=>{
         ev.preventDefault()
-    }
+    };
     const onDragStart=(ev,id)=>{
         console.log('dragstart:',id);
-    }
+    };
     const onDragLeave= (ev) => {
         let id = ev.dataTransfer.getData("id");
         dispatch(SetModuleIdAction(id));
-    }
+    };
     const onDrop = (ev, cat) => {
         let id = ev.dataTransfer.getData("id");
         if(reserved){
-            // alart()
+            alert("Time has already taken");
         }
-    }
+        if(startDateTime<new Date()){
+            alert("Time has already passed")
+        }
+        else {
+            dispatch(SetModuleIdAction(id));
+            dispatch(SetStartTimeAction(moduleDropState,startTime));
+            dispatch(SetHallAction(moduleDropState,hallid));
+            dispatch(SetEndTimeAction(moduleDropState,EndTime));
+            dispatch(SetModuleAction(module));
+            dispatch(openSubmitModalAction(true));
+        }
+    };
     const renderDiv=()=>{
         if(module!=null&&module.subject!=null){
             if(module.permitted){
@@ -104,11 +116,14 @@ function ModuleDrop(props) {
         if(moduleDropState.module.sessions.length==0){
             return (<div></div>)
         }
-    }
+    };
     const handleClick=()=>{
-        dispatch(SetSessionIdAction(module.id));
-        dispatch(openDeleteModalAction(true));
-    }
+        if(module){
+            dispatch(SetSessionIdAction(module.id));
+            dispatch(openDeleteModalAction(true));
+        }
+        // console.log("clicked");
+    };
 
     return(<>
         <div
@@ -122,6 +137,7 @@ function ModuleDrop(props) {
             {/*{reserved&&permitted&&module.subject.code?<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
             {/*{reserved&&!permitted&&module.subject.code?<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
             {renderDiv()}
+            {moduleDropState.moduleDrop.openSubmitModal&&<SubmitReservation/>}
         </div>
     </>);
 }

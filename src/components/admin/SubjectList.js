@@ -2,9 +2,10 @@ import React from "react";
 import {connect} from "react-redux";
 import {GetModuleAction, SetDepartmentAction, SetSemesterAction} from "../../store/actions/SubjectListAction";
 import "../../css/SubjectList.css"
+import {setSubjectAction} from "../../store/actions/ModuleDropAction";
 
 function SubjectList(props) {
-    let {subjectList,setSemester,setDepartment,getModules}=props;
+    let {subjectList,setSemester,setDepartment,getModules,setSubject}=props;
 
     const OnSubmit=()=> {
         getModules(subjectList);
@@ -12,12 +13,16 @@ function SubjectList(props) {
     const onDragStart=(ev,id)=>{
         console.log('dragstart:',id);
         ev.dataTransfer.setData("id",id);
+        console.log(ev);
     }
     let modules = subjectList.subjects&&subjectList.subjects.map((mod) => {
         return (
             <ul>
                 <div key={mod.id}
-                     onDragStart={(e) => onDragStart(e, mod.id)}
+                     onDragStart={(e) => {
+                         onDragStart(e, mod.id);
+                         setSubject(mod);
+                     }}
                      draggable
                      className="draggable">
                     {mod.code} - {mod.name}
@@ -96,7 +101,8 @@ const mapDispatchToProps=(dispatch)=>{
     return {
         setSemester:(semester)=>{dispatch(SetSemesterAction(semester));},
         setDepartment:(department)=>{dispatch(SetDepartmentAction(department));},
-        getModules:(subjectlistState)=>{dispatch(GetModuleAction(subjectlistState));}
+        getModules:(subjectlistState)=>{dispatch(GetModuleAction(subjectlistState));},
+        setSubject:(module)=>{dispatch(setSubjectAction(module));}
     }
 };
 
