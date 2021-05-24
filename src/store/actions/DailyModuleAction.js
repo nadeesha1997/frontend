@@ -7,7 +7,9 @@ const DailyModuleActionType={
     GET_MODULES_START:"GET_MODULES_START",
     SELECT_MODULES:"SELECT_MODULES",
     SET_DATE:"SET_DATE",
-    SET_DATE_FAILED:"SET_DATE_FAILED"
+    SET_DATE_FAILED:"SET_DATE_FAILED",
+    UPDATE_MODULES_SUCCESS:"UPDATE_MODULES_SUCCESS",
+    UPDATE_MODULES_FAILED:"UPDATE_MODULES_FAILED"
 }
 
 const SetDateAction=(date)=>{
@@ -33,5 +35,15 @@ const GetDailyModulesAction=(date)=>{
         }
     };
 };
+const UpdateDailyModulesAction=(data)=>{
+    return (dispatch)=>{
+        try{
+            dispatch({type:DailyModuleActionType.UPDATE_MODULES_SUCCESS,payload:data})
+        }catch (e) {
+            dispatch({type:DailyModuleActionType.UPDATE_MODULES_FAILED,payload:{e}})
+        }
+    }
+}
+
 
 export {GetDailyModulesAction,SetDateAction,DailyModuleActionType};
