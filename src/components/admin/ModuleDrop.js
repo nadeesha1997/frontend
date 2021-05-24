@@ -3,11 +3,13 @@ import moment from "moment";
 import "../../css/ModuleDrop.css";
 import {useDispatch, useSelector} from "react-redux";
 import {
+    openDeleteModalAction, openSubmitModalAction,
     SelectModuleAction, SetEndTimeAction,
     SetHallAction, SetModuleAction,
-    SetModuleIdAction,
+    SetModuleIdAction, SetSessionIdAction,
     SetStartTimeAction
 } from "../../store/actions/ModuleDropAction";
+import {GetDailyModulesAction} from "../../store/actions/DailyModuleAction";
 function ModuleDrop(props) {
     let {hallid,startTime,EndTime,sessions}=props;
     let moduleDropState=useSelector(state=> state)
@@ -36,6 +38,9 @@ function ModuleDrop(props) {
     useEffect(()=>{
         renderDiv()
     },[module,moduleDropState.module.date]);
+    useEffect(()=>{
+        dispatch(GetDailyModulesAction(moduleDropState.module.date))
+    },[moduleDropState.moduleDrop.deleteResponse])
 
     const startTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + startTime
@@ -51,12 +56,12 @@ function ModuleDrop(props) {
         console.log("called "+ss.length);
         if(ss.length!=0){
             ss.forEach(mod=>{
-                console.log(mod.startDateTime);
-                console.log(moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
-                console.log(mod.endDateTime);
-                console.log(moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
-                console.log(mod.hallId);
-                console.log(hallid);
+                // console.log(mod.startDateTime);
+                // console.log(moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
+                // console.log(mod.endDateTime);
+                // console.log(moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
+                // console.log(mod.hallId);
+                // console.log(hallid);
                 // if((moment(mod.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=startDateTime)&&((moment(mod.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=endDateTime))&&mod.hallId.toString()==hallid){
                     if((mod.startDateTime<=moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"))&&((mod.endDateTime>=moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")))&&mod.hallId==hallid){
                         // console.log("found");
@@ -64,12 +69,6 @@ function ModuleDrop(props) {
                     setreserved(true);
                     setpermitted(mod.permitted);
                 }
-                // else{
-                //     // console.log("not found")
-                //     //     setmodule(null);
-                //     //     setreserved(false);
-                //     //     setpermitted(false);
-                // }
             });
         }
     }
@@ -79,25 +78,16 @@ function ModuleDrop(props) {
     }
     const onDragStart=(ev,id)=>{
         console.log('dragstart:',id);
-        // ev.dataTransfer.setData("id",id);
-        // this.setState({
-        //     SubjectId:id
-        // })
     }
     const onDragLeave= (ev) => {
         let id = ev.dataTransfer.getData("id");
         dispatch(SetModuleIdAction(id));
     }
-
-
     const onDrop = (ev, cat) => {
         let id = ev.dataTransfer.getData("id");
-        dispatch(SetModuleIdAction(id));
-        dispatch(SetStartTimeAction(moduleDropState,startTime));
-        dispatch(SetHallAction(moduleDropState,hallid));
-        dispatch(SetEndTimeAction(moduleDropState,EndTime));
-        dispatch(SetModuleAction(module));
-
+        if(reserved){
+            // alart()
+        }
     }
     const renderDiv=()=>{
         if(module!=null&&module.subject!=null){
@@ -115,6 +105,10 @@ function ModuleDrop(props) {
             return (<div></div>)
         }
     }
+    const handleClick=()=>{
+        dispatch(SetSessionIdAction(module.id));
+        dispatch(openDeleteModalAction(true));
+    }
 
     return(<>
         <div
@@ -122,6 +116,7 @@ function ModuleDrop(props) {
             style={{width:"100%",height:"100%"}}
             onDragOver={(e)=>onDragOver(e)}
             onDrop={(e)=>onDrop(e, "complete")}
+            onClick={()=>handleClick()}
         >
             {/*{this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}*/}
             {/*{reserved&&permitted&&module.subject.code?<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
