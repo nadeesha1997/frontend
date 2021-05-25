@@ -89,7 +89,7 @@ function ModuleDrop(props) {
     };
     const onDragLeave= (ev) => {
         let id = ev.dataTransfer.getData("id");
-        dispatch(SetModuleIdAction(id));
+      dispatch(SetModuleIdAction(id));
     };
     const onDrop = (ev, cat) => {
         let id = ev.dataTransfer.getData("id");

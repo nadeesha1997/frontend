@@ -22,93 +22,49 @@ function Footer() {
         <div className='footer-container'>
         <section className='footer-subscription'>
           <p className='footer-subscription-heading'>
-            Join with us and get letest business informations
+            Join with us and get your lecture schedules..
           </p>
           
-          <div className='input-areas'>
-            
+          {/*<div className='input-areas'>*/}
+          {/*  */}
 
-          </div>
+          {/*</div>*/}
         </section>
         <div class='footer-links'>
           <div className='footer-link-wrapper'>
             <div className='footer-link-items'>
               <h2>About Us</h2>
-              <Link to='/sign-up'>How it works</Link>
-              <Link to='/'>Testimonials</Link>
-              <Link to='/'>Terms of Service</Link>
+              <p>The Faculty of Engineering of University of Ruhuna was established on 1st July 1999 at Hapugala, Galle. This platform manage the lecture scheduling venues.  </p>
+
             </div>
             <div className='footer-link-items'>
               <h2>Contact Us</h2>
-              <Link to='/'>Contact</Link>
-              <Link to='/'>Support</Link>
-              
+              <dd><b><a href="http://www.eng.ruh.ac.lk/"> Email       :    eng.ruh.ac.lk </a></b></dd>
+              <dd><b>Address    :    Hapugala, Galle, Sri Lanka</b></dd>
+              <dd><b> Tele      :   +(94)0 91 2245765-8</b></dd>
+              <dd><b>Fax        :   +(94)0 91 2245762</b></dd>
             </div>
           </div>
           <div className='footer-link-wrapper'>
             
             <div className='footer-link-items'>
-              <h2>Social Media</h2>
-              <Link to='/'>Instagram</Link>
-              <Link to='/'>Facebook</Link>
-              <Link to='/'>Youtube</Link>
-              <Link to='/'>Twitter</Link>
+              <h2>Related Links</h2>
+            <a href="https://www.ugc.ac.lk/">University Grant Commission</a>
+              <a href="https://www.ruh.ac.lk/">University of Ruhuna</a>
+              < a href="http://lms.eng.ruh.ac.lk/">ENG-LMS</a>
+
+              <a href="https://ieee.lk/">IEEE</a>
+
+
+
             </div>
           </div>
         </div>
-        <section className='social-media'>
-          <div className='social-media-wrap'>
+
             <div className='footer-logo'>
-              <Link to='/' className='social-logo'>
-                BIZZNEWS
-                
-          </Link>
+              <small className='website-rights'>©Faculty of Engineering-2021</small>
             </div>
-            <small className='website-rights'>BIZZNEWS © 2021</small>
-            <div className='social-icons'>
-              <Link
-                className='social-icon-link facebook'
-                to='/'
-                target='_blank'
-                aria-label='Facebook'
-              >
-                <i class='fab fa-facebook-f' />
-              </Link>
-              <Link
-                className='social-icon-link instagram'
-                to='/'
-                target='_blank'
-                aria-label='Instagram'
-              >
-                <i className='fab fa-instagram' />
-              </Link>
-              <Link
-                className='social-icon-link youtube'
-                to='/'
-                target='_blank'
-                aria-label='Youtube'
-              >
-                <i className='fab fa-youtube' />
-              </Link>
-              <Link
-                className='social-icon-link twitter'
-                to='/'
-                target='_blank'
-                aria-label='Twitter'
-              >
-                <i className='fab fa-twitter' />
-              </Link>
-              <Link
-                className='social-icon-link twitter'
-                to='/'
-                target='_blank'
-                aria-label='LinkedIn'
-              >
-                <i className='fab fa-linkedin' />
-              </Link>
-            </div>
-          </div>
-        </section>
+
       </div>
     </Router>
   );

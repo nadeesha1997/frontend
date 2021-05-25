@@ -87,7 +87,7 @@ const Login=(props)=>{
                     </Form.Label>
                     <Form.Control type="password" onChange={handlePassword} value={password} placeholder="password"/>
                 </Form.Group> */}
-                //
+
                 <div>
 
                 <div className="p1">
