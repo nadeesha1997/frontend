@@ -5,7 +5,14 @@ import Body from "./components/BodyComponent";
 import Footer from "./components/FooterComponent";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from "react-router-dom";
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {CheckAuthStateAction} from "./store/actions/AuthAction";
 function App() {
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(CheckAuthStateAction);
+  })
   return (
     <div className="App">
       {/*<header className="App-header">*/}

@@ -63,13 +63,13 @@ import logo2 from './../images/logo2.png';
 import {BrowserRouter as Router,Link, useHistory} from "react-router-dom";
 import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
-import {LogoutAuthAction} from "../store/actions/AuthAction"
+import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction"
 import {connect} from "react-redux";
 function Header(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
     const history=useHistory();
-    const {auth,logout}=props;
+    const {auth,logout,openLog}=props;
 
     const handleLoginButton=()=>{
         // openLogin=true;
@@ -131,7 +131,10 @@ function Header(props){
                                 <div className="align">
                                     <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:45,marginRight:20}} 
                                     // type='submit' 
-                                    onClick={handleLoginButton}>
+                                    onClick={
+                                        // handleLoginButton
+                                        ()=>openLog(true)
+                                    }>
                                         {/* <Link to="./Login"> */}
                                             <b>LOG IN</b>  
                                             {/* </Link> */}
@@ -153,11 +156,15 @@ function Header(props){
                         </td>
                     </table>
                 </nav>
-                {openLogin?
+                {
+                    auth.loginModelOpen
+                    // openLogin
+                    ?
                 <Login
-                closeModal={closeLoginB} 
-                isOpen={openLogin} 
-                handleSubmit={handleSubmit}/>:null}
+                // closeModal={closeLoginB}
+                // isOpen={openLogin}
+                // handleSubmit={handleSubmit}
+                />:null}
             </div>
         </Router>
     );
@@ -174,6 +181,10 @@ const mapDispatchToProps=(dispatch)=>{
     return {
         logout:(history)=>{
             dispatch(LogoutAuthAction(history));
+        },
+        openLog:(open)=>{
+            dispatch(OpenLoginAction(true));
+            dispatch(OpenSignupAction(false));
         }
     }
 };

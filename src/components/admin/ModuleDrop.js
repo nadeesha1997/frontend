@@ -11,8 +11,9 @@ import {
 } from "../../store/actions/ModuleDropAction";
 import {GetDailyModulesAction} from "../../store/actions/DailyModuleAction";
 import SubmitReservation from "./SubmitReservation";
+import DeleteSessionModal from "./DeleteSessionModal";
 function ModuleDrop(props) {
-    let {hallid,startTime,EndTime,sessions}=props;
+    let {hallid,startTime,EndTime}=props;
     let moduleDropState=useSelector(state=> state)
     // cont [subject,]
     const dispatch=useDispatch();
@@ -145,18 +146,8 @@ function ModuleDrop(props) {
             {/*{reserved&&!permitted&&module.subject.code?<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
             {renderDiv()}
             {moduleDropState.moduleDrop.openSubmitModal&&<SubmitReservation/>}
+            {moduleDropState.moduleDrop.openDeleteModal&&<DeleteSessionModal/>}
         </div>
     </>);
 }
-// const mapStateToProps=(moduleState)=>{
-//     return {
-//     }
-// };
-//
-// const mapDispatchToProps=(dispatch)=>{
-//     return {}
-//
-// };
-
-// export default connect(mapStateToProps,mapDispatchToProps)(ModuleDrop);
 export default ModuleDrop;

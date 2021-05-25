@@ -2,7 +2,9 @@ import axios from "axios";
 import { AuthActionType } from "../actions/AuthAction";
 const authState={
     isLoggedin:false,
-    user:null
+    user:null,
+    loginModelOpen:false,
+    signupModalOpen:false
 };
 const getAuthState=()=>{
     const auth=localStorage.getItem("auth");
@@ -44,6 +46,13 @@ const authReducer=(state=newAuth,action)=>{
         case AuthActionType.LOGOUT_FAIL:
             localStorage.removeItem("auth");
             return authState;
+        case AuthActionType.CHECK_AUTH_STATE:
+            const auth1=getAuthState();
+            return {...state,auth:auth1};
+        case AuthActionType.LOGIN_MODAL_OPEN_CLOSE:
+            return {...state,loginModelOpen: action.payload};
+        case AuthActionType.SIGNUP_MODAL_OPEN_CLOSE:
+            return {...state,signupModalOpen: action.payload};
         case AuthActionType.REGISTER_LECTURER_FAILED:
                 return state;               
         default:
