@@ -76,7 +76,7 @@ function SubmitReservation(props) {
                         </div>
                         <div className="form-group">
                             <Button
-                                type="submit"
+                                // type="submit"
                                 className="btn btn-primary"
                                 name="submit"
                                 onClick={()=>submitSession(mState)}

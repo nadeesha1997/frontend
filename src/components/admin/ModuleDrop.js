@@ -50,6 +50,7 @@ function ModuleDrop(props) {
     const endTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + EndTime
         setEndDatetime(new Date(date));
+        console.log("end:"+moduleDropState.moduleDrop.EndDateTime)
     };
 
     const checkBooked=()=>{
@@ -66,6 +67,12 @@ function ModuleDrop(props) {
                 // if((moment(mod.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=startDateTime)&&((moment(mod.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=endDateTime))&&mod.hallId.toString()==hallid){
                     if((mod.startDateTime<=moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"))&&((mod.endDateTime>=moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")))&&mod.hallId==hallid){
                         // console.log("found");
+                        // console.log(mod.startDateTime);
+                        // console.log(moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
+                        // console.log(mod.endDateTime);
+                        // console.log(moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
+                        // console.log(mod.hallId);
+                        // console.log(hallid);
                     setmodule(mod);
                     setreserved(true);
                     setpermitted(mod.permitted);
