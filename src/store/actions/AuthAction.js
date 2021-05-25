@@ -8,7 +8,10 @@ const AuthActionType={
     LOGIN_SUCCESSFULL:"LOGIN_SUCCESSFULL",
     LOGIN_FAIL:"LOGIN_FAIL",
     LOGOUT_SUCCESSFULL:"LOGOUT_SUCCESSFULL",
-    LOGOUT_FAIL:"LOGOUT_FAIL"
+    LOGOUT_FAIL:"LOGOUT_FAIL",
+    CHECK_AUTH_STATE:"CHECK_AUTH_STATE",
+    LOGIN_MODAL_OPEN_CLOSE:"LOGIN_MODAL_OPEN_CLOSE",
+    SIGNUP_MODAL_OPEN_CLOSE:"SIGNUP_MODAL_OPEN_CLOSE"
 };
 
 const LecturerRegisterAuthAction=(userState,history)=>{
@@ -87,4 +90,19 @@ const LogoutAuthAction=(history)=>{
         }
     };
 };
-export {LecturerRegisterAuthAction,StudentRegisterAuthAction,AdminRegisterAuthAction,ArRegisterAuthAction,LoginAuthAction,LogoutAuthAction,AuthActionType};
+const CheckAuthStateAction=()=>{
+    return (dispatch)=>{
+        dispatch({type:AuthActionType.CHECK_AUTH_STATE,payload:{}})
+    }
+}
+const OpenLoginAction=(open)=>{
+    return (dispatch)=>{
+        dispatch({type:AuthActionType.LOGIN_MODAL_OPEN_CLOSE,payload:open})
+    }
+}
+const OpenSignupAction=(open)=>{
+    return (dispatch)=>{
+        dispatch({type:AuthActionType.SIGNUP_MODAL_OPEN_CLOSE,payload:open})
+    }
+}
+export {LecturerRegisterAuthAction,StudentRegisterAuthAction,AdminRegisterAuthAction,ArRegisterAuthAction,LoginAuthAction,LogoutAuthAction,AuthActionType,CheckAuthStateAction,OpenLoginAction,OpenSignupAction};

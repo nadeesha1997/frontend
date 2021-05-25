@@ -19,7 +19,7 @@ import Input from 'react-validation/build/input';
 // import AuthService from '../../services/auth.service';
 import { Button,Image } from "react-bootstrap";
 
-import { LoginAuthAction } from "../../store/actions/AuthAction";
+import {LoginAuthAction, OpenLoginAction} from "../../store/actions/AuthAction";
 
 import {connect} from 'react-redux';
 
@@ -40,7 +40,7 @@ const Login=(props)=>{
     const [message, setmessage] = useState("");
 
     const history=useHistory();
-    const {login}=props;
+    const {login,isopen,closeModal}=props;
 
     const handleEmail=e=>setemail(e.target.value);
     const handlePassword=e=>setpassword(e.target.value);
@@ -59,16 +59,16 @@ const Login=(props)=>{
 
     return(
         <>
-        <div
-        className="d-flex align-items-center justify-content-center"
-        style={{ height: "100vh" ,
-        // zIndex:1
-    }}
-        >
-        </div>
-         <Modal show={props.isOpen} 
-         onHide={props.closeModal}
-        //  style={{zIndex:1}}
+    {/*    <div*/}
+    {/*    className="d-flex align-items-center justify-content-center"*/}
+    {/*    style={{ height: "100vh" ,*/}
+    {/*    // zIndex:1*/}
+    {/*}}*/}
+    {/*    >*/}
+    {/*    </div>*/}
+         <Modal show={isopen}
+         onHide={()=>closeModal(false)}
+         // style={{zIndex:1}}
          >
             <ModalHeader closeButton>
                 <ModalTitle>Login</ModalTitle>
@@ -142,14 +142,15 @@ const Login=(props)=>{
                         </button>
 
                     <div className="form-group">
-                        <Link className="lin"  href="#" variant="body2" >
-                            <Link to="./Reset/ResetPassword">   Forgot password?</Link>
+                        <Link className="lin"  to="#" variant="body2" >
+                            <Link to="/Reset/ResetPassword">   Forgot password?</Link>
                         </Link>
 
                         <p  className="lin"> Don't have an account?
-                            <Link to="./Register">
+                            <Link to="/Register">
                                 {"  Register Here"}
-                            </Link></p>
+                            </Link>
+                        </p>
 
 
                     </div>
@@ -173,11 +174,13 @@ const Login=(props)=>{
 
                 //
             </ModalBody>
-            <ModalFooter>
-                <Button variant="primary" onClick={props.handleSubmit}>
-                Submit 
-                </Button>
-            </ModalFooter>
+            {/*<ModalFooter>*/}
+            {/*    <Button variant="primary"*/}
+            {/*            // onClick={props.handleSubmit}*/}
+            {/*    >*/}
+            {/*    Submit */}
+            {/*    </Button>*/}
+            {/*</ModalFooter>*/}
         </Modal>
         </>
     );
@@ -195,13 +198,17 @@ const Login=(props)=>{
 // export default Login;
 const mapStateToProps=(userState)=>{
     return {
-        auth:userState
+        auth:userState,
+        isopen:userState.auth.loginModelOpen
     }
 }
 const mapDispatchToProps=(dispatch)=>{
     return {
         login:(loginState,history)=>{
             dispatch(LoginAuthAction(loginState,history));
+        },
+        closeModal:(open)=>{
+            dispatch(OpenLoginAction(open));
         }
     }
 }

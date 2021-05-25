@@ -70,22 +70,26 @@ const SetHallAction=(state,id)=>{
 const AddSessionAction=(state)=>{
     return async (dispatch)=>{
         const convertToLocal=(time)=>{
-            let val=moment(time).utcOffset(330).format("YYYY-MM-DD[T]HH:mm:ss")
+            let val=moment(time+5.5*60*60).utcOffset(330).format("YYYY-MM-DD[T]HH:mm:ss");
+            return val;
         }
         const sendData={
             HallId:state.moduleDrop.hall.id,
             SubjectId:state.moduleDrop.Subject.id,
             StartDateTime:convertToLocal(state.moduleDrop.StartDateTime),
             EndDateTime:convertToLocal(state.moduleDrop.EndDateTime),
+            // StartDateTime:state.moduleDrop.StartDateTime,
+            // EndDateTime:state.moduleDrop.EndDateTime,
             Permitted:state.moduleDrop.Permitted,
             UserId:state.auth.user.userDetails.id,
-            reserved:state.reserved,
+            reserved:state.reserved
         }
         try{
             dispatch({type:ModuleDropActionType.ADD_SESSION_START,payload:{}})
             const res= await axios.post('/sessions',sendData);
             const {data}=res;
             dispatch({type:ModuleDropActionType.ADD_SESSION_SUCCESS,payload:data});
+            console.log(res);
         }catch(error){
             console.error(error);
             dispatch({type:ModuleDropActionType.ADD_SESSION_FAILED,payload:error})
@@ -103,11 +107,11 @@ const SetModuleAction=(mod)=>{
     }
 
 };
-const DeleteSessionAction=(session,state)=>{
+const DeleteSessionAction=(id)=>{
     return async (dispatch)=>{
         dispatch({type:ModuleDropActionType.DELETE_SESSION_STARTED, payload: {}})
         try{
-            const res=await axios.delete("/sessions"+session.id);
+            const res=await axios.delete("/sessions/"+id);
             dispatch({type:ModuleDropActionType.DELETE_SESSION_SUCCESS,payload:res.data})
             // let sessions=state.module.sessions;
             // let newSessions=sessions.filter((sess)=>session.id!=sess.id)
