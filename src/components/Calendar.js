@@ -8,6 +8,7 @@ function CalendarComponent(props){
     const changeDate = (e) => {
                 setDate(e);
                 getDailyModules(e);
+                // console.log(e);
             };
 
     useEffect(()=>{

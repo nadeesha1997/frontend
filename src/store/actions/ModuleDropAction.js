@@ -69,11 +69,14 @@ const SetHallAction=(state,id)=>{
 };
 const AddSessionAction=(state)=>{
     return async (dispatch)=>{
+        const convertToLocal=(time)=>{
+            let val=moment(time).utcOffset(330).format("YYYY-MM-DD[T]HH:mm:ss")
+        }
         const sendData={
             HallId:state.moduleDrop.hall.id,
             SubjectId:state.moduleDrop.Subject.id,
-            StartDateTime:state.moduleDrop.StartDateTime,
-            EndDateTime:state.moduleDrop.EndDateTime,
+            StartDateTime:convertToLocal(state.moduleDrop.StartDateTime),
+            EndDateTime:convertToLocal(state.moduleDrop.EndDateTime),
             Permitted:state.moduleDrop.Permitted,
             UserId:state.auth.user.userDetails.id,
             reserved:state.reserved,
