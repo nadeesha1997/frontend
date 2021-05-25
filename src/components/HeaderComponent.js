@@ -59,12 +59,13 @@
 // export default connect(mapStateToProps,mapDispatchToProps)(Header);
 import {Button, Image} from "react-bootstrap";
 import '../css/Nav.css';
-import logo2 from './../images/logo2.png';
+import logo3 from './../images/logo3.png';
 import {BrowserRouter as Router,Link, useHistory} from "react-router-dom";
 import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
 import {LogoutAuthAction} from "../store/actions/AuthAction"
 import {connect} from "react-redux";
+import Registration from "./Auth/Registration/Registration";
 function Header(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
@@ -112,35 +113,41 @@ function Header(props){
 
     return (
         <Router>
-            <div className="navbar-color">
-                <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
-                    <Image img src={logo2} alt="logo"  width={300} height={150} margin={5}/>
-                    <div className="text">
+            <div className="navbar-color" >
+                <nav  className="navbar navbar-expand-lg navbar-fixed-top n" style={{backgroundColor:'#2b2a2b'}} >
+                    <div >
+                    <Image img style={{borderRadius:'300px', marginLeft:40}} src={logo3} alt="logo"  width={250} height={100} margin={10}   />
+                    </div>
+                    <div className="text" >
                         <ul>
-                            <li>
-                                <h6> <b>FACULTY OF ENGINEERING</b></h6>
+                            <li >
+                                <h6 > <b>FACULTY OF ENGINEERING</b></h6>
                                 <h6><b>UNIVERSITY OF RUHUNA</b></h6>
                                 <h6><b>LECTURE SCHEDULE MANAGEMENT SYSTEM</b></h6>
                             </li>
                         </ul>
+
                     </div>
-                    <table>
-                        <td>
+                </nav>
+
+
+                    <div  style={{ backgroundColor:'#7e278f'}} align="right">
+
                             {!auth.isLoggedin?
                             <React.Fragment>
-                                <div className="align">
-                                    <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:45,marginRight:20}} 
-                                    // type='submit' 
+                                <div className="align"  >
+                                    <Button   style={{ width:180,backgroundColor:'#b4baba',marginLeft:45,marginRight:20}}
+                                    // type='submit'
                                     onClick={handleLoginButton}>
                                         {/* <Link to="./Login"> */}
-                                            <b>LOG IN</b>  
+                                            <b>LOG IN</b>
                                             {/* </Link> */}
                                     </Button>
-                                    <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:40,marginRight:20}} 
-                                    // type='submit' 
+                                    <Button style={{width:180,backgroundColor:'#b5bab9',marginLeft:40,marginRight:20}}
+                                    // type='submit'
                                     onClick={handleSignupButton}>
                                         {/* <Link to="./Register/student">  */}
-                                        <b> REGISTER</b>  
+                                        <b> REGISTER</b>
                                         {/* </Link> */}
                                     </Button>
                                 </div>
@@ -150,14 +157,21 @@ function Header(props){
                                 <button onClick={()=>logout(history)}>Logout</button>
                             </React.Fragment>
                         }
-                        </td>
-                    </table>
-                </nav>
+
+                    </div>
+
+
+
                 {openLogin?
                 <Login
                 closeModal={closeLoginB} 
                 isOpen={openLogin} 
                 handleSubmit={handleSubmit}/>:null}
+                {openSignup?
+                    <Registration
+                        closeModal={closeSignupB}
+                        isOpen={openSignup}
+                        handleSubmit={handleSubmit}/>:null}
             </div>
         </Router>
     );

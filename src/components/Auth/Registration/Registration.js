@@ -5,7 +5,8 @@ import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
-import { Button } from "react-bootstrap/Button";
+// import { Button } from "react-bootstrap/Button";
+import  Button  from "react-bootstrap/Button";
 import RegistrationComponent from './RegistrationComponent';
 const Registration=(props)=>{
     return(

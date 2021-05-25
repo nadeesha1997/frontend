@@ -1,10 +1,17 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import AdminRegisterForm from "./registration/AdminRegisterForm";
-import LecturerRegisterForm from "./registration/LecturerRegisterForm";
-import RegistrationNavbar from "./registration/RegistrationNavbar";
-import RegistrationTabbar from "./registration/RegistrationTabbar";
-import StudentRegisterForm from "./registration/StudentRegisterForm";
+
+// import AdminRegisterForm from "./registration/AdminRegisterForm";
+// import LecturerRegisterForm from "./registration/LecturerRegisterForm";
+// import RegistrationNavbar from "./registration/RegistrationNavbar";
+// import RegistrationTabbar from "./registration/RegistrationTabbar";
+// import StudentRegisterForm from "./registration/StudentRegisterForm";
+
+import AdminRegistrationComponent from "./Registration";
+import LecturerRegistrationComponent from "./Registration";
+import RegistrationNavbar from "./Registration";
+import RegistrationTabBar from "./Registration";
+import StudentRegistrationComponent from "./Registration";
 
 const RegistrationComponent = ({ match }) => {
 
@@ -13,20 +20,20 @@ const RegistrationComponent = ({ match }) => {
         <div className="page">
             <RegistrationNavbar />
             <div className="container">
-                <RegistrationTabbar />
+                <RegistrationTabBar />
                 <div >
                     <Route
                         path={`${match.path}/lecturer`}
-                        component={LecturerRegisterForm}
+                        component={LecturerRegistrationComponent}
                     />
 
                     <Route
                         path={`${match.path}/student`}
-                        component={StudentRegisterForm}
+                        component={StudentRegistrationComponent}
                     />
                     <Route
                         path={`${match.path}/faculty-staff`}
-                        component={AdminRegisterForm}
+                        component={AdminRegistrationComponent}
                     />
 
                 </div>
