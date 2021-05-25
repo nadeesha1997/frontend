@@ -136,7 +136,7 @@ function Header(props){
                                             <b>LOG IN</b>  
                                             {/* </Link> */}
                                     </Button>
-                                    <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:40,marginRight:20}} 
+                                    <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:60,marginRight:20}}
                                     // type='submit' 
                                     onClick={handleSignupButton}>
                                         {/* <Link to="./Register/student">  */}
