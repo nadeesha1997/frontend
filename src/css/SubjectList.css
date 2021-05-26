@@ -7,7 +7,18 @@
     clear: both;
     background-color: #d1bdf5;
 }*/
+.draggable {
 
+
+    /*  line-height: 5em;*/
+    background-color: #ede3f1;
+
+    font-size:16px;
+    text-align: left;
+    font-weight: bold;
+    font-family: "Times New Roman";
+
+}
 
 
 
@@ -24,7 +35,7 @@
 
 }
 .select-selected {
-    background-color: #ac83cb;
+    background-color: #a074c1;
 }
 
 /*style the arrow inside the select element:*/
@@ -43,7 +54,7 @@
 
 /*point the arrow upwards when the select box is open (active):*/
 .select-selected.select-arrow-active:after {
-    border-color: transparent transparent #aa9ae0 transparent;
+    border-color: transparent transparent #0b0324 transparent;
     top: 7px;
 }
 
@@ -119,6 +130,7 @@
     width: 210px;
     padding: 10px;
 
+
 }
 
 ul {
@@ -133,17 +145,7 @@ ul {
     grid-column-end: span 3;
 }
 
-.grid-item2 {
-    background-color: #fcf9fd;
-    border: 1px #0e0e0e; /*solid*/
-    padding: 5px;
-    left:10px ;
-    font-size:16px;
-    text-align: left;
-    font-color: #e943e9;
-    font-weight: bold;
-    font-family: "Arial";
-}
+
 
 /*tr:hover
 {

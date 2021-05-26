@@ -15,6 +15,8 @@ import Calendar from "../components/Calendar";
 import {GetHallsAction} from "../store/actions/TimeTableAction"
 import {TimeTable} from "../components/admin/TimeTable";
 import SubjectList from "../components/admin/SubjectList";
+import '../css/Dashboard.css';
+
 
 export const Dashboard = (props) => {
     const {getHalls}=props;
@@ -26,7 +28,8 @@ export const Dashboard = (props) => {
                 {/*<Navigation/>*/}
                 {/*<HomepageNavbar updateDate={this.updateDate}/>*/}
                 {/*<Nav/>*/}
-                <Calendar/>
+                <div className="main">
+                <Calendar/></div>
                 <div className="row">
                     <div className="list">
                         <SubjectList/>

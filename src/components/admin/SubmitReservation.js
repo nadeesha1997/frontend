@@ -6,6 +6,8 @@ import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
 import TimeField from 'react-simple-timefield';
+import '../../css/modal.css';
+
 import {
     AddSessionAction,
     DeleteSessionAction,
@@ -21,14 +23,16 @@ function SubmitReservation(props) {
         <Modal show={sessionsState.openSubmitModal}
                onHide={()=>closeMod(false)}>
             <ModalHeader closeButton>
-                <ModalTitle>Schedule lecture</ModalTitle>
+                <ModalTitle>LSMS-Schedule a lecture</ModalTitle>
             </ModalHeader>
             <ModalBody>
+                <div className="page1">
                 <div>
                     <Form>
-                        <div className="form-group">
+                        <div className="sub">
                             <label htmlFor="module">Module:</label>
                             <Input
+                                style={{width:390}}
                                 type="text"
                                 className="form-control"
                                 name="module"
@@ -36,9 +40,10 @@ function SubmitReservation(props) {
                                 readOnly
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="sub">
                             <label htmlFor="date">Date:</label>
                             <Input
+                                style={{width:390}}
                                 type="text"
                                 className="form-control"
                                 name="date"
@@ -46,9 +51,10 @@ function SubmitReservation(props) {
                                 readOnly
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="sub">
                             <label htmlFor="starttime">Start Time:</label>
                             <Input
+                                style={{width:390}}
                                 type="text"
                                 className="form-control"
                                 name="module"
@@ -56,8 +62,10 @@ function SubmitReservation(props) {
                                 readOnly
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="endtime">End Time:</label>
+                        <div className="sub">
+                            <label
+
+                                htmlFor="endtime">End Time:</label>
                             {/*<Input*/}
                             {/*    type="time"*/}
                             {/*    className="form-control"*/}
@@ -65,7 +73,7 @@ function SubmitReservation(props) {
                             {/*    // value={email}*/}
                             {/*    readonly*/}
                             {/*/>*/}
-                            <TimeField
+                            <TimeField style={{width:80}}
                                 value={moment(sessionsState.EndDateTime).format("HH:mm")}                     // {String}   required, format '00:00' or '00:00:00'
                                 onChange={(event) => {setEndTime(mState,event.target.value);console.log(event.target.value);}}      // {Function} required
                                 input={<input type="text" />} // {Element}  default: <input type="text" />
@@ -77,13 +85,14 @@ function SubmitReservation(props) {
                         <div className="form-group">
                             <Button
                                 // type="submit"
-                                className="btn btn-primary"
+                                style={{width:100,height:40,backgroundColor:'#2d0b34',marginBottom:15,marginLeft:130,marginTop:15}}
+                                className="btn btn-primary btn-block"
                                 name="submit"
                                 onClick={()=>submitSession(mState)}
                                 >SUBMIT</Button>
                         </div>
                     </Form>
-                </div>
+                </div></div>
             </ModalBody>
 
         </Modal>
