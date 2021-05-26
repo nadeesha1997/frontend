@@ -73,7 +73,7 @@ const LoginAuthAction=(loginState,history)=>{
             const {data}=res;
             dispatch({type:AuthActionType.LOGIN_SUCCESSFULL,payload:data})
             history.push("/home");
-            // window.location.reload();
+            window.location.reload();
         }catch(error){
             console.error(error);
             dispatch({type:AuthActionType.LOGIN_FAIL,payload:{}})
@@ -83,10 +83,14 @@ const LoginAuthAction=(loginState,history)=>{
 const LogoutAuthAction=(history)=>{
     return async (dispatch)=>{
         try{
-            dispatch({type:AuthActionType.LOGOUT_SUCCESSFULL,payload:{}})
+            dispatch({type:AuthActionType.LOGOUT_SUCCESSFULL,payload:{}});
+            history.push("/");
+            window.location.reload();
         }catch(error){
             console.error(error);
-            dispatch({type:AuthActionType.LOGOUT_FAIL,payload:{}})
+            dispatch({type:AuthActionType.LOGOUT_FAIL,payload:{}});
+            history.push("/");
+            window.location.reload();
         }
     };
 };
