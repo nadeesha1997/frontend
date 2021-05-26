@@ -1,8 +1,24 @@
 import axios from "axios";
 import { AuthActionType } from "../actions/AuthAction";
+
+// const getAuthStateInInit=()=>{
+//     const auth=localStorage.getItem("auth");
+//     try {
+//         const authobj=JSON.parse(auth);
+//         const{jwttoken}=authobj.accessToken;
+//         // if(new Date(expires_at)>new Date()){
+//         axios.defaults.headers.common["Authorization"]="Bearer"+jwttoken;
+//         return authobj;
+//     } catch (error) {
+//         return null;
+//
+//     }
+// };
+
 const authState={
-    isLoggedin:false,
-    user:null,
+    isLoggedin:localStorage.hasOwnProperty("auth"),
+    user:localStorage.hasOwnProperty("auth")?JSON.parse(localStorage.getItem("auth")).user:null,
+    // user:null,
     loginModelOpen:false,
     signupModalOpen:false
 };
