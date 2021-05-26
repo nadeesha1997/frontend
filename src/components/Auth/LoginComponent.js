@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import icon from '../../images/icon.jpg';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../css/modal.css';
 
 import Modal from 'react-bootstrap/Modal';
 import ModalBody from "react-bootstrap/ModalBody";
@@ -71,7 +71,8 @@ const Login=(props)=>{
          // style={{zIndex:1}}
          >
             <ModalHeader closeButton>
-                <ModalTitle>Login</ModalTitle>
+                <ModalTitle>
+                    <div className="title">LSMS-Login</div></ModalTitle>
             </ModalHeader>
             <ModalBody>
                 {/* Woohoo, you're reading this text in a modal!
@@ -90,23 +91,23 @@ const Login=(props)=>{
 
                 <div>
 
-                <div className="p1">
-                    <h5><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h5>
-                </div>
+                {/*<div className="p1">*/}
+                {/*    <h5><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h5>*/}
+                {/*</div>*/}
 
             <div className="page1">
 
 
-                <Image img src={icon} alt="icon" style={{width: 300,
-                    height: 300,
-                    borderRadius: 500 ,
-                    padding:30,}}/>
+                <Image img src={icon} alt="icon" style={{width: 250,
+                    height: 250,
+                    borderRadius: 450 ,
+                    padding:10,marginLeft:100}}/>
                 <Form
                     onSubmit={handleLogin}
                 >
                     <div className="form-group">
                         <label  htmlFor="username" style={{color:'black',fontWeight:'bolder'}}>Email : </label>
-                        <Input
+                        <Input style={{width:350}}
                             type="text"
                             className="form-control"
                             name="email"
@@ -119,7 +120,7 @@ const Login=(props)=>{
 
                     <div className="form-group">
                         <label htmlFor="password" style={{color:'black',fontWeight:'bolder'}}>Password : </label>
-                        <Input
+                        <Input style={{width:350}}
                             type="password"
                             className="form-control"
                             name="password"
@@ -131,7 +132,7 @@ const Login=(props)=>{
                     </div>
 
 
-                        <button  style={{width:150,height:40,backgroundColor:'#440151',marginTop:5,marginLeft:130}}
+                        <button  style={{width:150,height:40,backgroundColor:'#2d0b34',marginTop:5,marginLeft:130}}
                                 className="btn btn-primary btn-block"
                                 disabled={loading}
                         >
@@ -142,11 +143,11 @@ const Login=(props)=>{
                         </button>
 
                     <div className="form-group">
-                        <Link className="lin"  to="#" variant="body2" >
+                        <Link to="#" variant="body2" >
                             <Link to="/Reset/ResetPassword">   Forgot password?</Link>
                         </Link>
 
-                        <p  className="lin"> Don't have an account?
+                        <p> Don't have an account?
                             <Link to="/Register">
                                 {"  Register Here"}
                             </Link>
@@ -172,7 +173,7 @@ const Login=(props)=>{
             </div>
                 </div>
 
-                //
+
             </ModalBody>
             {/*<ModalFooter>*/}
             {/*    <Button variant="primary"*/}

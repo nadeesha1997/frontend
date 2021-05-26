@@ -1,11 +1,14 @@
 .page{
     /*background-color: #cc8bf3   #bdbdd5;*/
     color: #3f285a;
-    background: linear-gradient(to bottom, #f8f8fc 0%, #f5f6f8 100%);
+    background: linear-gradient(to bottom, #efeff3 0%, #f5f6f8 100%);
     text-align: center;
 
 }
+.main{
+    margin-left: -170px;
 
+}
 .top_corner{
     /*position:absolute;*/
     bottom:0px;
@@ -60,5 +63,11 @@
 }
 
 
-
-
+.row{
+    margin-top: 10px;
+}
+.list{
+    margin-left: 800px;
+    margin-top:-250px;
+    color: #332250;
+}

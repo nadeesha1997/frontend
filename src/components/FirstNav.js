@@ -59,9 +59,9 @@ function FirstNav(props){
                     <div className="text">
                         <ul>
                             <li>
-                                <h6> <b>FACULTY OF ENGINEERING</b></h6>
-                                <h6><b>UNIVERSITY OF RUHUNA</b></h6>
-                                <h6><b>LECTURE SCHEDULE MANAGEMENT SYSTEM</b></h6>
+                                <h5> <b>FACULTY OF ENGINEERING</b></h5>
+                                <h5><b>UNIVERSITY OF RUHUNA</b></h5>
+                                <h5><b>LECTURE SCHEDULE MANAGEMENT SYSTEM</b></h5>
                             </li>
                         </ul>
                     </div>

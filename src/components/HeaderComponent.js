@@ -59,7 +59,7 @@
 // export default connect(mapStateToProps,mapDispatchToProps)(Header);
 import {Button, Image} from "react-bootstrap";
 import '../css/Nav.css';
-import logo2 from './../images/logo2.png';
+import logo3 from './../images/logo3.png';
 import {BrowserRouter as Router,Link, useHistory} from "react-router-dom";
 import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
@@ -114,13 +114,13 @@ function Header(props){
         <Router>
             <div className="navbar-color">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
-                    <Image img src={logo2} alt="logo"  width={300} height={150} margin={5}/>
+                    <Image img src={logo3} alt="logo"  width={300} height={150} margin={5}/>
                     <div className="text">
                         <ul>
                             <li>
-                                <h6> <b>FACULTY OF ENGINEERING</b></h6>
-                                <h6><b>UNIVERSITY OF RUHUNA</b></h6>
-                                <h6><b>LECTURE SCHEDULE MANAGEMENT SYSTEM</b></h6>
+                                <h4> <b>FACULTY OF ENGINEERING</b></h4>
+                                <h4><b>UNIVERSITY OF RUHUNA</b></h4>
+                                <h4><b>LECTURE SCHEDULE MANAGEMENT SYSTEM</b></h4>
                             </li>
                         </ul>
                     </div>
@@ -129,7 +129,7 @@ function Header(props){
                             {!auth.isLoggedin?
                             <React.Fragment>
                                 <div className="align">
-                                    <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:45,marginRight:20}} 
+                                    <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:120,marginRight:20}}
                                     // type='submit' 
                                     onClick={
                                         // handleLoginButton
@@ -139,7 +139,7 @@ function Header(props){
                                             <b>LOG IN</b>  
                                             {/* </Link> */}
                                     </Button>
-                                    <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:60,marginRight:20}}
+                                    <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:100,marginRight:20}}
                                     // type='submit' 
                                     onClick={handleSignupButton}>
                                         {/* <Link to="./Register/student">  */}

@@ -33,7 +33,7 @@ function SubjectList(props) {
     return(<>
         <div style={{margin: '50px'}}>
             <table>
-                <div style={{width: '100%'}}>
+                <div style={{width: '100%',backgroundColor:"#cac4cb"}}>
                     <td>
                         <div className="bottom_right">
                             <div className="custom-select">
@@ -74,7 +74,8 @@ function SubjectList(props) {
                         <div className="container">
                             <div className="row" style={{margin: '10px'}}>
                                 <button onClick={() => getModules(subjectList)}
-                                        style={{backgroundColor: '#9b82c3'}}>
+                                        style={{width:100,height:40,backgroundColor:'#331539'}}
+                                        className="btn btn-primary btn-block">
                                     <b>SELECT</b>
                                 </button>
                             </div>

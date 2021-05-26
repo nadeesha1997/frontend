@@ -4,28 +4,37 @@ import {DeleteSessionAction, openDeleteModalAction, openSubmitModalAction} from 
 import {Modal, ModalTitle} from "react-bootstrap";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalBody from "react-bootstrap/ModalBody";
+import '../../css/modal.css';
+
 function DeleteSessionModal(props) {
     let {id,openMod,deleteSession,closeMod}=props;
     return(<>
         <Modal show={openMod}
                onHide={()=>closeMod(false)}>
             <ModalHeader closeButton>
-                <ModalTitle>Delete Session</ModalTitle>
+                <ModalTitle><div className="title">LSMS-Delete a Session</div></ModalTitle>
             </ModalHeader>
+
             <ModalBody>
+                <div className="page1">
                 <div>
-                    <div className="row">
-                        <h3>Are you sure?</h3>
+                    <div className="sub">
+                        <h4>Do you want to Delete the scheduled session?</h4>
                     </div>
                     <div className="row">
-                        <button onClick={()=>{
+                        <button style={{width:150,height:40,backgroundColor:'#2d0b34',marginRight:15,marginLeft:100,marginTop:80,marginBottom:20}}
+                                className="btn btn-primary btn-block"
+                            onClick={()=>{
                             console.log(id);
                             deleteSession(id);
                             closeMod(false);
                         }}>Delete</button>
-                        <button>OK</button>
+                        <button
+                            style={{width:150,height:40,backgroundColor:'#2d0b34',marginRight:15,marginTop:80,paddingBottom:5,marginBottom:20}}
+                            className="btn btn-primary btn-block"
+                        >OK</button>
                     </div>
-                </div>
+                </div></div>
             </ModalBody>
         </Modal>
     </>)

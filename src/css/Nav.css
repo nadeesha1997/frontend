@@ -1,18 +1,5 @@
 
-.top_corner{
-    /*position:absolute;*/
-    bottom:0px;
-    /*top:320px;*/
-    right:0px;
 
-}
-
-.bottom_right{
-    /*position:absolute;*/
-    bottom:40px;
-    /*top:280px;*/
-    right:150px;
-}
 
 /**/
 
@@ -28,13 +15,13 @@
 }
 
 .text{
-    color: #320947;
+    color: #200231;
     text-align: left;
     margin-left:2px;
     margin-top: 20px;
     margin-bottom: 0px;
     font-weight: bolder;
-    font-family: "Arial";
+    font-family: Arial;
     font-size: medium;
 }
 
@@ -50,7 +37,7 @@
     font-size: medium;
 }
 .navbar-color {
-    background: linear-gradient( #bdbdd5, #a86aa8);
+    background: linear-gradient(#a86aa8, #bdbdd5);
 
 
 }
