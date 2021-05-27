@@ -21,7 +21,7 @@ function SubmitReservation(props) {
     let {sessionsState,submitSession,openMod,closeMod,setEndTime,mState}=props;
     return(<>
         <Modal show={sessionsState.openSubmitModal}
-               onHide={()=>closeMod(false)}>
+               onHide={()=>closeMod()}>
             <ModalHeader closeButton>
                 <ModalTitle>LSMS-Schedule a lecture</ModalTitle>
             </ModalHeader>
@@ -88,7 +88,10 @@ function SubmitReservation(props) {
                                 style={{width:100,height:40,backgroundColor:'#2d0b34',marginBottom:15,marginLeft:130,marginTop:15}}
                                 className="btn btn-primary btn-block"
                                 name="submit"
-                                onClick={()=>submitSession(mState)}
+                                onClick={()=>{
+                                    submitSession(mState);
+                                    closeMod();
+                                }}
                                 >SUBMIT</Button>
                         </div>
                     </Form>

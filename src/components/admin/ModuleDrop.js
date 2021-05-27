@@ -6,7 +6,7 @@ import {
     openDeleteModalAction, openSubmitModalAction,
     SelectModuleAction, SetEndTimeAction,
     SetHallAction, SetModuleAction,
-    SetModuleIdAction, SetSessionIdAction,
+    SetModuleIdAction, setPermittedAction, setReservedAction, SetSessionIdAction,
     SetStartTimeAction
 } from "../../store/actions/ModuleDropAction";
 import {GetDailyModulesAction} from "../../store/actions/DailyModuleAction";
@@ -107,6 +107,9 @@ function ModuleDrop(props) {
             dispatch(SetEndTimeAction(moduleDropState,EndTime));
             dispatch(SetModuleAction(module));
             dispatch(openSubmitModalAction(true));
+            if(moduleDropState.moduleDrop.hall.permissionType=="null"){
+                dispatch(setPermittedAction(true))
+            }
         }
     };
     const renderDiv=()=>{

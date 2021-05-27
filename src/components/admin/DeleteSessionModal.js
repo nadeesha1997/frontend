@@ -32,7 +32,7 @@ function DeleteSessionModal(props) {
                         <button
                             style={{width:150,height:40,backgroundColor:'#2d0b34',marginRight:15,marginTop:80,paddingBottom:5,marginBottom:20}}
                             className="btn btn-primary btn-block"
-                        >OK</button>
+                        >NO</button>
                     </div>
                 </div></div>
             </ModalBody>
