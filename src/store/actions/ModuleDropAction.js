@@ -140,4 +140,9 @@ const setSubjectAction=(subject)=>{
         dispatch({type:ModuleDropActionType.SET_SUBJECT,payload:subject})
     }
 };
-export {ModuleDropActionType,SetStartTimeAction,SetEndTimeAction,SetModuleIdAction,SetHallAction,AddSessionAction,SetModuleAction,DeleteSessionAction,SetSessionIdAction,openDeleteModalAction,openSubmitModalAction,setSubjectAction};
+const setPermittedAction=(reserved)=>{
+    return (dispatch)=>{
+        dispatch({type:ModuleDropActionType.SET_PERMITTED,payload:reserved})
+    }
+};
+export {ModuleDropActionType,SetStartTimeAction,SetEndTimeAction,SetModuleIdAction,SetHallAction,AddSessionAction,SetModuleAction,DeleteSessionAction,SetSessionIdAction,openDeleteModalAction,openSubmitModalAction,setSubjectAction,setPermittedAction};
