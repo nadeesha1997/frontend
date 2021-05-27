@@ -11,9 +11,10 @@ const ModuleDropState={
     loading:false,
     sessionId:0,
     error:"",
-    deleteResponse:"",
+    // deleteResponse:"",
     openDeleteModal:false,
-    openSubmitModal:false
+    openSubmitModal:false,
+    successMessage:""
 }
 const moduleDropReducer=(state=ModuleDropState,action)=>{
     switch (action.type) {
@@ -39,7 +40,7 @@ const moduleDropReducer=(state=ModuleDropState,action)=>{
         case ModuleDropActionType.ADD_SESSION_START:
             return {...state,loading: true};
         case ModuleDropActionType.ADD_SESSION_SUCCESS:
-            return {...state,loading: false};
+            return {...state,loading: false,successMessage: action.payload};
         case ModuleDropActionType.ADD_SESSION_FAILED:
             return {...state,loading: false ,error: action.payload};
         case ModuleDropActionType.SET_MODULE_ID:
@@ -49,7 +50,7 @@ const moduleDropReducer=(state=ModuleDropState,action)=>{
         case ModuleDropActionType.DELETE_SESSION_STARTED:
             return state;
         case ModuleDropActionType.DELETE_SESSION_SUCCESS:
-            return {...state,deleteResponse: action.payload};
+            return {...state,successMessage: action.payload};
         case ModuleDropActionType.DELETE_SESSION_FAILED:
             return state;
         case ModuleDropActionType.SET_SESSION_ID:

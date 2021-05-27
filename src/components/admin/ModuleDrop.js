@@ -36,14 +36,13 @@ function ModuleDrop(props) {
         }
         // console.log("check booked");
 
-    },[moduleDropState.module.sessions]);
+    },[moduleDropState.module.sessions,moduleDropState.module.date]);
     useEffect(()=>{
         renderDiv()
     },[module,moduleDropState.module.date]);
     useEffect(()=>{
         dispatch(GetDailyModulesAction(moduleDropState.module.date))
-    },[moduleDropState.moduleDrop.deleteResponse])
-
+    },[moduleDropState.moduleDrop.successMessage]);
     const startTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + startTime
         setstartDatetime(new Date(date));
@@ -55,6 +54,7 @@ function ModuleDrop(props) {
     };
 
     const checkBooked=()=>{
+        setmodule(null);
         let ss=moduleDropState.module.sessions;
         // console.log("called "+ss.length);
         if(ss.length!=0){
