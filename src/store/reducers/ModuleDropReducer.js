@@ -62,7 +62,7 @@ const moduleDropReducer=(state=ModuleDropState,action)=>{
         case ModuleDropActionType.SET_SUBJECT:
             return {...state,Subject:action.payload};
         case ModuleDropActionType.SET_PERMITTED:
-            return {...state,reserved: action.payload};
+            return {...state,Permitted: action.payload};
         default:
             return state;
     }

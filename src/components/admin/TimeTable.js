@@ -7,12 +7,29 @@ import "../../css/Table.css"
 
 export const TimeTable = (props) => {
     const {halls,date,getHalls,loading}=props;
-    useEffect(()=>{
-
-    })
+    const [tableStyle,settableStyle]=useState({
+        display: "grid",
+        gridTemplateColumns: "repeat(17, 1fr)",
+        backgroundColor: "#a998bd",
+        gridColumnGap: "0.01em",
+        gridRowGap: "0.1em",
+        marginTop: "0px"
+    });
+    // useEffect(()=>{
+    //     getHalls();
+    // },[])
+    // useEffect(()=>{
+    //     setStyles(halls.length);
+    // },[halls])
+    const setStyles=(length)=>{
+        let val="repeat("+length+1+", 1fr)";
+        settableStyle({...tableStyle,gridTemplateColumns: val})
+    }
     return (
         <div>
-            <div className="grid-container">
+            <div
+                className="grid-container"
+                style={tableStyle}>
                 <div className="grid-item">Time</div>
                 <HallList/>
                 <LecTimes/>
