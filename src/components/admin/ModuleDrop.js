@@ -106,10 +106,10 @@ function ModuleDrop(props) {
             dispatch(SetHallAction(moduleDropState,hallid));
             dispatch(SetEndTimeAction(moduleDropState,EndTime));
             dispatch(SetModuleAction(module));
-            dispatch(openSubmitModalAction(true));
             if(moduleDropState.moduleDrop.hall.permissionType=="null"){
                 dispatch(setPermittedAction(true))
             }
+            dispatch(openSubmitModalAction(true));
         }
     };
     const renderDiv=()=>{
