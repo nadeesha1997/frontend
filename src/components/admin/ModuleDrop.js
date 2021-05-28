@@ -101,14 +101,11 @@ function ModuleDrop(props) {
             alert("Time has already passed")
         }
         else {
+            dispatch(SetHallAction(moduleDropState,hallid));
             dispatch(SetModuleIdAction(id));
             dispatch(SetStartTimeAction(moduleDropState,startTime));
-            dispatch(SetHallAction(moduleDropState,hallid));
             dispatch(SetEndTimeAction(moduleDropState,EndTime));
             dispatch(SetModuleAction(module));
-            if(moduleDropState.moduleDrop.hall.permissionType=="null"){
-                dispatch(setPermittedAction(true))
-            }
             dispatch(openSubmitModalAction(true));
         }
     };

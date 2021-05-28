@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import Modal from 'react-bootstrap/Modal';
 import ModalBody from "react-bootstrap/ModalBody";
@@ -12,13 +12,41 @@ import {
     AddSessionAction,
     DeleteSessionAction,
     openSubmitModalAction,
-    SetEndTimeAction
+    SetEndTimeAction, setPermittedAction
 } from "../../store/actions/ModuleDropAction";
 import {Button, Input} from "reactstrap";
 import {Form} from "react-bootstrap";
 import moment from "moment";
+import {SetRecieverAction} from "../../store/actions/MailAction";
 function SubmitReservation(props) {
-    let {sessionsState,submitSession,openMod,closeMod,setEndTime,mState}=props;
+    let {sessionsState,submitSession,openMod,closeMod,setEndTime,mState,setPermission,setReciever,mailState}=props;
+    useEffect(()=>{
+        switch (sessionsState.hall.permissionType) {
+            case "null":
+                setPermission(true);
+                break;
+            case "isHOD":
+                setReciever(mailState.isHodEmail);
+                setPermission(false);
+                break;
+            case "elecHOD":
+                setReciever(mailState.elecHodEmail);
+                setPermission(false);
+                break;
+            case "civilHOD":
+                setReciever(mailState.civilHodEmail);
+                setPermission(false);
+                break;
+            case "mechHOD":
+                setReciever(mailState.mechHodEmail);
+                setPermission(false);
+                break;
+            // case "ar":
+            default:
+                setReciever(mailState.adminEmail);
+                setPermission(false);
+        }
+    },[])
     return(<>
         <Modal show={sessionsState.openSubmitModal}
                onHide={()=>closeMod()}>
@@ -104,7 +132,8 @@ function SubmitReservation(props) {
 const mapStateToProps=(moduleDropstate)=>{
     return {
         sessionsState:moduleDropstate.moduleDrop,
-        mState:moduleDropstate
+        mState:moduleDropstate,
+        mailState:moduleDropstate.mail
     }
 };
 const mapDispatchToProps=(dispatch)=>{
@@ -120,6 +149,12 @@ const mapDispatchToProps=(dispatch)=>{
         },
         setEndTime:(moduleDropState,EndTime)=>{
             dispatch(SetEndTimeAction(moduleDropState,EndTime))
+        },
+        setPermission:(val)=>{
+            dispatch(setPermittedAction(val))
+        },
+        setReciever:(val)=>{
+            dispatch(SetRecieverAction(val))
         }
     }
 };
