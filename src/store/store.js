@@ -5,6 +5,7 @@ import dailyModuleReducer from "./reducers/DailyModuleReducer";
 import timetableReducer from "./reducers/TimeTableReducer"
 import subjectListReducer from "./reducers/SubjectListReducer";
 import moduleDropReducer from "./reducers/ModuleDropReducer";
+import mailReducer from "./reducers/MailReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer=combineReducers({
@@ -12,7 +13,8 @@ const rootReducer=combineReducers({
     module:dailyModuleReducer,
     timetable:timetableReducer,
     subjectList:subjectListReducer,
-    moduleDrop:moduleDropReducer
+    moduleDrop:moduleDropReducer,
+    mail:mailReducer
 })
 
 const store=createStore(
