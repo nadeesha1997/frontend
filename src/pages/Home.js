@@ -14,10 +14,10 @@ import SecondNav from "../components/SecondNav";
 import {ThirdNav} from "../components/ThirdNav";
 const Home = () => {
     return (
-        <div className="page">
+        <div>
             {/* <FirstNav/> */}
 
-            <SecondNav style={{marginTop:1000}}/>
+            <SecondNav/>
 
             <div>
                 <Carousel>

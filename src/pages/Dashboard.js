@@ -26,13 +26,14 @@ export const Dashboard = (props) => {
     useEffect(()=>getHalls(),)
     return (
         <>
-            <div className="page">
+            <div>
                 {/*<Navigation/>*/}
                 {/*<HomepageNavbar updateDate={this.updateDate}/>*/}
                 {/*<Nav/>*/}
                 <SecondNav/>
                 <ThirdNav/>
-                <div className="main">
+                <div className="page">
+                         <div className="main">
                 <Calendar/></div>
                 <div className="row">
                     <div className="list">
@@ -44,7 +45,7 @@ export const Dashboard = (props) => {
 
                 </div>
 
-            </div>
+            </div></div>
         </>
     )
 }
