@@ -26,26 +26,4 @@ function Header(){
         </Router>
     );
 };
-
-// export default FirstNav;
-/*
-const mapStateToProps=(userState)=>{
-    return {
-        auth:userState.auth
-    }
-};
-*/
-
-/*const mapDispatchToProps=(dispatch)=>{
-    return {
-        logout:(history)=>{
-            dispatch(LogoutAuthAction(history));
-        },
-        openLog:(open)=>{
-            dispatch(OpenLoginAction(true));
-            dispatch(OpenSignupAction(false));
-        }
-    }
-};*/
-
 export default Header;
