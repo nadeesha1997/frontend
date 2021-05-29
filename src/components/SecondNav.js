@@ -90,14 +90,7 @@ function SecondNav(props){
                     </table>
                 </nav>
                 {
-                    auth.loginModelOpen
-                        // openLogin
-                        ?
-                        <Login
-                            // closeModal={closeLoginB}
-                            // isOpen={openLogin}
-                            // handleSubmit={handleSubmit}
-                        />:null}
+                    auth.loginModelOpen ? <Login/>:null}
             </div>
         </Router>
     );
