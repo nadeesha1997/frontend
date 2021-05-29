@@ -12,15 +12,15 @@ function ThirdNav() {
                         <a className="navbar-brand" href="#">WELCOME LSMS</a>
                         <a className="navbar-brand" href="#">|</a>
 
-                        <NavLink to="" className="nav-item nav-link">
+                        <NavLink to="/Home" className="nav-item nav-link">
                             Dashboard
                         </NavLink>
 
-                        <NavLink to="Dashboard" className="nav-item nav-link">
+                        <NavLink to="/EditTimeTable" className="nav-item nav-link">
                             Timetable
                         </NavLink>
 
-                        <NavLink to="" className="nav-item nav-link">
+                        <NavLink to="/OnlineTable" className="nav-item nav-link">
                             Online lectures
                         </NavLink>
 
