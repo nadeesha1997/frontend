@@ -55,36 +55,38 @@ function SecondNav(props){
             <div className="navbar-color2">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
                     <table>
-                        <td>
-                            {!auth.isLoggedin?
-                                <React.Fragment>
-                                    <div>
-                                        <Button  style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:1000,marginRight:10,marginBottom:5}}
-                                            // type='submit'
-                                                 onClick={
-                                                     // handleLoginButton
-                                                     ()=>openLog(true)
-                                                 }>
-                                            {/* <Link to="./Login"> */}
-                                            <b>LOG IN</b>
-                                            {/* </Link> */}
-                                        </Button>
-                                        <Button style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
-                                            // type='submit'
-                                                onClick={handleSignupButton}>
-                                            {/* <Link to="./Register/student">  */}
-                                            <b> REGISTER</b>
-                                            {/* </Link> */}
-                                        </Button>
-                                    </div>
-                                </React.Fragment>:
-                                <React.Fragment>
-                                    <div className="UserName">
-                                    <table><td><h6>{auth.user.userDetails.fullName}</h6></td>
-                                   <button onClick={()=>logout(history)}>Logout</button></table></div>
-                                </React.Fragment>
-                            }
-                        </td>
+                        <tr>
+                            <td>
+                                {!auth.isLoggedin?
+                                    <React.Fragment>
+                                        <div>
+                                            <Button  style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:1000,marginRight:10,marginBottom:5}}
+                                                // type='submit'
+                                                     onClick={
+                                                         // handleLoginButton
+                                                         ()=>openLog(true)
+                                                     }>
+                                                {/* <Link to="./Login"> */}
+                                                <b>LOG IN</b>
+                                                {/* </Link> */}
+                                            </Button>
+                                            <Button style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
+                                                // type='submit'
+                                                    onClick={handleSignupButton}>
+                                                {/* <Link to="./Register/student">  */}
+                                                <b> REGISTER</b>
+                                                {/* </Link> */}
+                                            </Button>
+                                        </div>
+                                    </React.Fragment>:
+                                    <React.Fragment>
+                                        <div className="UserName">
+                                            <table><td><h6>{auth.user.userDetails.fullName}</h6></td>
+                                                <button onClick={()=>logout(history)}>Logout</button></table></div>
+                                    </React.Fragment>
+                                }
+                            </td>
+                        </tr>
                     </table>
                 </nav>
                 {
