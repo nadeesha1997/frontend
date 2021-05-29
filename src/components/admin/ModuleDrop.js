@@ -87,7 +87,7 @@ function ModuleDrop(props) {
         if(reserved){
             alert("Time has already taken");
         }
-        if(startDateTime<new Date()){
+        else if(startDateTime<new Date()){
             alert("Time has already passed")
         }
         else {
