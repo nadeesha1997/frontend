@@ -40,7 +40,7 @@ function SubjectList(props) {
                                 <select
                                     // ref="selectOption"
                                     onChange={(e) =>setSemester(e.target.value)}>
-                                    <option value="0">select the semester:</option>
+                                  <option value="0">select the semester:</option>
                                     <option value="1">semester 01</option>
                                     <option value="2">semester 02</option>
                                     <option value="3">semester 03</option>

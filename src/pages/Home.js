@@ -10,10 +10,15 @@ import faculty2 from  "../images/faculty2.jpg";
 import faculty4 from "../images/faculty4.jpg";
 import faculty5 from "../images/faculty5.jpg";
 import faculty6 from "../images/faculty6.jpg";
+import SecondNav from "../components/SecondNav";
+import {ThirdNav} from "../components/ThirdNav";
 const Home = () => {
     return (
         <div className="page">
             {/* <FirstNav/> */}
+
+            <SecondNav style={{marginTop:1000}}/>
+
             <div>
                 <Carousel>
                     <Carousel.Item interval={800}>

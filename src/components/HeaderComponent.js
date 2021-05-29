@@ -65,8 +65,8 @@ import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
 import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction"
 import {connect} from "react-redux";
-function Header(props){
-    const [openLogin, setopenLogin] = useState(false);
+function Header(){
+    /*const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
     const history=useHistory();
     const {auth,logout,openLog}=props;
@@ -109,12 +109,12 @@ function Header(props){
     const handleSubmit=(e)=>{
         e.preventDefault();
     }
-
+*/
     return (
         <Router>
             <div className="navbar-color">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
-                    <Image img src={logo3} alt="logo"  width={300} height={150} margin={5}/>
+                    <Image img src={logo3} alt="logo"  width={300} height={150} margin={-15}/>
                     <div className="text">
                         <ul>
                             <li>
@@ -124,7 +124,7 @@ function Header(props){
                             </li>
                         </ul>
                     </div>
-                    <table>
+                    {/*<table>
                         <td>
                             {!auth.isLoggedin?
                             <React.Fragment>
@@ -135,16 +135,16 @@ function Header(props){
                                         // handleLoginButton
                                         ()=>openLog(true)
                                     }>
-                                        {/* <Link to="./Login"> */}
+                                         <Link to="./Login">
                                             <b>LOG IN</b>  
-                                            {/* </Link> */}
+                                             </Link>
                                     </Button>
                                     <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:100,marginRight:20}}
                                     // type='submit' 
                                     onClick={handleSignupButton}>
-                                        {/* <Link to="./Register/student">  */}
+                                         <Link to="./Register/student">
                                         <b> REGISTER</b>  
-                                        {/* </Link> */}
+                                         </Link>
                                     </Button>
                                 </div>
                             </React.Fragment>:
@@ -154,9 +154,9 @@ function Header(props){
                             </React.Fragment>
                         }
                         </td>
-                    </table>
+                    </table>*/}
                 </nav>
-                {
+                {/*{
                     auth.loginModelOpen
                     // openLogin
                     ?
@@ -164,20 +164,22 @@ function Header(props){
                 // closeModal={closeLoginB}
                 // isOpen={openLogin}
                 // handleSubmit={handleSubmit}
-                />:null}
+                />:null}*/}
             </div>
         </Router>
     );
 };
 
 // export default FirstNav;
+/*
 const mapStateToProps=(userState)=>{
     return {
         auth:userState.auth
     }
 };
+*/
 
-const mapDispatchToProps=(dispatch)=>{
+/*const mapDispatchToProps=(dispatch)=>{
     return {
         logout:(history)=>{
             dispatch(LogoutAuthAction(history));
@@ -187,6 +189,6 @@ const mapDispatchToProps=(dispatch)=>{
             dispatch(OpenSignupAction(false));
         }
     }
-};
+};*/
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default Header;

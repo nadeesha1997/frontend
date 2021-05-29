@@ -112,10 +112,10 @@ function ModuleDrop(props) {
     const renderDiv=()=>{
         if(module!=null&&module.subject!=null){
             if(module.permitted){
-                return(<div style={{backgroundColor: "red", marginTop:"-10px",marginBottom:"-90px",height: "20px"}}><p>{module.subject.code}</p></div>)
+                return(<div style={{backgroundColor: "yellow", marginTop:"-10px",marginBottom:"-90px",height: "20px"}}><p>{module.subject.code}</p></div>)
             }
             else{
-                return (<div style={{backgroundColor: "yellow", marginTop:"-10px",marginBottom:"-90px",height: "20px"}}><p>{module.subject.code}</p></div>)
+                return (<div style={{backgroundColor: "red", marginTop:"-10px",marginBottom:"-90px",height: "20px"}}><p>{module.subject.code}</p></div>)
             }
         }
         else{

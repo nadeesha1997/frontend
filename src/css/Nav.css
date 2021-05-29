@@ -25,7 +25,12 @@
     font-size: medium;
 }
 
-
+.navbar-color3{
+    background-color: #200231;
+    font-color: #ecd8d8;
+    padding-bottom: 10px;
+    width: 100%;
+}
 .text1{
     color: #c38be3;
     text-align: left;
@@ -38,16 +43,19 @@
 }
 .navbar-color {
     background: linear-gradient(#a86aa8, #bdbdd5);
-
+    width: 100%;
 
 }
-.navbar-color1 {
-    background-color: #551c65;
+.navbar-color2 {
+    background-color: #a087a7;
     font-family: Arial;
-
+    margin-top: -42px;
+    width: 100%;
 
 
 }
+
+
 /*P {
     color: #9980ac;
     text-align: left;
