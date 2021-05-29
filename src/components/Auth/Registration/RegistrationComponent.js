@@ -1,31 +1,32 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import AdminRegisterForm from "./registration/AdminRegisterForm";
-import LecturerRegisterForm from "./registration/LecturerRegisterForm";
-import RegistrationNavbar from "./registration/RegistrationNavbar";
-import RegistrationTabbar from "./registration/RegistrationTabbar";
-import StudentRegisterForm from "./registration/StudentRegisterForm";
+import AdminRegisterForm from "./AdminRegistrationComponent";
+import LecturerRegisterForm from "./LecturerRegistrationComponent";
+import RegistrationNavBar from "./RegistrationNavBar";
+import RegistrationTabBar from "./RegistrationTabBar";
+import StudentRegisterForm from "./StudentRegistrationComponent";
 
 const RegistrationComponent = ({ match }) => {
 
 
     return (
         <div className="page">
-            <RegistrationNavbar />
+            <RegistrationNavBar />
             <div className="container">
-                <RegistrationTabbar />
+                <RegistrationTabBar />
                 <div >
+
                     <Route
-                        path={`${match.path}/lecturer`}
+                        path="/lecturer"
                         component={LecturerRegisterForm}
                     />
 
                     <Route
-                        path={`${match.path}/student`}
+                        path="/Student"
                         component={StudentRegisterForm}
                     />
                     <Route
-                        path={`${match.path}/faculty-staff`}
+                        path="/faculty-staff"
                         component={AdminRegisterForm}
                     />
 

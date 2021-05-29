@@ -65,11 +65,15 @@ import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
 import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction"
 import {connect} from "react-redux";
+import Registration from "./Auth/Registration/Registration";
+
+
+
 function Header(props){
     const [openLogin, setopenLogin] = useState(false);
-    const [openSignup, setopenSignup] = useState(false);
+    let [openSignup, setopenSignup] = useState(false);
     const history=useHistory();
-    const {auth,logout,openLog}=props;
+    const {auth,logout,openLog,openSign}=props;
 
     const handleLoginButton=()=>{
         // openLogin=true;
@@ -110,6 +114,7 @@ function Header(props){
         e.preventDefault();
     }
 
+
     return (
         <Router>
             <div className="navbar-color">
@@ -141,7 +146,10 @@ function Header(props){
                                     </Button>
                                     <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:100,marginRight:20}}
                                     // type='submit' 
-                                    onClick={handleSignupButton}>
+                                    onClick={
+                                       // handleSignupButton
+                                        ()=>openSign(true)
+                                    }>
                                         {/* <Link to="./Register/student">  */}
                                         <b> REGISTER</b>  
                                         {/* </Link> */}
@@ -165,6 +173,16 @@ function Header(props){
                 // isOpen={openLogin}
                 // handleSubmit={handleSubmit}
                 />:null}
+                {
+                    auth.signupModalOpen
+                        // openLogin
+                        ?
+                        <Registration
+                            // closeModal={closeLoginB}
+                            // isOpen={openLogin}
+                            // handleSubmit={handleSubmit}
+                        />:null}
+
             </div>
         </Router>
     );
@@ -185,6 +203,10 @@ const mapDispatchToProps=(dispatch)=>{
         openLog:(open)=>{
             dispatch(OpenLoginAction(true));
             dispatch(OpenSignupAction(false));
+        },
+        openSign:(open)=>{
+            dispatch(OpenLoginAction(false));
+            dispatch(OpenSignupAction(true));
         }
     }
 };

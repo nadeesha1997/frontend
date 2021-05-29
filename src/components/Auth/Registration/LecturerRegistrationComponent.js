@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
 import { LecturerRegisterAuthAction } from "../../../store/actions/AuthAction";
+import axios from "axios";
 
 
 const LecturerRegisterForm=(props)=> {
@@ -55,24 +56,24 @@ const LecturerRegisterForm=(props)=> {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // const { data } = state;
+        const { data } = state;
 
-        // const errors = validate();
+        const errors = validate();
 
-        // if (Object.keys(errors).length === 0) {
-        //     console.log(data);
-        //     //Call an api here
-        //     // axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
-        //     //     .then(res=>{
-        //     //         console.log(res.data);
-        //     //     });
-        //     //Resetting the form
-        //     setState(initialState);
-        //     alert("Registration successful! please logging in")
-        // } else {
-        //     setState({ errors });
-        //     alert("Registration is not successful! Please register again")
-        // }
+        if (Object.keys(errors).length === 0) {
+            console.log(data);
+            //Call an api here
+            axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
+                .then(res=>{
+                    console.log(res.data);
+                });
+            //Resetting the form
+            setState(initialState);
+            alert("Registration successful! please logging in")
+        } else {
+            setState({ errors });
+            alert("Registration is not successful! Please register again")
+        }
         console.log(user);
         register(state,history);
     };

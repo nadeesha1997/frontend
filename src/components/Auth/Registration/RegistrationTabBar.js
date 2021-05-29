@@ -2,7 +2,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 
 
-const RegistrationTabbar = () => {
+const RegistrationTabBar = () => {
     const navTabsTitleStyle = {
         fontSize: "22px",
         padding: "10px",
@@ -27,7 +27,7 @@ const RegistrationTabbar = () => {
                     style={navItemStyle}
                     activeClassName="nav-link active"
                     className="nav-link"
-                    to="/register/student"
+                     to="student"
                 >
                     Student
                 </NavLink>
@@ -39,7 +39,7 @@ const RegistrationTabbar = () => {
 
                     activeClassName="nav-link active"
                     className="nav-link"
-                    to="/register/lecturer"
+                    to="lecturer"
                 >
                     Lecturer
                 </NavLink>
@@ -50,7 +50,7 @@ const RegistrationTabbar = () => {
                     style={navItemStyle}
                     activeClassName="nav-link active"
                     className="nav-link"
-                    to="/register/faculty-staff"
+                    to="faculty-staff"
                 >
                     Admin
                 </NavLink>
@@ -60,4 +60,4 @@ const RegistrationTabbar = () => {
     );
 };
 
-export default RegistrationTabbar;
+export default RegistrationTabBar;

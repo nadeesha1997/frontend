@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
+import axios from "axios";
 
 
 const StudentRegisterForm=(props)=> {
@@ -54,10 +55,10 @@ const StudentRegisterForm=(props)=> {
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            // axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
-            //     .then(res=>{
-            //         console.log(res.data);
-            //     });
+            axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
+                .then(res=>{
+                    console.log(res.data);
+                });
             //Resetting the form
             setState(initialState);
             alert("Registration successful! please logging in")
@@ -76,7 +77,7 @@ const StudentRegisterForm=(props)=> {
                     <Form onSubmit={handleSubmit}>
                         <FormGroup className="form-group">
                             <div className="col-sm-12">
-                                <Label for="RegNo">Lecturer ID</Label>
+                                <Label for="RegNo">Student ID</Label>
                                 <Input
                                     value={data.RegNo}
                                     invalid={!!errors.RegNo}
