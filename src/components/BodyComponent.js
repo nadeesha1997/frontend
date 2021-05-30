@@ -17,7 +17,7 @@ import OnlineTable from '../pages/OnlineTable';
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/login" component={Login}/>
-                        <Route path="/signup" component={LecturerRegistration}/>
+                        <Route path="/signup" component={Registration}/>
                         <Route path="/home" component={FirstDashboard}/>
                         <Route path="/EditTimeTable" component={Dashboard}/>
                         <Route path="/OnlineTable" component={OnlineTable}/>

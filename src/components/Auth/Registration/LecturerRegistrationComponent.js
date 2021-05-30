@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
 import { LecturerRegisterAuthAction } from "../../../store/actions/AuthAction";
 import axios from "axios";
-
+import '../../../css/modal.css';
 
 const LecturerRegisterForm=(props)=> {
     //
@@ -80,15 +80,19 @@ const LecturerRegisterForm=(props)=> {
     const { data, errors } = state;
 
         return (
+            <div className="page1">
             <div className="container tab-pane active mb-5" align="left" style={{fontWeight:"bolder"}}>
 
                 <br />
                 <div className="col-sm-8">
+                    <div className="form">
                     <Form onSubmit={handleSubmit}>
                         <FormGroup className="form-group">
                             <div className="col-sm-12">
+
                                 <Label for="RegNo">Lecturer ID</Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.RegNo}
                                     invalid={!!errors.RegNo}
                                     name="RegNo"
@@ -102,6 +106,7 @@ const LecturerRegisterForm=(props)=> {
                             <div className="col-sm-12">
                                 <Label for="FullName">Full Name : </Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.FullName}
                                     invalid={!!errors.FullName}
                                     name="FullName"
@@ -115,6 +120,7 @@ const LecturerRegisterForm=(props)=> {
                             <div className="col-sm-12">
                                 <Label for="email"> Email : </Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.email}
                                     invalid={!!errors.email}
                                     name="email"
@@ -155,6 +161,7 @@ const LecturerRegisterForm=(props)=> {
                             <div className="col-sm-12">
                                 <Label for="password">Password : </Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.password}
                                     type="password"
                                     name="password"
@@ -169,6 +176,7 @@ const LecturerRegisterForm=(props)=> {
                             <div className="col-sm-12">
                                 <Label for="confirmPassword">Confirm Password : </Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.confirmPassword}
                                     type="password"
                                     name="confirmPassword"
@@ -181,13 +189,13 @@ const LecturerRegisterForm=(props)=> {
 
                         <div className="col-sm-12">
 
-                            <Button className="btn-block" style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginLeft:250}} >
+                            <Button className="btn-block" style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginLeft:150,marginBottom:-10}} >
                                 Register
                             </Button>
                         </div>
                     </Form>
-                </div>
-            </div>
+                </div></div>
+            </div></div>
         );
 }
 const mapStateToProps=(userState)=>{

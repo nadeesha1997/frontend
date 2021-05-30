@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
 import axios from "axios";
-
+import '../../../css/modal.css';
 
 const StudentRegisterForm=(props)=> {
   const initialState ={
@@ -56,7 +56,7 @@ const StudentRegisterForm=(props)=> {
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
+            axios.post('https://localhost:5001/api/accounts/register/teacher', data)
                 .then(res=>{
                     console.log(res.data);
                 });
@@ -71,15 +71,18 @@ const StudentRegisterForm=(props)=> {
     const { data, errors } = state;
 
         return (
+            <div className="page1">
             <div className="container tab-pane active mb-5" align="left" style={{fontWeight:"bolder"}}>
 
                 <br />
                 <div className="col-sm-8">
+                    <div className="form">
                     <Form onSubmit={handleSubmit}>
                         <FormGroup className="form-group">
                             <div className="col-sm-12">
                                 <Label for="RegNo">Student ID</Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.RegNo}
                                     invalid={!!errors.RegNo}
                                     name="RegNo"
@@ -93,6 +96,7 @@ const StudentRegisterForm=(props)=> {
                             <div className="col-sm-12">
                                 <Label for="FullName">Full Name : </Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.FullName}
                                     invalid={!!errors.FullName}
                                     name="FullName"
@@ -135,6 +139,7 @@ const StudentRegisterForm=(props)=> {
                             <div className="col-sm-12">
                                 <Label for="email"> Email : </Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.email}
                                     invalid={!!errors.email}
                                     name="email"
@@ -175,6 +180,7 @@ const StudentRegisterForm=(props)=> {
                             <div className="col-sm-12">
                                 <Label for="password">Password : </Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.password}
                                     type="password"
                                     name="password"
@@ -189,6 +195,7 @@ const StudentRegisterForm=(props)=> {
                             <div className="col-sm-12">
                                 <Label for="confirmPassword">Confirm Password : </Label>
                                 <Input
+                                    style={{width:350}}
                                     value={data.confirmPassword}
                                     type="password"
                                     name="confirmPassword"
@@ -201,13 +208,13 @@ const StudentRegisterForm=(props)=> {
 
                         <div className="col-sm-12">
 
-                            <Button className="btn-block" style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginLeft:250}} >
+                            <Button className="btn-block" style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginLeft:150}} >
                                 Register
                             </Button>
                         </div>
                     </Form>
                 </div>
-            </div>
+                </div></div></div>
         );
 }
 

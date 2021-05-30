@@ -10,7 +10,7 @@ const RegistrationNavBar =(props)=> {
         return (
             <div>
                 {/*<HomepageNavbar updateDate={this.updateDate}/>*/}
-                <nav className="navbar navbar-expand-sm  navbar-fixed-top " style={{padding:0, marginBottom:20,backgroundColor:'#31023e'}}>
+                <nav className="navbar navbar-expand-sm  navbar-fixed-top " style={{padding:0, marginBottom:20,borderRadius:10}}>
 
                     {/*/!* <a className="navbar-brand" href="#">ENG</a>*/}
                     {/*<Image img src={logo2} alt="logo"  width={100} height={100}/>*!/*/}
