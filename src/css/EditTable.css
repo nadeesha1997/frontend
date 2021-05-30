@@ -1,0 +1,74 @@
+.page{
+    /*background-color: #cc8bf3   #bdbdd5;*/
+    color: #3f285a;
+    background: linear-gradient(to bottom, #efeff3 0%, #f5f6f8 100%);
+    text-align: center;
+
+}
+.main{
+    margin-left: -170px;
+    margin-top: 20px;
+
+}
+.top_corner{
+    /*position:absolute;*/
+    bottom:0px;
+    /*top:320px;*/
+    right:0px;
+
+}
+
+.bottom_right{
+    /*position:absolute;*/
+    bottom:40px;
+    /*top:280px;*/
+    right:150px;
+}
+
+/**/
+
+/*P {
+    color: #9980ac;
+    text-align: left;
+    margin-left: 80px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-weight: bolder;
+    font-family: "Times New Roman";
+    font-size: medium;
+}*/
+.btn-link {
+    font-weight: normal;
+    color: black;
+    background-color: transparent;
+}
+
+.Usage{
+    margin-top: 30px;
+    margin-left: 700px;
+}
+
+.calendar-location{
+    margin-top: -130px;
+    margin-left: 920px;
+    margin-right: -1500px;
+
+
+}
+
+
+.App {
+    text-align: center;
+    width: 100%;
+    margin: 2px auto;
+}
+
+
+.row{
+    margin-top: 10px;
+}
+.list{
+    margin-left: 800px;
+    margin-top:-250px;
+    color: #332250;
+}
