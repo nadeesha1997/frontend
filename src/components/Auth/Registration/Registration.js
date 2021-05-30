@@ -58,7 +58,7 @@ const Registration=(props)=>{
                // style={"zIndex:1"}
                 >
             <ModalHeader closeButton>
-                <ModalTitle>Signup</ModalTitle>
+                <ModalTitle>LSMS-Signup</ModalTitle>
             </ModalHeader>
             <ModalBody>
                 <RegistrationComponent/>
