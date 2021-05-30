@@ -5,11 +5,12 @@ import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
 import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction"
 import {connect} from "react-redux";
+import Registration from "./Auth/Registration/Registration";
 function SecondNav(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
     const history=useHistory();
-    const {auth,logout,openLog}=props;
+    const {auth,logout,openLog,openSign}=props;
 
     const handleLoginButton=()=>{
         // openLogin=true;
@@ -55,6 +56,7 @@ function SecondNav(props){
             <div className="navbar-color2">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
                     <table>
+                        <tbody>
                         <tr>
                             <td>
                                 {!auth.isLoggedin?
@@ -72,7 +74,7 @@ function SecondNav(props){
                                             </Button>
                                             <Button style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
                                                 // type='submit'
-                                                    onClick={handleSignupButton}>
+                                                    onClick={()=>openSign(true)}>
                                                 {/* <Link to="./Register/student">  */}
                                                 <b> REGISTER</b>
                                                 {/* </Link> */}
@@ -87,10 +89,11 @@ function SecondNav(props){
                                 }
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </nav>
-                {
-                    auth.loginModelOpen ? <Login/>:null}
+                {auth.loginModelOpen ? <Login/>:null}
+                {auth.signupModalOpen ? <Registration/>:null}
             </div>
         </Router>
     );
@@ -111,6 +114,10 @@ const mapDispatchToProps=(dispatch)=>{
         openLog:(open)=>{
             dispatch(OpenLoginAction(true));
             dispatch(OpenSignupAction(false));
+        },
+        openSign:(open)=>{
+            dispatch(OpenSignupAction(true));
+            dispatch(OpenLoginAction(false));
         }
     }
 };

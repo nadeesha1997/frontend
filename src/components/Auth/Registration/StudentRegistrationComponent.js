@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
+import axios from "axios";
 
 
 const StudentRegisterForm=(props)=> {
@@ -11,6 +12,7 @@ const StudentRegisterForm=(props)=> {
           password: "",
           confirmPassword:"",
           DepartmentID: "",
+          Semester:0,
           Role:"Student"
 
       },
@@ -54,10 +56,10 @@ const StudentRegisterForm=(props)=> {
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            // axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
-            //     .then(res=>{
-            //         console.log(res.data);
-            //     });
+            axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
+                .then(res=>{
+                    console.log(res.data);
+                });
             //Resetting the form
             setState(initialState);
             alert("Registration successful! please logging in")
@@ -76,7 +78,7 @@ const StudentRegisterForm=(props)=> {
                     <Form onSubmit={handleSubmit}>
                         <FormGroup className="form-group">
                             <div className="col-sm-12">
-                                <Label for="RegNo">Lecturer ID</Label>
+                                <Label for="RegNo">Student ID</Label>
                                 <Input
                                     value={data.RegNo}
                                     invalid={!!errors.RegNo}
@@ -97,6 +99,35 @@ const StudentRegisterForm=(props)=> {
                                     onChange={handleChange}
                                 />
                                 <FormFeedback>{errors.FullName}</FormFeedback>
+                            </div>
+                        </FormGroup>
+                        <FormGroup>
+                            <div className="col-sm-12">
+                                <Label for="Semester">Semester  : </Label>
+                                {"\n"}
+                                <select
+                                    style={{width: `${(8*data.DepartmentID.length) + 50}px`}}
+                                    value={data.Semester}
+                                    onChange={handleChange}
+                                    invalid={!!errors.Semester}
+                                    name="Semester">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+
+                                </select>
+                                {/*<Input
+                                    value={data.DepartmentID}
+                                    invalid={!!errors.DepartmentID}
+                                    name="DepartmentID"
+                                    onChange={this.handleChange}
+                                />*/}
+                                <FormFeedback>{errors.Semester}</FormFeedback>
                             </div>
                         </FormGroup>
 

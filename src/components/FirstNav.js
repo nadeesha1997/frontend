@@ -6,6 +6,7 @@ import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
 import {LogoutAuthAction} from "../store/actions/AuthAction"
 import {connect} from "react-redux";
+import Registration from "./Auth/Registration/Registration";
 function FirstNav(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
@@ -99,6 +100,13 @@ function FirstNav(props){
                 closeModal={closeLoginB} 
                 isOpen={openLogin} 
                 handleSubmit={handleSubmit}/>:null}
+
+                {openSignup?
+                    <Registration
+                        closeModal={closeSignupB}
+                        isOpen={openSignup}
+                        handleSubmit={handleSubmit}/>:null}
+
             </div>
         </Router>
     );
