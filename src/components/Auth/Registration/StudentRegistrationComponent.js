@@ -12,6 +12,7 @@ const StudentRegisterForm=(props)=> {
           password: "",
           confirmPassword:"",
           DepartmentID: "",
+          Semester:0,
           Role:"Student"
 
       },
@@ -98,6 +99,35 @@ const StudentRegisterForm=(props)=> {
                                     onChange={handleChange}
                                 />
                                 <FormFeedback>{errors.FullName}</FormFeedback>
+                            </div>
+                        </FormGroup>
+                        <FormGroup>
+                            <div className="col-sm-12">
+                                <Label for="Semester">Semester  : </Label>
+                                {"\n"}
+                                <select
+                                    style={{width: `${(8*data.DepartmentID.length) + 50}px`}}
+                                    value={data.Semester}
+                                    onChange={handleChange}
+                                    invalid={!!errors.Semester}
+                                    name="Semester">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+
+                                </select>
+                                {/*<Input
+                                    value={data.DepartmentID}
+                                    invalid={!!errors.DepartmentID}
+                                    name="DepartmentID"
+                                    onChange={this.handleChange}
+                                />*/}
+                                <FormFeedback>{errors.Semester}</FormFeedback>
                             </div>
                         </FormGroup>
 

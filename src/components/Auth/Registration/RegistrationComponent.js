@@ -15,20 +15,19 @@ const RegistrationComponent = ({ match }) => {
             <div className="container">
                 <RegistrationTabBar />
                 <div >
-
+                    <Route
+                        exact path="/"
+                        component={StudentRegisterForm}
+                    />
                     <Route
                         path="/lecturer"
                         component={LecturerRegisterForm}
                     />
 
-                    <Route
-                        path="/Student"
-                        component={StudentRegisterForm}
-                    />
-                    <Route
-                        path="/faculty-staff"
-                        component={AdminRegisterForm}
-                    />
+                    {/*<Route*/}
+                    {/*    path="/faculty-staff"*/}
+                    {/*    component={AdminRegisterForm}*/}
+                    {/*/>*/}
 
                 </div>
             </div>

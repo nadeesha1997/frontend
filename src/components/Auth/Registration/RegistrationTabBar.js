@@ -27,7 +27,7 @@ const RegistrationTabBar = () => {
                     style={navItemStyle}
                     activeClassName="nav-link active"
                     className="nav-link"
-                     to="student"
+                     to=""
                 >
                     Student
                 </NavLink>
@@ -44,17 +44,17 @@ const RegistrationTabBar = () => {
                     Lecturer
                 </NavLink>
             </li>
-            <li className="nav-item">
-                <NavLink
-                    exact
-                    style={navItemStyle}
-                    activeClassName="nav-link active"
-                    className="nav-link"
-                    to="faculty-staff"
-                >
-                    Admin
-                </NavLink>
-            </li>
+            {/*<li className="nav-item">*/}
+            {/*    <NavLink*/}
+            {/*        exact*/}
+            {/*        style={navItemStyle}*/}
+            {/*        activeClassName="nav-link active"*/}
+            {/*        className="nav-link"*/}
+            {/*        to="faculty-staff"*/}
+            {/*    >*/}
+            {/*        Admin*/}
+            {/*    </NavLink>*/}
+            {/*</li>*/}
         </ul>
 
     );
