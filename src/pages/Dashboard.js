@@ -16,6 +16,8 @@ import {GetHallsAction} from "../store/actions/TimeTableAction"
 import {TimeTable} from "../components/admin/TimeTable";
 import SubjectList from "../components/admin/SubjectList";
 import '../css/Dashboard.css';
+import SecondNav from "../components/SecondNav";
+import {ThirdNav} from "../components/ThirdNav";
 
 
 export const Dashboard = (props) => {
@@ -24,11 +26,14 @@ export const Dashboard = (props) => {
     useEffect(()=>getHalls(),)
     return (
         <>
-            <div className="page">
+            <div>
                 {/*<Navigation/>*/}
                 {/*<HomepageNavbar updateDate={this.updateDate}/>*/}
                 {/*<Nav/>*/}
-                <div className="main">
+                <SecondNav/>
+                <ThirdNav/>
+                <div className="page">
+                         <div className="main">
                 <Calendar/></div>
                 <div className="row">
                     <div className="list">
@@ -40,7 +45,7 @@ export const Dashboard = (props) => {
 
                 </div>
 
-            </div>
+            </div></div>
         </>
     )
 }

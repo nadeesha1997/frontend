@@ -55,29 +55,19 @@ function ModuleDrop(props) {
 
     const checkBooked=()=>{
         setmodule(null);
+        setreserved(false);
         let ss=moduleDropState.module.sessions;
-        // console.log("called "+ss.length);
         if(ss.length!=0){
             ss.forEach(mod=>{
-                // console.log(mod.startDateTime);
-                // console.log(moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
-                // console.log(mod.endDateTime);
-                // console.log(moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
-                // console.log(mod.hallId);
-                // console.log(hallid);
                 // if((moment(mod.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=startDateTime)&&((moment(mod.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=endDateTime))&&mod.hallId.toString()==hallid){
                     if((mod.startDateTime<=moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"))&&((mod.endDateTime>=moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")))&&mod.hallId==hallid){
-                        // console.log("found");
-                        // console.log(mod.startDateTime);
-                        // console.log(moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
-                        // console.log(mod.endDateTime);
-                        // console.log(moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss"));
-                        // console.log(mod.hallId);
-                        // console.log(hallid);
                     setmodule(mod);
                     setreserved(true);
                     setpermitted(mod.permitted);
                 }
+                    else{
+                        setreserved(false);
+                    }
             });
         }
     };
@@ -112,10 +102,10 @@ function ModuleDrop(props) {
     const renderDiv=()=>{
         if(module!=null&&module.subject!=null){
             if(module.permitted){
-                return(<div style={{backgroundColor: "red", marginTop:"-10px",marginBottom:"-90px",height: "20px"}}><p>{module.subject.code}</p></div>)
+                return(<div style={{backgroundColor: "yellow", marginTop:"-10px",marginBottom:"-90px",height: "20px"}}><p>{module.subject.code}</p></div>)
             }
             else{
-                return (<div style={{backgroundColor: "yellow", marginTop:"-10px",marginBottom:"-90px",height: "20px"}}><p>{module.subject.code}</p></div>)
+                return (<div style={{backgroundColor: "red", marginTop:"-10px",marginBottom:"-90px",height: "20px"}}><p>{module.subject.code}</p></div>)
             }
         }
         else{
@@ -130,7 +120,6 @@ function ModuleDrop(props) {
             dispatch(SetSessionIdAction(module.id));
             dispatch(openDeleteModalAction(true));
         }
-        // console.log("clicked");
     };
 
     return(<>
