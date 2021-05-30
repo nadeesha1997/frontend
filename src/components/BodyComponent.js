@@ -4,8 +4,11 @@ import Home from '../pages/Home'
 import Registration from './Auth/Registration/Registration';
 import Login from './Auth/LoginComponent';
 
-import Dashboard from '../pages/Dashboard';
 import CRUDHalls from './admin/CRUDHalls';
+import Dashboard from '../pages/Dashboard';
+import FirstDashboard from '../pages/FirstDashboard';
+import OnlineTable from '../pages/OnlineTable';
+
     const Body=()=> 
     {
         return(
@@ -14,9 +17,10 @@ import CRUDHalls from './admin/CRUDHalls';
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/login" component={Login}/>
-                        {/*<Route path="/signup" component={LecturerRegistration}/>*/}
-                        <Route path="/signup" component={Registration}/>
-                        <Route path="/home" component={Dashboard}/>
+                        <Route path="/signup" component={LecturerRegistration}/>
+                        <Route path="/home" component={FirstDashboard}/>
+                        <Route path="/EditTimeTable" component={Dashboard}/>
+                        <Route path="/OnlineTable" component={OnlineTable}/>
                         <Route path="/admin/CRUDHalls" component={CRUDHalls}/>
                     </Switch>
                 </Router>
