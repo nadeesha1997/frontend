@@ -13,6 +13,10 @@ import StudentProfile from './student/StudentProfile';
 import LecturerProfile from './lecturer/LecturerProfile';
 import AdminProfile from './admin/AdminProfile';
 
+import StudentUpdateProfile from './student/StudentUpdateProfile';
+import LecturerUpdateProfile from './lecturer/LecturerUpdateProfile';
+import AdminUpdateProfile from './admin/AdminUpdateProfile';
+
 import Dashboard from '../pages/Dashboard';
 import FirstDashboard from '../pages/FirstDashboard';
 import OnlineTable from '../pages/OnlineTable';
@@ -34,7 +38,11 @@ import OnlineTable from '../pages/OnlineTable';
 
                         <Route path="/LecturerProfile" component={LecturerProfile}/>
                         <Route path="/StudentProfile" component={StudentProfile}/>
-                        <Route path="/StudentProfile" component={AdminProfile}/>
+                        <Route path="/AdminProfile" component={AdminProfile}/>
+
+                        {/*<Route path="/LecturerUpdateProfile" component={LecturerUpdateProfile}/>*/}
+                        <Route path="/StudentUpdateProfile" component={StudentUpdateProfile}/>
+                        {/*<Route path="/AdminUpdateProfile" component={AdminUpdateProfile}/>*/}
 
                         <Route path="/OnlineTable" component={OnlineTable}/>
                         <Route path="/admin/CRUDHalls" component={CRUDHalls}/>

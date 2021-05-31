@@ -10,6 +10,7 @@ const RegistrationComponent = ({ match }) => {
 
 
     return (
+
         <div className="page">
             <RegistrationNavBar />
             <div className="container">
