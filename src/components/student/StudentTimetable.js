@@ -11,16 +11,17 @@
 // export default Dashboard;
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import Calendar from "../components/Calendar";
-import {GetHallsAction} from "../store/actions/TimeTableAction"
-import {TimeTable} from "../components/admin/TimeTable";
-import SubjectList from "../components/admin/SubjectList";
-import '../css/Dashboard.css';
-import SecondNav from "../components/SecondNav";
-import ThirdNav from "../components/ThirdNav";
+import Calendar from "../Calendar";
+
+import {GetHallsAction} from "../../store/actions/TimeTableAction"
+import {TimeTable} from "../admin/TimeTable";
+import SubjectList from "../admin/SubjectList";
+import '../../css/Dashboard.css';
+import SecondNav from "../SecondNav";
+import ThirdNav from "../ThirdNav";
 
 
-export const Dashboard = (props) => {
+export const StudentTimetable= (props) => {
     const {getHalls}=props;
     useEffect(()=>getHalls())
     useEffect(()=>getHalls(),)
@@ -33,25 +34,25 @@ export const Dashboard = (props) => {
                 <SecondNav/>
                 <ThirdNav/>
                 <div className="page">
-                         <div className="main">
-                <Calendar/></div>
-                <div className="row">
-                    <div className="list">
-                        <SubjectList/>
+                    <div className="main">
+                        <Calendar/></div>
+                    <div className="row">
+                        <div className="list">
+                            <SubjectList/>
+                        </div>
                     </div>
-                </div>
-                <div className="col col-lg-12 col-md-12 col-sm-12">
-                    <TimeTable/>
+                    <div className="col col-lg-12 col-md-12 col-sm-12">
+                        <TimeTable/>
 
-                </div>
+                    </div>
 
-            </div></div>
+                </div></div>
         </>
     )
 }
 
 const mapStateToProps = (state) => ({
-    
+
 })
 
 const mapDispatchToProps = (dispatch)=>{
@@ -60,4 +61,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(StudentTimetable)

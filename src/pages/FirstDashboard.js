@@ -3,7 +3,7 @@ import React from 'react'
 import Calendar from "../components/Calendar";
 import '../css/Dashboard.css';
 import SecondNav from "../components/SecondNav";
-import {ThirdNav} from "../components/ThirdNav";
+import ThirdNav from "../components/ThirdNav";
 
 
 export const FirstDashboard = () => {

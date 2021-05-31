@@ -1,5 +1,5 @@
 import SecondNav from "../components/SecondNav";
-import {ThirdNav} from "../components/ThirdNav";
+import ThirdNav from "../components/ThirdNav";
 import React from "react";
 import Calendar from "../components/Calendar";
 
