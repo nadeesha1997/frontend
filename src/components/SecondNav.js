@@ -1,10 +1,14 @@
 import {Button} from "react-bootstrap";
 import '../css/Nav.css';
-import {BrowserRouter as Router,Link, useHistory} from "react-router-dom";
+import {BrowserRouter as Router, Link, useHistory, withRouter} from "react-router-dom";
 import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
-import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction"
+import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction";
+// import Logout from "./LogoutComponent";
 import {connect} from "react-redux";
+import {Dropdown, Image, Menu} from "semantic-ui-react";
+import Img from "../images/icon.jpg";
+import {compose} from "redux";
 function SecondNav(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
@@ -49,6 +53,27 @@ function SecondNav(props){
     const handleSubmit=(e)=>{
         e.preventDefault();
     }
+    const LogoutComponent=(name,his)=>{
+        return(
+            <>
+                <Menu.Item position='right'>
+                    <Image avatar spaced='right'
+                           src={Img}
+                    />
+                    <Dropdown pointing='top right'
+                        // text={currentUser?.firstName}
+                              text={name}
+                        // text={"hello"}
+                    >
+                        <Dropdown.Menu>
+                            <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user'/>
+                            <Dropdown.Item onClick={(history)=>logout(his)} text='Logout' icon='power' />
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Menu.Item>
+            </>
+        )
+    }
 
     return (
         <Router>
@@ -81,8 +106,11 @@ function SecondNav(props){
                                     </React.Fragment>:
                                     <React.Fragment>
                                         <div className="UserName">
-                                            <table><td><h6>{auth.user.userDetails.fullName}</h6></td>
-                                                <button onClick={()=>logout(history)}>Logout</button></table></div>
+                                            {/*<table><td><h6>{auth.user.userDetails.fullName}</h6></td>*/}
+                                                {/*<button onClick={()=>logout(history)}>Logout</button>*/}
+                                                {LogoutComponent(auth.user.userDetails.fullName,history)}
+                                            {/*</table>*/}
+                                    </div>
                                     </React.Fragment>
                                 }
                             </td>
@@ -115,4 +143,5 @@ const mapDispatchToProps=(dispatch)=>{
     }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(SecondNav);
+// export default connect(mapStateToProps,mapDispatchToProps)(SecondNav);
+export default compose(withRouter,connect(mapStateToProps,mapDispatchToProps))(SecondNav);

@@ -40,9 +40,9 @@ function ModuleDrop(props) {
     useEffect(()=>{
         renderDiv()
     },[module,moduleDropState.module.date]);
-    useEffect(()=>{
-        dispatch(GetDailyModulesAction(moduleDropState.module.date))
-    },[moduleDropState.moduleDrop.successMessage]);
+    // useEffect(()=>{
+    //     dispatch(GetDailyModulesAction(moduleDropState.module.date))
+    // },[moduleDropState.moduleDrop.successMessage]);
     const startTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + startTime
         setstartDatetime(new Date(date));
@@ -134,8 +134,8 @@ function ModuleDrop(props) {
             {/*{reserved&&permitted&&module.subject.code?<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
             {/*{reserved&&!permitted&&module.subject.code?<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
             {renderDiv()}
-            {moduleDropState.moduleDrop.openSubmitModal&&<SubmitReservation/>}
-            {moduleDropState.moduleDrop.openDeleteModal&&<DeleteSessionModal/>}
+            {/*{moduleDropState.moduleDrop.openSubmitModal&&<SubmitReservation/>}*/}
+            {/*{moduleDropState.moduleDrop.openDeleteModal&&<DeleteSessionModal/>}*/}
         </div>
     </>);
 }

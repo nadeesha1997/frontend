@@ -24,28 +24,35 @@ function SubmitReservation(props) {
         switch (sessionsState.hall.permissionType) {
             case "null":
                 setPermission(true);
+                console.log("permitted");
                 break;
             case "isHOD":
+                console.log("is "+mailState.isHodEmail);
                 setReciever(mailState.isHodEmail);
                 setPermission(false);
                 break;
             case "elecHOD":
+                console.log("elec "+mailState.elecHodEmail);
                 setReciever(mailState.elecHodEmail);
                 setPermission(false);
                 break;
             case "civilHOD":
+                console.log("civil "+mailState.civilHodEmail);
                 setReciever(mailState.civilHodEmail);
                 setPermission(false);
                 break;
             case "mechHOD":
+                console.log("mech "+mailState.mechHodEmail);
                 setReciever(mailState.mechHodEmail);
                 setPermission(false);
                 break;
             // case "ar":
             default:
+                console.log("admin "+mailState.adminEmail);
                 setReciever(mailState.adminEmail);
                 setPermission(false);
         }
+        console.log("submission called");
     },[])
     return(<>
         <Modal show={sessionsState.openSubmitModal}

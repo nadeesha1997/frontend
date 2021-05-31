@@ -19,6 +19,8 @@ const mailReducer=(state=initMailState,action)=>{
             return {...state,successMessage: action.payload}
         case MailActionType.SEND_MAIL_FAILED:
             return {...state,errorMessage: action.payload}
+        case MailActionType.SET_RECIEVER:
+            return {...state,reciever: action.payload}
         default:
             return state
     }
