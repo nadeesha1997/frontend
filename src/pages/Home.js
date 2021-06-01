@@ -6,7 +6,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 import faculty from "../images/faculty.png";
 import faculty1 from "../images/faculty1.jpg";
-import faculty2 from  "../images/faculty2.jpg";
+import faculty3 from  "../images/faculty3.jpg";
 import faculty4 from "../images/faculty4.jpg";
 import faculty5 from "../images/faculty5.jpg";
 import faculty6 from "../images/faculty6.jpg";
@@ -21,22 +21,22 @@ const Home = () => {
 
             <div>
                 <Carousel>
-                    <Carousel.Item interval={800}>
-
+                    <Carousel.Item interval={2500}>
+                        <div className="pic">
                         <img
-                            className="w-75 p-3"
-                            img src={faculty} alt="faculty" height="400px" width="300px"
+                            className="w-50 p-4"
+                            img src={faculty} alt="faculty" height="400px" width="200px"
 
-                        />
+                        /></div>
                         <Carousel.Caption>
                             <h3>Faculty of Engineering</h3>
 
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={800}>
+                    <Carousel.Item interval={2500}>
                         <img
-                            className="w-75 p-3"
-                            img src={faculty1} alt="faculty" height="400px" width="300px"
+                            className="w-50 p-3"
+                            img src={faculty1} alt="faculty" height="400px" width="200px"
 
                         />
 
@@ -45,10 +45,10 @@ const Home = () => {
 
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={800}>
+                    <Carousel.Item interval={2500}>
                         <img
-                            className="w-75 p-3"
-                            img src={faculty2} alt="faculty" height="400px" width="300px"
+                            className="w-50 p-3"
+                            img src={faculty3} alt="faculty" height="400px" width="200px"
 
                         />
                         <Carousel.Caption>
@@ -56,10 +56,10 @@ const Home = () => {
 
                         </Carousel.Caption>
                     </Carousel.Item >
-                    <Carousel.Item interval={800}>
+                    <Carousel.Item interval={2500}>
                         <img
-                            className="w-75 p-3"
-                            img src={faculty4} alt="faculty" height="400px" width="300px"
+                            className="w-50 p-3"
+                            img src={faculty4} alt="faculty" height="400px" width="200px"
 
                         />
                         <Carousel.Caption>
@@ -67,10 +67,10 @@ const Home = () => {
 
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={800}>
+                    <Carousel.Item interval={2500}>
                         <img
-                            className="w-75 p-3"
-                            img src={faculty5} alt="faculty" height="400px" width="300px"
+                            className="w-50 p-3"
+                            img src={faculty5} alt="faculty" height="400px" width="200px"
 
                         />
                         <Carousel.Caption>
@@ -78,10 +78,10 @@ const Home = () => {
 
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={800}>
+                    <Carousel.Item interval={2500}>
                         <img
-                            className="w-75 p-3"
-                            img src={faculty6} alt="faculty" height="400px" width="300px"
+                            className="w-50 p-3"
+                            img src={faculty6} alt="faculty" height="400px" width="200px"
 
                         />
                         <Carousel.Caption>
