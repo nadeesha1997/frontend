@@ -31,7 +31,7 @@ function CalendarComponent(props){
 }
 const mapStateToProps=(moduleState)=>{
     return {
-        date:moduleState.date,
+        date:moduleState.module.date,
         message:moduleState.moduleDrop.successMessage
     }
 };

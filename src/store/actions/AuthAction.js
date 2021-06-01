@@ -72,7 +72,7 @@ const LoginAuthAction=(loginState,history)=>{
             const res= await axios.post("/accounts/login",loginState);
             const {data}=res;
             dispatch({type:AuthActionType.LOGIN_SUCCESSFULL,payload:data})
-            history.push("/EditTimeTable");
+            history.push("/home");
             window.location.reload();
         }catch(error){
             console.error(error);

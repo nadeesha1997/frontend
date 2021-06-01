@@ -36,7 +36,7 @@ function ModuleDrop(props) {
         }
         // console.log("check booked");
 
-    },[moduleDropState.module.sessions]);
+    },[moduleDropState.module.sessions,moduleDropState.moduleDrop.successMessage]);
     useEffect(()=>{
         renderDiv()
     },[module]);
