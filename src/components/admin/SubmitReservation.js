@@ -16,9 +16,9 @@ import {
 import {Button, Input} from "reactstrap";
 import {Form} from "react-bootstrap";
 import moment from "moment";
-import {SetRecieverAction} from "../../store/actions/MailAction";
+import {SendMailAction, SetRecieverAction} from "../../store/actions/MailAction";
 function SubmitReservation(props) {
-    let {sessionsState,submitSession,openMod,closeMod,setEndTime,mState,setPermission,setReciever,mailState}=props;
+    let {sessionsState,submitSession,openMod,closeMod,setEndTime,mState,setPermission,setReciever,mailState,sendMail}=props;
     useEffect(()=>{
         switch (sessionsState.hall.permissionType) {
             case "null":
@@ -52,7 +52,25 @@ function SubmitReservation(props) {
                 setPermission(false);
         }
         console.log("submission called");
-    },[sessionsState.hall])
+    },[sessionsState.hall]);
+    const sendingMail=()=>{
+        const convertToLocalTime=(time)=>{
+            let val=moment(time+5.5*60*60).utcOffset(330).format("HH:mm");
+            return val;
+        }
+        const convertToLocalDate=(time)=>{
+            let val=moment(time+5.5*60*60).utcOffset(330).format("YYYY-MM-DD");
+            return val;
+        }
+        const mailDate={
+            ToEmail:mailState.reciever,
+            Hall:sessionsState.hall.name,
+            Stime:convertToLocalTime(sessionsState.StartDateTime),
+            Etime:convertToLocalTime(sessionsState.EndDateTime),
+            Date:convertToLocalDate(sessionsState.StartDateTime)
+        }
+        sendMail(mailDate);
+    }
     return(<>
         <Modal show={sessionsState.openSubmitModal}
                onHide={()=>closeMod()}>
@@ -135,6 +153,7 @@ function SubmitReservation(props) {
                                 name="submit"
                                 onClick={()=>{
                                     submitSession(mState);
+                                    sendingMail();
                                     closeMod();
                                 }}
                                 >SUBMIT</Button>
@@ -172,6 +191,9 @@ const mapDispatchToProps=(dispatch)=>{
         },
         setReciever:(val)=>{
             dispatch(SetRecieverAction(val))
+        },
+        sendMail:(data)=>{
+            dispatch(SendMailAction(data))
         }
     }
 };

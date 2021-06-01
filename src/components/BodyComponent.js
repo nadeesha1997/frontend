@@ -12,6 +12,7 @@ import OnlineTable from '../pages/OnlineTable';
 import ListHallComponent from './admin/ListHallComponent';
 import ViewHallComponent from './admin/ViewHallComponent';
 import CreateHallComponent from './admin/CreateHallComponent';
+import ReserveApproval from "../pages/ReserveApproval";
 
     const Body=()=> 
     {
@@ -30,6 +31,7 @@ import CreateHallComponent from './admin/CreateHallComponent';
                         <Route path = "/halls" component = {ListHallComponent}></Route>
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
+                        <Route path = "/approve/:id" component={ReserveApproval}></Route>
 
                     </Switch>
                 </Router>
