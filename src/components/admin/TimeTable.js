@@ -43,8 +43,10 @@ export const TimeTable = (props) => {
                     <LecTimes/>
                 </div>
             </div>
-            {submitModal&&<SubmitReservation/>}
-            {deleteModal&&<DeleteSessionModal/>}
+            {/*{submitModal&&<SubmitReservation/>}*/}
+            {/*{deleteModal&&<DeleteSessionModal/>}*/}
+            <SubmitReservation/>
+            <DeleteSessionModal/>
         </>
     )
 };
