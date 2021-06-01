@@ -4,12 +4,11 @@ import {GetHallsAction} from "../../store/actions/TimeTableAction";
 import HallList from "./HallList";
 import LecTimes from "./LecTimes";
 import "../../css/Table.css"
-import {GetDailyModulesAction} from "../../store/actions/DailyModuleAction";
 import SubmitReservation from "./SubmitReservation";
 import DeleteSessionModal from "./DeleteSessionModal";
 
 export const TimeTable = (props) => {
-    const {halls,date,getHalls,loading,successMessage,getModules,submitModal,deleteModal}=props;
+    const {halls,date,getHalls,loading}=props;
     const [tableStyle,settableStyle]=useState({
         display: "grid",
         gridTemplateColumns: "repeat(17, 1fr)",
@@ -18,10 +17,6 @@ export const TimeTable = (props) => {
         gridRowGap: "0.1em",
         marginTop: "0px"
     });
-    // useEffect(()=>{
-    //     console.log("hi");
-    //     getModules(date);
-    // },[successMessage]);
     // useEffect(()=>{
     //     getHalls();
     // },[])
@@ -43,8 +38,6 @@ export const TimeTable = (props) => {
                     <LecTimes/>
                 </div>
             </div>
-            {/*{submitModal&&<SubmitReservation/>}*/}
-            {/*{deleteModal&&<DeleteSessionModal/>}*/}
             <SubmitReservation/>
             <DeleteSessionModal/>
         </>
@@ -56,19 +49,13 @@ export const TimeTable = (props) => {
 const mapStateToProps = (state) => ({
     halls:state.timetable.halls,
     loading:state.timetable.loading,
-    date:state.module.date,
-    successMessage:state.moduleDrop.successMessage,
-    submitModal:state.moduleDrop.openSubmitModal,
-    deleteModal:state.moduleDrop.openDeleteModal
+    date:state.module.date
 })
 
 const mapDispatchToProps =(dispatch)=> {
     return {
         getHalls:()=>{
             dispatch(GetHallsAction());
-        },
-        getModules:(date)=>{
-            dispatch(GetDailyModulesAction(date));
         }
     }
 }

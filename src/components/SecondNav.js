@@ -1,19 +1,19 @@
 import {Button} from "react-bootstrap";
+import 'semantic-ui-css/semantic.min.css';
 import '../css/Nav.css';
-import {BrowserRouter as Router, Link, useHistory, withRouter} from "react-router-dom";
+import Img from "../images/icon.jpg"
+import {BrowserRouter as Router,Link, useHistory} from "react-router-dom";
 import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
 import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction";
-// import Logout from "./LogoutComponent";
+import { Dropdown, Image, Menu} from 'semantic-ui-react';
 import {connect} from "react-redux";
-import {Dropdown, Image, Menu} from "semantic-ui-react";
-import Img from "../images/icon.jpg";
-import {compose} from "redux";
+import Registration from "./Auth/Registration/Registration";
 function SecondNav(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
     const history=useHistory();
-    const {auth,logout,openLog}=props;
+    const {auth,logout,openLog,openSign}=props;
 
     const handleLoginButton=()=>{
         // openLogin=true;
@@ -54,25 +54,17 @@ function SecondNav(props){
         e.preventDefault();
     }
     const LogoutComponent=(name,his)=>{
-        return(
-            <>
-                <Menu.Item position='right'>
-                    <Image avatar spaced='right'
-                           src={Img}
-                    />
-                    <Dropdown pointing='top right'
-                        // text={currentUser?.firstName}
-                              text={name}
-                        // text={"hello"}
-                    >
-                        <Dropdown.Menu>
-                            <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user'/>
-                            <Dropdown.Item onClick={(history)=>logout(his)} text='Logout' icon='power' />
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Menu.Item>
-            </>
-        )
+        return(<>
+            <Menu.Item position='right'>
+                <Image avatar spaced='right' src={Img} />
+                <Dropdown pointing='top right' text={name}>
+                    <Dropdown.Menu>
+                        <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user'/>
+                        <Dropdown.Item onClick={()=>logout(his)} text='Logout' icon='power' />
+                    </Dropdown.Menu>
+                </Dropdown>
+            </Menu.Item>
+        </>)
     }
 
     return (
@@ -80,6 +72,7 @@ function SecondNav(props){
             <div className="navbar-color2">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
                     <table>
+                        <tbody>
                         <tr>
                             <td>
                                 {!auth.isLoggedin?
@@ -97,7 +90,7 @@ function SecondNav(props){
                                             </Button>
                                             <Button style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
                                                 // type='submit'
-                                                    onClick={handleSignupButton}>
+                                                    onClick={()=>openSign(true)}>
                                                 {/* <Link to="./Register/student">  */}
                                                 <b> REGISTER</b>
                                                 {/* </Link> */}
@@ -107,18 +100,18 @@ function SecondNav(props){
                                     <React.Fragment>
                                         <div className="UserName">
                                             {/*<table><td><h6>{auth.user.userDetails.fullName}</h6></td>*/}
-                                                {/*<button onClick={()=>logout(history)}>Logout</button>*/}
-                                                {LogoutComponent(auth.user.userDetails.fullName,history)}
-                                            {/*</table>*/}
-                                    </div>
+                                            {/*    <button onClick={()=>logout(history)}>Logout</button></table>*/}
+                                            {LogoutComponent(auth.user.userDetails.fullName,history)}
+                                        </div>
                                     </React.Fragment>
                                 }
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </nav>
-                {
-                    auth.loginModelOpen ? <Login/>:null}
+                {auth.loginModelOpen ? <Login/>:null}
+                {auth.signupModalOpen ? <Registration/>:null}
             </div>
         </Router>
     );
@@ -139,9 +132,12 @@ const mapDispatchToProps=(dispatch)=>{
         openLog:(open)=>{
             dispatch(OpenLoginAction(true));
             dispatch(OpenSignupAction(false));
+        },
+        openSign:(open)=>{
+            dispatch(OpenSignupAction(true));
+            dispatch(OpenLoginAction(false));
         }
     }
 };
 
-// export default connect(mapStateToProps,mapDispatchToProps)(SecondNav);
-export default compose(withRouter,connect(mapStateToProps,mapDispatchToProps))(SecondNav);
+export default connect(mapStateToProps,mapDispatchToProps)(SecondNav);
