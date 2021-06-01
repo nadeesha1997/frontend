@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Calendar from "react-calendar";
 import "../css/Calendar.css";
 function CalendarComponent(props){
-    const {date,setDate,getDailyModules}=props;
+    const {date,setDate,getDailyModules,message}=props;
     const changeDate = (e) => {
                 setDate(e);
                 getDailyModules(e);
@@ -14,6 +14,9 @@ function CalendarComponent(props){
     useEffect(()=>{
         getDailyModules(date);
     });
+    useEffect(()=>{
+        getDailyModules(date);
+    },[message]);
 
     return(
         <div className="calendar">
@@ -28,7 +31,8 @@ function CalendarComponent(props){
 }
 const mapStateToProps=(moduleState)=>{
     return {
-        date:moduleState.date
+        date:moduleState.date,
+        message:moduleState.moduleDrop.successMessage
     }
 };
 

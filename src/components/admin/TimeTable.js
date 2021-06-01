@@ -4,6 +4,8 @@ import {GetHallsAction} from "../../store/actions/TimeTableAction";
 import HallList from "./HallList";
 import LecTimes from "./LecTimes";
 import "../../css/Table.css"
+import SubmitReservation from "./SubmitReservation";
+import DeleteSessionModal from "./DeleteSessionModal";
 
 export const TimeTable = (props) => {
     const {halls,date,getHalls,loading}=props;
@@ -26,15 +28,19 @@ export const TimeTable = (props) => {
         settableStyle({...tableStyle,gridTemplateColumns: val})
     }
     return (
-        <div>
-            <div
-                className="grid-container"
-                style={tableStyle}>
-                <div className="grid-item">Time</div>
-                <HallList/>
-                <LecTimes/>
+        <>
+            <div>
+                <div
+                    className="grid-container"
+                    style={tableStyle}>
+                    <div className="grid-item">Time</div>
+                    <HallList/>
+                    <LecTimes/>
                 </div>
-        </div>
+            </div>
+            <SubmitReservation/>
+            <DeleteSessionModal/>
+        </>
     )
 };
 

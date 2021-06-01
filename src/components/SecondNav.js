@@ -1,9 +1,12 @@
 import {Button} from "react-bootstrap";
+import 'semantic-ui-css/semantic.min.css';
 import '../css/Nav.css';
+import Img from "../images/icon.jpg"
 import {BrowserRouter as Router,Link, useHistory} from "react-router-dom";
 import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
-import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction"
+import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction";
+import { Dropdown, Image, Menu} from 'semantic-ui-react';
 import {connect} from "react-redux";
 import Registration from "./Auth/Registration/Registration";
 function SecondNav(props){
@@ -50,6 +53,19 @@ function SecondNav(props){
     const handleSubmit=(e)=>{
         e.preventDefault();
     }
+    const LogoutComponent=(name,his)=>{
+        return(<>
+            <Menu.Item position='right'>
+                <Image avatar spaced='right' src={Img} />
+                <Dropdown pointing='top right' text={name}>
+                    <Dropdown.Menu>
+                        <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user'/>
+                        <Dropdown.Item onClick={()=>logout(his)} text='Logout' icon='power' />
+                    </Dropdown.Menu>
+                </Dropdown>
+            </Menu.Item>
+        </>)
+    }
 
     return (
         <Router>
@@ -83,8 +99,10 @@ function SecondNav(props){
                                     </React.Fragment>:
                                     <React.Fragment>
                                         <div className="UserName">
-                                            <table><td><h6>{auth.user.userDetails.fullName}</h6></td>
-                                                <button onClick={()=>logout(history)}>Logout</button></table></div>
+                                            {/*<table><td><h6>{auth.user.userDetails.fullName}</h6></td>*/}
+                                            {/*    <button onClick={()=>logout(history)}>Logout</button></table>*/}
+                                            {LogoutComponent(auth.user.userDetails.fullName,history)}
+                                        </div>
                                     </React.Fragment>
                                 }
                             </td>
