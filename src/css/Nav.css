@@ -30,6 +30,7 @@
     font-color: #ecd8d8;
     padding-bottom: 10px;
     width: 100%;
+    margin-top: -15px;
 }
 .text1{
     color: #c38be3;
@@ -49,14 +50,15 @@
 .navbar-color2 {
     background-color: #a087a7;
     font-family: Arial;
-    margin-top: -12px;
+    margin-top: 10px;
     width: 100%;
 
 
 }
 
 .UserName{
-    margin-left:1100px;
+    margin-left:1300px;
+    padding: 0px;
 }
 /*P {
     color: #9980ac;

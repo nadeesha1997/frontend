@@ -17,7 +17,6 @@ const Home = () => {
         <div>
             {/* <FirstNav/> */}
 
-            <SecondNav/>
 
             <div>
                 <Carousel>

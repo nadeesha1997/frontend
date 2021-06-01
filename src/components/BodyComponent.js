@@ -9,6 +9,10 @@ import Dashboard from '../pages/Dashboard';
 import FirstDashboard from '../pages/FirstDashboard';
 import OnlineTable from '../pages/OnlineTable';
 
+import ListHallComponent from './admin/ListHallComponent';
+import ViewHallComponent from './admin/ViewHallComponent';
+import CreateHallComponent from './admin/CreateHallComponent';
+
     const Body=()=> 
     {
         return(
@@ -22,6 +26,11 @@ import OnlineTable from '../pages/OnlineTable';
                         <Route path="/EditTimeTable" component={Dashboard}/>
                         <Route path="/OnlineTable" component={OnlineTable}/>
                         <Route path="/admin/CRUDHalls" component={CRUDHalls}/>
+
+                        <Route path = "/halls" component = {ListHallComponent}></Route>
+                        <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
+                        <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
+
                     </Switch>
                 </Router>
             </div>

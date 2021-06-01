@@ -6,6 +6,8 @@ import React,{useState} from "react";
 import Login from './Auth/LoginComponent'
 import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/actions/AuthAction"
 import {connect} from "react-redux";
+import SecondNav from "./SecondNav";
+import {ThirdNav} from "./ThirdNav";
 function Header(){
     return (
         <Router>
@@ -21,7 +23,10 @@ function Header(){
                             </li>
                         </ul>
                     </div>
+
                 </nav>
+                <SecondNav/>
+
             </div>
         </Router>
     );
