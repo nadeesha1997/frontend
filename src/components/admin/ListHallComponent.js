@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import HallService from '../services/HallService'
+import {ThirdNav} from "../ThirdNav";
 
 class ListHallComponent extends Component {
     constructor(props) {
@@ -38,9 +39,12 @@ class ListHallComponent extends Component {
     render() {
         return (
             <div>
+                <ThirdNav/>
                 <h2 className="text-center">Halls List</h2>
                 <div className = "row">
-                    <button className="btn btn-primary" onClick={this.addHall}> Add Hall</button>
+                    <button className="btn btn-primary"
+                            style={{marginLeft:50}}
+                            onClick={this.addHall}> Add Hall</button>
                 </div>
                 <br></br>
                 <div className = "row">

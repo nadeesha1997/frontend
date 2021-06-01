@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import HallService from '../services/HallService';
+import {ThirdNav} from "../ThirdNav";
 
 class UpdateHallComponent extends Component {
     constructor(props) {
@@ -55,7 +56,9 @@ class UpdateHallComponent extends Component {
     render() {
         return (
             <div>
-                <br></br>
+                <br>
+                    <ThirdNav/>
+                </br>
                 <div className = "container">
                     <div className = "row">
                         <div className = "card col-md-6 offset-md-3 offset-md-3">

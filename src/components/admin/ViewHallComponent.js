@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import HallService from '../services/HallService'
+import {ThirdNav} from "../ThirdNav";
 
 class ViewHallComponent extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class ViewHallComponent extends Component {
     render() {
         return (
             <div>
+                <ThirdNav/>
                 <br></br>
                 <div className = "card col-md-6 offset-md-3">
                     <h3 className = "text-center"> View Hall Details</h3>

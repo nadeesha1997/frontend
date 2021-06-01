@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import HallService from '../services/HallService';
+import {ThirdNav} from "../ThirdNav";
 
 class CreateHallComponent extends Component {
     constructor(props) {
@@ -76,6 +77,7 @@ class CreateHallComponent extends Component {
     render() {
         return (
             <div>
+                <ThirdNav/>
                 <br></br>
                 <div className = "container">
                     <div className = "row">
