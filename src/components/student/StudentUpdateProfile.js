@@ -81,38 +81,12 @@ function StudentUpdateProfile(props) {
                                 {auth.user.userDetails.departmentId}
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                Semester
-                            </td>
-                            <td>
-                                {auth.user.userDetails.semester}
-                            </td>
-                        </tr>
                     </Table>
                 </div>
                 <hr/>
-                <div className="row">
-                    <Table className="table table-borderless StudentDetails">
-                        <tr align="left">
-
-                            <b>Select the Semester and Department</b>
-
-                            <SubjectList/>
-
-                        </tr>
-
-
-                    </Table>
-                </div>
             </div>
         </div>
-        // <h6>
-        //     {auth.user.userDetails.role}
-        //
-        //     {auth.user.userDetails.regNo}
-        //
-        // </h6>
+
 
     );
 };

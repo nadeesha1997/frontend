@@ -46,7 +46,7 @@ function ThirdNav(props) {
 
                         {auth.user.userDetails.role==="Admin" && <NavLink to="/AdminProfile" className="nav-item nav-link">
                             Profile</NavLink>}
-                        {auth.user.userDetails.role==="Lecturer" && <NavLink to="/LectureProfile" className="nav-item nav-link">
+                        {auth.user.userDetails.role==="Lecturer" && <NavLink to="/LecturerProfile" className="nav-item nav-link">
                             Profile</NavLink>}
                         {auth.user.userDetails.role==="Student"  && <NavLink to="/StudentProfile" className="nav-item nav-link">
                             Profile</NavLink>}

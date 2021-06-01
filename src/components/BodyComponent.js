@@ -14,7 +14,7 @@ import LecturerProfile from './lecturer/LecturerProfile';
 import AdminProfile from './admin/AdminProfile';
 
 import StudentUpdateProfile from './student/StudentUpdateProfile';
-import LecturerUpdateProfile from './lecturer/LecturerUpdateProfile';
+// import LecturerUpdateProfile from './lecturer/LecturerUpdateProfile';
 import AdminUpdateProfile from './admin/AdminUpdateProfile';
 
 import Dashboard from '../pages/Dashboard';
