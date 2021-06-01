@@ -10,7 +10,6 @@ import '../../css/modal.css';
 
 import {
     AddSessionAction,
-    DeleteSessionAction,
     openSubmitModalAction,
     SetEndTimeAction, setPermittedAction
 } from "../../store/actions/ModuleDropAction";
@@ -53,7 +52,7 @@ function SubmitReservation(props) {
                 setPermission(false);
         }
         console.log("submission called");
-    },[])
+    },[sessionsState.hall])
     return(<>
         <Modal show={sessionsState.openSubmitModal}
                onHide={()=>closeMod()}>
@@ -72,6 +71,17 @@ function SubmitReservation(props) {
                                 className="form-control"
                                 name="module"
                                 value={sessionsState.Subject.name}
+                                readOnly
+                            />
+                        </div>
+                        <div className="sub">
+                            <label htmlFor="hall">Hall:</label>
+                            <Input
+                                style={{width:390}}
+                                type="text"
+                                className="form-control"
+                                name="module"
+                                value={sessionsState.hall.name}
                                 readOnly
                             />
                         </div>

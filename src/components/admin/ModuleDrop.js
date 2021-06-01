@@ -36,10 +36,10 @@ function ModuleDrop(props) {
         }
         // console.log("check booked");
 
-    },[moduleDropState.module.sessions,moduleDropState.module.date]);
+    },[moduleDropState.module.sessions]);
     useEffect(()=>{
         renderDiv()
-    },[module,moduleDropState.module.date]);
+    },[module]);
     // useEffect(()=>{
     //     dispatch(GetDailyModulesAction(moduleDropState.module.date))
     // },[moduleDropState.moduleDrop.successMessage]);
@@ -134,8 +134,6 @@ function ModuleDrop(props) {
             {/*{reserved&&permitted&&module.subject.code?<div style={{backgroundColor: "red", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
             {/*{reserved&&!permitted&&module.subject.code?<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
             {renderDiv()}
-            {/*{moduleDropState.moduleDrop.openSubmitModal&&<SubmitReservation/>}*/}
-            {/*{moduleDropState.moduleDrop.openDeleteModal&&<DeleteSessionModal/>}*/}
         </div>
     </>);
 }
