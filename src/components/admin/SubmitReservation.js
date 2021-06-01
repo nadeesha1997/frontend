@@ -10,7 +10,6 @@ import '../../css/modal.css';
 
 import {
     AddSessionAction,
-    DeleteSessionAction,
     openSubmitModalAction,
     SetEndTimeAction, setPermittedAction
 } from "../../store/actions/ModuleDropAction";
@@ -24,29 +23,36 @@ function SubmitReservation(props) {
         switch (sessionsState.hall.permissionType) {
             case "null":
                 setPermission(true);
+                console.log("permitted");
                 break;
             case "isHOD":
+                console.log("is "+mailState.isHodEmail);
                 setReciever(mailState.isHodEmail);
                 setPermission(false);
                 break;
             case "elecHOD":
+                console.log("elec "+mailState.elecHodEmail);
                 setReciever(mailState.elecHodEmail);
                 setPermission(false);
                 break;
             case "civilHOD":
+                console.log("civil "+mailState.civilHodEmail);
                 setReciever(mailState.civilHodEmail);
                 setPermission(false);
                 break;
             case "mechHOD":
+                console.log("mech "+mailState.mechHodEmail);
                 setReciever(mailState.mechHodEmail);
                 setPermission(false);
                 break;
             // case "ar":
             default:
+                console.log("admin "+mailState.adminEmail);
                 setReciever(mailState.adminEmail);
                 setPermission(false);
         }
-    },[])
+        console.log("submission called");
+    },[sessionsState.hall])
     return(<>
         <Modal show={sessionsState.openSubmitModal}
                onHide={()=>closeMod()}>
@@ -65,6 +71,17 @@ function SubmitReservation(props) {
                                 className="form-control"
                                 name="module"
                                 value={sessionsState.Subject.name}
+                                readOnly
+                            />
+                        </div>
+                        <div className="sub">
+                            <label htmlFor="hall">Hall:</label>
+                            <Input
+                                style={{width:390}}
+                                type="text"
+                                className="form-control"
+                                name="module"
+                                value={sessionsState.hall.name}
                                 readOnly
                             />
                         </div>
