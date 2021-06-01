@@ -9,7 +9,7 @@ export const  OnlineTable= () => {
     return (
         <>
             <div>
-                <SecondNav/>
+
                 <ThirdNav/>
                 <div className="page">
                     <div className="main">

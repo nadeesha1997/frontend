@@ -30,8 +30,8 @@ export const Dashboard = (props) => {
                 {/*<Navigation/>*/}
                 {/*<HomepageNavbar updateDate={this.updateDate}/>*/}
                 {/*<Nav/>*/}
-                <SecondNav/>
                 <ThirdNav/>
+
                 <div className="page">
                          <div className="main">
                 <Calendar/></div>

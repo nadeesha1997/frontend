@@ -175,10 +175,9 @@ class FirstDashboard extends React.Component {
     render() {
 
         return (
-
+<div><ThirdNav/>
             <div   className="page">
-                <SecondNav/>
-                <ThirdNav/>
+
 
                 <div className="main">
                     <Calendar/></div>
@@ -377,7 +376,7 @@ class FirstDashboard extends React.Component {
                     {/*    *!/</p>*/}
                     {/*</Col>*/}
                 </div>
-            </div>
+            </div></div>
 
 
         );
