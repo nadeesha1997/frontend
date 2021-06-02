@@ -11,14 +11,14 @@ import '../../css/modal.css';
 import {
     AddSessionAction,
     openSubmitModalAction,
-    SetEndTimeAction, setPermittedAction
+    SetEndTimeAction, SetMailSessionAction, setPermittedAction, SetSessionIdAction
 } from "../../store/actions/ModuleDropAction";
 import {Button, Input} from "reactstrap";
 import {Form} from "react-bootstrap";
 import moment from "moment";
 import {SendMailAction, SetRecieverAction} from "../../store/actions/MailAction";
 function SubmitReservation(props) {
-    let {sessionsState,submitSession,openMod,closeMod,setEndTime,mState,setPermission,setReciever,mailState,sendMail}=props;
+    let {sessionsState,submitSession,openMod,closeMod,setEndTime,mState,setPermission,setReciever,mailState,sendMail,setSessionId,mailRes}=props;
     useEffect(()=>{
         switch (sessionsState.hall.permissionType) {
             case "null":
@@ -53,6 +53,14 @@ function SubmitReservation(props) {
         }
         console.log("submission called");
     },[sessionsState.hall]);
+    useEffect(()=>{
+        if(mailRes){
+            setSessionId(mailRes.id);
+            sendingMail();
+            closeMod();
+            closeMod();
+        }
+    },[mailRes]);
     const sendingMail=()=>{
         const convertToLocalTime=(time)=>{
             let val=moment(time+5.5*60*60).utcOffset(330).format("HH:mm");
@@ -67,7 +75,8 @@ function SubmitReservation(props) {
             Hall:sessionsState.hall.name,
             Stime:convertToLocalTime(sessionsState.StartDateTime),
             Etime:convertToLocalTime(sessionsState.EndDateTime),
-            Date:convertToLocalDate(sessionsState.StartDateTime)
+            Date:convertToLocalDate(sessionsState.StartDateTime),
+            SessionId:"http://localhost:3000/approve/"+sessionsState.mailSessionId.toString()
         }
         sendMail(mailDate);
     }
@@ -153,8 +162,8 @@ function SubmitReservation(props) {
                                 name="submit"
                                 onClick={()=>{
                                     submitSession(mState);
-                                    sendingMail();
-                                    closeMod();
+                                    // sendingMail();
+                                    // closeMod();
                                 }}
                                 >SUBMIT</Button>
                         </div>
@@ -168,7 +177,8 @@ const mapStateToProps=(moduleDropstate)=>{
     return {
         sessionsState:moduleDropstate.moduleDrop,
         mState:moduleDropstate,
-        mailState:moduleDropstate.mail
+        mailState:moduleDropstate.mail,
+        mailRes:moduleDropstate.moduleDrop.submitRes
     }
 };
 const mapDispatchToProps=(dispatch)=>{
@@ -193,8 +203,12 @@ const mapDispatchToProps=(dispatch)=>{
         },
         sendMail:(data)=>{
             dispatch(SendMailAction(data))
+        },
+        setSessionId:(id)=>{
+            dispatch(SetMailSessionAction(id))
         }
     }
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(SubmitReservation);
+//res.data.id

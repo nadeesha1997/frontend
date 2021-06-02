@@ -22,7 +22,8 @@ const ModuleDropActionType={
     SET_SESSION_ID:"SET_SESSION_ID",
     OPEN_CLOSE_DELETE:"OPEN_CLOSE_DELETE",
     OPEN_CLOSE_SUBMIT:"OPEN_CLOSE_SUBMIT",
-    SET_SUBJECT:"SET_SUBJECT"
+    SET_SUBJECT:"SET_SUBJECT",
+    SET_MAIL_SESSION:"SET_MAIL_SESSION"
 };
 //
 // const SelectModuleAction=(state)=>{
@@ -145,4 +146,9 @@ const setPermittedAction=(reserved)=>{
         dispatch({type:ModuleDropActionType.SET_PERMITTED,payload:reserved})
     }
 };
-export {ModuleDropActionType,SetStartTimeAction,SetEndTimeAction,SetModuleIdAction,SetHallAction,AddSessionAction,SetModuleAction,DeleteSessionAction,SetSessionIdAction,openDeleteModalAction,openSubmitModalAction,setSubjectAction,setPermittedAction};
+const SetMailSessionAction=(id)=>{
+    return (dispatch)=>{
+        dispatch({type:ModuleDropActionType.SET_MAIL_SESSION,payload:id})
+    }
+}
+export {ModuleDropActionType,SetStartTimeAction,SetEndTimeAction,SetModuleIdAction,SetHallAction,AddSessionAction,SetModuleAction,DeleteSessionAction,SetSessionIdAction,openDeleteModalAction,openSubmitModalAction,setSubjectAction,setPermittedAction,SetMailSessionAction};
