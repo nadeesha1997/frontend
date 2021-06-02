@@ -40,7 +40,7 @@ const Login=(props)=>{
     const [message, setmessage] = useState("");
 
     const history=useHistory();
-    const {login,isopen,closeModal}=props;
+    const {login,isopen,closeModal,openSign}=props;
 
     const handleEmail=e=>setemail(e.target.value);
     const handlePassword=e=>setpassword(e.target.value);
@@ -143,15 +143,21 @@ const Login=(props)=>{
                         </button>
 
                     <div className="form-group">
-                        <Link to="#" variant="body2" >
-                            <Link to="/Reset/ResetPassword">   Forgot password?</Link>
-                        </Link>
+                        {/*<Link to="#" variant="body2" >*/}
+                        {/*    <Link to="/Reset/ResetPassword"> Forgot password?  </Link>*/}
+                        {/*</Link>*/}
 
-                        <p> Don't have an account?
-                            <Link to="/Register">
-                                {"  Register Here"}
+                        <p> Forgot password?
+                            <Link to="/Reset/ResetPassword">
+                              <b > {"  Reset"}</b>
                             </Link>
                         </p>
+                        {/*<p> Don't have an account?*/}
+                        {/*    <Link to="/lecturer">*/}
+                        {/*        {"  Register Here"}*/}
+                        {/*    </Link>*/}
+                        {/*</p>*/}
+
 
 
                     </div>
