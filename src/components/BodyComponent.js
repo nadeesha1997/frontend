@@ -14,6 +14,10 @@ import ViewHallComponent from './admin/ViewHallComponent';
 import CreateHallComponent from './admin/CreateHallComponent';
 import ReserveApproval from "../pages/ReserveApproval";
 
+import StudentProfile from "./student/StudentProfile";
+import ScheduleOnline from "./admin/ScheduleOnline";
+import AddHall from "./admin/AddHall";
+
     const Body=()=> 
     {
         return(
@@ -31,7 +35,15 @@ import ReserveApproval from "../pages/ReserveApproval";
                         <Route path = "/halls" component = {ListHallComponent}></Route>
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
-                        <Route path = "/approve/:id" component={ReserveApproval}></Route>
+                        <Route path="/add" component={AddHall}/>
+
+                        <Route path="/StudentProfile" component={StudentProfile}/>
+
+
+                        <Route path="/ScheduleOnline" component={ScheduleOnline}/>
+                   <Route path="/add" component={AddHall}/>
+                     <Route path = "/approve/:id" component={ReserveApproval}></Route>
+
 
                     </Switch>
                 </Router>
