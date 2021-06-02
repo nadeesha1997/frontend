@@ -13,6 +13,8 @@ import ListHallComponent from './admin/ListHallComponent';
 import ViewHallComponent from './admin/ViewHallComponent';
 import CreateHallComponent from './admin/CreateHallComponent';
 
+import StudentProfile from "./student/StudentProfile";
+
     const Body=()=> 
     {
         return(
@@ -30,6 +32,8 @@ import CreateHallComponent from './admin/CreateHallComponent';
                         <Route path = "/halls" component = {ListHallComponent}></Route>
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
+
+                        <Route path="/StudentProfile" component={StudentProfile}/>
 
                     </Switch>
                 </Router>

@@ -59,7 +59,9 @@ function SecondNav(props){
                 <Image avatar spaced='right' src={Img} />
                 <Dropdown pointing='top right' text={name}>
                     <Dropdown.Menu>
-                        <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user'/>
+                        <Dropdown.Item as={Link} to={"/StudentProfile"} text='My profile' icon='user'
+
+                        />
                         <Dropdown.Item onClick={()=>logout(his)} text='Logout' icon='power' />
                     </Dropdown.Menu>
                 </Dropdown>
