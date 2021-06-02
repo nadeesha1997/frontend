@@ -12,6 +12,7 @@ import OnlineTable from '../pages/OnlineTable';
 import ListHallComponent from './admin/ListHallComponent';
 import ViewHallComponent from './admin/ViewHallComponent';
 import CreateHallComponent from './admin/CreateHallComponent';
+import ReserveApproval from "../pages/ReserveApproval";
 
 import StudentProfile from "./student/StudentProfile";
 import ScheduleOnline from "./admin/ScheduleOnline";
@@ -41,6 +42,8 @@ import AddHall from "./admin/AddHall";
 
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
                    <Route path="/add" component={AddHall}/>
+                     <Route path = "/approve/:id" component={ReserveApproval}></Route>
+
 
                     </Switch>
                 </Router>
