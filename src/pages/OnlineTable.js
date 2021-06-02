@@ -9,14 +9,14 @@ export const  OnlineTable= () => {
     return (
         <>
             <div>
-
                 <ThirdNav/>
                 <div className="page">
                     <div className="main">
-                        <Calendar/></div>
+                        <Calendar/>
+                    </div>
                 </div>
             </div>
-            </>
+        </>
     );
 }
 export default OnlineTable;
