@@ -55,8 +55,9 @@ const SessionApproveAction=(sessionState,history)=>{
         }
         dispatch({type:MailActionType.PERMISSION_APPROVAL_START,payload:{}})
         try {
-            const res= await axios.put("/sessions"+sessionState.session.id,sendingData);
+            const res= await axios.put("/sessions/"+sessionState.session.id,sendingData);
             dispatch({type:MailActionType.PERMISSION_APPROVAL_SUCCESS,payload:res});
+            alert("session permitted");
             history.push("/home");
 
         }catch (e) {

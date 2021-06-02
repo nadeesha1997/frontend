@@ -161,7 +161,6 @@ function SubmitReservation(props) {
                     </Form>
                 </div></div>
             </ModalBody>
-
         </Modal>
     </>)
 }
