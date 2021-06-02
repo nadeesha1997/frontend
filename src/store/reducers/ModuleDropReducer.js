@@ -42,7 +42,7 @@ const moduleDropReducer=(state=ModuleDropState,action)=>{
         case ModuleDropActionType.ADD_SESSION_START:
             return {...state,loading: true};
         case ModuleDropActionType.ADD_SESSION_SUCCESS:
-            return {...state,loading: false,submitRes: action.payload};
+            return {...state,loading: false,submitRes: action.payload,successMessage: action.payload};
         case ModuleDropActionType.ADD_SESSION_FAILED:
             return {...state,loading: false ,error: action.payload};
         case ModuleDropActionType.SET_MODULE_ID:

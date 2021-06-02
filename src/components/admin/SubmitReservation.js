@@ -76,9 +76,11 @@ function SubmitReservation(props) {
             Stime:convertToLocalTime(sessionsState.StartDateTime),
             Etime:convertToLocalTime(sessionsState.EndDateTime),
             Date:convertToLocalDate(sessionsState.StartDateTime),
-            SessionId:"http://localhost:3000/approve/"+sessionsState.mailSessionId.toString()
+            SessionId:"http://localhost:3000/approve/"+mailRes.id.toString()
         }
-        sendMail(mailDate);
+        if(mailRes.id!=0){
+            sendMail(mailDate);
+        }
     }
     return(<>
         <Modal show={sessionsState.openSubmitModal}
