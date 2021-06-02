@@ -14,6 +14,7 @@ import ViewHallComponent from './admin/ViewHallComponent';
 import CreateHallComponent from './admin/CreateHallComponent';
 
 import StudentProfile from "./student/StudentProfile";
+import ScheduleOnline from "./admin/ScheduleOnline";
 
     const Body=()=> 
     {
@@ -35,6 +36,8 @@ import StudentProfile from "./student/StudentProfile";
 
                         <Route path="/StudentProfile" component={StudentProfile}/>
 
+
+                        <Route path="/ScheduleOnline" component={ScheduleOnline}/>
                     </Switch>
                 </Router>
             </div>
