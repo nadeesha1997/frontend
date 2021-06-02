@@ -14,7 +14,9 @@ const ModuleDropState={
     // deleteResponse:"",
     openDeleteModal:false,
     openSubmitModal:false,
-    successMessage:""
+    successMessage:"",
+    submitRes:null,
+    mailSessionId:0
 }
 const moduleDropReducer=(state=ModuleDropState,action)=>{
     switch (action.type) {
@@ -40,7 +42,7 @@ const moduleDropReducer=(state=ModuleDropState,action)=>{
         case ModuleDropActionType.ADD_SESSION_START:
             return {...state,loading: true};
         case ModuleDropActionType.ADD_SESSION_SUCCESS:
-            return {...state,loading: false,successMessage: action.payload};
+            return {...state,loading: false,submitRes: action.payload};
         case ModuleDropActionType.ADD_SESSION_FAILED:
             return {...state,loading: false ,error: action.payload};
         case ModuleDropActionType.SET_MODULE_ID:
@@ -63,6 +65,8 @@ const moduleDropReducer=(state=ModuleDropState,action)=>{
             return {...state,Subject:action.payload};
         case ModuleDropActionType.SET_PERMITTED:
             return {...state,Permitted: action.payload};
+        case ModuleDropActionType.SET_MAIL_SESSION:
+            return {...state,mailSessionId: action.payload}
         default:
             return state;
     }
