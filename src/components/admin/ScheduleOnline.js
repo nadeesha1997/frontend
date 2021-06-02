@@ -7,8 +7,6 @@ import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalTitle from "react-bootstrap/ModalTitle";
 import '../../css/modal.css';
 import {Button, Input} from "reactstrap";
-import moment from "moment";
-import TimeField from "react-simple-timefield";
 
 
 const ScheduleOnline=()=>{

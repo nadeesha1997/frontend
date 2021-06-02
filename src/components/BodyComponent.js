@@ -15,6 +15,7 @@ import CreateHallComponent from './admin/CreateHallComponent';
 
 import StudentProfile from "./student/StudentProfile";
 import ScheduleOnline from "./admin/ScheduleOnline";
+import AddHall from "./admin/AddHall";
 
     const Body=()=> 
     {
@@ -33,11 +34,14 @@ import ScheduleOnline from "./admin/ScheduleOnline";
                         <Route path = "/halls" component = {ListHallComponent}></Route>
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
+                        <Route path="/add" component={AddHall}/>
 
                         <Route path="/StudentProfile" component={StudentProfile}/>
 
 
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
+                   <Route path="/add" component={AddHall}/>
+
                     </Switch>
                 </Router>
             </div>
