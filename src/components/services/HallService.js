@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const HALL_API_BASE_URL = "http://localhost:5001/api/Halls";
+const HALL_API_BASE_URL = "https://localhost:5001/api/halls";
 
 class HallService {
 

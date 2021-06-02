@@ -29,7 +29,7 @@ import CreateHallComponent from './admin/CreateHallComponent';
 
                         <Route path = "/halls" component = {ListHallComponent}></Route>
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
-                        <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
+                        <Route path = "/halls/:id" component = {ViewHallComponent}></Route>
 
                     </Switch>
                 </Router>

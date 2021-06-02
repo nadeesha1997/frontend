@@ -28,15 +28,15 @@ class ViewHallComponent extends Component {
                     <div className = "card-body">
                         <div className = "row">
                             <label> Hall Name: </label>
-                            <div> { this.state.hall.Name }</div>
+                            <div> { this.state.hall.name }</div>
                         </div>
-                        <div className = "row">
-                            <label> Building: </label>
-                            <div> { this.state.hall.Building }</div>
-                        </div>
+                        {/*<div className = "row">*/}
+                        {/*    <label> Building: </label>*/}
+                        {/*    <div> { this.state.hall.building }</div>*/}
+                        {/*</div>*/}
                         <div className = "row">
                             <label> Building Id: </label>
-                            <div> { this.state.hall.BuildingId }</div>
+                            <div> { this.state.hall.buildingId }</div>
                         </div>
                     </div>
 
