@@ -9,6 +9,10 @@ import {LogoutAuthAction, OpenLoginAction, OpenSignupAction} from "../store/acti
 import { Dropdown, Image, Menu} from 'semantic-ui-react';
 import {connect} from "react-redux";
 import Registration from "./Auth/Registration/Registration";
+import * as ReactBootStrap from "react-bootstrap";
+
+
+
 function SecondNav(props){
     const [openLogin, setopenLogin] = useState(false);
     const [openSignup, setopenSignup] = useState(false);
@@ -73,7 +77,11 @@ function SecondNav(props){
         <Router>
 
             <div className="navbar-color2">
-                <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
+                <ReactBootStrap.Navbar collapseOnSelect expand="xl"  variant="dark">
+                    <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
+                        <ReactBootStrap.Nav className="mr-auto">
+                <nav>
                     <table>
                         <tbody>
                         <tr>
@@ -81,7 +89,7 @@ function SecondNav(props){
                                 {!auth.isLoggedin?
                                     <React.Fragment>
                                         <div>
-                                            <Button  style={{width:100,backgroundColor:'#440151',marginTop:5,marginLeft:1150,marginRight:10,marginBottom:5}}
+                                            <Button  style={{width:100,backgroundColor:'#440151',marginRight:10}}
                                                 // type='submit'
                                                      onClick={
                                                          // handleLoginButton
@@ -91,7 +99,7 @@ function SecondNav(props){
                                                 <b>LOG IN</b>
                                                 {/* </Link> */}
                                             </Button>
-                                            <Button style={{width:100,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
+                                            <Button style={{width:100,backgroundColor:'#440151'}}
                                                 // type='submit'
                                                     onClick={()=>openSign(true)}>
                                                 {/* <Link to="./Register/student">  */}
@@ -115,6 +123,11 @@ function SecondNav(props){
                 </nav>
                 {auth.loginModelOpen ? <Login/>:null}
                 {auth.signupModalOpen ? <Registration/>:null}
+
+
+                        </ReactBootStrap.Nav>
+                    </ReactBootStrap.Navbar.Collapse>
+                </ReactBootStrap.Navbar>
             </div>
         </Router>
     );

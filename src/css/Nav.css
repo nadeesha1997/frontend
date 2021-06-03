@@ -33,10 +33,7 @@
     margin-top: -15px;
 
 }
-label:hover{
-    background-color: mediumvioletred;
-    padding: 10px;
-}
+
 .text1{
     color: #c38be3;
     text-align: left;
@@ -64,7 +61,7 @@ label:hover{
 }
 
 .UserName{
-    margin-left:1300px;
+    margin-left:1280px;
     padding: 0px;
 }
 /*P {

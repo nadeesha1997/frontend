@@ -17,7 +17,7 @@ import ReserveApproval from "../pages/ReserveApproval";
 import StudentProfile from "./student/StudentProfile";
 import ScheduleOnline from "./admin/ScheduleOnline";
 import AddHall from "./admin/AddHall";
-import Navbar from "./Head";
+
 
     const Body=()=> 
     {
