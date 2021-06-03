@@ -23,7 +23,7 @@ const SendMailAction=(data)=>{
         dispatch({type:MailActionType.SEND_HALL_REQUEST_MAIL_START,payload:{}})
         try {
             const res= await axios.post('/mail/reserve',data)
-            dispatch({type:MailActionType.SEND_HALL_REQUEST_MAIL_SUCCESS,payload:{}})
+            dispatch({type:MailActionType.SEND_HALL_REQUEST_MAIL_SUCCESS,payload:{res}})
         }catch (e) {
             console.error(e);
             dispatch({type:MailActionType.SEND_MAIL_FAILED,payload:e})

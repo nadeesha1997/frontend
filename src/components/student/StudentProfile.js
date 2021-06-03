@@ -1,15 +1,57 @@
 import { FormGroup, Label} from 'reactstrap';
-import React,{useState} from "react";
+import React, {useEffect, useState} from "react";
 import  { Table } from 'react-bootstrap';
 import '../../css/Nav.css';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import SecondNav from "../SecondNav";
 import {ThirdNav} from "../ThirdNav";
-import SubjectList from "../admin/SubjectList";
-/*export */
+import {
+    GetDepartmentModulesAction,
+    GetEnrolledModulesAction,
+    GetIsModulesAction, SetEnrollableModulesAction
+} from "../../store/actions/SelectedUserAction";
 function StudentProfile(props) {
-    const {auth}=props;
+    const {selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules}=props;
+    useEffect(()=>{
+        getEnrolledModules(user.id);
+        getDepartmentModules(user.semester,user.departmentId);
+        getIsModules(user.semester)
+    },[enrollableModules]);
+    useEffect(()=>{
+        setEnrolableModules(deptModules,isModules,enrolledModules)
+    },[deptModules,isModules,enrolledModules]);
+    useEffect(()=>{
+        console.log(selectedUserState);
+    },[deptModules,isModules,enrolledModules,enrolledModules])
+
+    const enrolledModuleList=(modules)=>{
+        let modList=[...modules];
+        if(modList.length>0){
+            let returnlist=(modList)=>{
+                modList.map((mod)=>{
+                    return(
+                        <>
+                            <tr>
+                                <td>{mod.subject.code}</td>
+                                <td>{mod.subject.name}</td>
+                                <td><button>unenroll</button></td>
+                            </tr>
+                        </>
+                    )
+                })
+            }
+            return(
+                <>
+                    <table>
+                        <thead><tr><th></th><th></th><th></th></tr></thead>
+                        <tbody>{returnlist}</tbody>
+                    </table>
+                </>
+            )
+        }else {
+            return (<></>);
+        }
+    };
 
     return (
 
@@ -47,7 +89,7 @@ function StudentProfile(props) {
                                 Full Name
                             </td>
                             <td>
-                                { auth.user.userDetails.fullName}
+                                { user.fullName}
                             </td>
                         </tr>
                         <tr>
@@ -55,7 +97,7 @@ function StudentProfile(props) {
                                 Register Number
                             </td>
                             <td>
-                                {auth.user.userDetails.regNo}
+                                {user.regNo}
                             </td>
                         </tr>
                         <tr>
@@ -63,7 +105,7 @@ function StudentProfile(props) {
                                 User Email
                             </td>
                             <td>
-                                {auth.user.userDetails.email}
+                                {user.email}
                             </td>
                         </tr>
                         <tr>
@@ -71,7 +113,7 @@ function StudentProfile(props) {
                                 Department
                             </td>
                             <td>
-                                {auth.user.userDetails.departmentId}
+                                {user.departmentId}
                             </td>
                         </tr>
                         <tr>
@@ -79,7 +121,7 @@ function StudentProfile(props) {
                                 Semester
                             </td>
                             <td>
-                                {auth.user.userDetails.semester}
+                                {user.semester}
                             </td>
                         </tr>
                     </Table>
@@ -115,8 +157,30 @@ function StudentProfile(props) {
 
 const mapStateToProps=(userState)=>{
     return {
-        auth:userState.auth
+        user:userState.selectedUser.user,
+        deptModules:userState.selectedUser.departmentModules,
+        isModules:userState.selectedUser.isModules,
+        enrolledModules: userState.selectedUser.enrolledModules,
+        enrollableModules: userState.selectedUser.enrollableModules,
+        loading:userState.selectedUser.loading,
+        selectedUserState:userState.selectedUser
     }
 };
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        getEnrolledModules:(id)=>{
+            dispatch(GetEnrolledModulesAction(id))
+        },
+        getDepartmentModules:(deptId,semester)=>{
+            dispatch(GetDepartmentModulesAction(deptId,semester));
+        },
+        getIsModules:(semester)=>{
+            dispatch(GetIsModulesAction(semester));
+        },
+        setEnrolableModules:(dept,is,enrolled)=>{
+            dispatch(SetEnrollableModulesAction(dept,is,enrolled));
+        }
+    }
+}
 
-export default connect(mapStateToProps)(StudentProfile);
+export default connect(mapStateToProps,mapDispatchToProps)(StudentProfile);
