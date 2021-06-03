@@ -12,6 +12,7 @@ const AuthActionType={
     CHECK_AUTH_STATE:"CHECK_AUTH_STATE",
     LOGIN_MODAL_OPEN_CLOSE:"LOGIN_MODAL_OPEN_CLOSE",
     SIGNUP_MODAL_OPEN_CLOSE:"SIGNUP_MODAL_OPEN_CLOSE",
+    RESET_ERROR:"RESET_ERROR"
 };
 
 const LecturerRegisterAuthAction=(userState,history)=>{
@@ -24,7 +25,7 @@ const LecturerRegisterAuthAction=(userState,history)=>{
             history.push("/");
         }catch(error){
             console.error(error);
-            dispatch({type:AuthActionType.REGISTER_FAILED,payload:{}})
+            dispatch({type:AuthActionType.REGISTER_FAILED,payload:{error}})
         }
     };
     // console.log(userState);
@@ -38,7 +39,7 @@ const StudentRegisterAuthAction=(userState)=>{
             // history.pushState()
         }catch(error){
             console.error(error);
-            dispatch({type:AuthActionType.REGISTER_FAILED,payload:{}})
+            dispatch({type:AuthActionType.REGISTER_FAILED,payload:{error}})
         }
     };
 };
@@ -109,4 +110,9 @@ const OpenSignupAction=(open)=>{
         dispatch({type:AuthActionType.SIGNUP_MODAL_OPEN_CLOSE,payload:open})
     }
 }
-export {LecturerRegisterAuthAction,StudentRegisterAuthAction,AdminRegisterAuthAction,ArRegisterAuthAction,LoginAuthAction,LogoutAuthAction,AuthActionType,CheckAuthStateAction,OpenLoginAction,OpenSignupAction};
+const ResetErrorAction=()=>{
+    return (dispatch)=>{
+        dispatch({type:AuthActionType.RESET_ERROR,payload:{}})
+    }
+}
+export {ResetErrorAction,LecturerRegisterAuthAction,StudentRegisterAuthAction,AdminRegisterAuthAction,ArRegisterAuthAction,LoginAuthAction,LogoutAuthAction,AuthActionType,CheckAuthStateAction,OpenLoginAction,OpenSignupAction};
