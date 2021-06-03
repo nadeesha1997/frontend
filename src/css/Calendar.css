@@ -15,7 +15,7 @@
 }
 .react-calendar--doubleView .react-calendar__viewContainer {
     display: flex;
-    margin: 10px;
+    margin: 20px;
 }
 .react-calendar--doubleView .react-calendar__viewContainer > * {
     width: 50%;

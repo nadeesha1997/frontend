@@ -37,6 +37,11 @@ import {Col,Table,Badge,} from "reactstrap";
 
 // import ReactEcharts from "echarts-for-react";
 import config from "./config";
+import CardItem from "../components/CardItem";
+import img3 from "../images/img-3.jpg";
+import img4 from "../images/img-4.jpg";
+import img5 from "../images/img-5.jpg";
+import img2 from "../images/img-2.jpg";
 // import  Chart  from "@progress/kendo-react-charts"
 // import Chart from "react-google-charts";
 const colors = config.chartColors;
@@ -186,7 +191,7 @@ class FirstDashboard extends React.Component {
 
                 <h1 align="center">Graphical visualization of lecture venues </h1>
                 <div style={col}></div>
-                <img src={map} align="right" id='map' class="map" useMap="#image-map" alt="map"/>
+                <img src={map} align="right" height={500} id='map' width={800} class="map" useMap="#image-map" alt="map"/>
 
                 <map id="Map-area" name="image-map">
 
