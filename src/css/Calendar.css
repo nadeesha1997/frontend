@@ -15,7 +15,7 @@
 }
 .react-calendar--doubleView .react-calendar__viewContainer {
     display: flex;
-    margin: 10px;
+    margin: 20px;
 }
 .react-calendar--doubleView .react-calendar__viewContainer > * {
     width: 50%;
@@ -119,13 +119,14 @@
     background: #89437e;
 }
 .react-calendar__tile--active {
-    background: #c62dad;
-    color: #260208;
+    background: #db72cd;
+    color: #0c0a0e;
+
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-    background: #8e58cb;
+    background: #db72cd;
 }
 .react-calendar--selectRange .react-calendar__tile--hover {
-    background-color: #ad72c1;
+    background-color: #9910c7;
 }

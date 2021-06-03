@@ -13,7 +13,7 @@ function Header(){
         <Router>
             <div className="navbar-color">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
-                    <Image img src={logo3} alt="logo"  width={300} height={150} margin={15}/>
+                    <Image img src={logo3} alt="logo"  width={300} height={150}/>
                     <div className="text">
                         <ul>
                             <li>
