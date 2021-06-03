@@ -17,6 +17,7 @@ import ReserveApproval from "../pages/ReserveApproval";
 import StudentProfile from "./student/StudentProfile";
 import ScheduleOnline from "./admin/ScheduleOnline";
 import AddHall from "./admin/AddHall";
+import Navbar from "./Head";
 
     const Body=()=> 
     {
@@ -40,6 +41,7 @@ import AddHall from "./admin/AddHall";
                         <Route path="/StudentProfile" component={StudentProfile}/>
 
 
+                        <Route path="/head" component={Navbar}/>
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
                    <Route path="/add" component={AddHall}/>
                      <Route path = "/approve/:id" component={ReserveApproval}></Route>

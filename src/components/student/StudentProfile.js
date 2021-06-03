@@ -5,7 +5,7 @@ import '../../css/Nav.css';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import SecondNav from "../SecondNav";
-import {ThirdNav} from "../ThirdNav";
+import ThirdNav from "../ThirdNav";
 import SubjectList from "../admin/SubjectList";
 /*export */
 function StudentProfile(props) {

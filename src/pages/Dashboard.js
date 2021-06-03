@@ -17,7 +17,7 @@ import {TimeTable} from "../components/admin/TimeTable";
 import SubjectList from "../components/admin/SubjectList";
 import '../css/Dashboard.css';
 import SecondNav from "../components/SecondNav";
-import {ThirdNav} from "../components/ThirdNav";
+import ThirdNav from "../components/ThirdNav";
 
 
 export const Dashboard = (props) => {

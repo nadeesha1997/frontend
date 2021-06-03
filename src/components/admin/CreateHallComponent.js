@@ -119,7 +119,7 @@
 // export default CreateHallComponent
 import React, { Component } from 'react'
 import HallService from '../services/HallService';
-import {ThirdNav} from "../ThirdNav";
+import ThirdNav from "../ThirdNav";
 
 class CreateHallComponent extends Component {
     constructor(props) {

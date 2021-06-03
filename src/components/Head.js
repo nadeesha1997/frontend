@@ -5,7 +5,7 @@ import {
     Link,
 } from "react-router-dom";
 
-const ThirdNav = () => {
+const Head = () => {
     return(
         <div className="navbar-color3">
             <ReactBootStrap.Navbar collapseOnSelect expand="xl"  variant="dark">
@@ -31,4 +31,4 @@ const ThirdNav = () => {
     )
 }
 
-export default ThirdNav;
+export default Head;

@@ -71,6 +71,7 @@ function SecondNav(props){
 
     return (
         <Router>
+
             <div className="navbar-color2">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
                     <table>

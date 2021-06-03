@@ -49,7 +49,7 @@
 // export default ViewHallComponent
 import React, { Component } from 'react'
 import HallService from '../services/HallService'
-import {ThirdNav} from "../ThirdNav";
+import ThirdNav from "../ThirdNav";
 
 class ViewHallComponent extends Component {
     constructor(props) {
