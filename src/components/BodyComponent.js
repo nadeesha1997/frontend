@@ -41,7 +41,7 @@ import Navbar from "./Head";
                         <Route path="/StudentProfile" component={StudentProfile}/>
 
 
-                        <Route path="/head" component={Navbar}/>
+
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
                    <Route path="/add" component={AddHall}/>
                      <Route path = "/approve/:id" component={ReserveApproval}></Route>
