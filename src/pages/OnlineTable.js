@@ -2,6 +2,7 @@ import SecondNav from "../components/SecondNav";
 import {ThirdNav} from "../components/ThirdNav";
 import React from "react";
 import Calendar from "../components/Calendar";
+import {Button} from "react-bootstrap";
 
 export const  OnlineTable= () => {
 
@@ -13,8 +14,23 @@ export const  OnlineTable= () => {
                 <ThirdNav/>
                 <div className="page">
                     <div className="main">
-                        <Calendar/></div>
+                        <table><tr>
+                        <Calendar/></tr>
+                            <tr>
+                        <Button style={{width:180,backgroundColor:'#440151',marginTop:50,marginLeft:90,marginRight:20,marginBottom:150}}
+                            // type='submit'
+                        >
+                            {/* <Link to="./Register/student">  */}
+                            <b> Schedule a Online Lecture</b>
+                            {/* </Link> */}
+                        </Button></tr>
+
+
+                        </table>
+
+                    </div>
                 </div>
+
             </div>
             </>
     );
