@@ -1,11 +1,11 @@
 import {MailActionType} from "../actions/MailAction";
 const initMailState={
-    adminEmail:"nadeeshamadhushan9@gmail.com",
-    elecHodEmail:"nadeesha1997@outlook.com",
-    civilHodEmail:"nadeesha1997@outlook.com",
-    mechHodEmail:"nadeesha1997@outlook.com",
-    isHodEmail:"nadeesha1997@outlook.com",
-    arEmail:"nadeesha1997@outlook.com",
+    adminEmail:"b.d.m.niroshanee@gmai.com",
+    elecHodEmail:"b.d.m.niroshanee@gmail.com",
+    civilHodEmail:"b.d.m.niroshanee@gmail.com",
+    mechHodEmail:"b.d.m.niroshanee@gmail.com",
+    isHodEmail:"b.d.m.niroshanee@gmail.com",
+    arEmail:"b.d.m.niroshanee@gmail.com",
     loading:false,
     successMessage: {},
     errorMessage:"",

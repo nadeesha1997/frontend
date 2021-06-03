@@ -59,7 +59,9 @@ function SecondNav(props){
                 <Image avatar spaced='right' src={Img} />
                 <Dropdown pointing='top right' text={name}>
                     <Dropdown.Menu>
-                        <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user'/>
+                        <Dropdown.Item as={Link} to={"/StudentProfile"} text='My profile' icon='user'
+
+                        />
                         <Dropdown.Item onClick={()=>logout(his)} text='Logout' icon='power' />
                     </Dropdown.Menu>
                 </Dropdown>
@@ -78,7 +80,7 @@ function SecondNav(props){
                                 {!auth.isLoggedin?
                                     <React.Fragment>
                                         <div>
-                                            <Button  style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:1000,marginRight:10,marginBottom:5}}
+                                            <Button  style={{width:100,backgroundColor:'#440151',marginTop:5,marginLeft:1150,marginRight:10,marginBottom:5}}
                                                 // type='submit'
                                                      onClick={
                                                          // handleLoginButton
@@ -88,7 +90,7 @@ function SecondNav(props){
                                                 <b>LOG IN</b>
                                                 {/* </Link> */}
                                             </Button>
-                                            <Button style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
+                                            <Button style={{width:100,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
                                                 // type='submit'
                                                     onClick={()=>openSign(true)}>
                                                 {/* <Link to="./Register/student">  */}
