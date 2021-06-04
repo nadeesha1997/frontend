@@ -80,7 +80,7 @@ function SecondNav(props){
                                 {!auth.isLoggedin?
                                     <React.Fragment>
                                         <div>
-                                            <Button  style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:1000,marginRight:10,marginBottom:5}}
+                                            <Button  style={{width:100,backgroundColor:'#440151',marginTop:5,marginLeft:1150,marginRight:10,marginBottom:5}}
                                                 // type='submit'
                                                      onClick={
                                                          // handleLoginButton
@@ -90,7 +90,7 @@ function SecondNav(props){
                                                 <b>LOG IN</b>
                                                 {/* </Link> */}
                                             </Button>
-                                            <Button style={{width:180,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
+                                            <Button style={{width:100,backgroundColor:'#440151',marginTop:5,marginLeft:90,marginRight:20,marginBottom:5}}
                                                 // type='submit'
                                                     onClick={()=>openSign(true)}>
                                                 {/* <Link to="./Register/student">  */}
