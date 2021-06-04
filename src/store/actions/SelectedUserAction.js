@@ -129,4 +129,4 @@ const notAvailableInArray=(item,array)=>{
     }
     return true;
 }
-export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction,EnrollAction}
+export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction,EnrollAction,UnenrollAction}

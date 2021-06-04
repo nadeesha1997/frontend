@@ -6,12 +6,13 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {ThirdNav} from "../ThirdNav";
 import {
+    EnrollAction,
     GetDepartmentModulesAction,
     GetEnrolledModulesAction,
-    GetIsModulesAction, SetEnrollableModulesAction
+    GetIsModulesAction, SetEnrollableModulesAction, UnenrollAction
 } from "../../store/actions/SelectedUserAction";
 function StudentProfile(props) {
-    const {selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules}=props;
+    const {selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules,enroll,unEnroll}=props;
     useEffect(()=>{
         getEnrolledModules(user.id);
         getDepartmentModules(user.departmentId,user.semester);
@@ -34,7 +35,7 @@ function StudentProfile(props) {
                             <tr>
                                 <td>{mod.subject.code}</td>
                                 <td>{mod.subject.name}</td>
-                                <td><button onClick={()=>{}}>unenroll</button></td>
+                                <td><button onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
                             </tr>
                         </>
                     )
@@ -60,9 +61,9 @@ function StudentProfile(props) {
                     return(
                         <>
                             <tr>
-                                <td>{mod.subject.code}</td>
-                                <td>{mod.subject.name}</td>
-                                <td><button>unenroll</button></td>
+                                <td>{mod.code}</td>
+                                <td>{mod.name}</td>
+                                <td><button onClick={()=>{enroll(user.id,mod.id)}}>unenroll</button></td>
                             </tr>
                         </>
                     )
@@ -170,6 +171,8 @@ function StudentProfile(props) {
                             <Link to="#">  Enroll modules   </Link>
                         </button>
                     </div>
+                    {enrolledModuleList(enrolledModules)}
+                    {enrollableModuleList(enrollableModules)}
                 </div>
             </div>
             </div></div>
@@ -207,6 +210,12 @@ const mapDispatchToProps=(dispatch)=>{
         },
         setEnrolableModules:(dept,is,enrolled)=>{
             dispatch(SetEnrollableModulesAction(dept,is,enrolled));
+        },
+        enroll:(userId,moduleId)=>{
+            dispatch(EnrollAction(userId,moduleId));
+        },
+        unEnroll:(id)=>{
+            dispatch(UnenrollAction(id));
         }
     }
 }
