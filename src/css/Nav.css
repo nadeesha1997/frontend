@@ -33,6 +33,7 @@
     margin-top: -15px;
 
 }
+
 .text1{
     color: #c38be3;
     text-align: left;
@@ -45,9 +46,11 @@
 }
 .navbar-color {
     background: linear-gradient(#a86aa8, #bdbdd5);
-    width: 100%;
-}
 
+}
+.align{
+    alignment: left;
+}
 .navbar-color2 {
     background-color: #a087a7;
     font-family: Arial;
@@ -58,7 +61,7 @@
 }
 
 .UserName{
-    margin-left:1300px;
+    margin-left:1280px;
     padding: 0px;
 }
 /*P {
@@ -129,3 +132,6 @@
     font-size: medium;
     margin-right: 20px;
 }
+
+
+
