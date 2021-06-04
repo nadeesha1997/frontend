@@ -14,17 +14,45 @@ function StudentProfile(props) {
     const {selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules}=props;
     useEffect(()=>{
         getEnrolledModules(user.id);
-        getDepartmentModules(user.semester,user.departmentId);
+        getDepartmentModules(user.departmentId,user.semester);
         getIsModules(user.semester)
-    },[enrollableModules]);
+    },[]);
     useEffect(()=>{
         setEnrolableModules(deptModules,isModules,enrolledModules)
     },[deptModules,isModules,enrolledModules]);
-    useEffect(()=>{
-        console.log(selectedUserState);
-    },[deptModules,isModules,enrolledModules,enrolledModules])
+    // useEffect(()=>{
+    //     console.log(selectedUserState);
+    // },[deptModules,isModules,enrolledModules,enrolledModules])
 
     const enrolledModuleList=(modules)=>{
+        let modList=[...modules];
+        if(modList.length>0){
+            let returnlist=(modList)=>{
+                modList.map((mod)=>{
+                    return(
+                        <>
+                            <tr>
+                                <td>{mod.subject.code}</td>
+                                <td>{mod.subject.name}</td>
+                                <td><button onClick={()=>{}}>unenroll</button></td>
+                            </tr>
+                        </>
+                    )
+                })
+            }
+            return(
+                <>
+                    <table>
+                        <thead><tr><th></th><th></th><th></th></tr></thead>
+                        <tbody>{returnlist}</tbody>
+                    </table>
+                </>
+            )
+        }else {
+            return (<></>);
+        }
+    };
+    const enrollableModuleList=(modules)=>{
         let modList=[...modules];
         if(modList.length>0){
             let returnlist=(modList)=>{
@@ -182,5 +210,6 @@ const mapDispatchToProps=(dispatch)=>{
         }
     }
 }
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(StudentProfile);

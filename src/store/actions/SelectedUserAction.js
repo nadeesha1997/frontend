@@ -12,13 +12,23 @@ const SelectedUserActionType={
     UPDATE_PICTURE_SUCCESS:"UPDATE_PICTURE_SUCCESS",
     UPDATE_PICTURE_FAILED:"UPDATE_PICTURE_FAILED",
     SET_ENROLLABLE_MODULES_SUCCESS:"SET_ENROLLABLE_MODULES_SUCCESS",
-    SET_ENROLLABLE_MODULES_FAILED:"SET_ENROLLABLE_MODULES_FAILED"
+    SET_ENROLLABLE_MODULES_FAILED:"SET_ENROLLABLE_MODULES_FAILED",
+    ENROLL_START:"ENROLL_START",
+    ENROLL_SUCCESS:"ENROLL_SUCCESS",
+    ENROLL_FAILED:"ENROLL_FAILED",
+    UNENROLL_START:"UNENROLL_START",
+    UNENROLL_SUCCESS:"UNENROLL_SUCCESS",
+    UNENROLL_FAILED:"UNENROLL_FAILED"
 }
 const GetEnrolledModulesAction=(id)=>{
     return async (dispatch)=>{
         try {
             dispatch({type:SelectedUserActionType.GET_ENROLLED_MODULES_START,payload:{}})
-            let res= await axios.get("https://localhost:5001/api/subjectuser/user/"+id);
+            let res= await axios.get("/subjectuser/user/"+id);
+            // let subjectUser=[...res.data];
+            // let subjects=subjectUser.map((subU)=>subU.subject);
+            // console.log("subjects");
+            // console.log(subjects);
             dispatch({type:SelectedUserActionType.GET_ENROLLED_MODULES_SUCCESS,payload:res.data})
         }catch (e) {
             dispatch({type:SelectedUserActionType.GET_ENROLLED_MODULES_FAILED,payload:e})
@@ -29,8 +39,22 @@ const GetEnrolledModulesAction=(id)=>{
 const GetDepartmentModulesAction=(deptId,semester)=>{
     return async (dispatch)=>{
         try {
-            dispatch({type:SelectedUserActionType.GET_DEPARTMENT_MODULES_START,payload:{}})
-            let res= await axios.get("https://localhost:5001/api/subjects/department/"+deptId+"/semester/"+semester);
+            dispatch({type:SelectedUserActionType.GET_DEPARTMENT_MODULES_START,payload:{}});
+            let val=""
+            switch(deptId){
+                case 1:
+                    val="EE";
+                    break;
+                case 2:
+                    val="CE";
+                    break;
+                case 3:
+                    val="ME";
+                default:
+                    val="IS"
+            }
+            let res= await axios.get("/subjects/department/"+val+"/semester/"+semester);
+            console.log(res);
             dispatch({type:SelectedUserActionType.GET_DEPARTMENT_MODULES_SUCCESS,payload:res.data})
         }catch (e) {
             dispatch({type:SelectedUserActionType.GET_DEPARTMENT_MODULES_FAILED,payload:e})
@@ -42,7 +66,7 @@ const GetIsModulesAction=(semester)=>{
     return async (dispatch)=>{
         try {
             dispatch({type:SelectedUserActionType.GET_IS_MODULES_START,payload:{}})
-            let res= await axios.get("https://localhost:5001/api/subjects/department/is/semester/"+semester);
+            let res= await axios.get("/subjects/department/is/semester/"+semester);
             dispatch({type:SelectedUserActionType.GET_IS_MODULES_SUCCESS,payload:res.data})
         }catch (e) {
             dispatch({type:SelectedUserActionType.GET_IS_MODULES_FAILED,payload:e})
@@ -64,15 +88,45 @@ const SetEnrollableModulesAction=(deptModules,isModules,enrolledModules)=>{
    }
 
 }
+const EnrollAction=(userId,subjectId)=>{
+    return async (dispatch)=>{
+        try{
+            let sendData={
+                userId:userId,
+                subjectId:subjectId
+            }
+            dispatch({type:SelectedUserActionType.ENROLL_START,payload:{}})
+            let res= await axios.post("/subjectusers",sendData);
+            dispatch({type:SelectedUserActionType.ENROLL_SUCCESS,payload:res.data})
+        }catch (e) {
+            console.error(e);
+            dispatch({type:SelectedUserActionType.ENROLL_FAILED,payload:e})
+        }
+    }
+
+}
+const UnenrollAction=(id)=>{
+    return async (dispatch)=>{
+        try{
+            dispatch({type:SelectedUserActionType.UNENROLL_START,payload:{}})
+            let res= await axios.delete("/subjectusers"+id);
+            dispatch({type:SelectedUserActionType.UNENROLL_SUCCESS,payload:res.data})
+        }catch (e) {
+            console.error(e);
+            dispatch({type:SelectedUserActionType.UNENROLL_FAILED,payload:e})
+        }
+    }
+
+}
 const notAvailableInArray=(item,array)=>{
     let arr=[...array];
     if(arr.length>0){
         arr.forEach((val)=>{
-            if(val.subjectId==item.subjectId){
+            if(val.subjectId==item.id){
                 return false;
             }
         })
     }
     return true;
 }
-export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction}
+export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction,EnrollAction}
