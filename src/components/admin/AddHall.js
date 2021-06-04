@@ -23,14 +23,14 @@ const AddHall=()=> {
                                                 placeholder="Name" name="Name" className="form-control"
                                                    value="" />
                                         </div>
-                                        <div className="sub">
-                                            <label> Building: </label>
-                                            <input
+                                        {/*<div className="sub">*/}
+                                        {/*    <label> Building: </label>*/}
+                                        {/*    <input*/}
 
-                                                style={{width:350}}
-                                                placeholder="Building" name="Building" className="form-control"
-                                                   value=""    />
-                                        </div>
+                                        {/*        style={{width:350}}*/}
+                                        {/*        placeholder="Building" name="Building" className="form-control"*/}
+                                        {/*           value=""    />*/}
+                                        {/*</div>*/}
                                         <div className="sub">
                                             <label> Building Id: </label>
                                             <input
