@@ -1,31 +1,11 @@
-//
-// import React from 'react'
+
 import Calendar from "../components/Calendar";
 import '../css/Dashboard.css';
-import SecondNav from "../components/SecondNav";
-import ThirdNav from "../components/ThirdNav";
-//
-//
-// export const FirstDashboard = () => {
-//
-//     return (
-//         <>
-//             <div>
-//                 {/*<Navigation/>*/}
-//                 {/*<HomepageNavbar updateDate={this.updateDate}/>*/}
-//                 {/*<Nav/>*/}
-//                 <SecondNav/>
-//                 <ThirdNav/>
-//                 <div className="page">
-//                     <div className="main">
-//                         <Calendar/></div>
-//                 </div>
-//             </div>
-//         </>
-//     )
-// }
-//
-// export default FirstDashboard;
+
+import {ThirdNav} from "../components/ThirdNav";
+import ReactEcharts from "echarts-for-react";
+import UserService from "../components/services/UserService";
+
 import React from 'react';
 import map from './../images/map.jpg';
 import LT1 from './../images/LT1.jpg';
@@ -35,18 +15,9 @@ import CLR from './../images/CLR.jpg';
 
 import {Col,Table,Badge,} from "reactstrap";
 
-// import ReactEcharts from "echarts-for-react";
+
 import config from "./config";
-import CardItem from "../components/CardItem";
-import img3 from "../images/img-3.jpg";
-import img4 from "../images/img-4.jpg";
-import img5 from "../images/img-5.jpg";
-import img2 from "../images/img-2.jpg";
-// import  Chart  from "@progress/kendo-react-charts"
-// import Chart from "react-google-charts";
 const colors = config.chartColors;
-
-
 const Header = {
     padding: "10px 20px",
     textAlign: "center",
@@ -68,6 +39,7 @@ class FirstDashboard extends React.Component {
         super(props);
         let now = new Date();
         this.state = {
+            currentUser:UserService.getCurrentUser(),
             date:now,
             donut: {
                 tooltip: {trigger: "item", formatter: "{a} <br/>{b}: {c} ({d}%)",},
@@ -363,23 +335,32 @@ class FirstDashboard extends React.Component {
                     </Table>
 
 
-                    {/*<h2>Student likelihood of lecture venues</h2>*/}
-                    {/*<Col  >*/}
-                    {/*    <p title={<h5>Chart <span className="fw-semi-bold">Donut Chart</span></h5>} close collapse>*/}
-                    {/*        /!*<Chart*!/*/}
-                    {/*        /!*    option={this.state.donut}*!/*/}
-                    {/*        /!*    style={{ height:"250px"}}>*!/*/}
-                    {/*        /!*</Chart>*!/*/}
-                    {/*        Last modified : 2021/05/05*/}
-                    {/*        <div></div>*/}
-                    {/*        /!*{profileData==="Student" &&*!/*/}
-                    {/*        /!*<button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Add your preference here</b></a></button>*!/*/}
-                    {/*        /!*}*!/*/}
-                    {/*        /!*<div>Add your preference here</div>*/}
-                    {/*        <div></div>*/}
-                    {/*        <button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Click me</b></a></button>*/}
-                    {/*    *!/</p>*/}
-                    {/*</Col>*/}
+                    <h2>Student likelihood of lecture venues</h2>
+                    <Col  >
+                        <p title={<h5>Chart <span className="fw-semi-bold">Donut Chart</span></h5>} close collapse>
+                            {/*<Chart*/}
+                            {/*    option={this.state.donut}*/}
+                            {/*    style={{ height:"250px"}}>*/}
+                            {/*</Chart>*/}
+                            <ReactEcharts
+                                option={this.state.donut}
+                                style={{ height:"250px"}}>
+                            </ReactEcharts>
+                            Last modified : 2021/05/05
+                            <div></div>
+                            {this.state.currentUser.user.userDetails.role==="Student"  &&
+                            <button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}>
+                                <a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Add your preference</b></a></button>
+                            }
+                            {/*{profileData==="Student" &&*/}
+                            {/*<button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Add your preference here</b></a></button>*/}
+                            {/*}*/}
+                            {/*<div>Add your preference here</div>
+                            <div></div>
+                            <button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Click me</b></a></button>
+                        */}
+                        </p>
+                    </Col>
                 </div>
             </div></div>
 

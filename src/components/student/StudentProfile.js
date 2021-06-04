@@ -1,15 +1,35 @@
 import { FormGroup, Label} from 'reactstrap';
-import React,{useState} from "react";
+import React, {useEffect, useState} from "react";
 import  { Table } from 'react-bootstrap';
 import '../../css/Nav.css';
+import '../../css/Profile.css';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import SecondNav from "../SecondNav";
-import ThirdNav from "../ThirdNav";
-import SubjectList from "../admin/SubjectList";
-/*export */
+
+import {ThirdNav} from "../ThirdNav";
+import {
+    EnrollAction,
+    GetDepartmentModulesAction,
+    GetEnrolledModulesAction,
+    GetIsModulesAction, SetEnrollableModulesAction, UnenrollAction
+} from "../../store/actions/SelectedUserAction";
 function StudentProfile(props) {
-    const {auth}=props;
+    const {successMessage,selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules,enroll,unEnroll}=props;
+    useEffect(()=>{
+        getDepartmentModules(user.departmentId,user.semester);
+        getIsModules(user.semester)
+    },[user,successMessage]);
+    useEffect(()=>{
+        getEnrolledModules(user.id);
+    },[user,deptModules,isModules]);
+    useEffect(()=>{
+        setEnrolableModules(deptModules,isModules,enrolledModules)
+    },[deptModules,isModules,enrolledModules]);
+    // useEffect(()=>{
+    //     enrollableModuleList();
+    //     enrolledModuleList()
+    // },[enrolledModules,enrollableModules])
+
 
     return (
 
@@ -17,21 +37,19 @@ function StudentProfile(props) {
             <div className="page ">
 
 
-            <div className="container emp-profile col-md-6">
-                <div className="container">
-
+            <div className="wrapper">
+                <div className="contacts">
+                    <h3>Student Profile</h3>
                     {/*<div style={col} />*/}
                     <div className="row">
                         <div className="col-md-4 col"></div>
-                        <div className="col-md-6 col">
+                        <div className="col-md-4 col">
 
                             <div className="profile-img">
                                 <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt="" width="100"/>
 
-                                <input type="file" name="file" id="exampleFile" accept="image/*" className="form-control-file"
+                                <input type="file" name="file" id="exampleFile" style={{width:"100%"} } accept="image/*" className="form-control-file"
                                        onChange="showPreview"/>
-
-
                             </div>
                         </div>
                         <div className="col-md-4 col"></div>
@@ -47,7 +65,7 @@ function StudentProfile(props) {
                                 Full Name
                             </td>
                             <td>
-                                { auth.user.userDetails.fullName}
+                                { user.fullName}
                             </td>
                         </tr>
                         <tr>
@@ -55,7 +73,7 @@ function StudentProfile(props) {
                                 Register Number
                             </td>
                             <td>
-                                {auth.user.userDetails.regNo}
+                                {user.regNo}
                             </td>
                         </tr>
                         <tr>
@@ -63,7 +81,7 @@ function StudentProfile(props) {
                                 User Email
                             </td>
                             <td>
-                                {auth.user.userDetails.email}
+                                {user.email}
                             </td>
                         </tr>
                         <tr>
@@ -71,7 +89,7 @@ function StudentProfile(props) {
                                 Department
                             </td>
                             <td>
-                                {auth.user.userDetails.departmentId}
+                                {user.departmentId}
                             </td>
                         </tr>
                         <tr>
@@ -79,27 +97,15 @@ function StudentProfile(props) {
                                 Semester
                             </td>
                             <td>
-                                {auth.user.userDetails.semester}
+                                {user.semester}
                             </td>
                         </tr>
                     </Table>
                 </div>
                 <hr/>
                 <div className="row">
-
-                    <div align="center" className="col-md-4">
-                        <button  style={{width:150,height:40,backgroundColor:'#2d0b34',marginTop:5,marginLeft:150}}
-                            type="submit" className="profile-edit-btn" name="btnAddMore" value="Update Profile">
-                            <Link to="/StudentUpdateProfile">{"Update profile"}</Link>
-                        </button>
-                    </div>
-
-                    <div align="center" className="col-md-4">
-                        <button  style={{width:150,height:40,backgroundColor:'#2d0b34',marginTop:5,marginLeft:180}}
-                            type="submit" className="profile-edit-btn" name="btnAddMore" value="Enroll modules">
-                            <Link to="#">  Enroll modules   </Link>
-                        </button>
-                    </div>
+                    {enrolledModuleList(enrolledModules,unEnroll)}
+                    {enrollableModuleList(user,enrollableModules,enroll)}
                 </div>
             </div>
             </div></div>
@@ -115,8 +121,107 @@ function StudentProfile(props) {
 
 const mapStateToProps=(userState)=>{
     return {
-        auth:userState.auth
+        user:userState.selectedUser.user,
+        deptModules:userState.selectedUser.departmentModules,
+        isModules:userState.selectedUser.isModules,
+        enrolledModules: userState.selectedUser.enrolledModules,
+        enrollableModules: userState.selectedUser.enrollableModules,
+        loading:userState.selectedUser.loading,
+        selectedUserState:userState.selectedUser,
+        successMessage:userState.selectedUser.successMessage
     }
 };
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        getEnrolledModules:(id)=>{
+            dispatch(GetEnrolledModulesAction(id))
+        },
+        getDepartmentModules:(deptId,semester)=>{
+            dispatch(GetDepartmentModulesAction(deptId,semester));
+        },
+        getIsModules:(semester)=>{
+            dispatch(GetIsModulesAction(semester));
+        },
+        setEnrolableModules:(dept,is,enrolled)=>{
+            dispatch(SetEnrollableModulesAction(dept,is,enrolled));
+        },
+        enroll:(userId,moduleId)=>{
+            dispatch(EnrollAction(userId,moduleId));
+        },
+        unEnroll:(id)=>{
+            dispatch(UnenrollAction(id));
+        }
+    }
+}
 
-export default connect(mapStateToProps)(StudentProfile);
+
+export default connect(mapStateToProps,mapDispatchToProps)(StudentProfile);
+
+const enrolledModuleList=(modules,unEnroll)=>{
+    let modList=[...modules];
+    // console.log("modlist");
+    // console.log(modList.length);
+    if(modList.length>0){
+        // console.log("entrd")
+        let returnlist= modList.map((mod)=>{
+                return(
+                    <>
+                        <tr>
+                            <td>{mod.subject.code}</td>
+                            <td>{mod.subject.name}</td>
+                            <td><button style={{width:100,backgroundColor:'#bd2d8d'}}
+                                onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
+
+                        </tr>
+                    </>
+                );
+            });
+
+
+        return(
+            <>
+                <table>
+                    <thead><tr><th></th><th></th><th></th></tr></thead>
+                    <tbody>
+                    {returnlist}
+                    {/*<tr><td>helloo</td><td>helloo</td><td>helloo</td></tr>*/}
+                    </tbody>
+                </table>
+            </>
+        )
+    }else {
+        return (<></>);
+    }
+};
+const enrollableModuleList=(user,modules,enroll)=>{
+    let modList=[...modules];
+    // let modList=modules;
+    // console.log(modList);
+    if(modList.length>0){
+        let returnlist= modList.map((mod)=>{
+                return(
+                    <>
+                        <tr>
+                            <td>{mod.code}</td>
+                            <td>{mod.name}</td>
+                            <td><button style={{width:100,backgroundColor:'#a270b8'}}
+
+                                onClick={()=>{enroll(user.id,mod.id)}}>enroll</button></td>
+
+                        </tr>
+                    </>
+                )
+            })
+
+        return(
+            <>
+                <table>
+                    <thead><tr><th></th><th></th><th></th></tr></thead>
+                    <tbody>{returnlist}</tbody>
+                </table>
+            </>
+        )
+    }else {
+        return (<></>);
+    }
+};

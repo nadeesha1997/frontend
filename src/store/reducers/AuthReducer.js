@@ -20,7 +20,8 @@ const authState={
     user:localStorage.hasOwnProperty("auth")?JSON.parse(localStorage.getItem("auth")).user:null,
     // user:null,
     loginModelOpen:false,
-    signupModalOpen:false
+    signupModalOpen:false,
+    error:[]
 };
 const getAuthState=()=>{
     const auth=localStorage.getItem("auth");
@@ -55,7 +56,7 @@ const authReducer=(state=newAuth,action)=>{
             localStorage.setItem("auth",JSON.stringify(newAuthState1));
             return newAuthState1;
         case AuthActionType.LOGIN_FAIL:
-            return authState;        
+            return {...state,error: action.payload};
         case AuthActionType.LOGOUT_SUCCESSFULL:
             localStorage.removeItem("auth");
             return authState;
@@ -70,7 +71,9 @@ const authReducer=(state=newAuth,action)=>{
         case AuthActionType.SIGNUP_MODAL_OPEN_CLOSE:
             return {...state,signupModalOpen: action.payload};
         case AuthActionType.REGISTER_LECTURER_FAILED:
-                return state;               
+                return state;
+        case AuthActionType.REGISTER_FAILED:
+            return {...state,error: action.payload}
         default:
             return state;
     }

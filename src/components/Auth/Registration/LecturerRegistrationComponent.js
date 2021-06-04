@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
-import { LecturerRegisterAuthAction } from "../../../store/actions/AuthAction";
+import {LecturerRegisterAuthAction, ResetErrorAction} from "../../../store/actions/AuthAction";
 import axios from "axios";
 import '../../../css/modal.css';
 
 const LecturerRegisterForm=(props)=> {
     //
     // const [userState, setuserState] = useState({});
-    const {user,register}=props;
+    const {user,register,err}=props;
     const history=useHistory();
     //
   const initialState ={
@@ -194,13 +194,17 @@ const LecturerRegisterForm=(props)=> {
                             </Button>
                         </div>
                     </Form>
-                </div></div>
-            </div></div>
+                </div>
+                    {err}
+                </div>
+            </div>
+            </div>
         );
 }
 const mapStateToProps=(userState)=>{
     return {
-        user:userState
+        user:userState,
+        err:userState.auth.error[0].description
     }
 }
 const mapDispatchToProps=(dispatch)=>{

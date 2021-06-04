@@ -18,7 +18,7 @@ import {Form} from "react-bootstrap";
 import moment from "moment";
 import {SendMailAction, SetRecieverAction} from "../../store/actions/MailAction";
 function SubmitReservation(props) {
-    let {sessionsState,submitSession,openMod,closeMod,setEndTime,mState,setPermission,setReciever,mailState,sendMail,setSessionId,mailRes}=props;
+    let {permitted,sessionsState,submitSession,openMod,closeMod,setEndTime,mState,setPermission,setReciever,mailState,sendMail,setSessionId,mailRes}=props;
     useEffect(()=>{
         switch (sessionsState.hall.permissionType) {
             case "null":
@@ -51,13 +51,18 @@ function SubmitReservation(props) {
                 setReciever(mailState.adminEmail);
                 setPermission(false);
         }
+        // if(!permitted){
+        // }
         console.log("submission called");
     },[sessionsState.hall]);
     useEffect(()=>{
-        if(mailRes){
+        if(mailRes&&permitted==false){
             setSessionId(mailRes.id);
             sendingMail();
+            alert("You have to wait until permission");
             closeMod();
+        }
+        else {
             closeMod();
         }
     },[mailRes]);
@@ -78,7 +83,7 @@ function SubmitReservation(props) {
             Date:convertToLocalDate(sessionsState.StartDateTime),
             SessionId:"http://localhost:3000/approve/"+mailRes.id.toString()
         }
-        if(mailRes.id!=0){
+        if(mailRes.id!=0&&permitted==false){
             sendMail(mailDate);
         }
     }
@@ -180,7 +185,8 @@ const mapStateToProps=(moduleDropstate)=>{
         sessionsState:moduleDropstate.moduleDrop,
         mState:moduleDropstate,
         mailState:moduleDropstate.mail,
-        mailRes:moduleDropstate.moduleDrop.submitRes
+        mailRes:moduleDropstate.moduleDrop.submitRes,
+        permitted:moduleDropstate.moduleDrop.Permitted
     }
 };
 const mapDispatchToProps=(dispatch)=>{
