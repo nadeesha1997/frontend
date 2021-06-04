@@ -17,21 +17,23 @@ import ReserveApproval from "../pages/ReserveApproval";
 import StudentProfile from "./student/StudentProfile";
 import ScheduleOnline from "./admin/ScheduleOnline";
 import AddHall from "./admin/AddHall";
+import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 
     const Body=()=> 
     {
         return(
             <div className="body">
-                <Router>
+                 <Router>
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/signup" component={Registration}/>
                         <Route path="/home" component={FirstDashboard}/>
+
                         <Route path="/EditTimeTable" component={Dashboard}/>
                         <Route path="/OnlineTable" component={OnlineTable}/>
                         <Route path="/admin/CRUDHalls" component={CRUDHalls}/>
-
+                        <Route path="/Add Staff-Member" component={AdminRegisterForm}/>
                         <Route path = "/halls" component = {ListHallComponent}></Route>
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>

@@ -142,6 +142,9 @@ class ListHallComponent extends Component {
                     <button style={{marginLeft: "10px"}}  name="view" value="View">
                         <Link to="/home"  className="btn btn-success">{"View Hall details"}</Link>
                     </button>
+                    <button style={{marginLeft: "10px"}}  name="view" value="View">
+                        <Link to="/Add Staff-Member"  className="btn btn-success">{"Add Staff-Member"}</Link>
+                    </button>
                 </div>
                 <br></br>
                 <div className = "row">

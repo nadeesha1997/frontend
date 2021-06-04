@@ -20,7 +20,7 @@ const AdminRegisterForm=(props)=> {
             password: "",
             confirmPassword:"",
             DepartmentID: "",
-            Role:"Lecturer"
+            Role:"Admin"
 
         },
         errors: {},

@@ -129,11 +129,11 @@ class CreateHallComponent extends Component {
             // step 2
             id: this.props.match.params.id,
             name: '',
-            building: '',
+            // building: '',
             buildingId: ''
         }
         this.changeNameHandler = this.changeNameHandler.bind(this);
-        this.changeBuildingHandler = this.changeBuildingHandler.bind(this);
+        // this.changeBuildingHandler = this.changeBuildingHandler.bind(this);
         this.saveOrUpdateHall = this.saveOrUpdateHall.bind(this);
     }
 
@@ -147,7 +147,7 @@ class CreateHallComponent extends Component {
             HallService.getHallById(this.state.id).then( (res) =>{
                 let hall = res.data;
                 this.setState({name: hall.name,
-                    building: hall.building,
+                    // building: hall.building,
                     buildingId : hall.buildingId
                 });
             });
@@ -155,7 +155,9 @@ class CreateHallComponent extends Component {
     }
     saveOrUpdateHall = (e) => {
         e.preventDefault();
-        let hall = {name: this.state.name, building: this.state.building, buildingId: this.state.buildingId};
+        let hall = {name: this.state.name,
+            // building: this.state.building,
+            buildingId: this.state.buildingId};
         console.log('hall => ' + JSON.stringify(hall));
 
         // step 5
@@ -174,9 +176,9 @@ class CreateHallComponent extends Component {
         this.setState({name: event.target.value});
     }
 
-    changeBuildingHandler= (event) => {
-        this.setState({building: event.target.value});
-    }
+    // changeBuildingHandler= (event) => {
+    //     this.setState({building: event.target.value});
+    // }
 
     changeBuildingIdHandler= (event) => {
         this.setState({buildingId: event.target.value});
