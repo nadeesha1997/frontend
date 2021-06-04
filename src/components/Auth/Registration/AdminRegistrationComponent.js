@@ -20,7 +20,7 @@ const AdminRegisterForm=(props)=> {
             password: "",
             confirmPassword:"",
             DepartmentID: "",
-            Role:"Lecturer"
+            Role:"Admin"
 
         },
         errors: {},
@@ -63,7 +63,7 @@ const AdminRegisterForm=(props)=> {
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
+            axios.post('https://localhost:5001/api/accounts/register/admin', data)
                 .then(res=>{
                     console.log(res.data);
                 });
@@ -182,7 +182,7 @@ const AdminRegisterForm=(props)=> {
                     <div className="col-sm-12">
 
                         <Button className="btn-block" style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginLeft:250}} >
-                            Register
+                            ADD
                         </Button>
                     </div>
                 </Form>
