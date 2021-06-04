@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import UserService from '../services/UserService'
-import {ThirdNav} from "../ThirdNav";
+import ThirdNav from "../ThirdNav";
 
 class ListUserComponent extends Component {
     constructor(props) {
