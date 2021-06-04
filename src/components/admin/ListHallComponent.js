@@ -88,7 +88,7 @@
 import React, { Component } from 'react'
 import HallService from '../services/HallService'
 import BuildingService from '../services/BuildingService'
-import {ThirdNav} from "../ThirdNav";
+import ThirdNav from "../ThirdNav";
 import {Link} from "react-router-dom";
 
 class ListHallComponent extends Component {

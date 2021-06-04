@@ -21,6 +21,7 @@ import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";
 
+
     const Body=()=> 
     {
         return(
@@ -44,6 +45,7 @@ import ListUserComponent from "./admin/ListUserComponent";
 
                         <Route path="/StudentProfile" component={StudentProfile}/>
                         <Route path="/admin/AdminProfile" component={AdminProfile}/>
+
 
 
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
