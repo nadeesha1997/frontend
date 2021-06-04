@@ -44,34 +44,34 @@ function AdminProfile(props) {
 
                                 <Table className="table table-borderless AdminDetails">
                                     <tr>
-                                        <td>
+                                        <td className="text">
                                             Full Name
                                         </td>
-                                        <td>
+                                        <td className="text">
                                             { auth.user.userDetails.fullName}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            Register Number
+                                        <td className="text">
+                                            Register No
                                         </td>
-                                        <td>
+                                        <td className="text">
                                             {auth.user.userDetails.regNo}
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr className="text">
                                         <td>
                                             User Email
                                         </td>
-                                        <td>
+                                        <td className="text">
                                             {auth.user.userDetails.email}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td className="text">
                                             Department
                                         </td>
-                                        <td>
+                                        <td className="text">
                                             {auth.user.userDetails.departmentId}
                                         </td>
                                     </tr>
