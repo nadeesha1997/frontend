@@ -2,6 +2,7 @@ import { FormGroup, Label} from 'reactstrap';
 import React, {useEffect, useState} from "react";
 import  { Table } from 'react-bootstrap';
 import '../../css/Nav.css';
+import '../../css/Profile.css';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {ThirdNav} from "../ThirdNav";
@@ -35,18 +36,18 @@ function StudentProfile(props) {
             <div className="page ">
 
 
-            <div className="container emp-profile col-md-6">
-                <div className="container">
-
+            <div className="wrapper">
+                <div className="contacts">
+                    <h3>Student Profile</h3>
                     {/*<div style={col} />*/}
                     <div className="row">
                         <div className="col-md-4 col"></div>
-                        <div className="col-md-6 col">
+                        <div className="col-md-4 col">
 
                             <div className="profile-img">
                                 <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt="" width="100"/>
 
-                                <input type="file" name="file" id="exampleFile" accept="image/*" className="form-control-file"
+                                <input type="file" name="file" id="exampleFile" style={{width:"100%"} } accept="image/*" className="form-control-file"
                                        onChange="showPreview"/>
                             </div>
                         </div>
@@ -102,20 +103,6 @@ function StudentProfile(props) {
                 </div>
                 <hr/>
                 <div className="row">
-
-                    <div align="center" className="col-md-4">
-                        <button  style={{width:150,height:40,backgroundColor:'#2d0b34',marginTop:5,marginLeft:150}}
-                            type="submit" className="profile-edit-btn" name="btnAddMore" value="Update Profile">
-                            <Link to="/StudentUpdateProfile">{"Update profile"}</Link>
-                        </button>
-                    </div>
-
-                    <div align="center" className="col-md-4">
-                        <button  style={{width:150,height:40,backgroundColor:'#2d0b34',marginTop:5,marginLeft:180}}
-                            type="submit" className="profile-edit-btn" name="btnAddMore" value="Enroll modules">
-                            <Link to="#">  Enroll modules   </Link>
-                        </button>
-                    </div>
                     {enrolledModuleList(enrolledModules,unEnroll)}
                     {enrollableModuleList(user,enrollableModules,enroll)}
                 </div>
@@ -181,7 +168,8 @@ const enrolledModuleList=(modules,unEnroll)=>{
                         <tr>
                             <td>{mod.subject.code}</td>
                             <td>{mod.subject.name}</td>
-                            <td><button onClick={()=>{unEnroll(mod.id)}}>Unenroll</button></td>
+                            <td><button style={{width:100,backgroundColor:'#bd2d8d'}}
+                                onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
                         </tr>
                     </>
                 );
@@ -214,7 +202,9 @@ const enrollableModuleList=(user,modules,enroll)=>{
                         <tr>
                             <td>{mod.code}</td>
                             <td>{mod.name}</td>
-                            <td><button onClick={()=>{enroll(user.id,mod.id)}}>Enroll</button></td>
+                            <td><button style={{width:100,backgroundColor:'#a270b8'}}
+
+                                onClick={()=>{enroll(user.id,mod.id)}}>enroll</button></td>
                         </tr>
                     </>
                 )
