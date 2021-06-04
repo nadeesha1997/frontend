@@ -224,8 +224,8 @@ class CreateHallComponent extends Component {
                                                value={this.state.buildingId} onChange={this.changeBuildingIdHandler}/>
                                     </div>
 
-                                    <button className="btn btn-success" onClick={this.saveOrUpdateHall}>Save</button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
+                                    <button style={{marginLeft: "10px",width:"45%"}}className="btn btn-success" onClick={this.saveOrUpdateHall}>Save</button>
+                                    <button style={{marginLeft: "10px",width:"45%"}}className="btn btn-danger" onClick={this.cancel.bind(this)}>Cancel</button>
                                 </form>
                             </div>
                         </div>

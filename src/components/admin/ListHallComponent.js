@@ -135,17 +135,8 @@ class ListHallComponent extends Component {
                 <ThirdNav/>
                 <h2 className="text-center">Halls List</h2>
                 <div className = "row">
-                    <button className="btn btn-primary"
-                            style={{marginLeft:50}}
-                            onClick={this.addHall}> Add Hall
-                    </button>
-                    <button style={{marginLeft: "10px"}}  name="view" value="View">
-                        <Link to="/home"  className="btn btn-success">{"View Hall details"}</Link>
-                    </button>
-                    <button className="btn btn-primary" style={{marginLeft: "10px"}}  name="view" value="View">
-                        <Link to="/Add Staff-Member"  ></Link>
-                        Add Staff-Member
-                    </button>
+                    <Link to="/add-hall/_add"  className="btn btn-success" style={{marginLeft: "50px"}}>{"Add Hall"}</Link>
+                        <Link to="/home"  className="btn btn-success" style={{marginLeft: "10px"}}>{"View Hall details"}</Link>
                 </div>
                 <br></br>
                 <div className = "row">
@@ -168,8 +159,8 @@ class ListHallComponent extends Component {
                                         {/*<td> {hall.building}</td>*/}
                                         <td> {hall.buildingId}</td>
                                         <td>
-                                            <button onClick={ () => this.editHall(hall.id)} className="btn btn-primary">Update </button>
-                                            <button style={{marginLeft: "10px"}} onClick={ () => this.deleteHall(hall.id)} className="btn btn-danger">Delete </button>
+                                            <button style={{marginLeft: "10px",width:"45%"}}onClick={ () => this.editHall(hall.id)} className="btn btn-primary">Update </button>
+                                            <button style={{marginLeft: "10px",width:"45%"}} onClick={ () => this.deleteHall(hall.id)} className="btn btn-danger">Delete </button>
                                             {/*<button style={{marginLeft: "10px"}} onClick={ () => this.viewHall(hall.id)} className="btn btn-success">View </button>*/}
 
                                         </td>

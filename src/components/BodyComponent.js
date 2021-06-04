@@ -19,6 +19,7 @@ import ScheduleOnline from "./admin/ScheduleOnline";
 import AddHall from "./admin/AddHall";
 import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
+import ListUserComponent from "./admin/ListUserComponent";
 
     const Body=()=> 
     {
@@ -34,7 +35,8 @@ import AdminProfile from "./admin/AdminProfile";
                         <Route path="/EditTimeTable" component={Dashboard}/>
                         <Route path="/OnlineTable" component={OnlineTable}/>
                         <Route path="/admin/CRUDHalls" component={CRUDHalls}/>
-                        <Route path="/Add Staff-Member" component={AdminRegisterForm}/>
+                        <Route path="/AddStaffMember" component={AdminRegisterForm}/>
+                        <Route path = "/users" component = {ListUserComponent}/>
                         <Route path = "/halls" component = {ListHallComponent}></Route>
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
