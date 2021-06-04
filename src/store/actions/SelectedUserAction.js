@@ -50,6 +50,7 @@ const GetDepartmentModulesAction=(deptId,semester)=>{
                     break;
                 case 3:
                     val="ME";
+                    break;
                 default:
                     val="IS"
             }

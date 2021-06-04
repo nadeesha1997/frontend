@@ -14,19 +14,22 @@ import {
 function StudentProfile(props) {
     const {selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules,enroll,unEnroll}=props;
     useEffect(()=>{
-        getEnrolledModules(user.id);
         getDepartmentModules(user.departmentId,user.semester);
         getIsModules(user.semester)
-    },[]);
+    },[user]);
+    useEffect(()=>{
+        getEnrolledModules(user.id);
+    },[user,deptModules,isModules]);
     useEffect(()=>{
         setEnrolableModules(deptModules,isModules,enrolledModules)
     },[deptModules,isModules,enrolledModules]);
-    // useEffect(()=>{
-    //     console.log(selectedUserState);
-    // },[deptModules,isModules,enrolledModules,enrolledModules])
+    useEffect(()=>{
+        enrollableModuleList();
+        enrolledModuleList()
+    },[enrolledModules,enrollableModules])
 
-    const enrolledModuleList=(modules)=>{
-        let modList=[...modules];
+    const enrolledModuleList=()=>{
+        let modList=[...enrolledModules];
         if(modList.length>0){
             let returnlist=(modList)=>{
                 modList.map((mod)=>{
@@ -53,8 +56,8 @@ function StudentProfile(props) {
             return (<></>);
         }
     };
-    const enrollableModuleList=(modules)=>{
-        let modList=[...modules];
+    const enrollableModuleList=()=>{
+        let modList=[...enrolledModules];
         if(modList.length>0){
             let returnlist=(modList)=>{
                 modList.map((mod)=>{
@@ -171,8 +174,8 @@ function StudentProfile(props) {
                             <Link to="#">  Enroll modules   </Link>
                         </button>
                     </div>
-                    {enrolledModuleList(enrolledModules)}
-                    {enrollableModuleList(enrollableModules)}
+                    {enrolledModuleList()}
+                    {enrollableModuleList()}
                 </div>
             </div>
             </div></div>
