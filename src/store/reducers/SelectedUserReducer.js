@@ -33,6 +33,18 @@ const selectedUserReducer=(state=initialState,action)=>{
             return {...state,enrollableModules: action.payload}
         case SelectedUserActionType.SET_ENROLLABLE_MODULES_FAILED:
             return {...state,errorMessage: action.payload}
+        case SelectedUserActionType.ENROLL_START:
+            return {...state,loading:true}
+        case SelectedUserActionType.ENROLL_SUCCESS:
+            return {...state,loading: false,successMessage: action.payload}
+        case SelectedUserActionType.ENROLL_FAILED:
+            return {...state,loading: false,errorMessage: action.payload}
+        case SelectedUserActionType.UNENROLL_START:
+            return {...state,loading: false}
+        case SelectedUserActionType.UNENROLL_SUCCESS:
+            return {...state,loading: false,successMessage: action.payload}
+        case SelectedUserActionType.UNENROLL_FAILED:
+            return {...state,loading: false,errorMessage: action.payload}
         default:
             return state;
     }

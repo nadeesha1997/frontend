@@ -12,78 +12,22 @@ import {
     GetIsModulesAction, SetEnrollableModulesAction, UnenrollAction
 } from "../../store/actions/SelectedUserAction";
 function StudentProfile(props) {
-    const {selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules,enroll,unEnroll}=props;
+    const {successMessage,selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules,enroll,unEnroll}=props;
     useEffect(()=>{
         getDepartmentModules(user.departmentId,user.semester);
         getIsModules(user.semester)
-    },[user]);
+    },[user,successMessage]);
     useEffect(()=>{
         getEnrolledModules(user.id);
     },[user,deptModules,isModules]);
     useEffect(()=>{
         setEnrolableModules(deptModules,isModules,enrolledModules)
     },[deptModules,isModules,enrolledModules]);
-    useEffect(()=>{
-        enrollableModuleList();
-        enrolledModuleList()
-    },[enrolledModules,enrollableModules])
+    // useEffect(()=>{
+    //     enrollableModuleList();
+    //     enrolledModuleList()
+    // },[enrolledModules,enrollableModules])
 
-    const enrolledModuleList=()=>{
-        let modList=[...enrolledModules];
-        if(modList.length>0){
-            let returnlist=(modList)=>{
-                modList.map((mod)=>{
-                    return(
-                        <>
-                            <tr>
-                                <td>{mod.subject.code}</td>
-                                <td>{mod.subject.name}</td>
-                                <td><button onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
-                            </tr>
-                        </>
-                    )
-                })
-            }
-            return(
-                <>
-                    <table>
-                        <thead><tr><th></th><th></th><th></th></tr></thead>
-                        <tbody>{returnlist}</tbody>
-                    </table>
-                </>
-            )
-        }else {
-            return (<></>);
-        }
-    };
-    const enrollableModuleList=()=>{
-        let modList=[...enrolledModules];
-        if(modList.length>0){
-            let returnlist=(modList)=>{
-                modList.map((mod)=>{
-                    return(
-                        <>
-                            <tr>
-                                <td>{mod.code}</td>
-                                <td>{mod.name}</td>
-                                <td><button onClick={()=>{enroll(user.id,mod.id)}}>unenroll</button></td>
-                            </tr>
-                        </>
-                    )
-                })
-            }
-            return(
-                <>
-                    <table>
-                        <thead><tr><th></th><th></th><th></th></tr></thead>
-                        <tbody>{returnlist}</tbody>
-                    </table>
-                </>
-            )
-        }else {
-            return (<></>);
-        }
-    };
 
     return (
 
@@ -104,8 +48,6 @@ function StudentProfile(props) {
 
                                 <input type="file" name="file" id="exampleFile" accept="image/*" className="form-control-file"
                                        onChange="showPreview"/>
-
-
                             </div>
                         </div>
                         <div className="col-md-4 col"></div>
@@ -174,8 +116,8 @@ function StudentProfile(props) {
                             <Link to="#">  Enroll modules   </Link>
                         </button>
                     </div>
-                    {enrolledModuleList()}
-                    {enrollableModuleList()}
+                    {enrolledModuleList(enrolledModules,unEnroll)}
+                    {enrollableModuleList(user,enrollableModules,enroll)}
                 </div>
             </div>
             </div></div>
@@ -197,7 +139,8 @@ const mapStateToProps=(userState)=>{
         enrolledModules: userState.selectedUser.enrolledModules,
         enrollableModules: userState.selectedUser.enrollableModules,
         loading:userState.selectedUser.loading,
-        selectedUserState:userState.selectedUser
+        selectedUserState:userState.selectedUser,
+        successMessage:userState.selectedUser.successMessage
     }
 };
 const mapDispatchToProps=(dispatch)=>{
@@ -225,3 +168,67 @@ const mapDispatchToProps=(dispatch)=>{
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(StudentProfile);
+
+const enrolledModuleList=(modules,unEnroll)=>{
+    let modList=[...modules];
+    // console.log("modlist");
+    // console.log(modList.length);
+    if(modList.length>0){
+        // console.log("entrd")
+        let returnlist= modList.map((mod)=>{
+                return(
+                    <>
+                        <tr>
+                            <td>{mod.subject.code}</td>
+                            <td>{mod.subject.name}</td>
+                            <td><button onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
+                        </tr>
+                    </>
+                );
+            });
+
+
+        return(
+            <>
+                <table>
+                    <thead><tr><th></th><th></th><th></th></tr></thead>
+                    <tbody>
+                    {returnlist}
+                    {/*<tr><td>helloo</td><td>helloo</td><td>helloo</td></tr>*/}
+                    </tbody>
+                </table>
+            </>
+        )
+    }else {
+        return (<></>);
+    }
+};
+const enrollableModuleList=(user,modules,enroll)=>{
+    let modList=[...modules];
+    // let modList=modules;
+    // console.log(modList);
+    if(modList.length>0){
+        let returnlist= modList.map((mod)=>{
+                return(
+                    <>
+                        <tr>
+                            <td>{mod.code}</td>
+                            <td>{mod.name}</td>
+                            <td><button onClick={()=>{enroll(user.id,mod.id)}}>unenroll</button></td>
+                        </tr>
+                    </>
+                )
+            })
+
+        return(
+            <>
+                <table>
+                    <thead><tr><th></th><th></th><th></th></tr></thead>
+                    <tbody>{returnlist}</tbody>
+                </table>
+            </>
+        )
+    }else {
+        return (<></>);
+    }
+};

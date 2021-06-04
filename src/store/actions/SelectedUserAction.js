@@ -80,7 +80,8 @@ const SetEnrollableModulesAction=(deptModules,isModules,enrolledModules)=>{
        try{
            let availableModules=[...deptModules,...isModules];
            let enrolled=[...enrolledModules]
-           let enrolableModules=availableModules.filter((module)=>notAvailableInArray(module,enrolled))
+           // let enrolableModules=availableModules.filter((module)=>notAvailableInArray(module,enrolled))
+           let enrolableModules=removeEnrolled(availableModules,enrolled);
            dispatch({type:SelectedUserActionType.SET_ENROLLABLE_MODULES_SUCCESS,payload:enrolableModules})
        }catch (e) {
            console.error(e);
@@ -97,7 +98,7 @@ const EnrollAction=(userId,subjectId)=>{
                 subjectId:subjectId
             }
             dispatch({type:SelectedUserActionType.ENROLL_START,payload:{}})
-            let res= await axios.post("/subjectusers",sendData);
+            let res= await axios.post("/subjectuser",sendData);
             dispatch({type:SelectedUserActionType.ENROLL_SUCCESS,payload:res.data})
         }catch (e) {
             console.error(e);
@@ -110,7 +111,7 @@ const UnenrollAction=(id)=>{
     return async (dispatch)=>{
         try{
             dispatch({type:SelectedUserActionType.UNENROLL_START,payload:{}})
-            let res= await axios.delete("/subjectusers"+id);
+            let res= await axios.delete("/subjectuser/"+id);
             dispatch({type:SelectedUserActionType.UNENROLL_SUCCESS,payload:res.data})
         }catch (e) {
             console.error(e);
@@ -122,6 +123,7 @@ const UnenrollAction=(id)=>{
 const notAvailableInArray=(item,array)=>{
     let arr=[...array];
     if(arr.length>0){
+        console.log("called");
         arr.forEach((val)=>{
             if(val.subjectId==item.id){
                 return false;
@@ -129,5 +131,11 @@ const notAvailableInArray=(item,array)=>{
         })
     }
     return true;
+}
+const removeEnrolled=(enrollable,enrolled)=>{
+    let enrolledUserModules=[...enrolled];
+    let enrolledMdules=enrolledUserModules.map(mod=>mod.subject);
+    let displayModules=enrollable.filter((mod)=>!enrolledMdules.find(m=>m.id===mod.id));
+    return displayModules;
 }
 export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction,EnrollAction,UnenrollAction}
