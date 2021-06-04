@@ -18,6 +18,7 @@ import StudentProfile from "./student/StudentProfile";
 import ScheduleOnline from "./admin/ScheduleOnline";
 import AddHall from "./admin/AddHall";
 import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
+import AdminProfile from "./admin/AdminProfile";
 
     const Body=()=> 
     {
@@ -40,6 +41,7 @@ import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
                         <Route path="/add" component={AddHall}/>
 
                         <Route path="/StudentProfile" component={StudentProfile}/>
+                        <Route path="/admin/AdminProfile" component={AdminProfile}/>
 
 
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
