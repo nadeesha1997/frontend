@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cae55752-bc26-4379-92ef-a3e6b7cbcf80" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/Registration/AdminRegistrationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Registration/AdminRegistrationComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BodyComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BodyComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AddHall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AddHall.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/CreateHallComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/CreateHallComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/ListHallComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/ListHallComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/UpdateHallComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/UpdateHallComponent.js" afterDir="false" />
+    <list default="true" id="e0533d54-6350-48ef-8899-34003f7b93c6" name="Default Changelist" comment="module state have to be rendered">
+      <change afterPath="$PROJECT_DIR$/src/css/Profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/student/StudentProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/student/StudentProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/MailReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/MailReducer.js" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
+
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -25,7 +35,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../frontend-senky5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -41,9 +56,10 @@
       <created>1622736247104</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1622736247104</updated>
-      <workItem from="1622736248291" duration="3837000" />
-      <workItem from="1622746100212" duration="2099000" />
+      <updated>1622792962143</updated>
+      <workItem from="1622792994896" duration="12038000" />
+      <workItem from="1622818772412" duration="3794000" />
+
     </task>
     <servers />
   </component>
