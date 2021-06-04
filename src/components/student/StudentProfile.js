@@ -181,7 +181,7 @@ const enrolledModuleList=(modules,unEnroll)=>{
                         <tr>
                             <td>{mod.subject.code}</td>
                             <td>{mod.subject.name}</td>
-                            <td><button onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
+                            <td><button onClick={()=>{unEnroll(mod.id)}}>Unenroll</button></td>
                         </tr>
                     </>
                 );
@@ -214,7 +214,7 @@ const enrollableModuleList=(user,modules,enroll)=>{
                         <tr>
                             <td>{mod.code}</td>
                             <td>{mod.name}</td>
-                            <td><button onClick={()=>{enroll(user.id,mod.id)}}>unenroll</button></td>
+                            <td><button onClick={()=>{enroll(user.id,mod.id)}}>Enroll</button></td>
                         </tr>
                     </>
                 )
