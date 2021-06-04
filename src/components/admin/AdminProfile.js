@@ -6,7 +6,7 @@ import '../../css/Profile.css';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import SecondNav from "../SecondNav";
-import {ThirdNav} from "../ThirdNav";
+import ThirdNav from "../ThirdNav";
 
 function AdminProfile(props) {
     const {auth}=props;
