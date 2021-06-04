@@ -7,10 +7,10 @@ import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
 import Button from "react-bootstrap/Button";
 import RegistrationComponent from './RegistrationComponent';
-import {LoginAuthAction, OpenLoginAction, OpenSignupAction} from "../../../store/actions/AuthAction";
+import {LoginAuthAction, OpenLoginAction, OpenSignupAction, ResetErrorAction} from "../../../store/actions/AuthAction";
 import {connect} from "react-redux";
 const Registration=(props)=>{
-    const {isopen,closeModal}=props
+    const {isopen,closeModal,reset}=props
     return(
 
         // <Modal.Dialog>
@@ -54,7 +54,9 @@ const Registration=(props)=>{
         // </>
 
         <Modal show={isopen}
-                onHide={()=>closeModal(false)}
+                onHide={()=>{
+                    closeModal(false);
+                }}
                // style={"zIndex:1"}
                 >
             <ModalHeader closeButton>
@@ -77,13 +79,17 @@ const Registration=(props)=>{
 const mapStateToProps=(userState)=>{
     return {
         // auth:userState,
-        isopen:userState.auth.signupModalOpen
+        isopen:userState.auth.signupModalOpen,
     }
 }
 const mapDispatchToProps=(dispatch)=>{
     return {
         closeModal:(open)=>{
             dispatch(OpenSignupAction(open));
+            dispatch(ResetErrorAction);
+        },
+        reset:()=>{
+            dispatch(ResetErrorAction);
         }
     }
 }
