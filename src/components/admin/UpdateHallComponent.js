@@ -180,7 +180,7 @@ class UpdateHallComponent extends Component {
                                                value={this.state.buildingId} onChange={this.changeBuildingIdHandler}/>
                                     </div>
 
-                                    <button className="btn btn-success" onClick={this.updateHall}>Save</button>
+                                    <button className="btn btn-secondary" onClick={this.updateHall}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                 </form>
                             </div>
