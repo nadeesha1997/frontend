@@ -17,7 +17,8 @@ export const  OnlineTable= () => {
                         <table><tr>
                         <Calendar/></tr>
                             <tr>
-                        <Button style={{width:180,backgroundColor:'#440151',marginTop:50,marginLeft:90,marginRight:20,marginBottom:150}}
+                        <Button
+                            style={{width:180,backgroundColor:'#440151',marginTop:50,marginLeft:90,marginRight:20,marginBottom:150}}
                             // type='submit'
                         >
                             {/* <Link to="./Register/student">  */}

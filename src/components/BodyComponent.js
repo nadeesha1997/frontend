@@ -20,6 +20,7 @@ import AddHall from "./admin/AddHall";
 import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";
+import ScheduleOnline2 from "./admin/ScheduleOnline2";
 
 
     const Body=()=> 
@@ -49,6 +50,7 @@ import ListUserComponent from "./admin/ListUserComponent";
 
 
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
+                        <Route path="/ScheduleOnline2" component={ScheduleOnline2}/>
                    <Route path="/add" component={AddHall}/>
                      <Route path = "/approve/:id" component={ReserveApproval}></Route>
 
