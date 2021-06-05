@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cae55752-bc26-4379-92ef-a3e6b7cbcf80" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Profile.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1tReIC2mdSRzuoRTYKHS978s6iZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\6th sem aca\EE5206-Software Project\untitled3\frontend\src\components\services" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cae55752-bc26-4379-92ef-a3e6b7cbcf80" name="Default Changelist" comment="" />
+      <created>1622736247104</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622736247104</updated>
+      <workItem from="1622736248291" duration="3837000" />
+      <workItem from="1622746100212" duration="2099000" />
+      <workItem from="1622831639730" duration="2597000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="338" y="158" key="FileChooserDialogImpl" timestamp="1622831632937">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="338" y="158" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622831632937" />
+    <state width="688" height="464" key="GridCell.Tab.0.bottom" timestamp="1622743941076">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="688" height="464" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622743941076" />
+    <state width="688" height="464" key="GridCell.Tab.0.center" timestamp="1622743941075">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="688" height="464" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1622743941075" />
+    <state width="688" height="464" key="GridCell.Tab.0.left" timestamp="1622743941075">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="688" height="464" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1622743941075" />
+    <state width="688" height="464" key="GridCell.Tab.0.right" timestamp="1622743941076">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="688" height="464" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1622743941076" />
+    <state x="386" y="119" width="908" height="666" key="dock-window-1" timestamp="1622833954993">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="386" y="119" width="908" height="666" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1622833954993" />
+    <state x="544" y="128" key="git4idea.branch.GitSmartOperationDialog" timestamp="1622831820457">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="544" y="128" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1622831820457" />
+  </component>
+</project>
