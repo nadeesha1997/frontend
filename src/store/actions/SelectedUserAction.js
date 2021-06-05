@@ -90,6 +90,21 @@ const SetEnrollableModulesAction=(deptModules,isModules,enrolledModules)=>{
    }
 
 }
+const SetEnrollableModulesLecturerAction=(deptModules,enrolledModules)=>{
+    return (dispatch)=>{
+        try{
+            let availableModules=[...deptModules];
+            let enrolled=[...enrolledModules]
+            // let enrolableModules=availableModules.filter((module)=>notAvailableInArray(module,enrolled))
+            let enrolableModules=removeEnrolled(availableModules,enrolled);
+            dispatch({type:SelectedUserActionType.SET_ENROLLABLE_MODULES_SUCCESS,payload:enrolableModules})
+        }catch (e) {
+            console.error(e);
+            dispatch({type:SelectedUserActionType.SET_ENROLLABLE_MODULES_FAILED,payload:e})
+        }
+    }
+
+}
 const EnrollAction=(userId,subjectId)=>{
     return async (dispatch)=>{
         try{
@@ -138,4 +153,4 @@ const removeEnrolled=(enrollable,enrolled)=>{
     let displayModules=enrollable.filter((mod)=>!enrolledMdules.find(m=>m.id===mod.id));
     return displayModules;
 }
-export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction,EnrollAction,UnenrollAction}
+export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction,EnrollAction,UnenrollAction,SetEnrollableModulesLecturerAction}
