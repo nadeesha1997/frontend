@@ -12,7 +12,7 @@ const StudentRegisterForm=(props)=> {
           password: "",
           confirmPassword:"",
           DepartmentID: "",
-          Semester:0,
+          Semester:1,
           Role:"Student"
 
       },
@@ -38,7 +38,7 @@ const StudentRegisterForm=(props)=> {
         if (data.RegNo === "") errors.RegNo = "Student_ID can not be blank.";
         if (data.FullName === "") errors.FullName = "Full_Name can not be blank.";
         if (data.email === "") errors.email = " Email can not be blank.";
-        if (data.DepartmentID === "") errors.DepartmentID = "Department can not be blank.";
+        // if (data.DepartmentID === "") errors.DepartmentID = "Department can not be blank.";
         if (data.password === "") errors.password = "Password must be valid.";
         if (data.confirmPassword !== data.password)
             errors.confirmPassword = "Passwords must match.";
@@ -159,11 +159,11 @@ const StudentRegisterForm=(props)=> {
                                     onChange={handleChange}
                                     invalid={!!errors.DepartmentID}
                                     name="DepartmentID">
-                                    <option value="0"></option>
+                                    <option value=""></option>
                                     <option value="1">EIE</option>
                                     <option value="2">CEE</option>
                                     <option value="3">MME</option>
-                                    <option value="4">IS</option>
+                                    {/*<option value="4">IS</option>*/}
                                 </select>
                                 {/*<Input
                                     value={data.DepartmentID}
