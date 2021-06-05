@@ -65,9 +65,9 @@ function ModuleDrop(props) {
                     setreserved(true);
                     setpermitted(mod.permitted);
                 }
-                    else{
-                        setreserved(false);
-                    }
+                    // else{
+                    //     setreserved(false);
+                    // }
             });
         }
     };
