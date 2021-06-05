@@ -20,6 +20,7 @@ import AddHall from "./admin/AddHall";
 import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";
+import Profile from "./lecturer/Profile";
 
 
     const Body=()=> 
@@ -45,6 +46,7 @@ import ListUserComponent from "./admin/ListUserComponent";
 
                         <Route path="/StudentProfile" component={StudentProfile}/>
                         <Route path="/admin/AdminProfile" component={AdminProfile}/>
+                        <Route path="/lecturer/profile" component={Profile}/>
 
 
 
