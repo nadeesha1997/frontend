@@ -41,7 +41,7 @@ function StudentProfile(props) {
             <div className="wrapper5">
 
                 <div className="contacts5">
-                    <h3>Student Profile</h3>
+                    <h3>Your Profile</h3>
                     {/*<div style={col} />*/}
                     <div className="row">
                         <div className="col-md-4 col"></div>
