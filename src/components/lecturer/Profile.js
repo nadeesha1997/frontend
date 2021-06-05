@@ -33,12 +33,14 @@ function Profile(props) {
     return (
 
         <div> <ThirdNav/>
-            <div className="page ">
 
+            <br/>
+            <div className="page5 ">
+                <div className="contain5">
 
-                <div className="wrapper">
-                    <div className="contacts">
-                        <h3>Student Profile</h3>
+                <div className="wrapper5">
+                    <div className="contacts5">
+                        <h3>Your Profile</h3>
                         {/*<div style={col} />*/}
                         <div className="row">
                             <div className="col-md-4 col"></div>
@@ -54,7 +56,7 @@ function Profile(props) {
                             <div className="col-md-4 col"></div>
                         </div>
 
-                        <Table className="table table-borderless StudentDetails">
+                        <Table className="table5 table5-borderless StudentDetails">
                             <tr>
                                 <th></th>
                                 <th></th>
@@ -102,12 +104,12 @@ function Profile(props) {
                         </Table>
                     </div>
                     <hr/>
-                    <div className="row">
+                    <div className="module">
                         {enrolledModuleList(enrolledModules,unEnroll)}
                         {enrollableModuleList(user,enrollableModules,enroll)}
                     </div>
                 </div>
-            </div></div>
+                </div></div></div>
         // <h6>
         //     {auth.user.userDetails.role}
         //
