@@ -11,13 +11,35 @@ import {
     EnrollAction,
     GetDepartmentModulesAction,
     GetEnrolledModulesAction,
-    GetIsModulesAction, SetEnrollableModulesAction, UnenrollAction
+    GetIsModulesAction,
+    SetEnrollableModulesAction,
+    UnenrollAction,
+    GetDepartmentAction
 } from "../../store/actions/SelectedUserAction";
 function StudentProfile(props) {
-    const {successMessage,selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules,enroll,unEnroll}=props;
+    const {successMessage,
+        selectedUserState,
+        user,
+        deptModules,
+        isModules,
+        enrolledModules,
+        enrollableModules,
+        loading,
+        getEnrolledModules,
+        getDepartmentModules,
+        getIsModules,
+        setEnrolableModules,
+        enroll,
+        unEnroll,
+        getDepartment}=props;
     useEffect(()=>{
-        getDepartmentModules(user.departmentId,user.semester);
-        getIsModules(user.semester)
+        if(user.semester===1||user.semester===2){
+            getDepartmentModules(user.departmentId,user.semester);
+        }
+        else {
+            getDepartmentModules(user.departmentId,user.semester);
+            getIsModules(user.semester);
+        }
     },[user,successMessage]);
     useEffect(()=>{
         getEnrolledModules(user.id);
@@ -25,10 +47,9 @@ function StudentProfile(props) {
     useEffect(()=>{
         setEnrolableModules(deptModules,isModules,enrolledModules)
     },[deptModules,isModules,enrolledModules]);
-    // useEffect(()=>{
-    //     enrollableModuleList();
-    //     enrolledModuleList()
-    // },[enrolledModules,enrollableModules])
+    useEffect(()=>{
+        getDepartment(user.departmentId)
+    },[user])
 
 
     return (
@@ -86,14 +107,15 @@ function StudentProfile(props) {
                                 {user.email}
                             </td>
                         </tr>
+                        {user.semster!==1&&user.semster!==2&&
                         <tr>
                             <td>
                                 Department
                             </td>
                             <td>
-                                {user.departmentId}
+                                {selectedUserState.department.name}
                             </td>
-                        </tr>
+                        </tr>}
                         <tr>
                             <td>
                                 Semester
@@ -153,6 +175,9 @@ const mapDispatchToProps=(dispatch)=>{
         },
         unEnroll:(id)=>{
             dispatch(UnenrollAction(id));
+        },
+        getDepartment:(id)=>{
+            dispatch(GetDepartmentAction(id));
         }
     }
 }
