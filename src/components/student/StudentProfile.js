@@ -2,7 +2,7 @@ import { FormGroup, Label} from 'reactstrap';
 import React, {useEffect, useState} from "react";
 import  { Table } from 'react-bootstrap';
 import '../../css/Nav.css';
-import '../../css/Profile.css';
+import '../../css/Profile.css'
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 
@@ -34,11 +34,13 @@ function StudentProfile(props) {
     return (
 
         <div> <ThirdNav/>
-            <div className="page ">
+            <br/>
+            <div className="page5">
 
+                <div className="contain5">
+            <div className="wrapper5">
 
-            <div className="wrapper">
-                <div className="contacts">
+                <div className="contacts5">
                     <h3>Student Profile</h3>
                     {/*<div style={col} />*/}
                     <div className="row">
@@ -55,7 +57,7 @@ function StudentProfile(props) {
                         <div className="col-md-4 col"></div>
                     </div>
 
-                    <Table className="table table-borderless StudentDetails">
+                    <Table className="table5 table5-borderless StudentDetails">
                         <tr>
                             <th></th>
                             <th></th>
@@ -103,11 +105,12 @@ function StudentProfile(props) {
                     </Table>
                 </div>
                 <hr/>
-                <div className="row">
+                <div className="module">
+                    <h5> Please Enrol your modules..</h5>
                     {enrolledModuleList(enrolledModules,unEnroll)}
                     {enrollableModuleList(user,enrollableModules,enroll)}
                 </div>
-            </div>
+            </div></div>
             </div></div>
         // <h6>
         //     {auth.user.userDetails.role}
