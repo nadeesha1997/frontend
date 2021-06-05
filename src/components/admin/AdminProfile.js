@@ -25,7 +25,7 @@ function AdminProfile(props) {
 
                         <div className="wrapper5">
                             <div className="contacts5">
-                                <h3>Profile</h3>
+                                <h3>Your Profile</h3>
 
                                 <div className="row">
                                     <div className="col-md-4 col"></div>

@@ -51,12 +51,15 @@ function Profile(props) {
     return (
 
         <div> <ThirdNav/>
-            <div className="page ">
+
+            <br/>
+            <div className="page5 ">
+                <div className="contain5">
 
 
-                <div className="wrapper">
-                    <div className="contacts">
-                        <h3>Lecturer Profile</h3>
+                <div className="wrapper5">
+                    <div className="contacts5">
+                        <h3>Your Profile</h3>
                         {/*<div style={col} />*/}
                         <div className="row">
                             <div className="col-md-4 col"></div>
@@ -72,7 +75,7 @@ function Profile(props) {
                             <div className="col-md-4 col"></div>
                         </div>
 
-                        <Table className="table table-borderless StudentDetails">
+                        <Table className="table5 table5-borderless StudentDetails">
                             <tr>
                                 <th></th>
                                 <th></th>
@@ -120,12 +123,13 @@ function Profile(props) {
                         </Table>
                     </div>
                     <hr/>
-                    <div className="row">
+                    <div className="module">
+                        <h5> Please Enroll your subjects...</h5>
                         {enrolledModuleList(enrolledModules,unEnroll)}
                         {enrollableModuleList(user,enrollableModules,enroll)}
                     </div>
                 </div>
-            </div></div>
+                </div></div></div>
         // <h6>
         //     {auth.user.userDetails.role}
         //
@@ -186,8 +190,8 @@ const enrolledModuleList=(modules,unEnroll)=>{
         let returnlist= modList.map((mod)=>{
             return(
                 <>
-                    <tr>
-                        <td>{mod.subject.code}</td>
+                    <tr style={{textAlign:"left"}}>
+                        <td>{mod.subject.code}-</td>
                         <td>{mod.subject.name}</td>
                         <td><button style={{width:100,backgroundColor:'#bd2d8d'}}
                                     onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
@@ -221,13 +225,11 @@ const enrollableModuleList=(user,modules,enroll)=>{
         let returnlist= modList.map((mod)=>{
             return(
                 <>
-                    <tr>
-                        <td>{mod.code}</td>
+                    <tr style={{textAlign:"left"}}>
+                        <td>{mod.code}-</td>
                         <td>{mod.name}</td>
                         <td><button style={{width:100,backgroundColor:'#a270b8'}}
-
                                     onClick={()=>{enroll(user.id,mod.id)}}>enroll</button></td>
-
                     </tr>
                 </>
             )

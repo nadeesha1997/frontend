@@ -62,7 +62,7 @@ function StudentProfile(props) {
             <div className="wrapper5">
 
                 <div className="contacts5">
-                    <h3>Student Profile</h3>
+                    <h3>Your Profile</h3>
                     {/*<div style={col} />*/}
                     <div className="row">
                         <div className="col-md-4 col"></div>
@@ -128,7 +128,7 @@ function StudentProfile(props) {
                 </div>
                 <hr/>
                 <div className="module">
-                    <h5> Please Enrol your modules..</h5>
+                    <h5> Please Enroll your modules..</h5>
                     {enrolledModuleList(enrolledModules,unEnroll)}
                     {enrollableModuleList(user,enrollableModules,enroll)}
                 </div>
@@ -194,8 +194,8 @@ const enrolledModuleList=(modules,unEnroll)=>{
         let returnlist= modList.map((mod)=>{
                 return(
                     <>
-                        <tr>
-                            <td>{mod.subject.code}</td>
+                        <tr style={{textAlign:"left"}}>
+                            <td>{mod.subject.code} -</td>
                             <td>{mod.subject.name}</td>
                             <td><button style={{width:100,backgroundColor:'#bd2d8d'}}
                                 onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
@@ -230,8 +230,8 @@ const enrollableModuleList=(user,modules,enroll)=>{
                 return(
                     <>
                         <tr>
-                            <td>{mod.code}</td>
-                            <td>{mod.name}</td>
+                            <td style={{textAlign:"left"}}>{mod.code} - </td>
+                            <td style={{textAlign:"left"}}>{mod.name}</td>
                             <td><button style={{width:100,backgroundColor:'#a270b8'}}
 
                                 onClick={()=>{enroll(user.id,mod.id)}}>enroll</button></td>
