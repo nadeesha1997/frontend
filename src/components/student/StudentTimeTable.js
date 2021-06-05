@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Calendar from "../Calendar";
 
 class StudentTimeTable extends Component {
     constructor(props) {
@@ -13,7 +14,9 @@ class StudentTimeTable extends Component {
         return (
 
 
-            <div>
+            <div className="page">
+                <Calendar/>
+                <br/>
                 <table className = "table table-striped table-bordered">
 
                     <thead>
