@@ -11,10 +11,29 @@ import {
     EnrollAction,
     GetDepartmentModulesAction,
     GetEnrolledModulesAction,
-    GetIsModulesAction, SetEnrollableModulesAction, SetEnrollableModulesLecturerAction, UnenrollAction, GetDepartmentModulesLecturerAction
+    GetIsModulesAction,
+    SetEnrollableModulesAction,
+    SetEnrollableModulesLecturerAction,
+    UnenrollAction,
+    GetDepartmentModulesLecturerAction,
+    GetDepartmentAction
 } from "../../store/actions/SelectedUserAction";
 function Profile(props) {
-    const {successMessage,selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules,enroll,unEnroll}=props;
+    const {successMessage,
+        selectedUserState,
+        user,
+        deptModules,
+        isModules,
+        enrolledModules,
+        enrollableModules,
+        loading,
+        getEnrolledModules,
+        getDepartmentModules,
+        getIsModules,
+        setEnrolableModules,
+        enroll,
+        unEnroll,
+        getDepartment}=props;
     useEffect(()=>{
         getDepartmentModules(user.departmentId);
     },[user,successMessage]);
@@ -24,10 +43,9 @@ function Profile(props) {
     useEffect(()=>{
         setEnrolableModules(deptModules,enrolledModules)
     },[deptModules,enrolledModules]);
-    // useEffect(()=>{
-    //     enrollableModuleList();
-    //     enrolledModuleList()
-    // },[enrolledModules,enrollableModules])
+    useEffect(()=>{
+        getDepartment(user.departmentId)
+    },[user])
 
 
     return (
@@ -37,6 +55,7 @@ function Profile(props) {
             <br/>
             <div className="page5 ">
                 <div className="contain5">
+
 
                 <div className="wrapper5">
                     <div className="contacts5">
@@ -90,7 +109,7 @@ function Profile(props) {
                                     Department
                                 </td>
                                 <td>
-                                    {user.departmentId}
+                                    {selectedUserState.department.name}
                                 </td>
                             </tr>
                             {/*<tr>*/}
@@ -152,6 +171,9 @@ const mapDispatchToProps=(dispatch)=>{
         },
         unEnroll:(id)=>{
             dispatch(UnenrollAction(id));
+        },
+        getDepartment:(id)=>{
+            dispatch(GetDepartmentAction(id));
         }
     }
 }

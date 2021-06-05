@@ -7,7 +7,8 @@ const initialState={
     isModules:[],
     enrollableModules:[],
     successMessage:{},
-    errorMessage: {}
+    errorMessage: {},
+    department:{}
 };
 const selectedUserReducer=(state=initialState,action)=>{
     switch (action.type) {
@@ -44,6 +45,12 @@ const selectedUserReducer=(state=initialState,action)=>{
         case SelectedUserActionType.UNENROLL_SUCCESS:
             return {...state,loading: false,successMessage: action.payload}
         case SelectedUserActionType.UNENROLL_FAILED:
+            return {...state,loading: false,errorMessage: action.payload}
+        case SelectedUserActionType.GET_DEPARTMENT_START:
+            return {...state,loading: true}
+        case SelectedUserActionType.GET_DEPARTMENT_SUCCESS:
+            return {...state,loading: false,department: action.payload}
+        case SelectedUserActionType.GET_DEPARTMENT_FAILED:
             return {...state,loading: false,errorMessage: action.payload}
         default:
             return state;
