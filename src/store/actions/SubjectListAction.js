@@ -30,4 +30,19 @@ const GetModuleAction=(subjectListState)=>{
         }
     };
 };
-export {SubjectListActionTypes,SetSemesterAction,SetDepartmentAction,GetModuleAction};
+const GetLecturerModuleAction=(id)=>{
+    return async (dispatch)=>{
+        try{
+            dispatch({type:SubjectListActionTypes.GET_SUBJECTS_LOADING,payload:{}})
+            const res= await axios.get("/subjectuser/user/"+id);
+            const {data}=res;
+            const moduserlist=[...data];
+            const modlist=moduserlist.map(mod=>mod.subject)
+            dispatch({type:SubjectListActionTypes.GET_SUBJECTS_SUCCESS,payload:modlist});
+        }catch(error){
+            console.error(error);
+            dispatch({type:SubjectListActionTypes.GET_SUBJECTS_SUCCESS,payload:error})
+        }
+    };
+};
+export {SubjectListActionTypes,SetSemesterAction,SetDepartmentAction,GetModuleAction,GetLecturerModuleAction};
