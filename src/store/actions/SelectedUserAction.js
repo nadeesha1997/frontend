@@ -62,6 +62,33 @@ const GetDepartmentModulesAction=(deptId,semester)=>{
             console.error(e);
         }
     }
+};
+const GetDepartmentModulesLecturerAction=(deptId)=>{
+    return async (dispatch)=>{
+        try {
+            dispatch({type:SelectedUserActionType.GET_DEPARTMENT_MODULES_START,payload:{}});
+            let val=""
+            switch(deptId){
+                case 1:
+                    val="EE";
+                    break;
+                case 2:
+                    val="CE";
+                    break;
+                case 3:
+                    val="ME";
+                    break;
+                default:
+                    val="IS"
+            }
+            let res= await axios.get("/subjects/department/"+val);
+            console.log(res);
+            dispatch({type:SelectedUserActionType.GET_DEPARTMENT_MODULES_SUCCESS,payload:res.data})
+        }catch (e) {
+            dispatch({type:SelectedUserActionType.GET_DEPARTMENT_MODULES_FAILED,payload:e})
+            console.error(e);
+        }
+    }
 }
 const GetIsModulesAction=(semester)=>{
     return async (dispatch)=>{
@@ -153,4 +180,4 @@ const removeEnrolled=(enrollable,enrolled)=>{
     let displayModules=enrollable.filter((mod)=>!enrolledMdules.find(m=>m.id===mod.id));
     return displayModules;
 }
-export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction,EnrollAction,UnenrollAction,SetEnrollableModulesLecturerAction}
+export {SelectedUserActionType,GetDepartmentModulesAction,GetEnrolledModulesAction,GetIsModulesAction,SetEnrollableModulesAction,EnrollAction,UnenrollAction,SetEnrollableModulesLecturerAction,GetDepartmentModulesLecturerAction}

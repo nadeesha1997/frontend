@@ -11,12 +11,12 @@ import {
     EnrollAction,
     GetDepartmentModulesAction,
     GetEnrolledModulesAction,
-    GetIsModulesAction, SetEnrollableModulesAction, SetEnrollableModulesLecturerAction, UnenrollAction
+    GetIsModulesAction, SetEnrollableModulesAction, SetEnrollableModulesLecturerAction, UnenrollAction, GetDepartmentModulesLecturerAction
 } from "../../store/actions/SelectedUserAction";
 function Profile(props) {
     const {successMessage,selectedUserState,user,deptModules,isModules,enrolledModules,enrollableModules,loading,getEnrolledModules,getDepartmentModules,getIsModules,setEnrolableModules,enroll,unEnroll}=props;
     useEffect(()=>{
-        getDepartmentModules(user.departmentId,user.semester);
+        getDepartmentModules(user.departmentId);
     },[user,successMessage]);
     useEffect(()=>{
         getEnrolledModules(user.id);
@@ -135,8 +135,8 @@ const mapDispatchToProps=(dispatch)=>{
         getEnrolledModules:(id)=>{
             dispatch(GetEnrolledModulesAction(id))
         },
-        getDepartmentModules:(deptId,semester)=>{
-            dispatch(GetDepartmentModulesAction(deptId,semester));
+        getDepartmentModules:(deptId)=>{
+            dispatch(GetDepartmentModulesLecturerAction(deptId));
         },
         getIsModules:(semester)=>{
             dispatch(GetIsModulesAction(semester));
