@@ -18,7 +18,7 @@ const AuthActionType={
 const LecturerRegisterAuthAction=(userState,history)=>{
     return async (dispatch)=>{
         try{
-            const res= await axios.post("/accounts/register/teacher",userState.data);
+            const res= await axios.post("/accounts/register/lecturer",userState.data);
             const {data}=res;
             dispatch({type:AuthActionType.REGISTER_LECTURER_SUCCESS,payload:data});
             // console.log(res);

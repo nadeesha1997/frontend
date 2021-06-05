@@ -62,20 +62,21 @@ const LecturerRegisterForm=(props)=> {
 
         if (Object.keys(errors).length === 0) {
             console.log(data);
+            register(state,history)
             //Call an api here
-            axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
-                .then(res=>{
-                    console.log(res.data);
-                });
+            // axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
+            //     .then(res=>{
+            //         console.log(res.data);
+            //     });
             //Resetting the form
             setState(initialState);
-            alert("Registration successful! please logging in")
+            // alert("Registration successful! please logging in")
         } else {
             setState({ errors });
-            alert("Registration is not successful! Please register again")
+            // alert("Registration is not successful! Please register again")
         }
-        console.log(user);
-        register(state,history);
+        // console.log(user);
+        // register(state,history);
     };
     const { data, errors } = state;
 
@@ -204,7 +205,7 @@ const LecturerRegisterForm=(props)=> {
 const mapStateToProps=(userState)=>{
     return {
         user:userState,
-        err:userState.auth.error[0].description
+        err:userState.auth.error[0]?userState.auth.error[0].description:null
     }
 }
 const mapDispatchToProps=(dispatch)=>{
