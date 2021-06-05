@@ -21,7 +21,7 @@ import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";
 import Profile from "./lecturer/Profile";
-
+import StudentTimeTable from "./student/StudentTimeTable"
 
     const Body=()=> 
     {
@@ -43,6 +43,7 @@ import Profile from "./lecturer/Profile";
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
                         <Route path="/add" component={AddHall}/>
+                        <Route path="/StudentTimeTable" component={StudentTimeTable}/>
 
                         <Route path="/StudentProfile" component={StudentProfile}/>
                         <Route path="/admin/AdminProfile" component={AdminProfile}/>
