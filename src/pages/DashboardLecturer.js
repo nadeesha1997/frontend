@@ -13,14 +13,14 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Calendar from "../components/Calendar";
 import {GetHallsAction} from "../store/actions/TimeTableAction"
-import {TimeTable} from "../components/admin/TimeTable";
-import SubjectList from "../components/admin/SubjectList";
+import TimeTable from "../components/lecturer/TimeTable";
+import SubjectList from "../components/lecturer/SubjectList";
 import '../css/Dashboard.css';
 import SecondNav from "../components/SecondNav";
 import ThirdNav from "../components/ThirdNav";
 
 
-export const Dashboard = (props) => {
+export const DashboardLecturer = (props) => {
     const {getHalls}=props;
     // useEffect(()=>getHalls())
     useEffect(()=>getHalls(),[])
@@ -60,4 +60,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardLecturer)

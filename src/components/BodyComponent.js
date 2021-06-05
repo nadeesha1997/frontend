@@ -21,6 +21,7 @@ import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";
 import Profile from "./lecturer/Profile";
+import DashboardLecturer from "../pages/DashboardLecturer";
 
 
     const Body=()=> 
@@ -47,6 +48,7 @@ import Profile from "./lecturer/Profile";
                         <Route path="/StudentProfile" component={StudentProfile}/>
                         <Route path="/admin/AdminProfile" component={AdminProfile}/>
                         <Route path="/lecturer/profile" component={Profile}/>
+                        <Route path="/lecturer/timetable" component={DashboardLecturer}/>
 
 
 
