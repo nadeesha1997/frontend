@@ -4,6 +4,8 @@ import {GetEnrolledModulesAction} from "../../store/actions/SelectedUserAction";
 import {SetUserSessionsAction} from "../../store/actions/TimeTableAction";
 import {connect} from "react-redux";
 import moment from "moment";
+import ThirdNav from "../ThirdNav";
+
 
 function StudentTimeTable(props) {
     let {user,sessions,userModules,getUserModules,selectUserSessions,userSessions}=props;
@@ -65,6 +67,7 @@ const mapDispatchToProps=(dispatch)=>{
         }
     }
 };
+
 
 const checkAvailable=(times,sessions)=>{
     const timeList=[...times];
@@ -133,6 +136,7 @@ const mappedSessions=(sessios)=>{
                     </td>
                 </tr>
             </>
+
         )
     })
     return returnSessions;
