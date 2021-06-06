@@ -20,8 +20,12 @@ function StudentTimeTable(props) {
         checkAvailable(times,userSessions)
     },[userSessions])
     return (
-        <div className="page">
-            <Calendar/>
+
+        <div>
+            <ThirdNav/>
+            <div className="page">
+            <div className="main">
+            <Calendar/></div>
             <br/>
             <table className = "table table-striped table-bordered">
 
@@ -39,7 +43,7 @@ function StudentTimeTable(props) {
                 {/*{returnSessions(userSessions[0])}*/}
                 </tbody>
             </table>
-        </div>
+        </div></div>
 
     )
 }
