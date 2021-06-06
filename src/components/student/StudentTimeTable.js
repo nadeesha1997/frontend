@@ -4,7 +4,6 @@ import {GetEnrolledModulesAction} from "../../store/actions/SelectedUserAction";
 import {SetUserSessionsAction} from "../../store/actions/TimeTableAction";
 import {connect} from "react-redux";
 import moment from "moment";
-import SessionView from './SessionView';
 
 function StudentTimeTable(props) {
     let {user,sessions,userModules,getUserModules,selectUserSessions,userSessions}=props;
