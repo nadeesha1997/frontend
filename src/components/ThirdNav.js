@@ -35,7 +35,14 @@ class ThirdNav extends React.Component {
 
 
 
-
+                            {this.state.currentUser.user.userDetails.role==="AR"  &&
+                            <NavLink to="/EditTimeTable">
+                                <ReactBootStrap.Nav.Link href="timetable"> Edit Timetable</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+                            {this.state.currentUser.user.userDetails.role==="AR"  &&
+                            <NavLink to="/admin/AdminProfile">
+                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
+                            </NavLink>}
 
 
                             {this.state.currentUser.user.userDetails.role==="Admin"  &&
