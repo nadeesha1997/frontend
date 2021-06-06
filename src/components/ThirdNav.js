@@ -27,34 +27,60 @@ class ThirdNav extends React.Component {
                     <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
                         <ReactBootStrap.Nav className="mr-auto">
 
-                            {this.state.currentUser.user.userDetails.role==="Student"  &&
-                            <NavLink to="/StudentTimetable" className="nav-item nav-link">
-                                    <ReactBootStrap.Nav.Link href="StudentTimetable"> Timetable</ReactBootStrap.Nav.Link>
-                            </NavLink>}
-                            {this.state.currentUser.user.userDetails.role==="Student"  &&
-                            <NavLink to="/lecturer/profile">
-                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
-                            </NavLink>}
-
 
 
                             <NavLink to="/Home">
-                                <ReactBootStrap.Nav.Link href="#features"> Dashboard</ReactBootStrap.Nav.Link>
+                                <ReactBootStrap.Nav.Link href="#features">Dashboard</ReactBootStrap.Nav.Link>
                             </NavLink>
+
+                        {/*    {this.state.currentUser.user.userDetails.role==="Admin"  &&
+                            <NavLink to="/EditTimeTable" className="nav-item nav-link">
+                                    <ReactBootStrap.Nav.Link href="StudentTimetable">Edit Timetable</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+                            {this.state.currentUser.user.userDetails.role==="Admin"  &&
+                            <NavLink to="/admin/AdminProfile">
+                                <ReactBootStrap.Nav.Link href="profile">Your Profile</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+                            {this.state.currentUser.user.userDetails.role==="Admin"  &&
+                            <NavLink to="/OnlineTimetable">
+                                <ReactBootStrap.Nav.Link href="OnlineTimetable">Edit Online Lectures</ReactBootStrap.Nav.Link>
+                            </NavLink>}*/}
+
+
 
                             {this.state.currentUser.user.userDetails.role==="Lecturer"  &&
                             <NavLink to="/lecturer/timetable">
                                 <ReactBootStrap.Nav.Link href="timetable"> Edit Timetable</ReactBootStrap.Nav.Link>
                             </NavLink>}
-
+                            {this.state.currentUser.user.userDetails.role==="Lecturer"  &&
+                            <NavLink to="/OnlineTable">
+                                <ReactBootStrap.Nav.Link href="timetable"> Edit Online lectures</ReactBootStrap.Nav.Link>
+                            </NavLink>}
                             {this.state.currentUser.user.userDetails.role==="Lecturer"  &&
                             <NavLink to="/lecturer/profile">
                                 <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
                             </NavLink>}
 
-                            <NavLink to="/OnlineTable">
+
+
+
+
+                            {this.state.currentUser.user.userDetails.role==="Student"  &&
+                            <NavLink to="/StudentTimetable">
+                                <ReactBootStrap.Nav.Link href="timetable"> Timetable</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+                            {this.state.currentUser.user.userDetails.role==="Student"  &&
+                            <NavLink to="/OnlineTimetable">
                                 <ReactBootStrap.Nav.Link href="timetable"> Online lectures</ReactBootStrap.Nav.Link>
-                            </NavLink>
+                            </NavLink>}
+                            {this.state.currentUser.user.userDetails.role==="Student"  &&
+                            <NavLink to="/StudentProfile">
+                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+
+
+
+
 
                         </ReactBootStrap.Nav>
 

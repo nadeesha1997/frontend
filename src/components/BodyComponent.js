@@ -23,7 +23,7 @@ import ListUserComponent from "./admin/ListUserComponent";
 import Profile from "./lecturer/Profile";
 import DashboardLecturer from "../pages/DashboardLecturer";
 import StudentTimeTable from "./student/StudentTimeTable";
-
+import OnlineTimeTable from "./student/OnlineTimeTable";
 
     const Body=()=> 
     {
@@ -48,7 +48,7 @@ import StudentTimeTable from "./student/StudentTimeTable";
 
                         <Route path="/StudentProfile" component={StudentProfile}/>
                         <Route path="/StudentTimetable" component={StudentTimeTable}/>
-
+                        <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
 
                         <Route path="/admin/AdminProfile" component={AdminProfile}/>
                         <Route path="/lecturer/profile" component={Profile}/>
