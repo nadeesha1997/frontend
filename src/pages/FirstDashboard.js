@@ -18,6 +18,9 @@ import {Col,Table,Badge,} from "reactstrap";
 
 import config from "./config";
 const colors = config.chartColors;
+
+
+
 const Header = {
     padding: "10px 20px",
     textAlign: "center",
@@ -152,7 +155,7 @@ class FirstDashboard extends React.Component {
     render() {
 
         return (
-<div><ThirdNav/>
+                <div><ThirdNav/>
             <div   className="page">
 
 
@@ -160,7 +163,9 @@ class FirstDashboard extends React.Component {
                     <Calendar/></div>
 
                 <div style={col} ></div>
-
+                <h3>
+                    {this.state.currentUser.user.userDetails.role} Dashboard
+                </h3>
                 <h1 align="center">Graphical visualization of lecture venues </h1>
                 <div style={col}></div>
                 <img src={map} align="right" height={500} id='map' width={800} class="map" useMap="#image-map" alt="map"/>

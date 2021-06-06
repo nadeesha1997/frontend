@@ -193,7 +193,7 @@ const enrolledModuleList=(modules,unEnroll)=>{
                     <tr style={{textAlign:"left"}}>
                         <td>{mod.subject.code}-</td>
                         <td>{mod.subject.name}</td>
-                        <td><button style={{width:100,backgroundColor:'#bd2d8d'}}
+                        <td><button  className="btn btn-primary btn-block" style={{width:100,backgroundColor:'#ad3286'}}
                                     onClick={()=>{unEnroll(mod.id)}}>unenroll</button></td>
 
                     </tr>
@@ -228,7 +228,7 @@ const enrollableModuleList=(user,modules,enroll)=>{
                     <tr style={{textAlign:"left"}}>
                         <td>{mod.code}-</td>
                         <td>{mod.name}</td>
-                        <td><button style={{width:100,backgroundColor:'#a270b8'}}
+                        <td><button className="btn btn-primary btn-block" style={{width:100,backgroundColor:'#6a3682'}}
                                     onClick={()=>{enroll(user.id,mod.id)}}>enroll</button></td>
                     </tr>
                 </>
