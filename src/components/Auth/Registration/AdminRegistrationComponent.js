@@ -20,7 +20,7 @@ const AdminRegisterForm=(props)=> {
             password: "",
             confirmPassword:"",
             DepartmentID: "",
-            Role:"Admin"
+            Role:"AR"
 
         },
         errors: {},
@@ -63,7 +63,7 @@ const AdminRegisterForm=(props)=> {
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            axios.post('https://localhost:5001/api/accounts/register/admin', data)
+            axios.post('https://localhost:5001/api/accounts/register/ar', data)
                 .then(res=>{
                     console.log(res.data);
                 });
