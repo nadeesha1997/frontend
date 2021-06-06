@@ -48,7 +48,9 @@ function StudentProfile(props) {
         setEnrolableModules(deptModules,isModules,enrolledModules)
     },[deptModules,isModules,enrolledModules]);
     useEffect(()=>{
-        getDepartment(user.departmentId)
+        if(user.semester!==1&&user.semester!==2){
+            getDepartment(user.departmentId);
+        }
     },[user])
 
 
