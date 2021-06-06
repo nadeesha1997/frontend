@@ -1,4 +1,3 @@
-/*
 import React,{ useState,useEffect}  from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import UserService from "../components/services/UserService";
@@ -27,20 +26,34 @@ class ThirdNav extends React.Component {
                     <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
                         <ReactBootStrap.Nav className="mr-auto">
+
                             {this.state.currentUser.user.userDetails.role==="Student"  &&
                             <NavLink to="/StudentTimetable" className="nav-item nav-link">
+                                    <ReactBootStrap.Nav.Link href="StudentTimetable"> Timetable</ReactBootStrap.Nav.Link>
                             </NavLink>}
+                            {this.state.currentUser.user.userDetails.role==="Student"  &&
+                            <NavLink to="/lecturer/profile">
+                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+
+
 
                             <NavLink to="/Home">
                                 <ReactBootStrap.Nav.Link href="#features"> Dashboard</ReactBootStrap.Nav.Link>
                             </NavLink>
 
-                            {this.state.currentUser.user.userDetails.role==="Lecture"  &&
-                            <NavLink to="/lecturer/timetable">`
-                                <ReactBootStrap.Nav.Link href="#pricing"> Timetable</ReactBootStrap.Nav.Link>
-                            `</NavLink>}
+                            {this.state.currentUser.user.userDetails.role==="Lecturer"  &&
+                            <NavLink to="/lecturer/timetable">
+                                <ReactBootStrap.Nav.Link href="timetable"> Edit Timetable</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+
+                            {this.state.currentUser.user.userDetails.role==="Lecturer"  &&
+                            <NavLink to="/lecturer/profile">
+                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+
                             <NavLink to="/OnlineTable">
-                                <ReactBootStrap.Nav.Link href="#pricing"> Online lectures</ReactBootStrap.Nav.Link>
+                                <ReactBootStrap.Nav.Link href="timetable"> Online lectures</ReactBootStrap.Nav.Link>
                             </NavLink>
 
                         </ReactBootStrap.Nav>
@@ -61,9 +74,9 @@ export default ThirdNav;
 
 
 
-*/
 
 
+/*
 import React from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import {
@@ -98,4 +111,4 @@ const ThirdNav = () => {
     )
 }
 
-export default ThirdNav;
+export default ThirdNav;*/

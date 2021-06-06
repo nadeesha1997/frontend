@@ -47,7 +47,7 @@ import StudentTimeTable from "./student/StudentTimeTable";
                         <Route path="/add" component={AddHall}/>
 
                         <Route path="/StudentProfile" component={StudentProfile}/>
-                        <Route path="/StudentTimetable" component={StudentTimeTable}></Route>
+                        <Route path="/StudentTimetable" component={StudentTimeTable}/>
 
 
                         <Route path="/admin/AdminProfile" component={AdminProfile}/>
