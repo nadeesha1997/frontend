@@ -60,6 +60,9 @@ class ListSessionComponent extends Component {
                                         <td>
                                             <button style={{marginLeft: "10px",width:"50%"}} onClick={ () => this.deleteSession(session.id)} className="btn btn-danger">Delete </button>
                                             {/*<button style={{marginLeft: "10px"}} onClick={ () => this.viewHall(hall.id)} className="btn btn-success">View </button>*/}
+                                            <button style={{marginLeft: "10px",width:"50%"}}
+                                                    // onClick={ () => this.approveSession(session.id)}
+                                                    className="btn btn-secondary">Approve </button>
 
                                         </td>
                                     </tr>
