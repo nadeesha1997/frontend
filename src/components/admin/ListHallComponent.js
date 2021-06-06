@@ -144,6 +144,7 @@ class ListHallComponent extends Component {
 
                         <thead>
                         <tr>
+                            <th> Hall ID</th>
                             <th> Hall Name</th>
                             {/*<th> Department</th>*/}
                             <th> Department Id</th>
@@ -155,6 +156,7 @@ class ListHallComponent extends Component {
                             this.state.halls.map(
                                 hall =>
                                     <tr key = {hall.id}>
+                                        <td> { hall.id} </td>
                                         <td> { hall.name} </td>
                                         {/*<td> {hall.building}</td>*/}
                                         <td> {hall.buildingId}</td>
