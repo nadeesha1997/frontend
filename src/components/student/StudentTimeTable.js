@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Calendar from "../Calendar";
+import ThirdNav from "../ThirdNav";
 
 class StudentTimeTable extends Component {
     constructor(props) {
@@ -12,9 +13,10 @@ class StudentTimeTable extends Component {
 
     render() {
         return (
-
+<div><ThirdNav/>
 
             <div className="page">
+
                 <Calendar/>
                 <br/>
                 <table className = "table table-striped table-bordered">
@@ -30,7 +32,7 @@ class StudentTimeTable extends Component {
                     </thead>
                 </table>
             </div>
-
+</div>
         )
     }
 }
