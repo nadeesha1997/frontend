@@ -35,7 +35,9 @@ const AddHall=()=> {
                                             <label> Building Id: </label>
                                             <input
                                                 style={{width:350}}
-                                                placeholder="BuildingId" name="BuildingId" className="form-control"
+                                                placeholder="BuildingId"
+                                                name="BuildingId"
+                                                className="form-control"
                                                    value=""
                                                   />
                                         </div>

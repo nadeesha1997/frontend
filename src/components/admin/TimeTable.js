@@ -11,7 +11,7 @@ export const TimeTable = (props) => {
     const {halls,date,getHalls,loading}=props;
     const [tableStyle,settableStyle]=useState({
         display: "grid",
-        gridTemplateColumns: "repeat(17, 1fr)",
+        gridTemplateColumns: "repeat(15, 1fr)",
         backgroundColor: "#a998bd",
         gridColumnGap: "0.01em",
         gridRowGap: "0.1em",
@@ -33,9 +33,10 @@ export const TimeTable = (props) => {
                 <div
                     className="grid-container"
                     style={tableStyle}>
-                    <div className="grid-item">Time</div>
+                    <div className="grid-item">Hall</div>
                     <HallList/>
                     <LecTimes/>
+
                 </div>
             </div>
             <SubmitReservation/>

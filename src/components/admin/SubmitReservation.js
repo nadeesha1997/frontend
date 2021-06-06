@@ -161,6 +161,46 @@ function SubmitReservation(props) {
                                 name="endtime"
                             />
                         </div>
+                        <hr/>
+                        <h5 align="center"><b>Shedule online Lecture</b></h5>
+                        <b ><a align="center" href="https://us04web.zoom.us/meeting/schedule"> Schedule zoom Here</a></b>
+                        <div className="sub">
+                            <label htmlFor="MeetingId">Meeting ID:</label>
+                            <Input
+                                placeholder="MeetingId"
+                                style={{width:390}}
+                                // type="text"
+                                className="form-control"
+                                name="MeetingId"
+                                value=""
+                                // onChange={this.handleChange}
+
+                            />
+                        </div>
+                        <div className="sub">
+                            <label htmlFor="Passcode">Passcode:</label>
+                            <Input
+                                placeholder="Passcode"
+                                style={{width:390}}
+                                type="text"
+                                className="form-control"
+                                name="Passcode"
+                                value=""
+
+                            />
+                        </div>
+                        <div className="sub">
+                            <label htmlFor="ZoomLink">Zoom Link:</label>
+                            <Input
+                                placeholder="ZoomLink"
+                                style={{width:390}}
+                                type="text"
+                                className="form-control"
+                                name="ZoomLink"
+                                value=""
+
+                            />
+                        </div>
                         <div className="form-group">
                             <Button
                                 // type="submit"
