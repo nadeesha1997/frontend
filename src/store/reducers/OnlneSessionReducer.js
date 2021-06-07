@@ -9,7 +9,8 @@ const initState={
     link:"",
     loading:false,
     successMessage:{},
-    error:{}
+    error:{},
+    modalOpen:false
 }
 const OnlineSessionReducer=(state=initState,action)=>{
     switch (action.type) {
@@ -29,6 +30,8 @@ const OnlineSessionReducer=(state=initState,action)=>{
             return {...state,successMessage:action.payload}
         case OnlineSessionActionType.ADD_SESSION_FAILED:
             return{...state,error:action.payload}
+        case OnlineSessionActionType.MODEL_OPEN_CLOSE:
+            return {...state,modalOpen:action.payload}
         default:
             return state;
     }

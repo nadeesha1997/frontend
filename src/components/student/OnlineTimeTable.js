@@ -17,7 +17,9 @@ class OnlineTimeTable extends Component {
 
                 <div className="page">
 
-                    <Calendar/>
+                    <div className="locate2" > <Calendar/></div>
+                    <br/>
+                    <h3>Find Your Online Lecture Schedule...</h3>
                     <br/>
                     <table className = "table table-striped table-bordered">
 

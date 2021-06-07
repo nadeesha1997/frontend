@@ -11,7 +11,8 @@ const OnlineSessionActionType={
     SET_DATA:"SET_DATA",
     ADD_ONLINE_SESSION_START:"ADD_ONLINE_SESSION_START",
     ADD_ONLINE_SESSION_SUCCESS:"ADD_ONLINE_SESSION_SUCCESS",
-    ADD_SESSION_FAILED:"ADD_SESSION_FAILED"
+    ADD_SESSION_FAILED:"ADD_SESSION_FAILED",
+    MODEL_OPEN_CLOSE:"MODEL_OPEN_CLOSE",
 }
 // const SetModuleAction=(id)=>{
 //     return (dispatch)=>{
@@ -84,4 +85,9 @@ const AddOnlineSessionAction=(state)=>{
         }
     }
 }
-export {OnlineSessionActionType,SetDataAction,AddOnlineSessionAction}
+const ModelOpenAction=(open)=>{
+    return (dispatch)=>{
+        dispatch({type:OnlineSessionActionType.MODEL_OPEN_CLOSE,payload:open})
+    }
+}
+export {OnlineSessionActionType,SetDataAction,AddOnlineSessionAction,ModelOpenAction}
