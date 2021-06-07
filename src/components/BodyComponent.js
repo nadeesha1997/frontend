@@ -42,7 +42,7 @@ import { Profile } from './profile';
 
                         <Route path="/EditTimeTable" component={Dashboard}/>
                         <Route path="/OnlineTable" component={OnlineTable}/>
-                        <Route path="/admin/CRUDHalls" component={CRUDHalls}/>
+                        {/*<Route path="/admin/CRUDHalls" component={CRUDHalls}/>*/}
                         <Route path="/AddStaffMember" component={AdminRegisterForm}/>
                         <Route path = "/users" component = {ListUserComponent}/>
                         <Route path = "/ApprovalPendingSessions" component = {ListSessionComponent}/>
