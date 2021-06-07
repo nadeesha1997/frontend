@@ -85,10 +85,6 @@ class ThirdNav extends React.Component {
                                 <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
                             </NavLink>}
 
-
-
-
-
                         </ReactBootStrap.Nav>
 
                     </ReactBootStrap.Navbar.Collapse>
