@@ -23,15 +23,18 @@ export const OnlineTable = (props) => {
                                     // type='submit'
                                         onClick={()=>openModal(true)}
                                 >
+
                                     {/* <Link to="./Register/student">  */}
                                     <b> Schedule a Online Lecture</b>
                                     {/* </Link> */}
                                 </Button></tr></td>
                            <td>
-                               <div style={{marginLeft:50}}>
-                            <h3>Your scheduled Online Lectures...</h3>
 
-                            <table className = "table table-striped table-bordered">
+                               <h3 style={{marginLeft:-190}}>Your scheduled Online Lectures...</h3>
+                               <br/>
+                               <div style={{marginLeft:30}}>
+
+                                   <table className = "table table-striped table-bordered" style={{width:"190%"}}>
                                 <thead>
                                 <tr>
                                     <th> Time Period</th>
