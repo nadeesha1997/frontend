@@ -103,8 +103,14 @@ function AdminProfile(props) {
                                         <Link to="/subjects"  className="box"><b>{"Click me"}</b></Link>
                                     </p>
                                     <p>
-                                        <label htmlFor="">Allow Permission for halls</label>
+                                        <label htmlFor="">Approval Pending Sessions</label>
                                         <Link to="/sessions"  className="box"><b>{"Click me"}</b></Link>
+                                    </p>
+                                    <p>
+                                        <label htmlFor="">View Subjects</label>
+                                        <Link to="/sessions"  className="box"><b>{"Click me"}</b></Link>
+                                    </p>
+                                    <p>
                                     </p>
                                     <br/>
 

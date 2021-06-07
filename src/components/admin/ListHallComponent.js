@@ -170,6 +170,7 @@ class ListHallComponent extends Component {
                             )
                         }
                         </tbody>
+
                     </table>
 
                     <h2 className="text-center" style={{marginLeft:50}} >Building List</h2>
