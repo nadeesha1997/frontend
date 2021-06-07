@@ -99,13 +99,21 @@ function AdminProfile(props) {
                                         <Link to="/halls"  className="box"><b>{"Click me"}</b></Link>
                                     </p>
                                     <p>
-                                        <label htmlFor="">Other</label>
-                                        <Link to="#"  className="box"><b>{"Click me"}</b></Link>
+                                        <label htmlFor="">View All Modules</label>
+                                        <Link to="/AvailableModules"  className="box"><b>{"Click me"}</b></Link>
                                     </p>
                                     <p>
-                                        <label htmlFor="">Other2</label>
-                                        <Link to="#"  className="box"><b>{"Click me"}</b></Link>
+                                        <label htmlFor="">Approval Pending Sessions</label>
+                                        <Link to="/ApprovalPendingSessions"  className="box"><b>{"Click me"}</b></Link>
                                     </p>
+                                    {/*<p>*/}
+                                    {/*    <label htmlFor="">Other</label>*/}
+                                    {/*    <Link to="#"  className="box"><b>{"Click me"}</b></Link>*/}
+                                    {/*</p>*/}
+                                    {/*<p>*/}
+                                    {/*    <label htmlFor="">Other2</label>*/}
+                                    {/*    <Link to="#"  className="box"><b>{"Click me"}</b></Link>*/}
+                                    {/*</p>*/}
                                     <br/>
 
                                 </form>

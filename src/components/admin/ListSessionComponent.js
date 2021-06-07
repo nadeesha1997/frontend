@@ -33,6 +33,7 @@ class ListSessionComponent extends Component {
         return (
             <div>
                 <ThirdNav/>
+                <br/>
                 <h2 className="text-center"> Approval Pending Sessions</h2>
                 <div className = "row">
                     <table className = "table table-striped table-bordered" style={{marginLeft:50,marginRight:50}}>
