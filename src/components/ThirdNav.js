@@ -33,19 +33,26 @@ class ThirdNav extends React.Component {
                                 <ReactBootStrap.Nav.Link href="#features">Dashboard</ReactBootStrap.Nav.Link>
                             </NavLink>
 
-                        {/*    {this.state.currentUser.user.userDetails.role==="Admin"  &&
-                            <NavLink to="/EditTimeTable" className="nav-item nav-link">
-                                    <ReactBootStrap.Nav.Link href="StudentTimetable">Edit Timetable</ReactBootStrap.Nav.Link>
+
+
+                            {this.state.currentUser.user.userDetails.role==="AR"  &&
+                            <NavLink to="/EditTimeTable">
+                                <ReactBootStrap.Nav.Link href="timetable"> Edit Timetable</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+                            {this.state.currentUser.user.userDetails.role==="AR"  &&
+                            <NavLink to="/admin/AdminProfile">
+                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
+                            </NavLink>}
+
+
+                            {this.state.currentUser.user.userDetails.role==="Admin"  &&
+                            <NavLink to="/EditTimeTable">
+                                <ReactBootStrap.Nav.Link href="timetable"> Edit Timetable</ReactBootStrap.Nav.Link>
                             </NavLink>}
                             {this.state.currentUser.user.userDetails.role==="Admin"  &&
                             <NavLink to="/admin/AdminProfile">
-                                <ReactBootStrap.Nav.Link href="profile">Your Profile</ReactBootStrap.Nav.Link>
+                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
                             </NavLink>}
-                            {this.state.currentUser.user.userDetails.role==="Admin"  &&
-                            <NavLink to="/OnlineTimetable">
-                                <ReactBootStrap.Nav.Link href="OnlineTimetable">Edit Online Lectures</ReactBootStrap.Nav.Link>
-                            </NavLink>}*/}
-
 
 
                             {this.state.currentUser.user.userDetails.role==="Lecturer"  &&

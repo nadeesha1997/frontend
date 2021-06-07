@@ -45,34 +45,34 @@ function AdminProfile(props) {
 
                                 <Table className="table5 table5-borderless AdminDetails">
                                     <tr>
-                                        <td className="text">
+                                        <td>
                                             Full Name
                                         </td>
-                                        <td className="text">
+                                        <td>
                                             { auth.user.userDetails.fullName}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="text">
+                                        <td>
                                             Register No
                                         </td>
-                                        <td className="text">
+                                        <td>
                                             {auth.user.userDetails.regNo}
                                         </td>
                                     </tr>
-                                    <tr className="text">
+                                    <tr>
                                         <td>
                                             User Email
                                         </td>
-                                        <td className="text">
+                                        <td>
                                             {auth.user.userDetails.email}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="text">
+                                        <td>
                                             Department
                                         </td>
-                                        <td className="text">
+                                        <td>
                                             {auth.user.userDetails.departmentId}
                                         </td>
                                     </tr>
