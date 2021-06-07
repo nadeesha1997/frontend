@@ -3,10 +3,12 @@ import ThirdNav from "../components/ThirdNav";
 import React from "react";
 import Calendar from "../components/Calendar";
 import {Button} from "react-bootstrap";
+import { connect } from 'react-redux'
+import { ModelOpenAction } from "../store/actions/OnlineSessionAction";
+import ScheduleOnline from "../components/admin/ScheduleOnline"
 
-export const  OnlineTable= () => {
-
-
+export const OnlineTable = (props) => {
+    const {openModal}=props;
     return (
         <>
             <div>
@@ -19,20 +21,34 @@ export const  OnlineTable= () => {
                             <tr>
                         <Button style={{width:180,backgroundColor:'#440151',marginTop:50,marginLeft:90,marginRight:20,marginBottom:150}}
                             // type='submit'
+                            onClick={()=>openModal(true)}
                         >
                             {/* <Link to="./Register/student">  */}
                             <b> Schedule a Online Lecture</b>
                             {/* </Link> */}
-                        </Button></tr>
-
-
+                        </Button>
+                        </tr>
                         </table>
 
                     </div>
                 </div>
 
             </div>
-            </>
-    );
+            <ScheduleOnline/>
+        </>
+    )
 }
-export default OnlineTable;
+
+const mapStateToProps = (state) => ({
+    
+})
+
+const mapDispatchToProps =(dispatch)=> {
+    return{
+        openModal:(open)=>{
+            dispatch(ModelOpenAction(open))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OnlineTable)

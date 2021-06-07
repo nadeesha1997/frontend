@@ -7,12 +7,12 @@ import ModalTitle from "react-bootstrap/ModalTitle";
 import '../../css/modal.css';
 import {Button, Input} from "reactstrap";
 import {connect} from "react-redux";
-import { AddOnlineSessionAction, SetDataAction } from '../../store/actions/OnlineSessionAction';
+import { AddOnlineSessionAction, SetDataAction ,ModelOpenAction} from '../../store/actions/OnlineSessionAction';
 import { GetEnrolledModulesAction } from '../../store/actions/SelectedUserAction';
 
 
 const ScheduleOnline=(props)=>{
-    let {setdata,addSession,user,getModules,modules,baseState}=props;
+    let {setdata,addSession,user,getModules,modules,baseState,open,openModal}=props;
     useEffect(()=>{
         getModules(user.id);
     },[user]);
@@ -25,7 +25,9 @@ const ScheduleOnline=(props)=>{
     const [link, setLink] = useState("");
     return(
 
-        <Modal show={true}>
+        <Modal show={open}
+        onHide={()=>openModal(false)}
+        >
             <ModalHeader closeButton>
                 <ModalTitle>LSMS-Schedule a Online Lecture</ModalTitle>
             </ModalHeader>
@@ -159,7 +161,8 @@ const mapStateToProps=(userState)=>{
         modules:userState.selectedUser.enrolledModules,
         baseState:userState,
         loading:userState.selectedUser.enrolledModules,
-        response:userState.timetable.userSessions
+        response:userState.timetable.userSessions,
+        open:userState.online.modalOpen
     }
 };
 
@@ -173,6 +176,9 @@ const mapDispatchToProps=(dispatch)=>{
         },
         getModules:(id)=>{
             dispatch(GetEnrolledModulesAction(id))
+        },
+        openModal:(open)=>{
+            dispatch(ModelOpenAction(open))
         }
     }
 };
