@@ -33,18 +33,20 @@ class ThirdNav extends React.Component {
                                 <ReactBootStrap.Nav.Link href="#features">Dashboard</ReactBootStrap.Nav.Link>
                             </NavLink>
 
-                        {/*    {this.state.currentUser.user.userDetails.role==="Admin"  &&
-                            <NavLink to="/EditTimeTable" className="nav-item nav-link">
-                                    <ReactBootStrap.Nav.Link href="StudentTimetable">Edit Timetable</ReactBootStrap.Nav.Link>
+
+
+                            {this.state.currentUser.user.userDetails.role==="AR"  &&
+                            <NavLink to="/EditTimeTable">
+                                <ReactBootStrap.Nav.Link href="timetable"> Edit Timetable</ReactBootStrap.Nav.Link>
                             </NavLink>}
+
+
+
                             {this.state.currentUser.user.userDetails.role==="Admin"  &&
-                            <NavLink to="/admin/AdminProfile">
-                                <ReactBootStrap.Nav.Link href="profile">Your Profile</ReactBootStrap.Nav.Link>
+                            <NavLink to="/EditTimeTable">
+                                <ReactBootStrap.Nav.Link href="timetable"> Edit Timetable</ReactBootStrap.Nav.Link>
                             </NavLink>}
-                            {this.state.currentUser.user.userDetails.role==="Admin"  &&
-                            <NavLink to="/OnlineTimetable">
-                                <ReactBootStrap.Nav.Link href="OnlineTimetable">Edit Online Lectures</ReactBootStrap.Nav.Link>
-                            </NavLink>}*/}
+
 
 
 
@@ -56,10 +58,7 @@ class ThirdNav extends React.Component {
                             <NavLink to="/OnlineTable">
                                 <ReactBootStrap.Nav.Link href="timetable"> Edit Online lectures</ReactBootStrap.Nav.Link>
                             </NavLink>}
-                            {this.state.currentUser.user.userDetails.role==="Lecturer"  &&
-                            <NavLink to="/lecturer/profile">
-                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
-                            </NavLink>}
+
 
 
 
@@ -72,10 +71,6 @@ class ThirdNav extends React.Component {
                             {this.state.currentUser.user.userDetails.role==="Student"  &&
                             <NavLink to="/OnlineTimetable">
                                 <ReactBootStrap.Nav.Link href="timetable"> Online lectures</ReactBootStrap.Nav.Link>
-                            </NavLink>}
-                            {this.state.currentUser.user.userDetails.role==="Student"  &&
-                            <NavLink to="/StudentProfile">
-                                <ReactBootStrap.Nav.Link href="profile"> Your Profile</ReactBootStrap.Nav.Link>
                             </NavLink>}
 
                         </ReactBootStrap.Nav>

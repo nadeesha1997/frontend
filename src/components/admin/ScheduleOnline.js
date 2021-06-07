@@ -26,7 +26,8 @@ const ScheduleOnline=(props)=>{
     return(
 
         <Modal show={open}
-        onHide={()=>openModal(false)}
+
+               onHide={()=>openModal(false)}
         >
             <ModalHeader closeButton>
                 <ModalTitle>LSMS-Schedule a Online Lecture</ModalTitle>
@@ -34,61 +35,61 @@ const ScheduleOnline=(props)=>{
             <ModalBody>
                 <div className="page1">
                     <div>
-                            <div className="sub">
-                                <label htmlFor="module">Module:</label>
-                                <select
-                                    // placeholder="Module"
-                                    style={{width:390}}
-                                    type="text"
-                                    className="form-control"
-                                    name="module"
-                                    value={module}
-                                    onChange={e=>{setModule(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
-                                >
-                                    <option value="1">Select Module</option>
-                                    {mapModulesToOptions(modules)}
-                                </select>
-                            </div>
+                        <div className="sub">
+                            <label htmlFor="module">Module:</label>
+                            <select
+                                // placeholder="Module"
+                                style={{width:390}}
+                                type="text"
+                                className="form-control"
+                                name="module"
+                                value={module}
+                                onChange={e=>{setModule(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                            >
+                                <option value="1">Select Module</option>
+                                {mapModulesToOptions(modules)}
+                            </select>
+                        </div>
 
-                            <div className="sub">
-                                <label htmlFor="date">Date:</label>
-                                <Input
-                                    placeholder="Date"
-                                    style={{width:390}}
-                                    type="date"
-                                    className="form-control"
-                                    name="date"
-                                    value={date}
-                                    onChange={e=>{setDate(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
+                        <div className="sub">
+                            <label htmlFor="date">Date:</label>
+                            <Input
+                                placeholder="Date"
+                                style={{width:390}}
+                                type="date"
+                                className="form-control"
+                                name="date"
+                                value={date}
+                                onChange={e=>{setDate(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
 
-                                />
-                            </div>
-                            <div className="sub">
-                                <label htmlFor="starttime">Start Time:</label>
-                                <Input
-                                    placeholder="Start Time"
-                                    style={{width:390}}
-                                    type="time"
-                                    className="form-control"
-                                    name="starttime"
-                                    value={startTime}
-                                    onChange={e=>{setstartTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
-                                />
-                            </div>
-                            <div className="sub">
-                                <label
+                            />
+                        </div>
+                        <div className="sub">
+                            <label htmlFor="starttime">Start Time:</label>
+                            <Input
+                                placeholder="Start Time"
+                                style={{width:390}}
+                                type="time"
+                                className="form-control"
+                                name="starttime"
+                                value={startTime}
+                                onChange={e=>{setstartTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                            />
+                        </div>
+                        <div className="sub">
+                            <label
 
-                                    htmlFor="endtime">End Time:</label>
-                                <Input
-                                    placeholder="End Time"
-                                    style={{width:390}}
-                                    type="time"
-                                    className="form-control"
-                                    name="endtime"
-                                    value={endTime}
-                                    onChange={e=>{setendTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
-                                />
-                            </div>
+                                htmlFor="endtime">End Time:</label>
+                            <Input
+                                placeholder="End Time"
+                                style={{width:390}}
+                                type="time"
+                                className="form-control"
+                                name="endtime"
+                                value={endTime}
+                                onChange={e=>{setendTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
+                            />
+                        </div>
                         <div className="sub">
                             <label htmlFor="meetingId">Meeting ID:</label>
                             <Input
@@ -131,20 +132,20 @@ const ScheduleOnline=(props)=>{
 
 
 
-                            <div className="form-group">
-                                <Button
-                                    // type="submit"
-                                    style={{width:100,height:40,backgroundColor:'#2d0b34',marginBottom:15,marginLeft:130,marginTop:15}}
-                                    className="btn btn-primary btn-block"
-                                    name="submit"
-                                    onClick={()=>{
-                                        setdata(module,date,startTime,endTime,meetingId,password,link);
-                                        addSession(baseState);
-                                        console.log(module)
-                                    }}
+                        <div className="form-group">
+                            <Button
+                                // type="submit"
+                                style={{width:100,height:40,backgroundColor:'#2d0b34',marginBottom:15,marginLeft:130,marginTop:15}}
+                                className="btn btn-primary btn-block"
+                                name="submit"
+                                onClick={()=>{
+                                    setdata(module,date,startTime,endTime,meetingId,password,link);
+                                    addSession(baseState);
+                                    console.log(module)
+                                }}
 
-                                >SUBMIT</Button>
-                            </div>
+                            >SUBMIT</Button>
+                        </div>
                     </div></div>
 
             </ModalBody>
@@ -188,7 +189,7 @@ const mapModulesToOptions=(modules)=>{
     let options=modlist.map(module=>{
         return(
             <>
-            <option value={module.subject.id}>{module.subject.code}-{module.subject.name}</option>
+                <option value={module.subject.id}>{module.subject.code}-{module.subject.name}</option>
             </>
         )
     });

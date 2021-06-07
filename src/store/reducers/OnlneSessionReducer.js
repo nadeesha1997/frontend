@@ -10,7 +10,11 @@ const initState={
     loading:false,
     successMessage:{},
     error:{},
-    modalOpen:false
+    modalOpen:false,
+    dailySessions:[],
+    userSessions:[],
+    dailyUserSesions:[],
+    // successResponse:{}
 }
 const OnlineSessionReducer=(state=initState,action)=>{
     switch (action.type) {
@@ -27,11 +31,27 @@ const OnlineSessionReducer=(state=initState,action)=>{
         case OnlineSessionActionType.ADD_ONLINE_SESSION_START:
             return {...state,loading:true};
         case OnlineSessionActionType.ADD_ONLINE_SESSION_SUCCESS:
-            return {...state,successMessage:action.payload}
+            return {...state,successMessage:action.payload,loading:false}
         case OnlineSessionActionType.ADD_SESSION_FAILED:
-            return{...state,error:action.payload}
+            return{...state,error:action.payload,loading:false}
         case OnlineSessionActionType.MODEL_OPEN_CLOSE:
             return {...state,modalOpen:action.payload}
+        case OnlineSessionActionType.GET_DAILY_ONLINE_SESSIONS_START:
+            return {...state,loading:true}
+        case OnlineSessionActionType.GET_DAILY_ONLINE_SESSIONS_SUCCESS:
+            return {...state,dailySessions:action.payload,loading:false}
+        case OnlineSessionActionType.GET_DAILY_ONLINE_SESSIONS_FAILED:
+            return {...state,error:action.payload,loading:false}
+        case OnlineSessionActionType.SET_DAILY_SESSIONS_SUCCESS:
+            return {...state,dailyUserSesions:action.payload}
+        case OnlineSessionActionType.SET_DAILY_SESSIONS_FAILED:
+            return state;
+        case OnlineSessionActionType.ONLINE_SESSION_DALETE_START:
+            return {...state,loading:true}
+        case OnlineSessionActionType.ONLINE_SESSION_DALETE_SUCCESS:
+            return {...state,loading:false,successMessage:action.payload}
+        case OnlineSessionActionType.ONLINE_SESSION_DALETE_FAILED:
+            return {...state,loading:false,error:action.payload}
         default:
             return state;
     }

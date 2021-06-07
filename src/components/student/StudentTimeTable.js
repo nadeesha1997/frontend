@@ -20,8 +20,13 @@ function StudentTimeTable(props) {
         checkAvailable(times,userSessions)
     },[userSessions])
     return (
+
+        <div>
+            <ThirdNav/>
         <div className="page">
-            <Calendar/>
+            <div className="locate2" ><Calendar/></div>
+            <br/>
+            <h3>Find Your Lecture Venues...</h3>
             <br/>
             <table className = "table table-striped table-bordered">
 
@@ -39,7 +44,7 @@ function StudentTimeTable(props) {
                 {/*{returnSessions(userSessions[0])}*/}
                 </tbody>
             </table>
-        </div>
+        </div></div>
 
     )
 }
@@ -95,24 +100,24 @@ const checkAvailable=(times,sessions)=>{
 const returnSessions=(sess)=>{
     // console.log(moment(sess.startDateTime).format('HH:mm'));
 
-        return(
-            <>
-                <tr>
-                    <td>
-                        {sess&&moment(sess.startDateTime).format('HH:mm')} - {sess&&moment(sess.endDateTime).format('HH:mm')}
-                    </td>
-                    <td>
-                        {sess&&sess.subject.code}
-                    </td>
-                    <td>
-                        {sess&&sess.subject.name}
-                    </td>
-                    <td>
-                        {sess&&sess.hall.name}
-                    </td>
-                </tr>
-            </>
-        )
+    return(
+        <>
+            <tr>
+                <td>
+                    {sess&&moment(sess.startDateTime).format('HH:mm')} - {sess&&moment(sess.endDateTime).format('HH:mm')}
+                </td>
+                <td>
+                    {sess&&sess.subject.code}
+                </td>
+                <td>
+                    {sess&&sess.subject.name}
+                </td>
+                <td>
+                    {sess&&sess.hall.name}
+                </td>
+            </tr>
+        </>
+    )
 };
 
 const mappedSessions=(sessios)=>{
