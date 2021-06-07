@@ -20,11 +20,12 @@ import AddHall from "./admin/AddHall";
 import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";
-import Profile from "./lecturer/Profile";
+import LecturerProfile from "./lecturer/Profile";
 import DashboardLecturer from "../pages/DashboardLecturer";
 import StudentTimeTable from "./student/StudentTimeTable";
 
 import OnlineTimeTable from "./student/OnlineTimeTable";
+import { Profile } from './profile';
 
     const Body=()=> 
     {
@@ -47,14 +48,15 @@ import OnlineTimeTable from "./student/OnlineTimeTable";
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
                         <Route path="/add" component={AddHall}/>
 
-                        <Route path="/StudentProfile" component={StudentProfile}/>
                         <Route path="/StudentTimetable" component={StudentTimeTable}/>
                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
 
                         <Route path="/admin/AdminProfile" component={AdminProfile}/>
-                        <Route path="/lecturer/profile" component={Profile}/>
+                        <Route path="/profile/lecturer" component={LecturerProfile}/>
                         <Route path="/lecturer/timetable" component={DashboardLecturer}/>
                         <Route path="/student/timetable" component={StudentTimeTable}/>
+                        <Route path="/profile/student" component={StudentProfile}/>
+                        <Route path="/profile" component={Profile}/>
 
 
 
