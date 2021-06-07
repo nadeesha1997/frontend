@@ -11,7 +11,7 @@ function StudentTimeTable(props) {
     let {user,sessions,userModules,getUserModules,selectUserSessions,userSessions}=props;
     useEffect(()=>{
         getUserModules(user.id);
-    },[]);
+    },[user]);
     useEffect(()=>{
         // if(sessions)
         selectUserSessions(sessions,userModules);

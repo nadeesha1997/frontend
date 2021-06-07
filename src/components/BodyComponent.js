@@ -1,5 +1,5 @@
 import React from 'react';
-import{BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+import{BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Home from '../pages/Home'
 import Registration from './Auth/Registration/Registration';
 import Login from './Auth/LoginComponent';
@@ -71,3 +71,23 @@ import { Profile } from './profile';
         )
     }
 export default Body;
+// import React from 'react'
+
+
+// export const BodyComponent = (props) => {
+//     return (
+//         <div>
+            
+//         </div>
+//     )
+// }
+
+// const mapStateToProps = (state) => ({
+    
+// })
+
+// const mapDispatchToProps = {
+    
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(BodyComponent)

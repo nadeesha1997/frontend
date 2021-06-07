@@ -8,12 +8,13 @@ import { DeleteOnlineSessionAction, GetDailySessionsAction, ModelOpenAction, set
 import ScheduleOnline from "../components/admin/ScheduleOnline"
 import {GetEnrolledModulesAction} from "../store/actions/SelectedUserAction"
 import moment from "moment";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 export const OnlineTable = (props) => {
     const {openModal,getDailySessions,getUserModules,setDailySessions,dailySessions,userModules,user,date,dailyUserSessions,successMessage,deleteSession}=props;
-    useEffect(()=>{
-        getDailySessions(date);
-    },[date]);
+    // useEffect(()=>{
+    //     getDailySessions(date);
+    // },[date]);
     useEffect(()=>{
         getUserModules(user.id);
     },[user]);
@@ -25,7 +26,7 @@ export const OnlineTable = (props) => {
     },[dailySessions,userModules])
     useEffect(()=>{
         openModal(false);
-        getDailySessions(date);
+        // getDailySessions(date);
         // setDailySessions(dailySessions,userModules);
         // console.log("2");
     },[successMessage])
@@ -87,12 +88,16 @@ const dailySesionsList=(sessions,deleteFunc)=>{
         return(
             <>
             <tr key={sess.id}>
-                <td>{moment(sess.startTime).format('HH:mm')}-{moment(sess.startTime).format('HH:mm')}</td>
+                <td>{moment(sess.startTime).format('HH:mm')}-{moment(sess.endTime).format('HH:mm')}</td>
                 <td>{sess.subject.code}</td>
                 <td>{sess.subject.name}</td>
                 <td>{sess.meetingId}</td>
                 <td>{sess.password}</td>
-                <td>{sess.link}</td>
+                <td>
+                    <textarea readOnly>{sess.link}</textarea>
+                    {/* <button onClick={navigator.clipboard.writeText(sess.link)}>copy</button> */}
+                    <CopyToClipboard text={sess.link}><span>Copy</span></CopyToClipboard>
+                </td>
                 <td><button onClick={()=>deleteFunc(sess.id)}>Delete</button></td>
             </tr>
             </>

@@ -3,11 +3,13 @@ import { GetDailyModulesAction, SetDateAction } from "../store/actions/DailyModu
 import { connect } from "react-redux";
 import Calendar from "react-calendar";
 import "../css/Calendar.css";
+import { GetDailySessionsAction } from "../store/actions/OnlineSessionAction";
 function CalendarComponent(props){
-    const {date,setDate,getDailyModules,message}=props;
+    const {date,setDate,getDailyModules,message,getOnlineSessions,successMessage}=props;
     const changeDate = (e) => {
                 setDate(e);
                 getDailyModules(e);
+                getOnlineSessions(e);
                 // console.log(e);
             };
 
@@ -17,6 +19,9 @@ function CalendarComponent(props){
     useEffect(()=>{
         getDailyModules(date);
     },[message]);
+    useEffect(()=>{
+        getOnlineSessions(date)
+    },[successMessage])
 
     return(
         <div className="calendar">
@@ -32,7 +37,8 @@ function CalendarComponent(props){
 const mapStateToProps=(moduleState)=>{
     return {
         date:moduleState.module.date,
-        message:moduleState.moduleDrop.successMessage
+        message:moduleState.moduleDrop.successMessage,
+        successMessage:moduleState.online.successMessage
     }
 };
 
@@ -43,6 +49,9 @@ const mapDispatchToProps=(dispatch)=>{
         },
         getDailyModules:(date)=>{
             dispatch(GetDailyModulesAction(date));
+        },
+        getOnlineSessions:(date)=>{
+            dispatch(GetDailySessionsAction(date))
         }
     }
 };
