@@ -130,7 +130,7 @@ function StudentProfile(props) {
                 </div>
                 <hr/>
                 <div className="module">
-                    <h5> Please Enroll your modules..</h5>
+                    <h3> Please Enroll your modules..</h3>
                     {enrolledModuleList(enrolledModules,unEnroll)}
                     {enrollableModuleList(user,enrollableModules,enroll)}
                 </div>
