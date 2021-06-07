@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { useHistory } from 'react-router';
 
 export const Profile = (props) => {
-    const {role}=props;
+    // const {role}=props;
+    let role =JSON.parse(localStorage.getItem("auth")).user.userDetails.role;
     const Roles={
         Admin:"Admin",
         Student:"Student",
@@ -12,6 +13,9 @@ export const Profile = (props) => {
     }
     const history=useHistory();
     useEffect(()=>{
+        // console.log(role);
+
+        // alert(role);
         switch (role) {
             case Roles.Admin:
                 history.push("/profile/admin");
@@ -28,9 +32,9 @@ export const Profile = (props) => {
             default:
                 history.push("/home")
         }
-        // window.location.reload();
-        console.log(role);
-    },[role])
+        window.location.reload();
+        // console.log(role);
+    },[])
     return (
         <div>
             
@@ -39,7 +43,7 @@ export const Profile = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    role:state.auth.user.role[0]
+    role:state.auth.user.userDetails.role
 })
 
 
