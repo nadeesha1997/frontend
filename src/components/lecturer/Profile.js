@@ -18,7 +18,7 @@ import {
     GetDepartmentModulesLecturerAction,
     GetDepartmentAction
 } from "../../store/actions/SelectedUserAction";
-function Profile(props) {
+function LecturerProfile(props) {
     const {successMessage,
         selectedUserState,
         user,
@@ -179,7 +179,7 @@ const mapDispatchToProps=(dispatch)=>{
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Profile);
+export default connect(mapStateToProps,mapDispatchToProps)(LecturerProfile);
 
 const enrolledModuleList=(modules,unEnroll)=>{
     let modList=[...modules];

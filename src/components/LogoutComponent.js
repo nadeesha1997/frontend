@@ -19,7 +19,9 @@ function Logout(props) {
                 // text={"hello"}
             >
                 <Dropdown.Menu>
-                    <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user'/>
+                    <Dropdown.Item as={Link} to={`/profile`} text='My profile' icon='user' 
+                    // onClick={()=>window.location.reload()}
+                    />
                     <Dropdown.Item onClick={(history)=>logout(history)} text='Logout' icon='power' />
                 </Dropdown.Menu>
             </Dropdown>
