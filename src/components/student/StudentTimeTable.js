@@ -4,8 +4,6 @@ import {GetEnrolledModulesAction} from "../../store/actions/SelectedUserAction";
 import {SetUserSessionsAction} from "../../store/actions/TimeTableAction";
 import {connect} from "react-redux";
 import moment from "moment";
-import ThirdNav from "../ThirdNav";
-
 
 function StudentTimeTable(props) {
     let {user,sessions,userModules,getUserModules,selectUserSessions,userSessions}=props;
@@ -16,16 +14,9 @@ function StudentTimeTable(props) {
         // if(sessions)
         selectUserSessions(sessions,userModules);
     },[sessions,userModules]);
-    useEffect(()=>{
-        checkAvailable(times,userSessions)
-    },[userSessions])
     return (
-
-        <div>
-            <ThirdNav/>
-            <div className="page">
-            <div className="main">
-            <Calendar/></div>
+        <div className="page">
+            <Calendar/>
             <br/>
             <table className = "table table-striped table-bordered">
 
@@ -38,12 +29,12 @@ function StudentTimeTable(props) {
                 </tr>
                 </thead>
                 <tbody>
-                {mappedSessions(userSessions)}
-                {/* {checkAvailable(times,userSessions)} */}
+                {/*{mappedSessions(userSessions)}*/}
+                {checkAvailable(times,userSessions)}
                 {/*{returnSessions(userSessions[0])}*/}
                 </tbody>
             </table>
-        </div></div>
+        </div>
 
     )
 }
@@ -72,57 +63,36 @@ const mapDispatchToProps=(dispatch)=>{
     }
 };
 
-
-const checkAvailable=(times,sessions)=>{
-    const timeList=[...times];
-    const sessionsList=[...sessions];
-    const timeInDate=(dateTime)=>moment(dateTime).format('HH:mm:ss');
-    timeList.forEach(time=>{
-        if (sessionsList.length>0){
-            sessionsList.forEach(s=>{
+const checkAvailable=(time,sessions)=>{
+    const timeList=[...time];
+    const sessionsList=[...sessions]
+    const timeInDate=(dateTime)=>moment(dateTime).format('HH:mm:ss')
+        timeList.forEach(time=>{
+            // if((mod.startDateTime<=moment(startDateTime).format("YYYY-MM-DD[T]HH:mm:ss"))&&((mod.endDateTime>=moment(endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")))&&mod.hallId==hallid){
+            //     setmodule(mod);
+            //     setreserved(true);
+            //     setpermitted(mod.permitted);
+            // }
+            // else{
+            //     setreserved(false);
+            // }
+            let val=sessionsList.forEach(s=>{
                 if(timeInDate(s.startDateTime)<=time.startTime&&timeInDate(s.endDateTime)>=time.endTime){
-                    console.log(timeInDate(s.startDateTime));
-                    console.log(time.startTime);
-                    console.log(timeInDate(s.endDateTime));
-                    console.log(time.endTime);
+                    // console.log(s.startDateTime);
+                    // console.log(timeInDate(s.startDateTime));
+                    // console.log(time.startTime);
+                    // console.log(s.endDateTime);
+                    // console.log(timeInDate(s.endDateTime));
+                    // console.log(time.endTime);
                     // console.log(s)
-                    // return (
-                    //     <>
-                    //     <SessionView sess={s}/>
-                    //     </>
-                    // )
+                    returnSessions(s);
                 }
             })
-        }
-    });
+        });
 };
 const returnSessions=(sess)=>{
     // console.log(moment(sess.startDateTime).format('HH:mm'));
 
-        return(
-            <>
-                <tr>
-                    <td>
-                        {sess&&moment(sess.startDateTime).format('HH:mm')} - {sess&&moment(sess.endDateTime).format('HH:mm')}
-                    </td>
-                    <td>
-                        {sess&&sess.subject.code}
-                    </td>
-                    <td>
-                        {sess&&sess.subject.name}
-                    </td>
-                    <td>
-                        {sess&&sess.hall.name}
-                    </td>
-                </tr>
-            </>
-        )
-};
-
-const mappedSessions=(sessios)=>{
-    let sessionlist=[...sessios];
-    let sortedList=sessionlist.sort((a,b)=>(a.startDateTime>b.startDateTime)?1:-1)
-    let returnSessions=sortedList.map(sess=>{
         return(
             <>
                 <tr>
@@ -140,7 +110,29 @@ const mappedSessions=(sessios)=>{
                     </td>
                 </tr>
             </>
+        )
+};
 
+const mappedSessions=(sessios)=>{
+    let sessionlist=[...sessios];
+    let returnSessions=sessionlist.map(sess=>{
+        return(
+            <>
+                <tr>
+                    <td>
+                        {moment(sess.startDateTime).format('HH:mm')} - {moment(sess.endDateTime).format('HH:mm')}
+                    </td>
+                    <td>
+                        {sess.subject.code}
+                    </td>
+                    <td>
+                        {sess.subject.name}
+                    </td>
+                    <td>
+                        {sess.hall.name}
+                    </td>
+                </tr>
+            </>
         )
     })
     return returnSessions;
