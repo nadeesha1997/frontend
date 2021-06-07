@@ -20,6 +20,8 @@ import AddHall from "./admin/AddHall";
 import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";
+import ListSessionComponent from "./admin/ListSessionComponent";
+import ListModuleComponent from "./admin/ListModuleComponent";
 import LecturerProfile from "./lecturer/Profile";
 import DashboardLecturer from "../pages/DashboardLecturer";
 import StudentTimeTable from "./student/StudentTimeTable";
@@ -43,9 +45,11 @@ import { Profile } from './profile';
                         <Route path="/admin/CRUDHalls" component={CRUDHalls}/>
                         <Route path="/AddStaffMember" component={AdminRegisterForm}/>
                         <Route path = "/users" component = {ListUserComponent}/>
-                        <Route path = "/halls" component = {ListHallComponent}></Route>
-                        <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
-                        <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
+                        <Route path = "/ApprovalPendingSessions" component = {ListSessionComponent}/>
+                        <Route path = "/halls" component = {ListHallComponent}/>
+                        <Route path = "/AvailableModules" component = {ListModuleComponent}/>
+                        <Route path = "/add-hall/:id" component = {CreateHallComponent}/>
+                        <Route path = "/view-hall/:id" component = {ViewHallComponent}/>
                         <Route path="/add" component={AddHall}/>
 
                         <Route path="/StudentTimetable" component={StudentTimeTable}/>
