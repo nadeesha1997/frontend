@@ -8,7 +8,7 @@ class SubjectService {
         return axios.get(SUBJECT_API_BASE_URL);
     }
 
-    deleteSubjects(subjectId){
+    deleteSubject(subjectId){
         return axios.delete(SUBJECT_API_BASE_URL + '/' + subjectId);
     }
 }
