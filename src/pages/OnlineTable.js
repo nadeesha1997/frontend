@@ -21,6 +21,7 @@ export const OnlineTable = (props) => {
                             <tr>
                                 <Button style={{width:180,backgroundColor:'#440151',marginTop:50,marginLeft:90,marginRight:20,marginBottom:150}}
                                     // type='submit'
+                                        onClick={()=>openModal(true)}
                                 >
                                     {/* <Link to="./Register/student">  */}
                                     <b> Schedule a Online Lecture</b>
