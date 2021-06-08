@@ -12,7 +12,7 @@ import { GetEnrolledModulesAction } from '../../store/actions/SelectedUserAction
 
 
 const ScheduleOnline=(props)=>{
-    let {setdata,addSession,user,getModules,modules,baseState,open,openModal}=props;
+    let {setdata,addSession,user,getModules,modules,baseState,open,openModal,setLink1}=props;
     useEffect(()=>{
         getModules(user.id);
     },[user]);
@@ -45,6 +45,7 @@ const ScheduleOnline=(props)=>{
                                 name="module"
                                 value={module}
                                 onChange={e=>{setModule(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                onBlur={e=>setModule(e.target.value)}
                             >
                                 <option value="1">Select Module</option>
                                 {mapModulesToOptions(modules)}
@@ -61,7 +62,7 @@ const ScheduleOnline=(props)=>{
                                 name="date"
                                 value={date}
                                 onChange={e=>{setDate(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
-
+                                onBlur={e=>setDate(e.target.value)}
                             />
                         </div>
                         <div className="sub">
@@ -74,6 +75,7 @@ const ScheduleOnline=(props)=>{
                                 name="starttime"
                                 value={startTime}
                                 onChange={e=>{setstartTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                onBlur={e=>setstartTime(e.target.value)}
                             />
                         </div>
                         <div className="sub">
@@ -88,6 +90,7 @@ const ScheduleOnline=(props)=>{
                                 name="endtime"
                                 value={endTime}
                                 onChange={e=>{setendTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
+                                onBlur={e=>setendTime(e.target.value)}
                             />
                         </div>
                         <div className="sub">
@@ -100,6 +103,7 @@ const ScheduleOnline=(props)=>{
                                 name="meetingId"
                                 value={meetingId}
                                 onChange={e=>{setMeetingId(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                onBlur={e=>setMeetingId(e.target.value)}
 
                             />
                         </div>
@@ -113,6 +117,7 @@ const ScheduleOnline=(props)=>{
                                 name="password"
                                 value={password}
                                 onChange={e=>{setPassword(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                onBlur={e=>setPassword(e.target.value)}
 
                             />
                         </div>
@@ -126,6 +131,8 @@ const ScheduleOnline=(props)=>{
                                 name="link"
                                 value={link}
                                 onChange={e=>{setLink(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                onBlur={e=>setLink(e.target.value)}
+                                onMouseLeave={e=>setLink(e.target.value)}
 
                             />
                         </div>
@@ -141,7 +148,8 @@ const ScheduleOnline=(props)=>{
                                 onClick={()=>{
                                     setdata(module,date,startTime,endTime,meetingId,password,link);
                                     addSession(baseState);
-                                    console.log(module)
+                                    // console.log(link)
+                                    console.log(baseState.online);
                                 }}
 
                             >SUBMIT</Button>
@@ -180,7 +188,10 @@ const mapDispatchToProps=(dispatch)=>{
         },
         openModal:(open)=>{
             dispatch(ModelOpenAction(open))
-        }
+        },
+        // setLink1:(link)=>{
+        //     dispatch(SetLinkAction(link))
+        // }
     }
 };
 

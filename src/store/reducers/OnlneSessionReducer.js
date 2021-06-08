@@ -52,6 +52,20 @@ const OnlineSessionReducer=(state=initState,action)=>{
             return {...state,loading:false,successMessage:action.payload}
         case OnlineSessionActionType.ONLINE_SESSION_DALETE_FAILED:
             return {...state,loading:false,error:action.payload}
+        // case OnlineSessionActionType.SET_MODULE:
+        //     return{...state,module:action.payload}
+        // case OnlineSessionActionType.SET_DATE:
+        //     return{...state,date:action.payload}
+        // case OnlineSessionActionType.SET_START_TIME:
+        //     return{...state,startTime:action.payload}
+        // case OnlineSessionActionType.SET_END_TIME:
+        //     return{...state,date:action.payload}
+        // case OnlineSessionActionType.SET_MEETING_ID:
+        //     return{...state,date:action.payload}
+        // case OnlineSessionActionType.SET_PASSWORD:
+        //     return{...state,date:action.payload}
+        // case OnlineSessionActionType.SET_LINK:
+        //     return{...state,date:action.payload}
         default:
             return state;
     }

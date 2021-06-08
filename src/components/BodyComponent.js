@@ -31,6 +31,8 @@ import { Profile } from './profile';
 
     const Body=()=> 
     {
+        const isLoggedin=localStorage.hasOwnProperty("auth");
+        const role=isLoggedin?JSON.parse(localStorage.getItem("auth")).user.userDetails.role:null;
         return(
             <div className="body">
                  <Router>
@@ -38,8 +40,26 @@ import { Profile } from './profile';
                         <Route exact path="/" component={Home}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/signup" component={Registration}/>
-                        <Route path="/home" component={FirstDashboard}/>
 
+                        <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
+
+                        <Route path="/admin/AdminProfile" component={AdminProfile}/>
+                        {isLoggedin&&<>
+                            <Route path="/profile" component={Profile}/>
+                            <Route path="/home" component={FirstDashboard}/>
+                        </>}
+{                        role==="Student"&&
+                            <><Route path="/profile/student" component={StudentProfile}/>
+                            <Route path="/student/timetable" component={StudentTimeTable}/>
+                            </>
+}                        {role==="Leturer"&&
+                            <>
+                            <Route path="/lecturer/timetable" component={DashboardLecturer}/>
+                            <Route path="/profile/lecturer" component={LecturerProfile}/>
+                            <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
+                            </>}
+                        {role==="Admin"&&
+                        <>
                         <Route path="/EditTimeTable" component={Dashboard}/>
                         <Route path="/OnlineTable" component={OnlineTable}/>
                         <Route path="/admin/CRUDHalls" component={CRUDHalls}/>
@@ -51,16 +71,8 @@ import { Profile } from './profile';
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}/>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}/>
                         <Route path="/add" component={AddHall}/>
-
-                        <Route path="/StudentTimetable" component={StudentTimeTable}/>
-                        <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
-
-                        <Route path="/admin/AdminProfile" component={AdminProfile}/>
-                        <Route path="/profile/lecturer" component={LecturerProfile}/>
-                        <Route path="/lecturer/timetable" component={DashboardLecturer}/>
-                        <Route path="/student/timetable" component={StudentTimeTable}/>
-                        <Route path="/profile/student" component={StudentProfile}/>
-                        <Route path="/profile" component={Profile}/>
+                        </>
+                        }
 
 
 
