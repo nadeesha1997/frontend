@@ -19,9 +19,9 @@ export const TimeTable = (props) => {
         gridRowGap: "0.1em",
         marginTop: "0px"
     });
-    useEffect(()=>{
-        getMails();
-    },[])
+    // useEffect(()=>{
+    //     getMails();
+    // },[])
     // useEffect(()=>{
     //     setStyles(halls.length);
     // },[halls])
@@ -64,7 +64,7 @@ const mapDispatchToProps =(dispatch)=> {
             dispatch(GetHallsAction());
         },
         getMails:()=>{
-            dispatch(GetHodsAction())
+            dispatch(GetHodsAction());
         }
     }
 }

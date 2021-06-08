@@ -6,6 +6,7 @@ import {Form} from "react-bootstrap";
 import {Button, Input} from "reactstrap";
 import moment from "moment";
 import {useHistory} from "react-router";
+import LoopCircleLoading from "../components/Loading";
 function ReserveApproval(props) {
     let {getSession,session,sessionState,approve,denyApproval,loading}=props;
     const history=useHistory();
@@ -196,6 +197,7 @@ function ReserveApproval(props) {
             {/*</div>*/}
             {/*}*/}
             {/*{renderSession(session)}*/}
+            {loading&&<LoopCircleLoading/>}
         </>
     )
 }

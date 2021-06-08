@@ -33,10 +33,10 @@ function AdminProfile(props) {
 
                                         <div className="profile-img">
                                             <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt="" width="100"/>
-
+{/* 
                                             <input type="file" name="file" id="exampleFile" style={{width:"100%"} } accept="image/*" className="form5-control-file"
-                                                   onChange="showPreview"/>
-
+                                                   onChange="showPreview"/> */}
+                                                   <br/><br/>
 
                                         </div>
                                     </div>
@@ -68,14 +68,14 @@ function AdminProfile(props) {
                                             {auth.user.userDetails.email}
                                         </td>
                                     </tr>
-                                    <tr>
+                                    {/* <tr>
                                         <td>
                                             Department
                                         </td>
                                         <td>
                                             {auth.user.userDetails.departmentId}
                                         </td>
-                                    </tr>
+                                    </tr> */}
                                 </Table>
 
                             </div>

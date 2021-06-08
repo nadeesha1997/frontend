@@ -18,6 +18,7 @@ import { AuthActionType } from "../actions/AuthAction";
 const authState={
     isLoggedin:localStorage.hasOwnProperty("auth"),
     user:localStorage.hasOwnProperty("auth")?JSON.parse(localStorage.getItem("auth")).user:null,
+    role:localStorage.hasOwnProperty("auth")?JSON.parse(localStorage.getItem("auth")).user.role[0]:null,
     // user:null,
     loginModelOpen:false,
     signupModalOpen:false,
