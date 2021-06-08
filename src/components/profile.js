@@ -11,7 +11,7 @@ export const Profile = (props) => {
         AR:"AR",
         Lecturer:"Lecturer"
     }
-    const history=useHistory();
+    // const history=useHistory();
     // useEffect(()=>{
     //     // console.log(role);
 

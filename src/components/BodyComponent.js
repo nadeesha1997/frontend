@@ -1,3 +1,139 @@
+// import React from 'react';
+// import{BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+// import Home from '../pages/Home'
+// import Registration from './Auth/Registration/Registration';
+// import Login from './Auth/LoginComponent';
+
+// import CRUDHalls from './admin/CRUDHalls';
+// import Dashboard from '../pages/Dashboard';
+// import FirstDashboard from '../pages/FirstDashboard';
+// import OnlineTable from '../pages/OnlineTable';
+
+// import ListHallComponent from './admin/ListHallComponent';
+// import ViewHallComponent from './admin/ViewHallComponent';
+// import CreateHallComponent from './admin/CreateHallComponent';
+// import ReserveApproval from "../pages/ReserveApproval";
+
+// import StudentProfile from "./student/StudentProfile";
+// import ScheduleOnline from "./admin/ScheduleOnline";
+// import AddHall from "./admin/AddHall";
+// import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
+// import AdminProfile from "./admin/AdminProfile";
+// import ListUserComponent from "./admin/ListUserComponent";
+// import ListSessionComponent from "./admin/ListSessionComponent";
+// import ListModuleComponent from "./admin/ListModuleComponent";
+// import LecturerProfile from "./lecturer/Profile";
+// import DashboardLecturer from "../pages/DashboardLecturer";
+// import StudentTimeTable from "./student/StudentTimeTable";
+
+// import OnlineTimeTable from "./student/OnlineTimeTable";
+// import { Profile } from './profile';
+
+//     const Body=()=> 
+//     {
+//         const isLoggedin=localStorage.hasOwnProperty("auth");
+//         const role=isLoggedin?JSON.parse(localStorage.getItem("auth")).user.userDetails.role:null;
+//         return(
+// //             <div className="body">
+// //                  <Router>
+// //                     <Switch>
+// //                         <Route exact path="/" component={Home}/>
+// //                         <Route path="/login" component={Login}/>
+// //                         <Route path="/signup" component={Registration}/>
+
+// //                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
+
+                        
+// //                         {/* {isLoggedin&&<> */}
+// //                             <Route path="/profile" component={Profile}/>
+// //                             <Route path="/home" component={FirstDashboard}/>
+// //                         {/* </>} */}
+// // {/* {                        role==="Student"&& */}
+// //                             {/* <> */}
+// //                             <Route path="/profile/student" component={StudentProfile}/>
+// //                             <Route path="/student/timetable" component={StudentTimeTable}/>
+// //                             {/* </> */}
+// // {/* }                        {role==="Lecturer"&& */}
+// //                             {/* <> */}
+// //                             <Route path="/lecturer/timetable" component={DashboardLecturer}/>
+// //                             <Route path="/profile/lecturer" component={LecturerProfile}/>
+// //                             <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
+// //                             {/* </>} */}
+// //                         {/* {role==="Admin"&& */}
+// //                         {/* <> */}
+// //                         <Route path="/EditTimeTable" component={Dashboard}/>
+// //                         <Route path="/OnlineTable" component={OnlineTable}/>
+// //                         {/*<Route path="/admin/CRUDHalls" component={CRUDHalls}/>*/}
+// //                         <Route path="/AddStaffMember" component={AdminRegisterForm}/>
+// //                         <Route path = "/users" component = {ListUserComponent}/>
+// //                         <Route path = "/ApprovalPendingSessions" component = {ListSessionComponent}/>
+// //                         <Route path = "/halls" component = {ListHallComponent}/>
+// //                         <Route path = "/AvailableModules" component = {ListModuleComponent}/>
+// //                         <Route path = "/add-hall/:id" component = {CreateHallComponent}/>
+// //                         <Route path = "/view-hall/:id" component = {ViewHallComponent}/>
+// //                         <Route path="/add" component={AddHall}/>
+
+// //                         <Route path="/StudentTimetable" component={StudentTimeTable}/>
+// //                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
+
+// //                         <Route path="/profile/admin" component={AdminProfile}/>
+// //                         <Route path="/profile/lecturer" component={LecturerProfile}/>
+// //                         <Route path="/lecturer/timetable" component={DashboardLecturer}/>
+// //                         <Route path="/student/timetable" component={StudentTimeTable}/>
+// //                         <Route path="/profile/student" component={StudentProfile}/>
+// //                         <Route path="/profile" component={Profile}/>
+
+
+
+// //                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
+// //                         <Route path="/add" component={AddHall}/>
+// //                         <Route path = "/approve/:id" component={ReserveApproval}/>
+// //                         {/* </>} */}
+// //                     </Switch>
+// //                 </Router>
+// //             </div>
+// <div className="body">
+//                  <Router>
+//                     <Switch>
+//                         <Route exact path="/" component={Home}/>
+//                         <Route path="/login" component={Login}/>
+//                         <Route path="/signup" component={Registration}/>
+//                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
+//                         <Route path="/profile" component={Profile}/>
+//                         <Route path="/home" component={FirstDashboard}/>
+//                         <Route path="/profile/student" component={StudentProfile}/>
+//                         <Route path="/student/timetable" component={StudentTimeTable}/>
+//                         <Route path="/lecturer/timetable" component={DashboardLecturer}/>
+//                         <Route path="/profile/lecturer" component={LecturerProfile}/>
+//                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
+//                         <Route path="/EditTimeTable" component={Dashboard}/>
+//                         <Route path="/OnlineTable" component={OnlineTable}/>
+//                         <Route path="/AddStaffMember" component={AdminRegisterForm}/>
+//                         <Route path = "/users" component = {ListUserComponent}/>
+//                         <Route path = "/ApprovalPendingSessions" component = {ListSessionComponent}/>
+//                         <Route path = "/halls" component = {ListHallComponent}/>
+//                         <Route path = "/AvailableModules" component = {ListModuleComponent}/>
+//                         <Route path = "/add-hall/:id" component = {CreateHallComponent}/>
+//                         <Route path = "/view-hall/:id" component = {ViewHallComponent}/>
+//                         <Route path="/add" component={AddHall}/>
+//                         <Route path="/StudentTimetable" component={StudentTimeTable}/>
+//                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
+//                         <Route path="/profile/admin" component={AdminProfile}/>
+//                         <Route path="/profile/lecturer" component={LecturerProfile}/>
+//                         <Route path="/lecturer/timetable" component={DashboardLecturer}/>
+//                         <Route path="/student/timetable" component={StudentTimeTable}/>
+//                         <Route path="/profile/student" component={StudentProfile}/>
+//                         <Route path="/profile" component={Profile}/>
+//                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
+//                         <Route path="/add" component={AddHall}/>
+//                         <Route path = "/approve/:id" component={ReserveApproval}/>
+//                     </Switch>
+//                 </Router>
+//             </div>
+//         )
+//     }
+// export default Body;
+
 import React from 'react';
 import{BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import Home from '../pages/Home'
@@ -20,8 +156,6 @@ import AddHall from "./admin/AddHall";
 import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";
-import ListSessionComponent from "./admin/ListSessionComponent";
-import ListModuleComponent from "./admin/ListModuleComponent";
 import LecturerProfile from "./lecturer/Profile";
 import DashboardLecturer from "../pages/DashboardLecturer";
 import StudentTimeTable from "./student/StudentTimeTable";
@@ -31,8 +165,6 @@ import { Profile } from './profile';
 
     const Body=()=> 
     {
-        const isLoggedin=localStorage.hasOwnProperty("auth");
-        const role=isLoggedin?JSON.parse(localStorage.getItem("auth")).user.userDetails.role:null;
         return(
             <div className="body">
                  <Router>
@@ -40,43 +172,22 @@ import { Profile } from './profile';
                         <Route exact path="/" component={Home}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/signup" component={Registration}/>
+                        <Route path="/home" component={FirstDashboard}/>
 
-                        <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
-
-                        
-                        {/* {isLoggedin&&<> */}
-                            <Route path="/profile" component={Profile}/>
-                            <Route path="/home" component={FirstDashboard}/>
-                        {/* </>} */}
-{/* {                        role==="Student"&& */}
-                            {/* <> */}
-                            <Route path="/profile/student" component={StudentProfile}/>
-                            <Route path="/student/timetable" component={StudentTimeTable}/>
-                            {/* </> */}
-{/* }                        {role==="Lecturer"&& */}
-                            {/* <> */}
-                            <Route path="/lecturer/timetable" component={DashboardLecturer}/>
-                            <Route path="/profile/lecturer" component={LecturerProfile}/>
-                            <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
-                            {/* </>} */}
-                        {/* {role==="Admin"&& */}
-                        {/* <> */}
                         <Route path="/EditTimeTable" component={Dashboard}/>
                         <Route path="/OnlineTable" component={OnlineTable}/>
-                        {/*<Route path="/admin/CRUDHalls" component={CRUDHalls}/>*/}
+                        <Route path="/admin/CRUDHalls" component={CRUDHalls}/>
                         <Route path="/AddStaffMember" component={AdminRegisterForm}/>
                         <Route path = "/users" component = {ListUserComponent}/>
-                        <Route path = "/ApprovalPendingSessions" component = {ListSessionComponent}/>
-                        <Route path = "/halls" component = {ListHallComponent}/>
-                        <Route path = "/AvailableModules" component = {ListModuleComponent}/>
-                        <Route path = "/add-hall/:id" component = {CreateHallComponent}/>
-                        <Route path = "/view-hall/:id" component = {ViewHallComponent}/>
+                        <Route path = "/halls" component = {ListHallComponent}></Route>
+                        <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
+                        <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
                         <Route path="/add" component={AddHall}/>
 
                         <Route path="/StudentTimetable" component={StudentTimeTable}/>
                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
 
-                        <Route path="/profile/admin" component={AdminProfile}/>
+                        <Route path="/admin/AdminProfile" component={AdminProfile}/>
                         <Route path="/profile/lecturer" component={LecturerProfile}/>
                         <Route path="/lecturer/timetable" component={DashboardLecturer}/>
                         <Route path="/student/timetable" component={StudentTimeTable}/>
@@ -86,9 +197,10 @@ import { Profile } from './profile';
 
 
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
-                        <Route path="/add" component={AddHall}/>
-                        <Route path = "/approve/:id" component={ReserveApproval}/>
-                        {/* </>} */}
+                   <Route path="/add" component={AddHall}/>
+                     <Route path = "/approve/:id" component={ReserveApproval}></Route>
+
+
                     </Switch>
                 </Router>
             </div>
