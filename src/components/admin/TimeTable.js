@@ -6,9 +6,10 @@ import LecTimes from "./LecTimes";
 import "../../css/Table.css"
 import SubmitReservation from "./SubmitReservation";
 import DeleteSessionModal from "./DeleteSessionModal";
+import { GetHodsAction } from '../../store/actions/MailAction';
 
 export const TimeTable = (props) => {
-    const {halls,date,getHalls,loading}=props;
+    const {halls,date,getHalls,loading,getMails}=props;
     const [tableStyle,settableStyle]=useState({
         display: "grid",
         gridTemplateColumns: "repeat(17, 1fr)",
@@ -17,9 +18,9 @@ export const TimeTable = (props) => {
         gridRowGap: "0.1em",
         marginTop: "0px"
     });
-    // useEffect(()=>{
-    //     getHalls();
-    // },[])
+    useEffect(()=>{
+        getMails();
+    },[])
     // useEffect(()=>{
     //     setStyles(halls.length);
     // },[halls])
@@ -56,6 +57,9 @@ const mapDispatchToProps =(dispatch)=> {
     return {
         getHalls:()=>{
             dispatch(GetHallsAction());
+        },
+        getMails:()=>{
+            dispatch(GetHodsAction())
         }
     }
 }

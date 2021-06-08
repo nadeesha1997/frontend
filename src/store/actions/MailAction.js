@@ -11,7 +11,10 @@ const MailActionType={
     PERMISSION_APPROVAL_SUCCESS:"PERMISSION_APPROVAL_SUCCESS",
     PERMISSION_APPROVAL_FAILED:"PERMISSION_APPROVAL_FAILED",
     PERMISSION_NOT_ACCEPTED:"PERMISSION_NOT_ACCEPTED",
-    APPROVED_SESSION:"APPROVED_SESSION"
+    APPROVED_SESSION:"APPROVED_SESSION",
+    GET_HODS_START:"GET_HODS_START",
+    GET_HODS_SUCCESS:"GET_HODS_SUCCESS",
+    GET_HODS_FAILED:"GET_HODS_FAILED"
 }
 const SetRecieverAction=(val)=>{
     return (dispatch)=>{
@@ -75,9 +78,21 @@ const PermissionCansellingAction=(history)=>{
         history.push("/home");
     }
 }
+const GetHodsAction=()=>{
+    return async (dispatch)=>{
+        dispatch({type:MailActionType.GET_HODS_START,payload:{}})
+        try {
+            const res= await axios.get('/hods')
+            dispatch({type:MailActionType.GET_HODS_SUCCESS,payload:res.data})
+        }catch (e) {
+            console.error(e);
+            dispatch({type:MailActionType.GET_SESSION_FAILED,payload:e})
+        }
+    }
+}
 // const ApproveAction=()=>{
 //     return (dispatch)=>{
 //         dispatch({type:MailActionType.APPROVED_SESSION,payload:{}});
 //     }
 // }
-export {MailActionType,SetRecieverAction,SendMailAction,GetSessionAction,SessionApproveAction,PermissionCansellingAction};
+export {MailActionType,SetRecieverAction,SendMailAction,GetSessionAction,SessionApproveAction,PermissionCansellingAction,GetHodsAction};

@@ -44,22 +44,23 @@ import { Profile } from './profile';
                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
 
                         
-                        {isLoggedin&&<>
+                        {/* {isLoggedin&&<> */}
                             <Route path="/profile" component={Profile}/>
                             <Route path="/home" component={FirstDashboard}/>
-                        </>}
-{                        role==="Student"&&
-                            <><Route path="/profile/student" component={StudentProfile}/>
+                        {/* </>} */}
+{/* {                        role==="Student"&& */}
+                            {/* <> */}
+                            <Route path="/profile/student" component={StudentProfile}/>
                             <Route path="/student/timetable" component={StudentTimeTable}/>
-                            </>
-}                        {role==="Lecturer"&&
-                            <>
+                            {/* </> */}
+{/* }                        {role==="Lecturer"&& */}
+                            {/* <> */}
                             <Route path="/lecturer/timetable" component={DashboardLecturer}/>
                             <Route path="/profile/lecturer" component={LecturerProfile}/>
                             <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
-                            </>}
-                        {role==="Admin"&&
-                        <>
+                            {/* </>} */}
+                        {/* {role==="Admin"&& */}
+                        {/* <> */}
                         <Route path="/EditTimeTable" component={Dashboard}/>
                         <Route path="/OnlineTable" component={OnlineTable}/>
                         {/*<Route path="/admin/CRUDHalls" component={CRUDHalls}/>*/}
@@ -87,7 +88,7 @@ import { Profile } from './profile';
                         <Route path="/ScheduleOnline" component={ScheduleOnline}/>
                         <Route path="/add" component={AddHall}/>
                         <Route path = "/approve/:id" component={ReserveApproval}/>
-                        </>}
+                        {/* </>} */}
                     </Switch>
                 </Router>
             </div>
