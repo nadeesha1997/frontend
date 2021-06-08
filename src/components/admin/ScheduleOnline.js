@@ -7,12 +7,12 @@ import ModalTitle from "react-bootstrap/ModalTitle";
 import '../../css/modal.css';
 import {Button, Input} from "reactstrap";
 import {connect} from "react-redux";
-import { AddOnlineSessionAction, SetDataAction ,ModelOpenAction} from '../../store/actions/OnlineSessionAction';
+import { AddOnlineSessionAction, SetDataAction ,ModelOpenAction, SetModuleAction, SetDateAction} from '../../store/actions/OnlineSessionAction';
 import { GetEnrolledModulesAction } from '../../store/actions/SelectedUserAction';
 
 
 const ScheduleOnline=(props)=>{
-    let {setdata,addSession,user,getModules,modules,baseState,open,openModal,setLink1}=props;
+    let {setdata,addSession,user,getModules,modules,baseState,open,openModal,moduleSet,online,dateSet}=props;
     useEffect(()=>{
         getModules(user.id);
     },[user]);
@@ -43,9 +43,10 @@ const ScheduleOnline=(props)=>{
                                 type="text"
                                 className="form-control"
                                 name="module"
-                                value={module}
-                                onChange={e=>{setModule(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
-                                onBlur={e=>setModule(e.target.value)}
+                                value={online.module}
+                                // onChange={e=>{setModule(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                // onBlur={e=>setModule(e.target.value)}
+                                onChange={e=>moduleSet(e.target.value)}
                             >
                                 <option value="1">Select Module</option>
                                 {mapModulesToOptions(modules)}
@@ -60,9 +61,10 @@ const ScheduleOnline=(props)=>{
                                 type="date"
                                 className="form-control"
                                 name="date"
-                                value={date}
-                                onChange={e=>{setDate(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
-                                onBlur={e=>setDate(e.target.value)}
+                                value={online.date}
+                                // onChange={e=>{setDate(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
+                                // onBlur={e=>setDate(e.target.value)}
+                                onChange={e=>dateSet(e.target.value)}
                             />
                         </div>
                         <div className="sub">
@@ -171,7 +173,8 @@ const mapStateToProps=(userState)=>{
         baseState:userState,
         loading:userState.selectedUser.enrolledModules,
         response:userState.timetable.userSessions,
-        open:userState.online.modalOpen
+        open:userState.online.modalOpen,
+        online:userState.online
     }
 };
 
@@ -189,9 +192,15 @@ const mapDispatchToProps=(dispatch)=>{
         openModal:(open)=>{
             dispatch(ModelOpenAction(open))
         },
-        // setLink1:(link)=>{
-        //     dispatch(SetLinkAction(link))
-        // }
+        moduleSet:(id)=>{
+            dispatch(SetModuleAction(id));
+        },
+        dateSet:(date)=>{
+            dispatch(SetDateAction(date))
+        },
+        sDateTimeSet:(state,time)=>{
+            dispatch()
+        }
     }
 };
 
