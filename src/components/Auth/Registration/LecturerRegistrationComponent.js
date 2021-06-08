@@ -218,4 +218,3 @@ const mapDispatchToProps=(dispatch)=>{
 }
 // export default LecturerRegisterForm;
 export default connect(mapStateToProps,mapDispatchToProps)(LecturerRegisterForm)
-

@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import axios from 'axios';
 
-axios.defaults.baseURL="https://localhost:5001/api"
-// axios.defaults.baseURL="https://lectureschedulingandanalysingplatform.azurewebsites.net/api"
+// axios.defaults.baseURL="https://localhost:5001/api"
+axios.defaults.baseURL="https://lectureschedulingandanalysingplatform1.azurewebsites.net/api"
 
 ReactDOM.render(
   <React.StrictMode>

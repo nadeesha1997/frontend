@@ -89,23 +89,24 @@ function SecondNav(props){
                                 {!auth.isLoggedin?
                                     <React.Fragment>
                                         <div>
-                                            <Button  style={{width:100,backgroundColor:'#440151',marginRight:10}}
+                                            <label className="f" style={{width:100,marginRight:20,fontSize:'20px',padding:0}}
                                                 // type='submit'
                                                      onClick={
                                                          // handleLoginButton
                                                          ()=>openLog(true)
                                                      }>
                                                 {/* <Link to="./Login"> */}
-                                                <b>LOG IN</b>
+                                                <b>Log in</b>
                                                 {/* </Link> */}
-                                            </Button>
-                                            <Button style={{width:100,backgroundColor:'#440151'}}
+                                            </label>
+                                            <label   className="e"
+                                            style={{width:100,fontSize:'20px'}}
                                                 // type='submit'
                                                     onClick={()=>openSign(true)}>
                                                 {/* <Link to="./Register/student">  */}
-                                                <b> REGISTER</b>
+                                                <b> Sign up</b>
                                                 {/* </Link> */}
-                                            </Button>
+                                            </label>
                                         </div>
                                     </React.Fragment>:
                                     <React.Fragment>

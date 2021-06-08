@@ -56,7 +56,7 @@ const StudentRegisterForm=(props)=> {
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            axios.post('https://localhost:5001/api/accounts/register/student', data)
+            axios.post('/accounts/register/student', data)
                 .then(res=>{
                     console.log(res.data);
                 });
