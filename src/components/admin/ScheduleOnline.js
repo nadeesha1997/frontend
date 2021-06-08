@@ -1,4 +1,9 @@
 import React,{useEffect, useState} from 'react';
+import DatePicker from "react-datepicker";
+import TimeField from 'react-simple-timefield';
+import moment from "moment"
+
+import "react-datepicker/dist/react-datepicker.css";
 
 import Modal from 'react-bootstrap/Modal';
 import ModalBody from "react-bootstrap/ModalBody";
@@ -7,12 +12,12 @@ import ModalTitle from "react-bootstrap/ModalTitle";
 import '../../css/modal.css';
 import {Button, Input} from "reactstrap";
 import {connect} from "react-redux";
-import { AddOnlineSessionAction, SetDataAction ,ModelOpenAction, SetModuleAction, SetDateAction} from '../../store/actions/OnlineSessionAction';
+import { AddOnlineSessionAction, SetDataAction ,ModelOpenAction, SetModuleAction, SetDateAction, SetStartTimeAction, SetEndTimeAction, SetMeetingIdAction, SetPasswordAction, SetLinkAction} from '../../store/actions/OnlineSessionAction';
 import { GetEnrolledModulesAction } from '../../store/actions/SelectedUserAction';
 
 
 const ScheduleOnline=(props)=>{
-    let {setdata,addSession,user,getModules,modules,baseState,open,openModal,moduleSet,online,dateSet}=props;
+    let {setdata,addSession,user,getModules,modules,baseState,open,openModal,moduleSet,online,dateSet,sTimeSet,eTimeSet,meetingIdSet,passwordSet,linkSet}=props;
     useEffect(()=>{
         getModules(user.id);
     },[user]);
@@ -55,7 +60,7 @@ const ScheduleOnline=(props)=>{
 
                         <div className="sub">
                             <label htmlFor="date">Date:</label>
-                            <Input
+                            {/* <Input
                                 placeholder="Date"
                                 style={{width:390}}
                                 type="date"
@@ -65,34 +70,53 @@ const ScheduleOnline=(props)=>{
                                 // onChange={e=>{setDate(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
                                 // onBlur={e=>setDate(e.target.value)}
                                 onChange={e=>dateSet(e.target.value)}
-                            />
+                            /> */}
+                            <DatePicker selected={online.date} onChange={(date) => dateSet(date)} />
                         </div>
                         <div className="sub">
                             <label htmlFor="starttime">Start Time:</label>
-                            <Input
+                            {/* <Input
                                 placeholder="Start Time"
                                 style={{width:390}}
                                 type="time"
                                 className="form-control"
                                 name="starttime"
-                                value={startTime}
-                                onChange={e=>{setstartTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
-                                onBlur={e=>setstartTime(e.target.value)}
+                                value={online.startTime}
+                                // onChange={e=>{setstartTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                // onBlur={e=>setstartTime(e.target.value)}
+                                onChange={e=>sTimeSet(e.target.value)}
+                            /> */}
+                            <TimeField style={{width:80}}
+                                value={online.startTime}                     // {String}   required, format '00:00' or '00:00:00'
+                                onChange={(event) =>sTimeSet(event.target.value)}      // {Function} required
+                                input={<input type="text" />} // {Element}  default: <input type="text" />
+                                colon=":"                        // {String}   default: ":"
+                                showSeconds={false}                      // {Boolean}  default: false
+                                name="starttime"
                             />
                         </div>
                         <div className="sub">
                             <label
 
                                 htmlFor="endtime">End Time:</label>
-                            <Input
+                            {/* <Input
                                 placeholder="End Time"
                                 style={{width:390}}
                                 type="time"
                                 className="form-control"
                                 name="endtime"
-                                value={endTime}
-                                onChange={e=>{setendTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
-                                onBlur={e=>setendTime(e.target.value)}
+                                value={online.endTime}
+                                // onChange={e=>{setendTime(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link);}}
+                                // onBlur={e=>setendTime(e.target.value)}
+                                onChange={e=>eTimeSet(e.target.value)}
+                            /> */}
+                            <TimeField style={{width:80}}
+                                value={online.endTime}                     // {String}   required, format '00:00' or '00:00:00'
+                                onChange={(event) =>eTimeSet(event.target.value)}      // {Function} required
+                                input={<input type="text" />} // {Element}  default: <input type="text" />
+                                colon=":"                        // {String}   default: ":"
+                                showSeconds={false}                      // {Boolean}  default: false
+                                name="endtime"
                             />
                         </div>
                         <div className="sub">
@@ -103,9 +127,10 @@ const ScheduleOnline=(props)=>{
                                 type="text"
                                 className="form-control"
                                 name="meetingId"
-                                value={meetingId}
-                                onChange={e=>{setMeetingId(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
-                                onBlur={e=>setMeetingId(e.target.value)}
+                                value={online.meetingId}
+                                // onChange={e=>{setMeetingId(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                // onBlur={e=>setMeetingId(e.target.value)}
+                                onChange={(e)=>meetingIdSet(e.target.value)}
 
                             />
                         </div>
@@ -117,9 +142,10 @@ const ScheduleOnline=(props)=>{
                                 type="text"
                                 className="form-control"
                                 name="password"
-                                value={password}
-                                onChange={e=>{setPassword(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
-                                onBlur={e=>setPassword(e.target.value)}
+                                value={online.password}
+                                // onChange={e=>{setPassword(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                // onBlur={e=>setPassword(e.target.value)}
+                                onChange={e=>passwordSet(e.target.value)}
 
                             />
                         </div>
@@ -131,11 +157,11 @@ const ScheduleOnline=(props)=>{
                                 type="text"
                                 className="form-control"
                                 name="link"
-                                value={link}
-                                onChange={e=>{setLink(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
-                                onBlur={e=>setLink(e.target.value)}
-                                onMouseLeave={e=>setLink(e.target.value)}
-
+                                value={online.link}
+                                // onChange={e=>{setLink(e.target.value);setdata(module,date,startTime,endTime,meetingId,password,link)}}
+                                // onBlur={e=>setLink(e.target.value)}
+                                // onMouseLeave={e=>setLink(e.target.value)}
+                                onChange={e=>linkSet(e.target.value)}
                             />
                         </div>
 
@@ -148,7 +174,7 @@ const ScheduleOnline=(props)=>{
                                 className="btn btn-primary btn-block"
                                 name="submit"
                                 onClick={()=>{
-                                    setdata(module,date,startTime,endTime,meetingId,password,link);
+                                    // setdata(module,date,startTime,endTime,meetingId,password,link);
                                     addSession(baseState);
                                     // console.log(link)
                                     console.log(baseState.online);
@@ -198,8 +224,20 @@ const mapDispatchToProps=(dispatch)=>{
         dateSet:(date)=>{
             dispatch(SetDateAction(date))
         },
-        sDateTimeSet:(state,time)=>{
-            dispatch()
+        sTimeSet:(time)=>{
+            dispatch(SetStartTimeAction(time))
+        },
+        eTimeSet:(time)=>{
+            dispatch(SetEndTimeAction(time))
+        },
+        meetingIdSet:(id)=>{
+            dispatch(SetMeetingIdAction(id))
+        },
+        passwordSet:(password)=>{
+            dispatch(SetPasswordAction(password))
+        },
+        linkSet:(link)=>{
+            dispatch(SetLinkAction(link))
         }
     }
 };

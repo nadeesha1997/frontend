@@ -1,17 +1,17 @@
 import axios from "axios";
 import moment from "moment";
 const OnlineSessionActionType={
-    SET_MODULE:"SET_MODULE",
+    SET_ONLINE_MODULE:"SET_ONLINE_MODULE",
     SET_ONLINE_DATE:"SET_ONLINE_DATE",
-    SET_START_TIME:"SET_START_TIME",
-    SET_END_TIME:"SET_END_TIME",
+    SET_ONLINE_START_TIME:"SET_ONLINE_START_TIME",
+    SET_ONLINE_END_TIME:"SET_ONLINE_END_TIME",
     SET_MEETING_ID:"SET_MEETING_ID",
     SET_PASSWORD:"SET_PASSWORD",
     SET_LINK:"SET_LINK",
     SET_DATA:"SET_DATA",
     ADD_ONLINE_SESSION_START:"ADD_ONLINE_SESSION_START",
     ADD_ONLINE_SESSION_SUCCESS:"ADD_ONLINE_SESSION_SUCCESS",
-    ADD_SESSION_FAILED:"ADD_SESSION_FAILED",
+    ADD_ONLINE_SESSION_FAILED:"ADD_ONLINE_SESSION_FAILED",
     MODEL_OPEN_CLOSE:"MODEL_OPEN_CLOSE",
     GET_DAILY_ONLINE_SESSIONS_START:"GET_DAILY_ONLINE_SESSIONS_START",
     GET_DAILY_ONLINE_SESSIONS_SUCCESS:"GET_DAILY_ONLINE_SESSIONS_SUCCESS",
@@ -24,7 +24,7 @@ const OnlineSessionActionType={
 }
 const SetModuleAction=(id)=>{
     return (dispatch)=>{
-        dispatch({type:OnlineSessionActionType.SET_MODULE,payload:id})
+        dispatch({type:OnlineSessionActionType.SET_ONLINE_MODULE,payload:id})
     }
 }
 const SetDateAction=(date)=>{
@@ -33,14 +33,14 @@ const SetDateAction=(date)=>{
         catch (e){console.error(e)}
     }
 }
-const SetStartTimeAction=(state,time)=>{
+const SetStartTimeAction=(time)=>{
     return (dispatch)=>{
-        dispatch({type:OnlineSessionActionType.SET_START_TIME,payload:new Date(time)})
+        dispatch({type:OnlineSessionActionType.SET_ONLINE_START_TIME,payload:time})
     }
 }
 const SetEndTimeAction=(time)=>{
     return (dispatch)=>{
-        dispatch({type:OnlineSessionActionType.SET_END_TIME,payload:time})
+        dispatch({type:OnlineSessionActionType.SET_ONLINE_END_TIME,payload:String(time)})
     }
 }
 const SetMeetingIdAction=(id)=>{
@@ -90,7 +90,7 @@ const AddOnlineSessionAction=(state)=>{
             dispatch({type:OnlineSessionActionType.ADD_ONLINE_SESSION_SUCCESS,payload:res});
         }catch (e){
             console.error(e);
-            dispatch({type:OnlineSessionActionType.ADD_SESSION_FAILED,payload:e})
+            dispatch({type:OnlineSessionActionType.ADD_ONLINE_SESSION_FAILED,payload:e})
         }
     }
 }
