@@ -43,15 +43,14 @@
 
 // export default OnlineTimeTable
 
-import SecondNav from "../components/SecondNav";
-import ThirdNav from "../components/ThirdNav";
+import SecondNav from "../SecondNav";
+import ThirdNav from "../ThirdNav";
 import React, { useEffect } from "react";
-import Calendar from "../components/Calendar";
+import Calendar from "../Calendar";
 import {Button} from "react-bootstrap";
 import { connect } from 'react-redux'
-import { DeleteOnlineSessionAction, GetDailySessionsAction, ModelOpenAction, setDailySessionsAction, } from "../store/actions/OnlineSessionAction";
-import ScheduleOnline from "../components/admin/ScheduleOnline"
-import {GetEnrolledModulesAction} from "../store/actions/SelectedUserAction"
+import { DeleteOnlineSessionAction, GetDailySessionsAction, ModelOpenAction, setDailySessionsAction, } from "../../store/actions/OnlineSessionAction";
+import {GetEnrolledModulesAction} from "../../store/actions/SelectedUserAction"
 import moment from "moment";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
