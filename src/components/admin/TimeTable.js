@@ -7,6 +7,7 @@ import "../../css/Table.css"
 import SubmitReservation from "./SubmitReservation";
 import DeleteSessionModal from "./DeleteSessionModal";
 import { GetHodsAction } from '../../store/actions/MailAction';
+import LoopCircleLoading from '../Loading';
 
 export const TimeTable = (props) => {
     const {halls,date,getHalls,loading,getMails}=props;
@@ -29,19 +30,23 @@ export const TimeTable = (props) => {
         settableStyle({...tableStyle,gridTemplateColumns: val})
     }
     return (
-        <>
+        <>{loading?<LoopCircleLoading/>:
+            <>
             <div>
-                <div
-                    className="grid-container"
-                    style={tableStyle}>
-                    <div className="grid-item">Time</div>
-                    <HallList/>
-                    <LecTimes/>
-                </div>
+            <div
+                className="grid-container"
+                style={tableStyle}>
+                <div className="grid-item">Time</div>
+                <HallList/>
+                <LecTimes/>
             </div>
-            <SubmitReservation/>
-            <DeleteSessionModal/>
-        </>
+        </div>
+        <SubmitReservation/>
+        <DeleteSessionModal/>
+            </>
+        }
+        
+    </>
     )
 };
 

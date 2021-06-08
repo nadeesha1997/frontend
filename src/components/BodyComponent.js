@@ -187,7 +187,7 @@ import { Profile } from './profile';
                         <Route path="/StudentTimetable" component={StudentTimeTable}/>
                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
 
-                        <Route path="/admin/AdminProfile" component={AdminProfile}/>
+                        <Route path="/profile/admin" component={AdminProfile}/>
                         <Route path="/profile/lecturer" component={LecturerProfile}/>
                         <Route path="/lecturer/timetable" component={DashboardLecturer}/>
                         <Route path="/student/timetable" component={StudentTimeTable}/>
