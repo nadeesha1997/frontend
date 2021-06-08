@@ -41,7 +41,7 @@ import { Profile } from './profile';
 
                         <Route path="/OnlineTimetable" component={OnlineTimeTable}/>
 
-                        <Route path="/admin/AdminProfile" component={AdminProfile}/>
+                        
                         {isLoggedin&&<>
                             <Route path="/profile" component={Profile}/>
                             <Route path="/home" component={FirstDashboard}/>
@@ -50,7 +50,7 @@ import { Profile } from './profile';
                             <><Route path="/profile/student" component={StudentProfile}/>
                             <Route path="/student/timetable" component={StudentTimeTable}/>
                             </>
-}                        {role==="Leturer"&&
+}                        {role==="Lecturer"&&
                             <>
                             <Route path="/lecturer/timetable" component={DashboardLecturer}/>
                             <Route path="/profile/lecturer" component={LecturerProfile}/>
@@ -67,6 +67,7 @@ import { Profile } from './profile';
                         <Route path = "/add-hall/:id" component = {CreateHallComponent}></Route>
                         <Route path = "/view-hall/:id" component = {ViewHallComponent}></Route>
                         <Route path="/add" component={AddHall}/>
+                        <Route path="/admin/AdminProfile" component={AdminProfile}/>
                         </>
                         }
 
