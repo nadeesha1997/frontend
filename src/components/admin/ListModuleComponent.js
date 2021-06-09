@@ -14,12 +14,16 @@ class ListModuleComponent extends Component {
 
         }
         this.deleteSubject = this.deleteSubject.bind(this);
+        this.addSubject = this.addSubject.bind(this);
     }
 
     deleteSubject(id){
         SubjectService.deleteSubject(id).then( res => {
             this.setState({subjects: this.state.subjects.filter(subject => subject.id !== id)});
         });
+    }
+    addSubject(){
+        this.props.history.push('/add-subject/_add');
     }
 
 

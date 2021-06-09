@@ -16,7 +16,9 @@ import ReserveApproval from "../pages/ReserveApproval";
 
 import StudentProfile from "./student/StudentProfile";
 import ScheduleOnline from "./admin/ScheduleOnline";
+
 import AddHall from "./admin/AddHall";
+
 import AdminRegisterForm from "./Auth/Registration/AdminRegistrationComponent";
 import AdminProfile from "./admin/AdminProfile";
 import ListUserComponent from "./admin/ListUserComponent";

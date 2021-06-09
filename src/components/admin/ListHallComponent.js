@@ -135,7 +135,7 @@ class ListHallComponent extends Component {
                 <ThirdNav/>
                 <h2 className="text-center">Halls List</h2>
                 <div className = "row">
-                    <Link to="/add-hall/_add"  className="btn btn-secondary" style={{marginLeft: "50px"}}>{"Add Hall"}</Link>
+                    <Link to="/add-hall/_add" className="btn btn-secondary" style={{marginLeft: "50px" }}>{"Add Hall"}</Link>
                         <Link to="/home"  className="btn btn-primary" style={{marginLeft: "10px"}}>{"View Hall details"}</Link>
                 </div>
                 <br></br>

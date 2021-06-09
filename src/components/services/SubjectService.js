@@ -11,6 +11,10 @@ class SubjectService {
     deleteSubject(subjectId){
         return axios.delete(SUBJECT_API_BASE_URL + '/' + subjectId);
     }
+    createSubject(subject){
+        return axios.post(SUBJECT_API_BASE_URL, subject);
+    }
+
 }
 
 export default new SubjectService()
