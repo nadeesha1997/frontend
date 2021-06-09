@@ -21,6 +21,7 @@ const LecturerRegisterAuthAction=(userState,history)=>{
             const res= await axios.post("/accounts/register/lecturer",userState.data);
             // const {data}=res;
             dispatch({type:AuthActionType.REGISTER_LECTURER_SUCCESS,payload:res});
+            // axios.defaults.headers.common["Authorization"]="Bearer"+res.data.;
             // console.log(res);
             history.push("/");
         }catch(error){
@@ -71,8 +72,8 @@ const LoginAuthAction=(loginState,history)=>{
     return async (dispatch)=>{
         try{
             const res= await axios.post("/accounts/login",loginState);
-            const {data}=res;
-            dispatch({type:AuthActionType.LOGIN_SUCCESSFULL,payload:data})
+            // const {data}=res;
+            dispatch({type:AuthActionType.LOGIN_SUCCESSFULL,payload:res})
             history.push("/home");
             window.location.reload();
         }catch(error){
@@ -89,6 +90,11 @@ const LogoutAuthAction=(history)=>{
             window.location.reload();
         }catch(error){
             console.error(error);
+            /*
+            if (err.response.status === 401) {
+      dispatch(loginFailure(err));
+    }
+            */
             dispatch({type:AuthActionType.LOGOUT_FAIL,payload:{}});
             history.push("/");
             window.location.reload();
