@@ -83,23 +83,23 @@ export const OnlineTimeTable = (props) => {
                     <div className="main">
                         <table><td><tr>
                             <Calendar/></tr>
-                            <tr>
+                        {/*    <tr>
                                 <Button style={{width:180,backgroundColor:'#440151',marginTop:50,marginLeft:90,marginRight:20,marginBottom:150}}
                                     // type='submit'
                                         onClick={()=>openModal(true)}
                                 >
 
-                                    {/* <Link to="./Register/student">  */}
+                                     <Link to="./Register/student">
                                     <b> Schedule a Online Lecture</b>
-                                    {/* </Link> */}
-                                </Button></tr></td>
+                                     </Link>
+                                </Button></tr>*/}</td>
                            <td>
 
                                <h3 style={{marginLeft:-190}}>Your scheduled Online Lectures...</h3>
                                <br/>
                                <div style={{marginLeft:30}}>
 
-                                   <table className = "table table-striped table-bordered" style={{width:"190%"}}>
+                                   <table className = "table table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th> Time Period</th>
@@ -142,7 +142,7 @@ const dailySesionsList=(sessions,deleteFunc)=>{
                     {/* <button onClick={navigator.clipboard.writeText(sess.link)}>copy</button> */}
                     <CopyToClipboard text={sess.link}><span>Copy</span></CopyToClipboard>
                 </td>
-                <td><button onClick={()=>deleteFunc(sess.id)}>Delete</button></td>
+                {/*<td><button onClick={()=>deleteFunc(sess.id)}>Delete</button></td>*/}
             </tr>
             </>
         )

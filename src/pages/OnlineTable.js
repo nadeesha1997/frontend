@@ -55,7 +55,7 @@ export const OnlineTable = (props) => {
                                <br/>
                                <div style={{marginLeft:30}}>
 
-                                   <table className = "table table-striped table-bordered" style={{width:"190%"}}>
+                                   <table className = "table table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th> Time Period</th>
@@ -98,7 +98,9 @@ const dailySesionsList=(sessions,deleteFunc)=>{
                     {/* <button onClick={navigator.clipboard.writeText(sess.link)}>copy</button> */}
                     <CopyToClipboard text={sess.link}><span>Copy</span></CopyToClipboard>
                 </td>
-                <td><button onClick={()=>deleteFunc(sess.id)}>Delete</button></td>
+                <td><button
+                    className="btn btn-primary btn-block" style={{width:100,backgroundColor:'#7f1570'}}
+                    onClick={()=>deleteFunc(sess.id)}>Delete</button></td>
             </tr>
             </>
         )
