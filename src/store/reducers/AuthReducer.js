@@ -22,7 +22,8 @@ const authState={
     // user:null,
     loginModelOpen:false,
     signupModalOpen:false,
-    error:[]
+    error:{},
+    res:{}
 };
 const getAuthState=()=>{
     const auth=localStorage.getItem("auth");
@@ -50,9 +51,10 @@ const authReducer=(state=newAuth,action)=>{
         case AuthActionType.LOGIN_SUCCESSFULL:
             const newAuthState1={
                 user:action.payload,
-                isLoggedin:true
+                isLoggedin:true,
+                // res:action.payload
             }
-            console.log(action.payload);
+            // console.log(action.payload);
             axios.defaults.headers.common["Authorization"]='Bearer'+action.payload.accessToken;
             localStorage.setItem("auth",JSON.stringify(newAuthState1));
             return newAuthState1;
