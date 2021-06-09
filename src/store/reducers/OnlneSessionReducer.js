@@ -2,8 +2,8 @@ import {OnlineSessionActionType} from "../actions/OnlineSessionAction"
 const initState={
     module:0,
     date:new Date(),
-    startTime:new Date(),
-    endTime:new Date(),
+    startTime:'00:00',
+    endTime:'00:00',
     meetingId:"",
     password:"",
     link:"",
@@ -32,7 +32,7 @@ const OnlineSessionReducer=(state=initState,action)=>{
             return {...state,loading:true};
         case OnlineSessionActionType.ADD_ONLINE_SESSION_SUCCESS:
             return {...state,successMessage:action.payload,loading:false}
-        case OnlineSessionActionType.ADD_SESSION_FAILED:
+        case OnlineSessionActionType.ADD_ONLINE_SESSION_FAILED:
             return{...state,error:action.payload,loading:false}
         case OnlineSessionActionType.MODEL_OPEN_CLOSE:
             return {...state,modalOpen:action.payload}
@@ -52,20 +52,20 @@ const OnlineSessionReducer=(state=initState,action)=>{
             return {...state,loading:false,successMessage:action.payload}
         case OnlineSessionActionType.ONLINE_SESSION_DALETE_FAILED:
             return {...state,loading:false,error:action.payload}
-        // case OnlineSessionActionType.SET_MODULE:
-        //     return{...state,module:action.payload}
-        // case OnlineSessionActionType.SET_DATE:
-        //     return{...state,date:action.payload}
-        // case OnlineSessionActionType.SET_START_TIME:
-        //     return{...state,startTime:action.payload}
-        // case OnlineSessionActionType.SET_END_TIME:
-        //     return{...state,date:action.payload}
-        // case OnlineSessionActionType.SET_MEETING_ID:
-        //     return{...state,date:action.payload}
-        // case OnlineSessionActionType.SET_PASSWORD:
-        //     return{...state,date:action.payload}
-        // case OnlineSessionActionType.SET_LINK:
-        //     return{...state,date:action.payload}
+        case OnlineSessionActionType.SET_ONLINE_MODULE:
+            return{...state,module:action.payload}
+        case OnlineSessionActionType.SET_ONLINE_DATE:
+            return{...state,date:action.payload}
+        case OnlineSessionActionType.SET_ONLINE_START_TIME:
+            return{...state,startTime:action.payload}
+        case OnlineSessionActionType.SET_ONLINE_END_TIME:
+            return{...state,endTime:action.payload}
+        case OnlineSessionActionType.SET_MEETING_ID:
+            return{...state,meetingId:action.payload}
+        case OnlineSessionActionType.SET_PASSWORD:
+            return{...state,password:action.payload}
+        case OnlineSessionActionType.SET_LINK:
+            return{...state,link:action.payload}
         default:
             return state;
     }

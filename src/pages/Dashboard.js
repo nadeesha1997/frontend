@@ -12,7 +12,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Calendar from "../components/Calendar";
-import {GetHallsAction} from "../store/actions/TimeTableAction"
+import {GetHallsAction} from "../store/actions/TimeTableAction";
+import {GetHodsAction} from "../store/actions/MailAction"
 import {TimeTable} from "../components/admin/TimeTable";
 import SubjectList from "../components/admin/SubjectList";
 import '../css/Dashboard.css';
@@ -21,9 +22,9 @@ import ThirdNav from "../components/ThirdNav";
 
 
 export const Dashboard = (props) => {
-    const {getHalls}=props;
+    const {getHalls,getMails}=props;
     // useEffect(()=>getHalls())
-    useEffect(()=>getHalls(),[])
+    useEffect(()=>{getHalls()},[])
     return (
         <>
             <div>
@@ -56,7 +57,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        getHalls:()=>dispatch(GetHallsAction())
+        getHalls:()=>{dispatch(GetHallsAction())},
+        getMails:()=>{dispatch(GetHodsAction())}
     }
 }
 

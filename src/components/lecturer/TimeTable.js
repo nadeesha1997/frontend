@@ -7,6 +7,7 @@ import "../../css/Table.css"
 import SubmitReservation from "../admin/SubmitReservation";
 import DeleteSessionModal from "../admin/DeleteSessionModal";
 import { GetHodsAction } from '../../store/actions/MailAction';
+import LoopCircleLoading from '../Loading';
 
 export const TimeTableLecturer = (props) => {
     const {halls,date,getHalls,loading,getMails}=props;
@@ -30,6 +31,9 @@ export const TimeTableLecturer = (props) => {
     }
     return (
         <>
+        {loading?<LoopCircleLoading/>:
+        <>
+        <>
             <div>
                 <div
                     className="grid-container"
@@ -41,6 +45,9 @@ export const TimeTableLecturer = (props) => {
             </div>
             <SubmitReservation/>
             <DeleteSessionModal/>
+        </>
+        </>
+        }
         </>
     )
 };

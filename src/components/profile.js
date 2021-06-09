@@ -4,7 +4,7 @@ import { Redirect, useHistory } from 'react-router';
 
 export const Profile = (props) => {
     // const {role}=props;
-    let role =JSON.parse(localStorage.getItem("auth")).user.userDetails.role;
+    let role =JSON.parse(localStorage.getItem("auth")).user.role[0];
     const Roles={
         Admin:"Admin",
         Student:"Student",

@@ -147,11 +147,11 @@ const Login=(props)=>{
                         {/*    <Link to="/Reset/ResetPassword"> Forgot password?  </Link>*/}
                         {/*</Link>*/}
 
-                        <p> Forgot password?
+                        {/* <p> Forgot password?
                             <Link to="/Reset/ResetPassword">
                               <b > {"  Reset"}</b>
                             </Link>
-                        </p>
+                        </p> */}
                         {/*<p> Don't have an account?*/}
                         {/*    <Link to="/lecturer">*/}
                         {/*        {"  Register Here"}*/}

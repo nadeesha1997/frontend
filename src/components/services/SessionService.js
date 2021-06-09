@@ -29,16 +29,16 @@
 
 import axios from 'axios';
 
-const SESSION_API_BASE_URL = "https://localhost:5001/api/sessions/permitted/no";
+// const SESSION_API_BASE_URL = "https://localhost:5001/api/sessions/permitted/no";
 
 class SessionService {
 
     getSessions(){
-        return axios.get(SESSION_API_BASE_URL);
+        return axios.get("/sessions/permitted/no");
     }
 
     deleteSession(sessionId){
-        return axios.delete(SESSION_API_BASE_URL + '/' + sessionId);
+        return axios.delete('/sessions/' + sessionId);
     }
 }
 
