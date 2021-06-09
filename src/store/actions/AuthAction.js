@@ -19,13 +19,13 @@ const LecturerRegisterAuthAction=(userState,history)=>{
     return async (dispatch)=>{
         try{
             const res= await axios.post("/accounts/register/lecturer",userState.data);
-            const {data}=res;
-            dispatch({type:AuthActionType.REGISTER_LECTURER_SUCCESS,payload:data});
+            // const {data}=res;
+            dispatch({type:AuthActionType.REGISTER_LECTURER_SUCCESS,payload:res});
             // console.log(res);
             history.push("/");
         }catch(error){
             console.error(error);
-            dispatch({type:AuthActionType.REGISTER_FAILED,payload:{error}})
+            dispatch({type:AuthActionType.REGISTER_FAILED,payload:error})
         }
     };
     // console.log(userState);

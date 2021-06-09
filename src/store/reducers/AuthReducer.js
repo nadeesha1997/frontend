@@ -18,11 +18,12 @@ import { AuthActionType } from "../actions/AuthAction";
 const authState={
     isLoggedin:localStorage.hasOwnProperty("auth"),
     user:localStorage.hasOwnProperty("auth")?JSON.parse(localStorage.getItem("auth")).user:null,
-    role:localStorage.hasOwnProperty("auth")?JSON.parse(localStorage.getItem("auth")).user.role[0]:null,
+    // role:localStorage.hasOwnProperty("auth")?JSON.parse(localStorage.getItem("auth")).user.role[0]:null,
     // user:null,
     loginModelOpen:false,
     signupModalOpen:false,
-    error:[]
+    error:{},
+    res:{}
 };
 const getAuthState=()=>{
     const auth=localStorage.getItem("auth");
@@ -49,10 +50,11 @@ const authReducer=(state=newAuth,action)=>{
             return newAuthState;
         case AuthActionType.LOGIN_SUCCESSFULL:
             const newAuthState1={
-                user:action.payload,
-                isLoggedin:true
+                user:action.payload.data,
+                isLoggedin:true,
+                res:action.payload
             }
-            console.log(action.payload);
+            // console.log(action.payload);
             axios.defaults.headers.common["Authorization"]='Bearer'+action.payload.accessToken;
             localStorage.setItem("auth",JSON.stringify(newAuthState1));
             return newAuthState1;

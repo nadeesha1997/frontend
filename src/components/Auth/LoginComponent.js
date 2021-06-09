@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 // import {Redirect} from 'react-router-dom';
 
 import { Link, useHistory } from "react-router-dom";
@@ -12,7 +12,7 @@ import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
-
+import Alert from 'react-bootstrap/Alert'
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 // import Button from 'react-bootstrap/Button';
@@ -38,9 +38,11 @@ const Login=(props)=>{
     const [password, setpassword] = useState("");
     const [loading, setloading] = useState(false);
     const [message, setmessage] = useState("");
+    const [success, setSuccess] = useState(false);
+    const [fail, setfail] = useState(false)
 
     const history=useHistory();
-    const {login,isopen,closeModal,openSign}=props;
+    const {login,isopen,closeModal,openSign,err,res}=props;
 
     const handleEmail=e=>setemail(e.target.value);
     const handlePassword=e=>setpassword(e.target.value);
@@ -49,8 +51,30 @@ const Login=(props)=>{
         setmessage("");
         setloading(true);
         login({email,password},history);
-        setloading(false);
+        // setloading(false);
     }
+    // useEffect(()=>{
+    //     setloading(false);
+    //     if(res.status!==401||res.status!==403){
+    //         // setSuccess(true);
+    //         // setloading(false);
+    //         // closeModal(false);
+    //         setfail(false);
+    //     }
+    //     let s=(err.response &&
+    //     err.response.data &&
+    //     err.response.data.message) ||
+    // err.message ||
+    // err.toString();
+    // setmessage(s);
+    //     // if(res.code===401){
+    //     //     setSuccess(false);
+    //     //     setloading(false);
+    //     //     closeModal(false);
+    //     //     setfail(true);
+    //     // }
+    //     // console.log(res)
+    // },[err,res])
 
     // const {isLoggedIn,messages}=props;
     // if(isLoggedIn){
@@ -94,6 +118,9 @@ const Login=(props)=>{
                 {/*<div className="p1">*/}
                 {/*    <h5><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h5>*/}
                 {/*</div>*/}
+                {loading&&<Alert key={1} variant="warning">Waiting ...</Alert> }
+                {success&&<Alert key={2} variant="success">Login success</Alert>}
+                {fail&&<Alert key={2} variant="success">Try again</Alert>}
 
             <div className="page1">
 
@@ -206,7 +233,9 @@ const Login=(props)=>{
 const mapStateToProps=(userState)=>{
     return {
         auth:userState,
-        isopen:userState.auth.loginModelOpen
+        isopen:userState.auth.loginModelOpen,
+        err:userState.auth.error,
+        res:userState.auth.res
     }
 }
 const mapDispatchToProps=(dispatch)=>{
