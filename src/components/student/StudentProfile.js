@@ -5,6 +5,7 @@ import '../../css/Nav.css';
 import '../../css/Profile.css'
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+import LoopCircleLoading from "../Loading";
 
 import ThirdNav from "../ThirdNav";
 import {
@@ -56,6 +57,10 @@ function StudentProfile(props) {
 
     return (
 
+        <>
+        {loading?
+        < LoopCircleLoading/>:
+        <>
         <div> <ThirdNav/>
             <br/>
             <div className="page5">
@@ -73,9 +78,10 @@ function StudentProfile(props) {
                             <div className="profile-img">
                                 <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt="" width="100"/>
 
-                                <input type="file" name="file" id="exampleFile" style={{width:"100%"} } accept="image/*" className="form-control-file"
-                                       onChange="showPreview"/>
+                                {/* <input type="file" name="file" id="exampleFile" style={{width:"100%"} } accept="image/*" className="form-control-file"
+                                       onChange="showPreview"/> */}
                             </div>
+                            <br/><br/>
                         </div>
                         <div className="col-md-4 col"></div>
                     </div>
@@ -136,6 +142,9 @@ function StudentProfile(props) {
                 </div>
             </div></div>
             </div></div>
+        </>    
+    }
+        </>
         // <h6>
         //     {auth.user.userDetails.role}
         //

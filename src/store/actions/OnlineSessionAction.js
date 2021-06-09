@@ -1,17 +1,17 @@
 import axios from "axios";
 import moment from "moment";
 const OnlineSessionActionType={
-    // SET_MODULE:"SET_MODULE",
-    // SET_DATE:"SET_DATE",
-    // SET_START_TIME:"SET_START_TIME",
-    // SET_END_TIME:"SET_END_TIME",
-    // SET_MEETING_ID:"SET_MEETING_ID",
-    // SET_PASSWORD:"SET_PASSWORD",
-    // SET_LINK:"SET_LINK",
+    SET_ONLINE_MODULE:"SET_ONLINE_MODULE",
+    SET_ONLINE_DATE:"SET_ONLINE_DATE",
+    SET_ONLINE_START_TIME:"SET_ONLINE_START_TIME",
+    SET_ONLINE_END_TIME:"SET_ONLINE_END_TIME",
+    SET_MEETING_ID:"SET_MEETING_ID",
+    SET_PASSWORD:"SET_PASSWORD",
+    SET_LINK:"SET_LINK",
     SET_DATA:"SET_DATA",
     ADD_ONLINE_SESSION_START:"ADD_ONLINE_SESSION_START",
     ADD_ONLINE_SESSION_SUCCESS:"ADD_ONLINE_SESSION_SUCCESS",
-    ADD_SESSION_FAILED:"ADD_SESSION_FAILED",
+    ADD_ONLINE_SESSION_FAILED:"ADD_ONLINE_SESSION_FAILED",
     MODEL_OPEN_CLOSE:"MODEL_OPEN_CLOSE",
     GET_DAILY_ONLINE_SESSIONS_START:"GET_DAILY_ONLINE_SESSIONS_START",
     GET_DAILY_ONLINE_SESSIONS_SUCCESS:"GET_DAILY_ONLINE_SESSIONS_SUCCESS",
@@ -22,41 +22,42 @@ const OnlineSessionActionType={
     ONLINE_SESSION_DALETE_SUCCESS:"ONLINE_SESSION_DALETE_SUCCESS",
     ONLINE_SESSION_DALETE_FAILED:"ONLINE_SESSION_DALETE_FAILED"
 }
-// const SetModuleAction=(id)=>{
-//     return (dispatch)=>{
-//         dispatch({type:OnlineSessionActionType.SET_MODULE,payload:id})
-//     }
-// }
-// const SetDateAction=(date)=>{
-//     return (dispatch)=>{
-//         dispatch({type:OnlineSessionActionType.SET_DATE,payload:date})
-//     }
-// }
-// const SetStartTimeAction=(time)=>{
-//     return (dispatch)=>{
-//         dispatch({type:OnlineSessionActionType.SET_START_TIME,payload:time})
-//     }
-// }
-// const SetEndTimeAction=(time)=>{
-//     return (dispatch)=>{
-//         dispatch({type:OnlineSessionActionType.SET_END_TIME,payload:time})
-//     }
-// }
-// const SetMeetingIdAction=(id)=>{
-//     return (dispatch)=>{
-//         dispatch({type:OnlineSessionActionType.SET_MEETING_ID,payload:id})
-//     }
-// }
-// const SetPasswordAction=(password)=>{
-//     return (dispatch)=>{
-//         dispatch({type:OnlineSessionActionType.SET_PASSWORD,payload:password})
-//     }
-// }
-// const SetLinkAction=(link)=>{
-//     return (dispatch)=>{
-//         dispatch({type:OnlineSessionActionType.SET_LINK,payload:link})
-//     }
-// }
+const SetModuleAction=(id)=>{
+    return (dispatch)=>{
+        dispatch({type:OnlineSessionActionType.SET_ONLINE_MODULE,payload:id})
+    }
+}
+const SetDateAction=(date)=>{
+    return (dispatch)=>{
+        try{dispatch({type:OnlineSessionActionType.SET_ONLINE_DATE,payload:new Date(date)})}
+        catch (e){console.error(e)}
+    }
+}
+const SetStartTimeAction=(time)=>{
+    return (dispatch)=>{
+        dispatch({type:OnlineSessionActionType.SET_ONLINE_START_TIME,payload:time})
+    }
+}
+const SetEndTimeAction=(time)=>{
+    return (dispatch)=>{
+        dispatch({type:OnlineSessionActionType.SET_ONLINE_END_TIME,payload:String(time)})
+    }
+}
+const SetMeetingIdAction=(id)=>{
+    return (dispatch)=>{
+        dispatch({type:OnlineSessionActionType.SET_MEETING_ID,payload:id})
+    }
+}
+const SetPasswordAction=(password)=>{
+    return (dispatch)=>{
+        dispatch({type:OnlineSessionActionType.SET_PASSWORD,payload:password})
+    }
+}
+const SetLinkAction=(link)=>{
+    return (dispatch)=>{
+        dispatch({type:OnlineSessionActionType.SET_LINK,payload:link})
+    }
+}
 const SetDataAction=(module,date,sTime,eTime,meetingId,password,link)=>{
     let data={
         module:module,
@@ -89,7 +90,7 @@ const AddOnlineSessionAction=(state)=>{
             dispatch({type:OnlineSessionActionType.ADD_ONLINE_SESSION_SUCCESS,payload:res});
         }catch (e){
             console.error(e);
-            dispatch({type:OnlineSessionActionType.ADD_SESSION_FAILED,payload:e})
+            dispatch({type:OnlineSessionActionType.ADD_ONLINE_SESSION_FAILED,payload:e})
         }
     }
 }
@@ -138,4 +139,4 @@ const DeleteOnlineSessionAction=(id)=>{
         }
     }
 }
-export {OnlineSessionActionType,SetDataAction,AddOnlineSessionAction,ModelOpenAction,GetDailySessionsAction,setDailySessionsAction,DeleteOnlineSessionAction}
+export {OnlineSessionActionType,SetDataAction,AddOnlineSessionAction,ModelOpenAction,GetDailySessionsAction,setDailySessionsAction,DeleteOnlineSessionAction,SetModuleAction,SetDateAction,SetStartTimeAction,SetEndTimeAction,SetMeetingIdAction,SetPasswordAction,SetLinkAction}

@@ -18,6 +18,7 @@ import {
     GetDepartmentModulesLecturerAction,
     GetDepartmentAction
 } from "../../store/actions/SelectedUserAction";
+import LoopCircleLoading from '../Loading';
 function LecturerProfile(props) {
     const {successMessage,
         selectedUserState,
@@ -50,87 +51,93 @@ function LecturerProfile(props) {
 
     return (
 
-        <div> <ThirdNav/>
+        <>{loading?<LoopCircleLoading/>:
+            <>
+            <div> <ThirdNav/>
 
-            <br/>
-            <div className="page5 ">
-                <div className="contain5">
+<br/>
+<div className="page5 ">
+    <div className="contain5">
 
 
-                <div className="wrapper5">
-                    <div className="contacts5">
-                        <h3>Your Profile</h3>
-                        {/*<div style={col} />*/}
-                        <div className="row">
-                            <div className="col-md-4 col"></div>
-                            <div className="col-md-4 col">
+    <div className="wrapper5">
+        <div className="contacts5">
+            <h3>Your Profile</h3>
+            {/*<div style={col} />*/}
+            <div className="row">
+                <div className="col-md-4 col"></div>
+                <div className="col-md-4 col">
 
-                                <div className="profile-img">
-                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt="" width="100"/>
+                    <div className="profile-img">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt="" width="100"/>
 
-                                    <input type="file" name="file" id="exampleFile" style={{width:"100%"} } accept="image/*" className="form-control-file"
-                                           onChange="showPreview"/>
-                                </div>
-                            </div>
-                            <div className="col-md-4 col"></div>
-                        </div>
-
-                        <Table className="table5 table5-borderless StudentDetails">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Full Name
-                                </td>
-                                <td>
-                                    { user.fullName}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Register Number
-                                </td>
-                                <td>
-                                    {user.regNo}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    User Email
-                                </td>
-                                <td>
-                                    {user.email}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Department
-                                </td>
-                                <td>
-                                    {selectedUserState.department.name}
-                                </td>
-                            </tr>
-                            {/*<tr>*/}
-                            {/*    <td>*/}
-                            {/*        Semester*/}
-                            {/*    </td>*/}
-                            {/*    <td>*/}
-                            {/*        {user.semester}*/}
-                            {/*    </td>*/}
-                            {/*</tr>*/}
-                        </Table>
-                    </div>
-                    <hr/>
-                    <div className="module">
-                        <h3> Please Enroll your subjects...</h3>
-
-                        {enrolledModuleList(enrolledModules,unEnroll)}
-                        {enrollableModuleList(user,enrollableModules,enroll)}
+                        {/* <input type="file" name="file" id="exampleFile" style={{width:"100%"} } accept="image/*" className="form-control-file"
+                               onChange="showPreview"/> */}
+                               <br/><br/>
                     </div>
                 </div>
-                </div></div></div>
+                <div className="col-md-4 col"></div>
+            </div>
+
+            <Table className="table5 table5-borderless StudentDetails">
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        Full Name
+                    </td>
+                    <td>
+                        { user.fullName}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Register Number
+                    </td>
+                    <td>
+                        {user.regNo}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        User Email
+                    </td>
+                    <td>
+                        {user.email}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Department
+                    </td>
+                    <td>
+                        {selectedUserState.department.name}
+                    </td>
+                </tr>
+                {/*<tr>*/}
+                {/*    <td>*/}
+                {/*        Semester*/}
+                {/*    </td>*/}
+                {/*    <td>*/}
+                {/*        {user.semester}*/}
+                {/*    </td>*/}
+                {/*</tr>*/}
+            </Table>
+        </div>
+        <hr/>
+        <div className="module">
+            <h3> Please Enroll your subjects...</h3>
+
+            {enrolledModuleList(enrolledModules,unEnroll)}
+            {enrollableModuleList(user,enrollableModules,enroll)}
+        </div>
+    </div>
+    </div></div></div>
+            </>
+        }
+        </>
         // <h6>
         //     {auth.user.userDetails.role}
         //
