@@ -75,7 +75,7 @@ function SubmitReservation(props) {
             let val=moment(time+5.5*60*60).utcOffset(330).format("YYYY-MM-DD");
             return val;
         }
-        const mailDate={
+        const mailData={
             ToEmail:mailState.reciever,
             Hall:sessionsState.hall.name,
             Stime:convertToLocalTime(sessionsState.StartDateTime),
@@ -84,7 +84,7 @@ function SubmitReservation(props) {
             SessionId:"https://lsmsuor.azurewebsites.net/approve/"+mailRes.id.toString()
         }
         if(mailRes.id!=0&&permitted==false){
-            sendMail(mailDate);
+            sendMail(mailData);
         }
     }
     return(<>

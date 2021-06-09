@@ -40,7 +40,7 @@ const mailReducer=(state=initMailState,action)=>{
         case MailActionType.GET_HODS_START:
             return {...state,loading:true}
         case MailActionType.GET_HODS_SUCCESS:
-            return {...state,loading:false,elecHodEmail:action.payload[0].electricalMail,civilHodEmail:action.payload[0].civilMail,mechHodEmail:action.payload[0].mechanicalMail,arEmail:action.payload[0].ArMail,adminEmail:action.payload[0].AdminMail}
+            return {...state,loading:false,elecHodEmail:action.payload[0].electricalMail,civilHodEmail:action.payload[0].civilMail,mechHodEmail:action.payload[0].mechanicalMail,arEmail:action.payload[0].arMail,adminEmail:action.payload[0].adminMail}
         case MailActionType.GET_HODS_FAILED:
             return {...state,loading:false,errorMessage:action.payload}
         default:

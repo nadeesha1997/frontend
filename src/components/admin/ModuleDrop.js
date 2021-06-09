@@ -12,6 +12,7 @@ import {
 import {GetDailyModulesAction} from "../../store/actions/DailyModuleAction";
 import SubmitReservation from "./SubmitReservation";
 import DeleteSessionModal from "./DeleteSessionModal";
+import LoopCircleLoading from "../Loading";
 function ModuleDrop(props) {
     let {hallid,startTime,EndTime}=props;
     let moduleDropState=useSelector(state=> state)
@@ -122,7 +123,11 @@ function ModuleDrop(props) {
         }
     };
 
-    return(<>
+    return(
+        <>
+        {moduleDropState.moduleDrop.loading?
+        <LoopCircleLoading/>:
+        <>
         <div
             className="grid-item1"
             style={{width:"100%",height:"100%"}}
@@ -135,6 +140,9 @@ function ModuleDrop(props) {
             {/*{reserved&&!permitted&&module.subject.code?<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{module.subject.code}</p></div>:null}*/}
             {renderDiv()}
         </div>
-    </>);
+    </>
+        }
+        </>
+    );
 }
 export default ModuleDrop;

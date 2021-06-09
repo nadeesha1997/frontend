@@ -94,7 +94,7 @@ const StudentRegisterForm=(props)=> {
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="FullName">Full Name : </Label>
+                                <Label for="FullName">Name with Initials : </Label>
                                 <Input
                                     style={{width:350}}
                                     value={data.FullName}

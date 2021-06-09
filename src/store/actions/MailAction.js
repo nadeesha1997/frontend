@@ -82,7 +82,7 @@ const GetHodsAction=()=>{
     return async (dispatch)=>{
         dispatch({type:MailActionType.GET_HODS_START,payload:{}})
         try {
-            const res= await axios.get('/hods')
+            const res= await axios.get('/hod')
             dispatch({type:MailActionType.GET_HODS_SUCCESS,payload:res.data})
         }catch (e) {
             console.error(e);
