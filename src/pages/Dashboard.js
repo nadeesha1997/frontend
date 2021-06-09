@@ -23,7 +23,7 @@ import ThirdNav from "../components/ThirdNav";
 
 export const Dashboard = (props) => {
     const {getHalls,getMails}=props;
-    // useEffect(()=>getHalls())
+    useEffect(()=>getMails(),[]);
     useEffect(()=>{getHalls()},[])
     return (
         <>

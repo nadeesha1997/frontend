@@ -13,6 +13,7 @@ import {GetDailyModulesAction} from "../../store/actions/DailyModuleAction";
 import SubmitReservation from "./SubmitReservation";
 import DeleteSessionModal from "./DeleteSessionModal";
 import LoopCircleLoading from "../Loading";
+import { GetHodsAction } from "../../store/actions/MailAction";
 function ModuleDrop(props) {
     let {hallid,startTime,EndTime}=props;
     let moduleDropState=useSelector(state=> state)
@@ -42,8 +43,8 @@ function ModuleDrop(props) {
         renderDiv()
     },[module]);
     // useEffect(()=>{
-    //     dispatch(GetDailyModulesAction(moduleDropState.module.date))
-    // },[moduleDropState.moduleDrop.successMessage]);
+    //     dispatch(GetHodsAction())
+    // },[]);
     const startTimeSet=()=>{
         let date=moment(moduleDropState.module.date).format('YYYY-MM-DD') + "T" + startTime
         setstartDatetime(new Date(date));

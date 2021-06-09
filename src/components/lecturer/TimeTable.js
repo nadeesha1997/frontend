@@ -21,12 +21,14 @@ export const TimeTableLecturer = (props) => {
     });
     useEffect(()=>{
         getMails();
-    },[])
-    // useEffect(()=>{
-    //     setStyles(halls.length);
-    // },[halls])
+    },[]);
+    useEffect(()=>getHalls(),[]);
+    useEffect(()=>{
+        setStyles(halls.length);
+    },[halls])
     const setStyles=(length)=>{
-        let val="repeat("+length+1+", 1fr)";
+        let newLength=length+1;
+        let val="repeat("+newLength+", 1fr)";
         settableStyle({...tableStyle,gridTemplateColumns: val})
     }
     return (
