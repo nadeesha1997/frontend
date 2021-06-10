@@ -16,7 +16,8 @@ function SubjectList(props) {
         ev.dataTransfer.setData("id",id);
         console.log(ev);
     }
-    let modules = subjectList.subjects&&subjectList.subjects.map((mod) => {
+    let list=[...subjectList.subjects]
+    let modules = list.map((mod) => {
         return (
             <ul>
                 <div key={mod.id}
