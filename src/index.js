@@ -9,6 +9,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL="https://localhost:5001/api"
 // axios.defaults.baseURL="https://lsmsuor.azurewebsites.net/api"
+// axios.defaults.baseURL="https://lsmsfoe.azurewebsites.net/api"
+
 
 ReactDOM.render(
   <React.StrictMode>
