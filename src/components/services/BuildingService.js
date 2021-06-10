@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const HALL_API_BASE_URL = "https://localhost:5001/api/buildings";
+// const HALL_API_BASE_URL = "https://localhost:5001/api/buildings";
 
 class BuildingService {
 
