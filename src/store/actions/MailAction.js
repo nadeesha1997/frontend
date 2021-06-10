@@ -1,4 +1,5 @@
 import axios from "axios";
+// import config from "../config"
 const MailActionType={
     SEND_HALL_REQUEST_MAIL_START:"SEND_HALL_REQUEST_MAIL_START",
     SEND_HALL_REQUEST_MAIL_SUCCESS:"SEND_HALL_REQUEST_MAIL_SUCCESS",
@@ -25,7 +26,7 @@ const SendMailAction=(data)=>{
     return async (dispatch)=>{
         dispatch({type:MailActionType.SEND_HALL_REQUEST_MAIL_START,payload:{}})
         try {
-            const res= await axios.post('/mail/reserve',data)
+            const res= await axios.post('/mail/reserve',data,config)
             dispatch({type:MailActionType.SEND_HALL_REQUEST_MAIL_SUCCESS,payload:{res}})
         }catch (e) {
             console.error(e);
@@ -37,7 +38,7 @@ const GetSessionAction=(id)=>{
     return async (dispatch)=>{
         dispatch({type:MailActionType.GET_SESSION_START,payload:{}})
         try {
-            const res= await axios.get('/sessions/'+id)
+            const res= await axios.get('/sessions/'+id,config)
             dispatch({type:MailActionType.GET_SESSION_SUCCESS,payload:res.data})
         }catch (e) {
             console.error(e);
@@ -58,7 +59,7 @@ const SessionApproveAction=(sessionState,history)=>{
         }
         dispatch({type:MailActionType.PERMISSION_APPROVAL_START,payload:{}})
         try {
-            const res= await axios.put("/sessions/"+sessionState.session.id,sendingData);
+            const res= await axios.put("/sessions/"+sessionState.session.id,sendingData,config);
             dispatch({type:MailActionType.PERMISSION_APPROVAL_SUCCESS,payload:res});
             alert("session permitted");
             history.push("/home");
@@ -82,7 +83,7 @@ const GetHodsAction=()=>{
     return async (dispatch)=>{
         dispatch({type:MailActionType.GET_HODS_START,payload:{}})
         try {
-            const res= await axios.get('/hod')
+            const res= await axios.get('/hod',config)
             dispatch({type:MailActionType.GET_HODS_SUCCESS,payload:res.data})
         }catch (e) {
             console.error(e);

@@ -206,11 +206,11 @@
 // // export default LecturerRegisterForm;
 // export default connect(mapStateToProps,mapDispatchToProps)(AdminRegisterForm)
 //
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
-import { LecturerRegisterAuthAction } from "../../../store/actions/AuthAction";
+import { AdminRegisterAuthAction, LecturerRegisterAuthAction } from "../../../store/actions/AuthAction";
 import axios from "axios";
 import Modal from 'react-bootstrap/Modal';
 import ModalBody from "react-bootstrap/ModalBody";
@@ -236,7 +236,13 @@ const AdminRegisterForm=(props)=> {
         },
         errors: {},
     };
+    // useEffect(()=>{
+    //     if(response!=={}){
+    //         alert(response)
+    //     }
+    // },[reponse])
     const [state, setState] = useState(initialState);
+    const [loading, setloading] = useState(false)
     const handleChange = (e) => {
         setState({
             data: {
@@ -272,18 +278,25 @@ const AdminRegisterForm=(props)=> {
         const errors = validate();
 
         if (Object.keys(errors).length === 0) {
-            console.log(data);
+            // console.log(data);
             //Call an api here
-            axios.post('https://localhost:5001/api/accounts/register/admin', data)
-                .then(res=>{
-                    console.log(res.data);
-                });
+            setloading(true)
+            // axios.post('/accounts/register/admin', data)
+            //     .then(res=>{
+            //         // console.log(res.data);
+            //         setloading(false)
+            //         if(res.state!==201){
+            //             alert(res.state)
+            //         }
+            //         alert(res.message)
+            //     });
+            register(data);
             //Resetting the form
             setState(initialState);
-            alert("Registration successful! please logging in")
+            // alert("Registration successful! please logging in")
         } else {
             setState({ errors });
-            alert("Registration is not successful! Please register again")
+            // alert("Registration is not successful! Please register again")
         }
         console.log(user);
         register(state,history);
@@ -407,9 +420,10 @@ const AdminRegisterForm=(props)=> {
             </Modal.Body>
 
             <Modal.Footer>
-                <Button className="btn-block" style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginLeft:250}} >
+                <Button className="btn-block" style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginLeft:250}} type="submit" onClick={(e)=>handleSubmit(e)}>
                     ADD
                 </Button>
+                {/* <input type="submit"/> */}
                 <p>
 
 
@@ -427,14 +441,16 @@ const AdminRegisterForm=(props)=> {
 }
 const mapStateToProps=(userState)=>{
     return {
-        user:userState
+        user:userState,
+        // response:userState.auth.res
+
     }
 }
 const mapDispatchToProps=(dispatch)=>{
     return {
         register:(state,history)=>{
             // console.log(state);
-            dispatch(LecturerRegisterAuthAction(state,history))
+            dispatch(AdminRegisterAuthAction(state,history))
         }
     }
 }

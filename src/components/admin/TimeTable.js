@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { connect ,useSelector} from 'react-redux'
+import { connect ,useSelector,useDispatch} from 'react-redux'
 import {GetHallsAction} from "../../store/actions/TimeTableAction";
 import HallList from "./HallList";
 import LecTimes from "./LecTimes";
@@ -8,10 +8,12 @@ import SubmitReservation from "./SubmitReservation";
 import DeleteSessionModal from "./DeleteSessionModal";
 import { GetHodsAction } from '../../store/actions/MailAction';
 import LoopCircleLoading from '../Loading';
+import { GetDailyModulesAction } from '../../store/actions/DailyModuleAction';
 
 export const TimeTable = (props) => {
     let timetableState=useSelector(state=> state)
     const {halls,date,getHalls,loading,getMails}=props;
+    const  dispatch = useDispatch()
     const [tableStyle,settableStyle]=useState({
         display: "grid",
         gridTemplateColumns: "repeat(17, 1fr)",
@@ -20,9 +22,9 @@ export const TimeTable = (props) => {
         gridRowGap: "0.1em",
         marginTop: "0px"
     });
-    // useEffect(()=>{
-    //     getMails();
-    // },[]);
+    useEffect(()=>{
+        dispatch(GetDailyModulesAction(timetableState.module.date))
+    },[]);
     useEffect(()=>{
         setStyles(timetableState.timetable.halls.length);
     },[timetableState.timetable.halls])
