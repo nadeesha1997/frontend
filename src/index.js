@@ -10,6 +10,8 @@ import { useHistory } from 'react-router';
 
 axios.defaults.baseURL="https://localhost:5001/api"
 // axios.defaults.baseURL="https://lsmsuor.azurewebsites.net/api"
+// axios.defaults.baseURL="https://lsmsfoe.azurewebsites.net/api"
+
 
 axios.interceptors.request.use((config)=>{
   const token=localStorage.getItem('auth')?JSON.parse(localStorage.getItem('auth')).user.accessToken:null;
