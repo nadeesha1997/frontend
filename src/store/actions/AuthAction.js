@@ -75,6 +75,7 @@ const LoginAuthAction=(loginState,history)=>{
             // const {data}=res;
             dispatch({type:AuthActionType.LOGIN_SUCCESSFULL,payload:res})
             history.push("/home");
+            // console.log(res)
             window.location.reload();
         }catch(error){
             console.error(error);

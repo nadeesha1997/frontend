@@ -25,6 +25,7 @@ const SetDateAction=(date)=>{
 
 const GetDailyModulesAction=(date)=>{
     return async (dispatch)=>{
+        // console.log(config)
         try{dispatch({type:DailyModuleActionType.GET_MODULES_START,payload:{}})
             const res= await axios.get('/sessions/dateonly/'+moment(date).format('YYYY-MM-DD'));
             const {data}=res;

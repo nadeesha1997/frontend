@@ -51,15 +51,16 @@ const authReducer=(state=newAuth,action)=>{
         case AuthActionType.LOGIN_SUCCESSFULL:
             const newAuthState1={
                 user:action.payload.data,
-                isLoggedin:true,
-                res:action.payload
+                isLoggedin:true
+                // res:action.payload
             }
             // console.log(action.payload);
-            axios.defaults.headers.common["Authorization"]='Bearer'+action.payload.accessToken;
+            axios.defaults.headers.common["Authorization"]='Bearer'+action.payload.data.accessToken;
             localStorage.setItem("auth",JSON.stringify(newAuthState1));
-            return newAuthState1;
+            // return newAuthState1;
+            return {...state,user:action.payload.data,isLoggedin:true,res:action.payload,loginModelOpen:false}
         case AuthActionType.LOGIN_FAIL:
-            return {...state,error: action.payload};
+            return {...state,error: action.payload,loginModelOpen:false};
         case AuthActionType.LOGOUT_SUCCESSFULL:
             localStorage.removeItem("auth");
             return authState;

@@ -1,4 +1,5 @@
 import axios from "axios";
+// import config from "../config"
 const MailActionType={
     SEND_HALL_REQUEST_MAIL_START:"SEND_HALL_REQUEST_MAIL_START",
     SEND_HALL_REQUEST_MAIL_SUCCESS:"SEND_HALL_REQUEST_MAIL_SUCCESS",
