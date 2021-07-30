@@ -81,7 +81,7 @@ function SubmitReservation(props) {
             Stime:convertToLocalTime(sessionsState.StartDateTime),
             Etime:convertToLocalTime(sessionsState.EndDateTime),
             Date:convertToLocalDate(sessionsState.StartDateTime),
-            SessionId:"https://lsmsuor.azurewebsites.net/approve/"+mailRes.id.toString()
+            SessionId:"https://localhost:5001/approve/"+mailRes.id.toString()
         }
         if(mailRes.id!=0&&permitted==false){
             sendMail(mailData);
